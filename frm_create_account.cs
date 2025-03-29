@@ -403,5 +403,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
 
         }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

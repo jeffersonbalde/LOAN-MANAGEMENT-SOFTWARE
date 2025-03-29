@@ -279,7 +279,7 @@
             this.Name = "frm_landing_page";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LOAN MANAGEMENT SOFTWARE";
+            this.Text = "LOAN MANAGEMENT SOFTWARE - LOG IN";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_landing_page_FormClosing);
             this.Load += new System.EventHandler(this.frm_dump_Load);

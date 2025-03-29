@@ -51,7 +51,6 @@
             this.txtAddress = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -79,6 +78,8 @@
             this.btnShowHide = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneProgressBar1 = new Siticone.Desktop.UI.WinForms.SiticoneProgressBar();
             this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.label11 = new System.Windows.Forms.Label();
+            this.siticoneCheckBox1 = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
             this.panel1.SuspendLayout();
             this.siticonePanel1.SuspendLayout();
             this.siticonePanel2.SuspendLayout();
@@ -89,17 +90,18 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.siticoneCheckBox1);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.siticoneButton1);
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.siticonePanel3);
             this.panel1.Controls.Add(this.siticonePanel2);
             this.panel1.Controls.Add(this.siticonePanel1);
-            this.panel1.Controls.Add(this.siticoneButton1);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1293, 765);
+            this.panel1.Size = new System.Drawing.Size(1253, 765);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -132,7 +134,7 @@
             this.siticonePanel1.Controls.Add(this.label9);
             this.siticonePanel1.Controls.Add(this.txtAddress);
             this.siticonePanel1.Controls.Add(this.label10);
-            this.siticonePanel1.Location = new System.Drawing.Point(13, 106);
+            this.siticonePanel1.Location = new System.Drawing.Point(13, 59);
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.Size = new System.Drawing.Size(609, 644);
             this.siticonePanel1.TabIndex = 224;
@@ -239,12 +241,11 @@
             // 
             // lblEmailValidation
             // 
-            this.lblEmailValidation.AutoSize = true;
             this.lblEmailValidation.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmailValidation.ForeColor = System.Drawing.Color.Red;
             this.lblEmailValidation.Location = new System.Drawing.Point(157, 337);
             this.lblEmailValidation.Name = "lblEmailValidation";
-            this.lblEmailValidation.Size = new System.Drawing.Size(216, 21);
+            this.lblEmailValidation.Size = new System.Drawing.Size(336, 21);
             this.lblEmailValidation.TabIndex = 221;
             this.lblEmailValidation.Text = "❌ Invalid Email Format";
             // 
@@ -262,12 +263,11 @@
             // 
             // lblSpecialChar
             // 
-            this.lblSpecialChar.AutoSize = true;
             this.lblSpecialChar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpecialChar.ForeColor = System.Drawing.Color.Red;
             this.lblSpecialChar.Location = new System.Drawing.Point(157, 454);
             this.lblSpecialChar.Name = "lblSpecialChar";
-            this.lblSpecialChar.Size = new System.Drawing.Size(317, 21);
+            this.lblSpecialChar.Size = new System.Drawing.Size(433, 21);
             this.lblSpecialChar.TabIndex = 220;
             this.lblSpecialChar.Text = "✖ Must contain a special character";
             // 
@@ -298,12 +298,11 @@
             // 
             // lblLowercase
             // 
-            this.lblLowercase.AutoSize = true;
             this.lblLowercase.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLowercase.ForeColor = System.Drawing.Color.Red;
             this.lblLowercase.Location = new System.Drawing.Point(157, 433);
             this.lblLowercase.Name = "lblLowercase";
-            this.lblLowercase.Size = new System.Drawing.Size(309, 21);
+            this.lblLowercase.Size = new System.Drawing.Size(423, 21);
             this.lblLowercase.TabIndex = 219;
             this.lblLowercase.Text = "✖ Must contain a lowercase letter";
             // 
@@ -321,12 +320,11 @@
             // 
             // lblUppercase
             // 
-            this.lblUppercase.AutoSize = true;
             this.lblUppercase.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUppercase.ForeColor = System.Drawing.Color.Red;
             this.lblUppercase.Location = new System.Drawing.Point(157, 412);
             this.lblUppercase.Name = "lblUppercase";
-            this.lblUppercase.Size = new System.Drawing.Size(322, 21);
+            this.lblUppercase.Size = new System.Drawing.Size(436, 21);
             this.lblUppercase.TabIndex = 218;
             this.lblUppercase.Text = "✖ Must contain an uppercase letter";
             // 
@@ -397,13 +395,12 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(117)))));
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(6, 6);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(274, 33);
+            this.label6.Size = new System.Drawing.Size(588, 33);
             this.label6.TabIndex = 215;
             this.label6.Text = "📝 Personal Details";
             // 
@@ -460,46 +457,31 @@
             // siticoneButton1
             // 
             this.siticoneButton1.AnimatedGIF = true;
-            this.siticoneButton1.AutoRoundedCorners = true;
             this.siticoneButton1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneButton1.BorderRadius = 30;
+            this.siticoneButton1.BorderRadius = 3;
             this.siticoneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.siticoneButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(79)))));
-            this.siticoneButton1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold);
+            this.siticoneButton1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneButton1.ForeColor = System.Drawing.Color.White;
             this.siticoneButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.siticoneButton1.Location = new System.Drawing.Point(1067, 642);
+            this.siticoneButton1.Location = new System.Drawing.Point(1032, 725);
             this.siticoneButton1.Name = "siticoneButton1";
-            this.siticoneButton1.Size = new System.Drawing.Size(223, 63);
+            this.siticoneButton1.Size = new System.Drawing.Size(208, 33);
             this.siticoneButton1.TabIndex = 216;
             this.siticoneButton1.Text = "Save and Continue";
             this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(79)))));
-            this.label11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label11.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(0, 47);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(1293, 47);
-            this.label11.TabIndex = 179;
-            this.label11.Text = "Create your Account and Check your Loan Eligibility";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(79)))));
-            this.label3.Location = new System.Drawing.Point(1160, 708);
+            this.label3.Location = new System.Drawing.Point(193, 717);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 48);
             this.label3.TabIndex = 161;
@@ -509,27 +491,27 @@
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(79)))));
-            this.label2.Location = new System.Drawing.Point(926, 708);
+            this.label2.Location = new System.Drawing.Point(10, 717);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(458, 48);
             this.label2.TabIndex = 160;
-            this.label2.Text = "             Already have an account?";
+            this.label2.Text = "Already have an account?";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(79)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Arial Black", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1293, 47);
+            this.label1.Size = new System.Drawing.Size(1253, 47);
             this.label1.TabIndex = 153;
-            this.label1.Text = "Register";
+            this.label1.Text = "Register - Create your Account and Check your Loan Eligibility";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -568,7 +550,7 @@
             this.siticonePanel2.Controls.Add(this.label13);
             this.siticonePanel2.Controls.Add(this.txtMonthlyIncome);
             this.siticonePanel2.Controls.Add(this.label22);
-            this.siticonePanel2.Location = new System.Drawing.Point(631, 106);
+            this.siticonePanel2.Location = new System.Drawing.Point(631, 59);
             this.siticonePanel2.Name = "siticonePanel2";
             this.siticonePanel2.Size = new System.Drawing.Size(609, 380);
             this.siticonePanel2.TabIndex = 225;
@@ -615,13 +597,12 @@
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(117)))));
+            this.label22.ForeColor = System.Drawing.Color.Black;
             this.label22.Location = new System.Drawing.Point(6, 6);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(546, 33);
+            this.label22.Size = new System.Drawing.Size(588, 33);
             this.label22.TabIndex = 215;
             this.label22.Text = "💰 Financial Details and Loan Eligibility";
             // 
@@ -647,23 +628,21 @@
             // 
             // lblLoanEligibility
             // 
-            this.lblLoanEligibility.AutoSize = true;
             this.lblLoanEligibility.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoanEligibility.ForeColor = System.Drawing.Color.Red;
             this.lblLoanEligibility.Location = new System.Drawing.Point(201, 92);
             this.lblLoanEligibility.Name = "lblLoanEligibility";
-            this.lblLoanEligibility.Size = new System.Drawing.Size(137, 21);
+            this.lblLoanEligibility.Size = new System.Drawing.Size(393, 21);
             this.lblLoanEligibility.TabIndex = 227;
             this.lblLoanEligibility.Text = "❌ Not Eligible";
             // 
             // lblFileName
             // 
-            this.lblFileName.AutoSize = true;
             this.lblFileName.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFileName.ForeColor = System.Drawing.Color.Red;
             this.lblFileName.Location = new System.Drawing.Point(201, 290);
             this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(173, 21);
+            this.lblFileName.Size = new System.Drawing.Size(392, 43);
             this.lblFileName.TabIndex = 228;
             this.lblFileName.Text = "✖ No file selected";
             // 
@@ -729,20 +708,19 @@
             this.siticonePanel3.Controls.Add(this.cmbLoanType);
             this.siticonePanel3.Controls.Add(this.label19);
             this.siticonePanel3.Controls.Add(this.label25);
-            this.siticonePanel3.Location = new System.Drawing.Point(631, 495);
+            this.siticonePanel3.Location = new System.Drawing.Point(631, 448);
             this.siticonePanel3.Name = "siticonePanel3";
             this.siticonePanel3.Size = new System.Drawing.Size(609, 210);
             this.siticonePanel3.TabIndex = 226;
             // 
             // label25
             // 
-            this.label25.AutoSize = true;
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(117)))));
+            this.label25.ForeColor = System.Drawing.Color.Black;
             this.label25.Location = new System.Drawing.Point(6, 6);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(413, 33);
+            this.label25.Size = new System.Drawing.Size(588, 33);
             this.label25.TabIndex = 215;
             this.label25.Text = "🏦 Choose Your Loan Options";
             // 
@@ -769,7 +747,7 @@
             this.cmbPaymentSchedule.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbPaymentSchedule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbPaymentSchedule.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.cmbPaymentSchedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbPaymentSchedule.ForeColor = System.Drawing.Color.Black;
             this.cmbPaymentSchedule.ItemHeight = 40;
             this.cmbPaymentSchedule.Location = new System.Drawing.Point(205, 148);
             this.cmbPaymentSchedule.Name = "cmbPaymentSchedule";
@@ -787,7 +765,7 @@
             this.cmbLoanTerm.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbLoanTerm.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbLoanTerm.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.cmbLoanTerm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbLoanTerm.ForeColor = System.Drawing.Color.Black;
             this.cmbLoanTerm.ItemHeight = 40;
             this.cmbLoanTerm.Location = new System.Drawing.Point(205, 96);
             this.cmbLoanTerm.Name = "cmbLoanTerm";
@@ -817,7 +795,7 @@
             this.cmbLoanType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbLoanType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbLoanType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.cmbLoanType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbLoanType.ForeColor = System.Drawing.Color.Black;
             this.cmbLoanType.ItemHeight = 40;
             this.cmbLoanType.Location = new System.Drawing.Point(205, 44);
             this.cmbLoanType.Name = "cmbLoanType";
@@ -902,22 +880,56 @@
             this.siticoneButton3.Text = "Set Default Profile";
             this.siticoneButton3.Click += new System.EventHandler(this.siticoneButton3_Click);
             // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label11.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(0, 718);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(1253, 47);
+            this.label11.TabIndex = 227;
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // siticoneCheckBox1
+            // 
+            this.siticoneCheckBox1.AutoSize = true;
+            this.siticoneCheckBox1.CausesValidation = false;
+            this.siticoneCheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneCheckBox1.CheckedState.BorderRadius = 0;
+            this.siticoneCheckBox1.CheckedState.BorderThickness = 0;
+            this.siticoneCheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneCheckBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.siticoneCheckBox1.ForeColor = System.Drawing.Color.Black;
+            this.siticoneCheckBox1.Location = new System.Drawing.Point(631, 675);
+            this.siticoneCheckBox1.Name = "siticoneCheckBox1";
+            this.siticoneCheckBox1.Size = new System.Drawing.Size(517, 28);
+            this.siticoneCheckBox1.TabIndex = 233;
+            this.siticoneCheckBox1.Text = "I have read and agree to the Terms and Conditions.";
+            this.siticoneCheckBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.siticoneCheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.siticoneCheckBox1.UncheckedState.BorderRadius = 0;
+            this.siticoneCheckBox1.UncheckedState.BorderThickness = 0;
+            this.siticoneCheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
             // frm_create_account
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1293, 765);
+            this.ClientSize = new System.Drawing.Size(1256, 765);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_create_account";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "x`";
+            this.Text = "LOAN MANAGEMENT SOFTWARE - REGISTER";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_create_account_FormClosing);
             this.Load += new System.EventHandler(this.frm_create_account_Load);
             this.Resize += new System.EventHandler(this.frm_create_account_Resize);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.siticonePanel1.ResumeLayout(false);
             this.siticonePanel1.PerformLayout();
             this.siticonePanel2.ResumeLayout(false);
@@ -935,7 +947,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtAddress;
         private System.Windows.Forms.Label label10;
@@ -981,5 +992,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Siticone.Desktop.UI.WinForms.SiticoneProgressBar siticoneProgressBar1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton3;
+        private System.Windows.Forms.Label label11;
+        private Siticone.Desktop.UI.WinForms.SiticoneCheckBox siticoneCheckBox1;
     }
 }
