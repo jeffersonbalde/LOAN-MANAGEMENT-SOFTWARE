@@ -6,10 +6,12 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace LOAN_MANAGEMENT_SOFTWARE
 {
@@ -20,6 +22,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
+
+        private string proofOfIncomeFilePath = string.Empty;
 
         private Dictionary<string, string> zipCodeData = new Dictionary<string, string>()
         {
@@ -200,9 +204,156 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //frm_create_account_2 register_form2 = new frm_create_account_2();
-            //register_form2.Show();
+            try
+            {
+
+                if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                    string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                    string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                    string.IsNullOrWhiteSpace(txtPassword.Text) |
+                    string.IsNullOrWhiteSpace(txtAddress.Text) ||
+                    string.IsNullOrWhiteSpace(txtPhoneNumber.Text) ||
+                    string.IsNullOrWhiteSpace(txtMonthlyIncome.Text) ||
+                    string.IsNullOrWhiteSpace(cmbLoanTerm.Text) ||
+                    string.IsNullOrWhiteSpace(cmbLoanType.Text) ||
+                    string.IsNullOrWhiteSpace(cmbPaymentSchedule.Text))
+                {
+                    MessageBox.Show("All fields are required.\n\n" +
+                        "Please complete the form before saving.",
+                        "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (pictureBoxUserImage.BackgroundImage == null)
+                {
+                    MessageBox.Show("No profile image has been uploaded.\n\n" +
+                                    "Please upload a profile image or set the default profile before saving.",
+                                    "Image Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (lblEmailValidation.Text == "❌ Invalid Email Format")
+                {
+                    MessageBox.Show("The email address you entered is not valid. Please enter a valid email address.", "Invalid Email Format", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtEmail.Focus();
+                    return;
+                }
+
+                if (lblUppercase.ForeColor != Color.Green ||
+                    lblLowercase.ForeColor != Color.Green ||
+                    lblSpecialChar.ForeColor != Color.Green)
+                {
+                    MessageBox.Show("Your password must contain at least \n\n" +
+                        "one uppercase letter, " +
+                        "one lowercase letter, " +
+                        "and one special character. \n\n" +
+                        "Please adjust your password accordingly.",
+                                    "Invalid Password",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    txtPassword.Focus();
+                    return;
+                }
+
+                if (txtPhoneNumber.Text.Length != 11 || !long.TryParse(txtPhoneNumber.Text, out _))
+                {
+                    MessageBox.Show("Contact number must be an 11-digit number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPhoneNumber.Focus();
+                    return;
+                }
+
+                if (lblLoanEligibility.ForeColor != Color.Green)
+                {
+                    MessageBox.Show("Your monthly income does not meet our loan eligibility criteria. Please verify your income and try again.",
+                                    "Invalid Monthly Income",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    txtMonthlyIncome.Focus();
+                    return;
+                }
+
+
+                if (lblFileName.ForeColor != Color.Green)
+                {
+                    MessageBox.Show("Please upload a valid proof of payment file.",
+                                    "Invalid File",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    btnUploadProof.Focus();
+                    return;
+                }
+
+                if (!chkTermsAndConditions.Checked)
+                {
+                    MessageBox.Show("Please agree to the Terms and Conditions before proceeding.",
+                                    "Terms & Conditions",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    chkTermsAndConditions.Focus();
+                    return;
+                }
+
+
+                if (MessageBox.Show("Are you sure you want to save your registration details?",
+                            "Confirm Registration",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    byte[] profileImageData;
+                    using (MemoryStream msProfile = new MemoryStream())
+                    {
+                        pictureBoxUserImage.BackgroundImage.Save(msProfile, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        profileImageData = msProfile.ToArray();
+                    }
+
+                    string proofOfIncomeFilePath = this.proofOfIncomeFilePath; 
+                    byte[] proofFileData = System.IO.File.ReadAllBytes(proofOfIncomeFilePath);
+
+                    decimal monthlyIncome = decimal.Parse(txtMonthlyIncome.Text, System.Globalization.NumberStyles.AllowThousands);
+
+                    string maxLoanText = txtMaxLoanAmount.Text.Replace("₱", "").Replace(",", "").Trim();
+                    decimal maximumLoan = decimal.Parse(maxLoanText);
+
+                    cn.Open();
+
+                    string query = "INSERT INTO tblBorrowerProfile " +
+                                   "(borrower_profile, first_name, last_name, email_address, password, phone_number, address, zip_code, monthly_income, proof_of_income, maximum_loan, loan_type, loan_term, payment_schedule) " +
+                                   "VALUES (@borrower_profile, @first_name, @last_name, @email_address, @password, @phone_number, @address, @zip_code, @monthly_income, @proof_of_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@borrower_profile", profileImageData);
+                        cmd.Parameters.AddWithValue("@first_name", txtFirstName.Text);
+                        cmd.Parameters.AddWithValue("@last_name", txtLastName.Text);
+                        cmd.Parameters.AddWithValue("@email_address", txtEmail.Text);
+                        cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                        cmd.Parameters.AddWithValue("@phone_number", txtPhoneNumber.Text);
+                        cmd.Parameters.AddWithValue("@address", txtAddress.Text);
+                        cmd.Parameters.AddWithValue("@zip_code", txtZipCode.Text);
+                        cmd.Parameters.AddWithValue("@monthly_income", monthlyIncome);
+                        cmd.Parameters.AddWithValue("@proof_of_income", proofFileData);
+                        cmd.Parameters.AddWithValue("@maximum_loan", maximumLoan);
+                        cmd.Parameters.AddWithValue("@loan_type", cmbLoanType.Text);
+                        cmd.Parameters.AddWithValue("@loan_term", cmbLoanTerm.Text);
+                        cmd.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.Text);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    cn.Close();
+
+                    MessageBox.Show("Registration saved successfully!",
+                                    "Registration Complete",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void siticoneButton3_Click(object sender, EventArgs e)
@@ -349,8 +500,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string filePath = openFileDialog.FileName;
-                    string fileName = Path.GetFileName(filePath);
+                    proofOfIncomeFilePath = openFileDialog.FileName;  // Store the full file path for later use
+                    string fileName = Path.GetFileName(proofOfIncomeFilePath);
 
                     StartUploadAnimation(fileName);
                 }
@@ -365,23 +516,23 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void StartUploadAnimation(string fileName)
         {
-            siticoneProgressBar1.Value = 0; 
+            siticoneProgressBar1.Value = 0;
             lblFileName.Text = "Uploading...";
             lblFileName.ForeColor = Color.Orange;
 
             Timer timer = new Timer();
-            timer.Interval = 100; 
+            timer.Interval = 100;
             timer.Tick += (s, e) =>
             {
                 if (siticoneProgressBar1.Value < 100)
                 {
-                    siticoneProgressBar1.Value += 10; 
+                    siticoneProgressBar1.Value += 10;
                 }
                 else
                 {
                     timer.Stop();
-                    lblFileName.Text = "✅ File uploaded successfully! ";
-                    lblFileName.ForeColor = Color.Green; 
+                    lblFileName.Text = "✅ File uploaded successfully!";
+                    lblFileName.ForeColor = Color.Green;
                     btnUploadProof.Text = fileName;
                 }
             };

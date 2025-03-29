@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_create_account));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.siticoneCheckBox1 = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
+            this.chkTermsAndConditions = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -63,11 +63,11 @@
             this.txtZipCode = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.txtFirstName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.lblEmailValidation = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblSpecialChar = new System.Windows.Forms.Label();
-            this.siticoneTextBox2 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.txtLastName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.lblLowercase = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblUppercase = new System.Windows.Forms.Label();
@@ -90,7 +90,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.siticoneCheckBox1);
+            this.panel1.Controls.Add(this.chkTermsAndConditions);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.siticoneButton1);
@@ -103,28 +103,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1253, 765);
             this.panel1.TabIndex = 1;
-            //this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // siticoneCheckBox1
+            // chkTermsAndConditions
             // 
-            this.siticoneCheckBox1.AutoSize = true;
-            this.siticoneCheckBox1.CausesValidation = false;
-            this.siticoneCheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneCheckBox1.CheckedState.BorderRadius = 0;
-            this.siticoneCheckBox1.CheckedState.BorderThickness = 0;
-            this.siticoneCheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneCheckBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneCheckBox1.ForeColor = System.Drawing.Color.Black;
-            this.siticoneCheckBox1.Location = new System.Drawing.Point(631, 675);
-            this.siticoneCheckBox1.Name = "siticoneCheckBox1";
-            this.siticoneCheckBox1.Size = new System.Drawing.Size(517, 28);
-            this.siticoneCheckBox1.TabIndex = 233;
-            this.siticoneCheckBox1.Text = "I have read and agree to the Terms and Conditions.";
-            this.siticoneCheckBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.siticoneCheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.siticoneCheckBox1.UncheckedState.BorderRadius = 0;
-            this.siticoneCheckBox1.UncheckedState.BorderThickness = 0;
-            this.siticoneCheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkTermsAndConditions.AutoSize = true;
+            this.chkTermsAndConditions.CausesValidation = false;
+            this.chkTermsAndConditions.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkTermsAndConditions.CheckedState.BorderRadius = 0;
+            this.chkTermsAndConditions.CheckedState.BorderThickness = 0;
+            this.chkTermsAndConditions.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkTermsAndConditions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.chkTermsAndConditions.ForeColor = System.Drawing.Color.Black;
+            this.chkTermsAndConditions.Location = new System.Drawing.Point(631, 675);
+            this.chkTermsAndConditions.Name = "chkTermsAndConditions";
+            this.chkTermsAndConditions.Size = new System.Drawing.Size(517, 28);
+            this.chkTermsAndConditions.TabIndex = 233;
+            this.chkTermsAndConditions.Text = "I have read and agree to the Terms and Conditions.";
+            this.chkTermsAndConditions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTermsAndConditions.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkTermsAndConditions.UncheckedState.BorderRadius = 0;
+            this.chkTermsAndConditions.UncheckedState.BorderThickness = 0;
+            this.chkTermsAndConditions.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             // 
             // label3
             // 
@@ -487,11 +486,11 @@
             this.siticonePanel1.Controls.Add(this.txtZipCode);
             this.siticonePanel1.Controls.Add(this.label4);
             this.siticonePanel1.Controls.Add(this.label12);
-            this.siticonePanel1.Controls.Add(this.siticoneTextBox1);
+            this.siticonePanel1.Controls.Add(this.txtFirstName);
             this.siticonePanel1.Controls.Add(this.lblEmailValidation);
             this.siticonePanel1.Controls.Add(this.label5);
             this.siticonePanel1.Controls.Add(this.lblSpecialChar);
-            this.siticonePanel1.Controls.Add(this.siticoneTextBox2);
+            this.siticonePanel1.Controls.Add(this.txtLastName);
             this.siticonePanel1.Controls.Add(this.lblLowercase);
             this.siticonePanel1.Controls.Add(this.label7);
             this.siticonePanel1.Controls.Add(this.lblUppercase);
@@ -555,7 +554,7 @@
             this.siticoneButton2.Name = "siticoneButton2";
             this.siticoneButton2.Size = new System.Drawing.Size(246, 45);
             this.siticoneButton2.TabIndex = 225;
-            this.siticoneButton2.Text = "Upload Image Profile";
+            this.siticoneButton2.Text = "Upload Profile Image";
             this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
             // 
             // btnShowHide
@@ -654,30 +653,30 @@
             this.label12.TabIndex = 222;
             this.label12.Text = "ZIP Code:\r\n- Auto-filled";
             // 
-            // siticoneTextBox1
+            // txtFirstName
             // 
-            this.siticoneTextBox1.AutoRoundedCorners = true;
-            this.siticoneTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneTextBox1.BorderRadius = 20;
-            this.siticoneTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.siticoneTextBox1.DefaultText = "";
-            this.siticoneTextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Location = new System.Drawing.Point(160, 188);
-            this.siticoneTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.siticoneTextBox1.Name = "siticoneTextBox1";
-            this.siticoneTextBox1.PasswordChar = '\0';
-            this.siticoneTextBox1.PlaceholderText = "First Name";
-            this.siticoneTextBox1.SelectedText = "";
-            this.siticoneTextBox1.Size = new System.Drawing.Size(434, 43);
-            this.siticoneTextBox1.TabIndex = 204;
+            this.txtFirstName.AutoRoundedCorners = true;
+            this.txtFirstName.BackColor = System.Drawing.Color.Transparent;
+            this.txtFirstName.BorderRadius = 20;
+            this.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFirstName.DefaultText = "";
+            this.txtFirstName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtFirstName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtFirstName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFirstName.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtFirstName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFirstName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtFirstName.ForeColor = System.Drawing.Color.Black;
+            this.txtFirstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFirstName.Location = new System.Drawing.Point(160, 188);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.PasswordChar = '\0';
+            this.txtFirstName.PlaceholderText = "First Name";
+            this.txtFirstName.SelectedText = "";
+            this.txtFirstName.Size = new System.Drawing.Size(434, 43);
+            this.txtFirstName.TabIndex = 204;
             // 
             // lblEmailValidation
             // 
@@ -711,30 +710,30 @@
             this.lblSpecialChar.TabIndex = 220;
             this.lblSpecialChar.Text = "✖ Must contain a special character";
             // 
-            // siticoneTextBox2
+            // txtLastName
             // 
-            this.siticoneTextBox2.AutoRoundedCorners = true;
-            this.siticoneTextBox2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneTextBox2.BorderRadius = 20;
-            this.siticoneTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.siticoneTextBox2.DefaultText = "";
-            this.siticoneTextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox2.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticoneTextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneTextBox2.ForeColor = System.Drawing.Color.Black;
-            this.siticoneTextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox2.Location = new System.Drawing.Point(160, 239);
-            this.siticoneTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.siticoneTextBox2.Name = "siticoneTextBox2";
-            this.siticoneTextBox2.PasswordChar = '\0';
-            this.siticoneTextBox2.PlaceholderText = "Last Name";
-            this.siticoneTextBox2.SelectedText = "";
-            this.siticoneTextBox2.Size = new System.Drawing.Size(434, 43);
-            this.siticoneTextBox2.TabIndex = 206;
+            this.txtLastName.AutoRoundedCorners = true;
+            this.txtLastName.BackColor = System.Drawing.Color.Transparent;
+            this.txtLastName.BorderRadius = 20;
+            this.txtLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLastName.DefaultText = "";
+            this.txtLastName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtLastName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtLastName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLastName.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtLastName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLastName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtLastName.ForeColor = System.Drawing.Color.Black;
+            this.txtLastName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLastName.Location = new System.Drawing.Point(160, 239);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.PasswordChar = '\0';
+            this.txtLastName.PlaceholderText = "Last Name";
+            this.txtLastName.SelectedText = "";
+            this.txtLastName.Size = new System.Drawing.Size(434, 43);
+            this.txtLastName.TabIndex = 206;
             // 
             // lblLowercase
             // 
@@ -954,9 +953,9 @@
         private System.Windows.Forms.Label label8;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtEmail;
         private System.Windows.Forms.Label label7;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox2;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtLastName;
         private System.Windows.Forms.Label label5;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtFirstName;
         private System.Windows.Forms.Label label4;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnShowHide;
@@ -991,6 +990,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneProgressBar siticoneProgressBar1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton3;
         private System.Windows.Forms.Label label11;
-        private Siticone.Desktop.UI.WinForms.SiticoneCheckBox siticoneCheckBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneCheckBox chkTermsAndConditions;
     }
 }

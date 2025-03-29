@@ -16,7 +16,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
 
             //for local sql server
-            con = @"Data Source=LAPTOP-DMAMJ5FJ,1433;Initial Catalog=SUBLIMATION_DB;User Id=SuperAdmin;Password=SuperAdmin;";
+            con = @"Data Source=LAPTOP-DMAMJ5FJ,1433;Initial Catalog=LOAN_DB;User Id=SuperAdmin;Password=SuperAdmin;";
 
             return con;
 
