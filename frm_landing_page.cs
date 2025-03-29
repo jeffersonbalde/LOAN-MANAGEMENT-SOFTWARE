@@ -33,7 +33,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void frm_dump_Load(object sender, EventArgs e)
         {
-            CenterPanel(); // Center the panel when the form loads
+            CenterPanel();
 
             animatedGif = Properties.Resources.cover_gif2;
             pictureBox1.Image = animatedGif;

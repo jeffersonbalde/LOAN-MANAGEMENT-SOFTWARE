@@ -193,31 +193,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frm_create_account_2 register_form2 = new frm_create_account_2();
-            register_form2.Show();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticonePanel2_Paint(object sender, PaintEventArgs e)
-        {
-
+            //this.Hide();
+            //frm_create_account_2 register_form2 = new frm_create_account_2();
+            //register_form2.Show();
         }
 
         private void siticoneButton3_Click(object sender, EventArgs e)
         {
             try
             {
-                pictureBoxUserImage.BackgroundImage = Properties.Resources.default_user1; // Replace 'DefaultImage' with your actual image name in Resources.
+                pictureBoxUserImage.BackgroundImage = Properties.Resources.default_user1;
             }
             catch (Exception ex)
             {
@@ -229,9 +214,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             try
             {
-                openFileDialog1.FileName = string.Empty; // Clear any previously selected file
+                openFileDialog1.FileName = string.Empty; 
                 openFileDialog1.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg";
-                openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures); // Open Pictures folder by default
+                openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures); 
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -315,18 +300,17 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             if (decimal.TryParse(txtMonthlyIncome.Text.Replace(",", ""), out decimal income))
             {
 
-                // Loan Eligibility Check
                 if (income >= 15000)
                 {
                     lblLoanEligibility.Text = "✅ Eligible";
                     lblLoanEligibility.ForeColor = Color.Green;
-                    ComputeMaxLoanAmount(income);  // Compute max loan dynamically
+                    ComputeMaxLoanAmount(income);  
                 }
                 else
                 {
                     lblLoanEligibility.Text = "❌ Not Eligible";
                     lblLoanEligibility.ForeColor = Color.Red;
-                    txtMaxLoanAmount.Text = "₱0";  // Reset max loan amount
+                    txtMaxLoanAmount.Text = "₱0"; 
                 }
             }
         }
@@ -338,10 +322,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             if (income >= 50000) multiplier = 4;
             else if (income >= 30001) multiplier = 3;
             else if (income >= 15000) multiplier = 2;
-            else multiplier = 0;  // Not eligible
+            else multiplier = 0;  
 
             decimal maxLoan = income * multiplier;
-            txtMaxLoanAmount.Text = "₱" + maxLoan.ToString("N0"); // Format with ₱ and commas
+            txtMaxLoanAmount.Text = "₱" + maxLoan.ToString("N0");
         }
 
         private void siticoneButton4_Click(object sender, EventArgs e)
@@ -361,7 +345,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     string filePath = openFileDialog.FileName;
                     string fileName = Path.GetFileName(filePath);
 
-                    // Show animation and file name
                     StartUploadAnimation(fileName);
                 }
             }
@@ -373,40 +356,29 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         }
 
-
         private void StartUploadAnimation(string fileName)
         {
-            siticoneProgressBar1.Value = 0; // Reset progress bar
+            siticoneProgressBar1.Value = 0; 
             lblFileName.Text = "Uploading...";
             lblFileName.ForeColor = Color.Orange;
 
             Timer timer = new Timer();
-            timer.Interval = 100; // 100ms for smooth animation
+            timer.Interval = 100; 
             timer.Tick += (s, e) =>
             {
                 if (siticoneProgressBar1.Value < 100)
                 {
-                    siticoneProgressBar1.Value += 10; // Increase progress
+                    siticoneProgressBar1.Value += 10; 
                 }
                 else
                 {
                     timer.Stop();
                     lblFileName.Text = "✅ File uploaded successfully! ";
-                    lblFileName.ForeColor = Color.Green; // Change color to green after upload
+                    lblFileName.ForeColor = Color.Green; 
                     btnUploadProof.Text = fileName;
                 }
             };
             timer.Start();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
