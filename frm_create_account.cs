@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 {
     public partial class frm_create_account : Form
     {
+
+        SqlConnection cn = new SqlConnection();
+        SqlCommand cm = new SqlCommand();
+        DBConnection dbcon = new DBConnection();
+        SqlDataReader dr;
 
         private Dictionary<string, string> zipCodeData = new Dictionary<string, string>()
         {
@@ -61,6 +67,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         public frm_create_account()
         {
             InitializeComponent();
+            cn = new SqlConnection(dbcon.MyConnection());
         }
 
 

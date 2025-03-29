@@ -16,7 +16,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_landing_page());
+            Application.Run(new frm_database_checking());
         }
     }
 }

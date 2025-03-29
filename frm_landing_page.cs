@@ -64,11 +64,13 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 animatedGif.Dispose();
                 animatedGif = null;
             }
+
+            Application.Exit();
         }
 
         private void siticoneButton2_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Application.Exit();
         }
 
         private void label3_Click(object sender, EventArgs e)
