@@ -56,29 +56,29 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.label13 = new System.Windows.Forms.Label();
-            this.siticoneTextBox5 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.txtMonthlyIncome = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.siticoneButton4 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.siticoneTextBox4 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.btnUploadProof = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.lblLoanEligibility = new System.Windows.Forms.Label();
+            this.lblFileName = new System.Windows.Forms.Label();
+            this.txtMaxLoanAmount = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.siticonePanel3 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.label25 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.siticoneComboBox3 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            this.siticoneComboBox2 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.cmbPaymentSchedule = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.cmbLoanTerm = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.siticoneComboBox1 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.cmbLoanType = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBoxUserImage = new System.Windows.Forms.PictureBox();
             this.btnShowHide = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticoneProgressBar1 = new Siticone.Desktop.UI.WinForms.SiticoneProgressBar();
+            this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.panel1.SuspendLayout();
             this.siticonePanel1.SuspendLayout();
             this.siticonePanel2.SuspendLayout();
@@ -101,6 +101,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1293, 765);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // siticonePanel1
             // 
@@ -114,7 +115,6 @@
             this.siticonePanel1.Controls.Add(this.btnShowHide);
             this.siticonePanel1.Controls.Add(this.txtPhoneNumber);
             this.siticonePanel1.Controls.Add(this.txtZipCode);
-            this.siticonePanel1.Controls.Add(this.label16);
             this.siticonePanel1.Controls.Add(this.label4);
             this.siticonePanel1.Controls.Add(this.label12);
             this.siticonePanel1.Controls.Add(this.siticoneTextBox1);
@@ -184,7 +184,7 @@
             this.txtZipCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtZipCode.Name = "txtZipCode";
             this.txtZipCode.PasswordChar = '\0';
-            this.txtZipCode.PlaceholderText = "Auto-fill ZIP Code";
+            this.txtZipCode.PlaceholderText = "Enter address to get ZIP Code";
             this.txtZipCode.SelectedText = "";
             this.txtZipCode.Size = new System.Drawing.Size(433, 43);
             this.txtZipCode.TabIndex = 223;
@@ -203,15 +203,14 @@
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Arial", 12F);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(17, 607);
+            this.label12.Location = new System.Drawing.Point(16, 587);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 23);
+            this.label12.Size = new System.Drawing.Size(142, 43);
             this.label12.TabIndex = 222;
-            this.label12.Text = "ZIP Code:";
+            this.label12.Text = "ZIP Code:\r\n- Auto-filled";
             // 
             // siticoneTextBox1
             // 
@@ -241,11 +240,11 @@
             // lblEmailValidation
             // 
             this.lblEmailValidation.AutoSize = true;
-            this.lblEmailValidation.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmailValidation.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmailValidation.ForeColor = System.Drawing.Color.Red;
             this.lblEmailValidation.Location = new System.Drawing.Point(157, 337);
             this.lblEmailValidation.Name = "lblEmailValidation";
-            this.lblEmailValidation.Size = new System.Drawing.Size(197, 21);
+            this.lblEmailValidation.Size = new System.Drawing.Size(216, 21);
             this.lblEmailValidation.TabIndex = 221;
             this.lblEmailValidation.Text = "❌ Invalid Email Format";
             // 
@@ -264,11 +263,11 @@
             // lblSpecialChar
             // 
             this.lblSpecialChar.AutoSize = true;
-            this.lblSpecialChar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpecialChar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpecialChar.ForeColor = System.Drawing.Color.Red;
             this.lblSpecialChar.Location = new System.Drawing.Point(157, 454);
             this.lblSpecialChar.Name = "lblSpecialChar";
-            this.lblSpecialChar.Size = new System.Drawing.Size(294, 21);
+            this.lblSpecialChar.Size = new System.Drawing.Size(317, 21);
             this.lblSpecialChar.TabIndex = 220;
             this.lblSpecialChar.Text = "✖ Must contain a special character";
             // 
@@ -300,11 +299,11 @@
             // lblLowercase
             // 
             this.lblLowercase.AutoSize = true;
-            this.lblLowercase.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLowercase.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLowercase.ForeColor = System.Drawing.Color.Red;
             this.lblLowercase.Location = new System.Drawing.Point(157, 433);
             this.lblLowercase.Name = "lblLowercase";
-            this.lblLowercase.Size = new System.Drawing.Size(284, 21);
+            this.lblLowercase.Size = new System.Drawing.Size(309, 21);
             this.lblLowercase.TabIndex = 219;
             this.lblLowercase.Text = "✖ Must contain a lowercase letter";
             // 
@@ -323,11 +322,11 @@
             // lblUppercase
             // 
             this.lblUppercase.AutoSize = true;
-            this.lblUppercase.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUppercase.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUppercase.ForeColor = System.Drawing.Color.Red;
             this.lblUppercase.Location = new System.Drawing.Point(157, 412);
             this.lblUppercase.Name = "lblUppercase";
-            this.lblUppercase.Size = new System.Drawing.Size(297, 21);
+            this.lblUppercase.Size = new System.Drawing.Size(322, 21);
             this.lblUppercase.TabIndex = 218;
             this.lblUppercase.Text = "✖ Must contain an uppercase letter";
             // 
@@ -553,43 +552,25 @@
             this.siticoneButton2.Text = "Upload Image Profile";
             this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
             // 
-            // siticoneButton3
-            // 
-            this.siticoneButton3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneButton3.BorderRadius = 5;
-            this.siticoneButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.siticoneButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.siticoneButton3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneButton3.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton3.Location = new System.Drawing.Point(348, 112);
-            this.siticoneButton3.Name = "siticoneButton3";
-            this.siticoneButton3.Size = new System.Drawing.Size(246, 45);
-            this.siticoneButton3.TabIndex = 226;
-            this.siticoneButton3.Text = "Set Default Profile";
-            this.siticoneButton3.Click += new System.EventHandler(this.siticoneButton3_Click);
-            // 
             // siticonePanel2
             // 
             this.siticonePanel2.BackColor = System.Drawing.Color.White;
             this.siticonePanel2.BorderColor = System.Drawing.Color.DarkGray;
             this.siticonePanel2.BorderRadius = 15;
             this.siticonePanel2.BorderThickness = 1;
+            this.siticonePanel2.Controls.Add(this.siticoneProgressBar1);
             this.siticonePanel2.Controls.Add(this.label18);
-            this.siticonePanel2.Controls.Add(this.siticoneTextBox4);
+            this.siticonePanel2.Controls.Add(this.txtMaxLoanAmount);
             this.siticonePanel2.Controls.Add(this.label17);
-            this.siticonePanel2.Controls.Add(this.label15);
-            this.siticonePanel2.Controls.Add(this.label14);
-            this.siticonePanel2.Controls.Add(this.siticoneButton4);
+            this.siticonePanel2.Controls.Add(this.lblFileName);
+            this.siticonePanel2.Controls.Add(this.lblLoanEligibility);
+            this.siticonePanel2.Controls.Add(this.btnUploadProof);
             this.siticonePanel2.Controls.Add(this.label13);
-            this.siticonePanel2.Controls.Add(this.siticoneTextBox5);
+            this.siticonePanel2.Controls.Add(this.txtMonthlyIncome);
             this.siticonePanel2.Controls.Add(this.label22);
-            this.siticonePanel2.Location = new System.Drawing.Point(629, 106);
+            this.siticonePanel2.Location = new System.Drawing.Point(631, 106);
             this.siticonePanel2.Name = "siticonePanel2";
-            this.siticonePanel2.Size = new System.Drawing.Size(609, 343);
+            this.siticonePanel2.Size = new System.Drawing.Size(609, 380);
             this.siticonePanel2.TabIndex = 225;
             this.siticonePanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.siticonePanel2_Paint);
             // 
@@ -605,30 +586,32 @@
             this.label13.TabIndex = 203;
             this.label13.Text = "Monthly Income:";
             // 
-            // siticoneTextBox5
+            // txtMonthlyIncome
             // 
-            this.siticoneTextBox5.AutoRoundedCorners = true;
-            this.siticoneTextBox5.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneTextBox5.BorderRadius = 20;
-            this.siticoneTextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.siticoneTextBox5.DefaultText = "";
-            this.siticoneTextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox5.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticoneTextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneTextBox5.ForeColor = System.Drawing.Color.Black;
-            this.siticoneTextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox5.Location = new System.Drawing.Point(205, 45);
-            this.siticoneTextBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.siticoneTextBox5.Name = "siticoneTextBox5";
-            this.siticoneTextBox5.PasswordChar = '\0';
-            this.siticoneTextBox5.PlaceholderText = "Monthly Income";
-            this.siticoneTextBox5.SelectedText = "";
-            this.siticoneTextBox5.Size = new System.Drawing.Size(389, 43);
-            this.siticoneTextBox5.TabIndex = 204;
+            this.txtMonthlyIncome.AutoRoundedCorners = true;
+            this.txtMonthlyIncome.BackColor = System.Drawing.Color.Transparent;
+            this.txtMonthlyIncome.BorderRadius = 20;
+            this.txtMonthlyIncome.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMonthlyIncome.DefaultText = "";
+            this.txtMonthlyIncome.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMonthlyIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMonthlyIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMonthlyIncome.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMonthlyIncome.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMonthlyIncome.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMonthlyIncome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtMonthlyIncome.ForeColor = System.Drawing.Color.Black;
+            this.txtMonthlyIncome.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMonthlyIncome.Location = new System.Drawing.Point(205, 45);
+            this.txtMonthlyIncome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMonthlyIncome.Name = "txtMonthlyIncome";
+            this.txtMonthlyIncome.PasswordChar = '\0';
+            this.txtMonthlyIncome.PlaceholderText = "Monthly Income";
+            this.txtMonthlyIncome.SelectedText = "";
+            this.txtMonthlyIncome.Size = new System.Drawing.Size(389, 43);
+            this.txtMonthlyIncome.TabIndex = 204;
+            this.txtMonthlyIncome.TextChanged += new System.EventHandler(this.txtMonthlyIncome_TextChanged);
+            this.txtMonthlyIncome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.siticoneTextBox5_KeyPress_1);
             // 
             // label22
             // 
@@ -642,95 +625,84 @@
             this.label22.TabIndex = 215;
             this.label22.Text = "💰 Financial Details and Loan Eligibility";
             // 
-            // siticoneButton4
+            // btnUploadProof
             // 
-            this.siticoneButton4.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneButton4.BorderRadius = 5;
-            this.siticoneButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.siticoneButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
-            this.siticoneButton4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneButton4.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton4.Location = new System.Drawing.Point(205, 121);
-            this.siticoneButton4.Name = "siticoneButton4";
-            this.siticoneButton4.Size = new System.Drawing.Size(388, 131);
-            this.siticoneButton4.TabIndex = 226;
-            this.siticoneButton4.Text = "Upload Image";
+            this.btnUploadProof.BackColor = System.Drawing.Color.Transparent;
+            this.btnUploadProof.BorderRadius = 5;
+            this.btnUploadProof.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUploadProof.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUploadProof.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUploadProof.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUploadProof.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUploadProof.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.btnUploadProof.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUploadProof.ForeColor = System.Drawing.Color.White;
+            this.btnUploadProof.Location = new System.Drawing.Point(205, 121);
+            this.btnUploadProof.Name = "btnUploadProof";
+            this.btnUploadProof.Size = new System.Drawing.Size(388, 131);
+            this.btnUploadProof.TabIndex = 226;
+            this.btnUploadProof.Text = "Upload payslip, bank statement, etc.\r\nOnly accept valid file formats (.jpg, .png," +
+    " .pdf)";
+            this.btnUploadProof.Click += new System.EventHandler(this.siticoneButton4_Click);
             // 
-            // label14
+            // lblLoanEligibility
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(201, 92);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(127, 21);
-            this.label14.TabIndex = 227;
-            this.label14.Text = "Not Eligible ❌";
+            this.lblLoanEligibility.AutoSize = true;
+            this.lblLoanEligibility.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoanEligibility.ForeColor = System.Drawing.Color.Red;
+            this.lblLoanEligibility.Location = new System.Drawing.Point(201, 92);
+            this.lblLoanEligibility.Name = "lblLoanEligibility";
+            this.lblLoanEligibility.Size = new System.Drawing.Size(137, 21);
+            this.lblLoanEligibility.TabIndex = 227;
+            this.lblLoanEligibility.Text = "❌ Not Eligible";
             // 
-            // label15
+            // lblFileName
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(201, 255);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(297, 21);
-            this.label15.TabIndex = 228;
-            this.label15.Text = "✖ Must contain an uppercase letter";
+            this.lblFileName.AutoSize = true;
+            this.lblFileName.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileName.ForeColor = System.Drawing.Color.Red;
+            this.lblFileName.Location = new System.Drawing.Point(201, 290);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(173, 21);
+            this.lblFileName.TabIndex = 228;
+            this.lblFileName.Text = "✖ No file selected";
             // 
-            // label16
+            // txtMaxLoanAmount
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Arial", 12F);
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(17, 607);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 23);
-            this.label16.TabIndex = 222;
-            this.label16.Text = "ZIP Code:";
-            // 
-            // siticoneTextBox4
-            // 
-            this.siticoneTextBox4.AutoRoundedCorners = true;
-            this.siticoneTextBox4.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneTextBox4.BorderRadius = 20;
-            this.siticoneTextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.siticoneTextBox4.DefaultText = "";
-            this.siticoneTextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox4.Enabled = false;
-            this.siticoneTextBox4.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticoneTextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneTextBox4.ForeColor = System.Drawing.Color.Black;
-            this.siticoneTextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox4.Location = new System.Drawing.Point(205, 285);
-            this.siticoneTextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.siticoneTextBox4.Name = "siticoneTextBox4";
-            this.siticoneTextBox4.PasswordChar = '\0';
-            this.siticoneTextBox4.PlaceholderText = "Auto-computed based on income";
-            this.siticoneTextBox4.SelectedText = "";
-            this.siticoneTextBox4.Size = new System.Drawing.Size(388, 43);
-            this.siticoneTextBox4.TabIndex = 230;
+            this.txtMaxLoanAmount.AutoRoundedCorners = true;
+            this.txtMaxLoanAmount.BackColor = System.Drawing.Color.Transparent;
+            this.txtMaxLoanAmount.BorderRadius = 20;
+            this.txtMaxLoanAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMaxLoanAmount.DefaultText = "";
+            this.txtMaxLoanAmount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMaxLoanAmount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMaxLoanAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaxLoanAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaxLoanAmount.Enabled = false;
+            this.txtMaxLoanAmount.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaxLoanAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaxLoanAmount.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtMaxLoanAmount.ForeColor = System.Drawing.Color.Black;
+            this.txtMaxLoanAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaxLoanAmount.Location = new System.Drawing.Point(205, 321);
+            this.txtMaxLoanAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaxLoanAmount.Name = "txtMaxLoanAmount";
+            this.txtMaxLoanAmount.PasswordChar = '\0';
+            this.txtMaxLoanAmount.PlaceholderText = "₱0";
+            this.txtMaxLoanAmount.SelectedText = "";
+            this.txtMaxLoanAmount.Size = new System.Drawing.Size(388, 43);
+            this.txtMaxLoanAmount.TabIndex = 230;
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Arial", 12F);
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(16, 305);
+            this.label17.Location = new System.Drawing.Point(16, 321);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(219, 23);
+            this.label17.Size = new System.Drawing.Size(219, 48);
             this.label17.TabIndex = 229;
-            this.label17.Text = "Maximum Loan Amount:";
+            this.label17.Text = "Maximum Loan Amount:\r\n- Calculated from income";
             // 
             // label18
             // 
@@ -751,13 +723,13 @@
             this.siticonePanel3.BorderRadius = 15;
             this.siticonePanel3.BorderThickness = 1;
             this.siticonePanel3.Controls.Add(this.label21);
-            this.siticonePanel3.Controls.Add(this.siticoneComboBox3);
-            this.siticonePanel3.Controls.Add(this.siticoneComboBox2);
+            this.siticonePanel3.Controls.Add(this.cmbPaymentSchedule);
+            this.siticonePanel3.Controls.Add(this.cmbLoanTerm);
             this.siticonePanel3.Controls.Add(this.label20);
-            this.siticonePanel3.Controls.Add(this.siticoneComboBox1);
+            this.siticonePanel3.Controls.Add(this.cmbLoanType);
             this.siticonePanel3.Controls.Add(this.label19);
             this.siticonePanel3.Controls.Add(this.label25);
-            this.siticonePanel3.Location = new System.Drawing.Point(629, 455);
+            this.siticonePanel3.Location = new System.Drawing.Point(631, 495);
             this.siticonePanel3.Name = "siticonePanel3";
             this.siticonePanel3.Size = new System.Drawing.Size(609, 210);
             this.siticonePanel3.TabIndex = 226;
@@ -786,41 +758,41 @@
             this.label21.TabIndex = 249;
             this.label21.Text = "Payment Schedule:";
             // 
-            // siticoneComboBox3
+            // cmbPaymentSchedule
             // 
-            this.siticoneComboBox3.AutoRoundedCorners = true;
-            this.siticoneComboBox3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneComboBox3.BorderRadius = 22;
-            this.siticoneComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.siticoneComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siticoneComboBox3.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticoneComboBox3.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneComboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox3.ItemHeight = 40;
-            this.siticoneComboBox3.Location = new System.Drawing.Point(205, 148);
-            this.siticoneComboBox3.Name = "siticoneComboBox3";
-            this.siticoneComboBox3.Size = new System.Drawing.Size(389, 46);
-            this.siticoneComboBox3.TabIndex = 248;
+            this.cmbPaymentSchedule.AutoRoundedCorners = true;
+            this.cmbPaymentSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.cmbPaymentSchedule.BorderRadius = 22;
+            this.cmbPaymentSchedule.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbPaymentSchedule.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentSchedule.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbPaymentSchedule.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbPaymentSchedule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbPaymentSchedule.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbPaymentSchedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbPaymentSchedule.ItemHeight = 40;
+            this.cmbPaymentSchedule.Location = new System.Drawing.Point(205, 148);
+            this.cmbPaymentSchedule.Name = "cmbPaymentSchedule";
+            this.cmbPaymentSchedule.Size = new System.Drawing.Size(389, 46);
+            this.cmbPaymentSchedule.TabIndex = 248;
             // 
-            // siticoneComboBox2
+            // cmbLoanTerm
             // 
-            this.siticoneComboBox2.AutoRoundedCorners = true;
-            this.siticoneComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneComboBox2.BorderRadius = 22;
-            this.siticoneComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.siticoneComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siticoneComboBox2.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticoneComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox2.ItemHeight = 40;
-            this.siticoneComboBox2.Location = new System.Drawing.Point(205, 96);
-            this.siticoneComboBox2.Name = "siticoneComboBox2";
-            this.siticoneComboBox2.Size = new System.Drawing.Size(389, 46);
-            this.siticoneComboBox2.TabIndex = 246;
+            this.cmbLoanTerm.AutoRoundedCorners = true;
+            this.cmbLoanTerm.BackColor = System.Drawing.Color.Transparent;
+            this.cmbLoanTerm.BorderRadius = 22;
+            this.cmbLoanTerm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbLoanTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLoanTerm.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbLoanTerm.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbLoanTerm.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbLoanTerm.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbLoanTerm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbLoanTerm.ItemHeight = 40;
+            this.cmbLoanTerm.Location = new System.Drawing.Point(205, 96);
+            this.cmbLoanTerm.Name = "cmbLoanTerm";
+            this.cmbLoanTerm.Size = new System.Drawing.Size(389, 46);
+            this.cmbLoanTerm.TabIndex = 246;
             // 
             // label20
             // 
@@ -834,23 +806,23 @@
             this.label20.TabIndex = 247;
             this.label20.Text = "Loan Term:";
             // 
-            // siticoneComboBox1
+            // cmbLoanType
             // 
-            this.siticoneComboBox1.AutoRoundedCorners = true;
-            this.siticoneComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneComboBox1.BorderRadius = 22;
-            this.siticoneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.siticoneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siticoneComboBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticoneComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.siticoneComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox1.ItemHeight = 40;
-            this.siticoneComboBox1.Location = new System.Drawing.Point(205, 44);
-            this.siticoneComboBox1.Name = "siticoneComboBox1";
-            this.siticoneComboBox1.Size = new System.Drawing.Size(389, 46);
-            this.siticoneComboBox1.TabIndex = 244;
+            this.cmbLoanType.AutoRoundedCorners = true;
+            this.cmbLoanType.BackColor = System.Drawing.Color.Transparent;
+            this.cmbLoanType.BorderRadius = 22;
+            this.cmbLoanType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbLoanType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLoanType.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbLoanType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbLoanType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbLoanType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbLoanType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbLoanType.ItemHeight = 40;
+            this.cmbLoanType.Location = new System.Drawing.Point(205, 44);
+            this.cmbLoanType.Name = "cmbLoanType";
+            this.cmbLoanType.Size = new System.Drawing.Size(389, 46);
+            this.cmbLoanType.TabIndex = 244;
             // 
             // label19
             // 
@@ -902,6 +874,34 @@
             this.btnShowHide.TabIndex = 217;
             this.btnShowHide.Click += new System.EventHandler(this.btnShowHide_Click);
             // 
+            // siticoneProgressBar1
+            // 
+            this.siticoneProgressBar1.Location = new System.Drawing.Point(205, 257);
+            this.siticoneProgressBar1.Name = "siticoneProgressBar1";
+            this.siticoneProgressBar1.Size = new System.Drawing.Size(389, 30);
+            this.siticoneProgressBar1.TabIndex = 228;
+            this.siticoneProgressBar1.Text = "siticoneProgressBar1";
+            this.siticoneProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // siticoneButton3
+            // 
+            this.siticoneButton3.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneButton3.BorderRadius = 5;
+            this.siticoneButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.siticoneButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(175)))), ((int)(((byte)(186)))));
+            this.siticoneButton3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.siticoneButton3.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton3.Location = new System.Drawing.Point(348, 112);
+            this.siticoneButton3.Name = "siticoneButton3";
+            this.siticoneButton3.Size = new System.Drawing.Size(246, 45);
+            this.siticoneButton3.TabIndex = 226;
+            this.siticoneButton3.Text = "Set Default Profile";
+            this.siticoneButton3.Click += new System.EventHandler(this.siticoneButton3_Click);
+            // 
             // frm_create_account
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -912,7 +912,7 @@
             this.Name = "frm_create_account";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Account";
+            this.Text = "x`";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_create_account_FormClosing);
             this.Load += new System.EventHandler(this.frm_create_account_Load);
@@ -960,26 +960,26 @@
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
         public System.Windows.Forms.PictureBox pictureBoxUserImage;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton3;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
         private System.Windows.Forms.Label label13;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox5;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMonthlyIncome;
         private System.Windows.Forms.Label label22;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton4;
-        private System.Windows.Forms.Label label14;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox4;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnUploadProof;
+        private System.Windows.Forms.Label lblLoanEligibility;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMaxLoanAmount;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Label label18;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel3;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label21;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox3;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox2;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbPaymentSchedule;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbLoanTerm;
         private System.Windows.Forms.Label label20;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbLoanType;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private Siticone.Desktop.UI.WinForms.SiticoneProgressBar siticoneProgressBar1;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton3;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -81,6 +82,19 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         private void frm_create_account_Load(object sender, EventArgs e)
         {
             CenterPanel();
+
+            cmbLoanTerm.Items.Add("6 Months");
+            cmbLoanTerm.Items.Add("12 Months");
+            cmbLoanTerm.Items.Add("24 Months");
+            cmbLoanTerm.Items.Add("36 Months");
+
+            cmbLoanType.Items.Add("Housing Loan");
+            cmbLoanType.Items.Add("Business Loan");
+            cmbLoanType.Items.Add("Personal Loan");
+
+            cmbPaymentSchedule.Items.Add("Daily");
+            cmbPaymentSchedule.Items.Add("Weekly");
+            cmbPaymentSchedule.Items.Add("Monthly");
         }
 
         private void frm_create_account_FormClosing(object sender, FormClosingEventArgs e)
@@ -217,6 +231,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
                 openFileDialog1.FileName = string.Empty; // Clear any previously selected file
                 openFileDialog1.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg";
+                openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures); // Open Pictures folder by default
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -228,6 +243,165 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 MessageBox.Show("An error occurred while loading the image.\n\n" +
                                 "Error Details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void siticoneTextBox5_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == 8) 
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == 46) 
+            {
+                if (txtMonthlyIncome.Text.Contains(".") || txtMonthlyIncome.SelectionStart == 0)
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    e.Handled = false;
+                }
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMonthlyIncome_TextChanged(object sender, EventArgs e)
+        {
+            txtMonthlyIncome.TextChanged -= txtMonthlyIncome_TextChanged;
+
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtMonthlyIncome.Text))
+                {
+                    string rawText = txtMonthlyIncome.Text.Replace(",", "");
+
+                    // Skip formatting if the last character is a dot (allow intermediate input)
+                    if (rawText.EndsWith("."))
+                    {
+                        txtMonthlyIncome.TextChanged += txtMonthlyIncome_TextChanged;
+                        return;
+                    }
+
+                    // Parse the input as a double if valid (without commas)
+                    double number;
+                    if (double.TryParse(rawText, out number))
+                    {
+                        // Format the number with commas and preserve decimals
+                        txtMonthlyIncome.Text = number.ToString("#,##0.###");
+
+                        // Preserve the cursor position at the end
+                        txtMonthlyIncome.SelectionStart = txtMonthlyIncome.Text.Length;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                txtMonthlyIncome.Text = "";
+            }
+
+            txtMonthlyIncome.TextChanged += txtMonthlyIncome_TextChanged;
+
+
+            if (string.IsNullOrWhiteSpace(txtMonthlyIncome.Text)) {
+
+                lblLoanEligibility.Text = "❌ Not Eligible ";
+                lblLoanEligibility.ForeColor = Color.Red;
+                txtMaxLoanAmount.Text = "₱0"; 
+            }
+
+            if (decimal.TryParse(txtMonthlyIncome.Text.Replace(",", ""), out decimal income))
+            {
+
+                // Loan Eligibility Check
+                if (income >= 15000)
+                {
+                    lblLoanEligibility.Text = "✅ Eligible";
+                    lblLoanEligibility.ForeColor = Color.Green;
+                    ComputeMaxLoanAmount(income);  // Compute max loan dynamically
+                }
+                else
+                {
+                    lblLoanEligibility.Text = "❌ Not Eligible";
+                    lblLoanEligibility.ForeColor = Color.Red;
+                    txtMaxLoanAmount.Text = "₱0";  // Reset max loan amount
+                }
+            }
+        }
+
+        private void ComputeMaxLoanAmount(decimal income)
+        {
+            decimal multiplier;
+
+            if (income >= 50000) multiplier = 4;
+            else if (income >= 30001) multiplier = 3;
+            else if (income >= 15000) multiplier = 2;
+            else multiplier = 0;  // Not eligible
+
+            decimal maxLoan = income * multiplier;
+            txtMaxLoanAmount.Text = "₱" + maxLoan.ToString("N0"); // Format with ₱ and commas
+        }
+
+        private void siticoneButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog
+                {
+                    Title = "Select Proof of Income",
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+                    Filter = "Valid Files (*.pdf;*.jpg;*.jpeg;*.png)|*.pdf;*.jpg;*.jpeg;*.png|PDF Files (*.pdf)|*.pdf|Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png",
+                    FilterIndex = 1
+                };
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    string fileName = Path.GetFileName(filePath);
+
+                    // Show animation and file name
+                    StartUploadAnimation(fileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while selecting the file:\n" + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+
+        private void StartUploadAnimation(string fileName)
+        {
+            siticoneProgressBar1.Value = 0; // Reset progress bar
+            lblFileName.Text = "Uploading...";
+            lblFileName.ForeColor = Color.Orange;
+
+            Timer timer = new Timer();
+            timer.Interval = 100; // 100ms for smooth animation
+            timer.Tick += (s, e) =>
+            {
+                if (siticoneProgressBar1.Value < 100)
+                {
+                    siticoneProgressBar1.Value += 10; // Increase progress
+                }
+                else
+                {
+                    timer.Stop();
+                    lblFileName.Text = "✅ File uploaded successfully! ";
+                    lblFileName.ForeColor = Color.Green; // Change color to green after upload
+                    btnUploadProof.Text = fileName;
+                }
+            };
+            timer.Start();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
