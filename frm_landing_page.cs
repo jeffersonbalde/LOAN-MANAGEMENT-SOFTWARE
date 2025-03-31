@@ -265,6 +265,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                     borrowerForm.lblUser.Text = "Borrower: " + first_name + " " + last_name;
 
+                    borrowerForm.txtID.Text = userId.ToString();
+
                     if (userImage != null)
                     {
                         using (MemoryStream ms = new MemoryStream(userImage))

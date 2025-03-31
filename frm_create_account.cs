@@ -383,12 +383,14 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     dr = cm.ExecuteReader();
 
                     byte[] userImage = null;
+                    int userId = 0;
 
                     if (dr.Read())
                     {
                         if (dr["borrower_profile"] != DBNull.Value)
                         {
                             userImage = (byte[])dr["borrower_profile"];
+                            userId = Convert.ToInt32(dr["id"]);
                         }
                     }
                     dr.Close();
@@ -401,6 +403,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                             frm.pictureBoxProfile.Image = Image.FromStream(ms);
                         }
                     }
+
+                    frm.txtID.Text = userId.ToString();
 
                     this.Hide(); 
                     frm.Show(); 
@@ -558,7 +562,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    proofOfIncomeFilePath = openFileDialog.FileName;  // Store the full file path for later use
+                    proofOfIncomeFilePath = openFileDialog.FileName; 
                     string fileName = Path.GetFileName(proofOfIncomeFilePath);
 
                     StartUploadAnimation(fileName);
@@ -569,7 +573,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 MessageBox.Show("An error occurred while selecting the file:\n" + ex.Message,
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void StartUploadAnimation(string fileName)

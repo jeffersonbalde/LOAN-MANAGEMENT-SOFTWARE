@@ -52,8 +52,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtAddress = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBoxUserImage = new System.Windows.Forms.PictureBox();
-            this.btnShowHide = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticoneProgressBar1 = new Siticone.Desktop.UI.WinForms.SiticoneProgressBar();
             this.label18 = new System.Windows.Forms.Label();
@@ -75,10 +73,13 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.pictureBoxUserImage = new System.Windows.Forms.PictureBox();
+            this.btnShowHide = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.siticonePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
             this.siticonePanel2.SuspendLayout();
             this.siticonePanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -145,6 +146,7 @@
             this.siticoneButton3.Size = new System.Drawing.Size(246, 45);
             this.siticoneButton3.TabIndex = 226;
             this.siticoneButton3.Text = "Set Default Profile";
+            this.siticoneButton3.Click += new System.EventHandler(this.siticoneButton3_Click);
             // 
             // siticoneButton2
             // 
@@ -163,6 +165,7 @@
             this.siticoneButton2.Size = new System.Drawing.Size(246, 45);
             this.siticoneButton2.TabIndex = 225;
             this.siticoneButton2.Text = "Upload Profile Image";
+            this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
             // 
             // txtPhoneNumber
             // 
@@ -188,6 +191,7 @@
             this.txtPhoneNumber.SelectedText = "";
             this.txtPhoneNumber.Size = new System.Drawing.Size(434, 43);
             this.txtPhoneNumber.TabIndex = 212;
+            this.txtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneNumber_KeyPress);
             // 
             // txtZipCode
             // 
@@ -376,6 +380,7 @@
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(434, 43);
             this.txtEmail.TabIndex = 208;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // label8
             // 
@@ -414,6 +419,7 @@
             this.txtPassword.Size = new System.Drawing.Size(434, 43);
             this.txtPassword.TabIndex = 210;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label6
             // 
@@ -462,6 +468,7 @@
             this.txtAddress.SelectedText = "";
             this.txtAddress.Size = new System.Drawing.Size(434, 43);
             this.txtAddress.TabIndex = 214;
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // label10
             // 
@@ -474,39 +481,6 @@
             this.label10.Size = new System.Drawing.Size(95, 23);
             this.label10.TabIndex = 213;
             this.label10.Text = "Address :";
-            // 
-            // pictureBoxUserImage
-            // 
-            this.pictureBoxUserImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBoxUserImage.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxUserImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxUserImage.Location = new System.Drawing.Point(160, 37);
-            this.pictureBoxUserImage.Name = "pictureBoxUserImage";
-            this.pictureBoxUserImage.Size = new System.Drawing.Size(182, 143);
-            this.pictureBoxUserImage.TabIndex = 224;
-            this.pictureBoxUserImage.TabStop = false;
-            // 
-            // btnShowHide
-            // 
-            this.btnShowHide.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShowHide.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnShowHide.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnShowHide.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnShowHide.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnShowHide.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.FocusedColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnShowHide.ForeColor = System.Drawing.Color.White;
-            this.btnShowHide.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHide.Image")));
-            this.btnShowHide.ImageSize = new System.Drawing.Size(25, 30);
-            this.btnShowHide.Location = new System.Drawing.Point(543, 370);
-            this.btnShowHide.Name = "btnShowHide";
-            this.btnShowHide.PressedColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Size = new System.Drawing.Size(43, 32);
-            this.btnShowHide.TabIndex = 217;
             // 
             // siticonePanel2
             // 
@@ -625,6 +599,7 @@
             this.btnUploadProof.TabIndex = 226;
             this.btnUploadProof.Text = "Upload payslip, bank statement, etc.\r\nOnly accept valid file formats (.jpg, .png," +
     " .pdf)";
+            this.btnUploadProof.Click += new System.EventHandler(this.btnUploadProof_Click);
             // 
             // label13
             // 
@@ -662,6 +637,8 @@
             this.txtMonthlyIncome.SelectedText = "";
             this.txtMonthlyIncome.Size = new System.Drawing.Size(389, 43);
             this.txtMonthlyIncome.TabIndex = 204;
+            this.txtMonthlyIncome.TextChanged += new System.EventHandler(this.txtMonthlyIncome_TextChanged);
+            this.txtMonthlyIncome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonthlyIncome_KeyPress);
             // 
             // label22
             // 
@@ -826,6 +803,44 @@
             this.siticoneButton1.TabIndex = 250;
             this.siticoneButton1.Text = "Update Profile";
             // 
+            // pictureBoxUserImage
+            // 
+            this.pictureBoxUserImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBoxUserImage.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxUserImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxUserImage.Location = new System.Drawing.Point(160, 37);
+            this.pictureBoxUserImage.Name = "pictureBoxUserImage";
+            this.pictureBoxUserImage.Size = new System.Drawing.Size(182, 143);
+            this.pictureBoxUserImage.TabIndex = 224;
+            this.pictureBoxUserImage.TabStop = false;
+            // 
+            // btnShowHide
+            // 
+            this.btnShowHide.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShowHide.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowHide.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowHide.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShowHide.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShowHide.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.FocusedColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnShowHide.ForeColor = System.Drawing.Color.White;
+            this.btnShowHide.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHide.Image")));
+            this.btnShowHide.ImageSize = new System.Drawing.Size(25, 30);
+            this.btnShowHide.Location = new System.Drawing.Point(543, 370);
+            this.btnShowHide.Name = "btnShowHide";
+            this.btnShowHide.PressedColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Size = new System.Drawing.Size(43, 32);
+            this.btnShowHide.TabIndex = 217;
+            this.btnShowHide.Click += new System.EventHandler(this.btnShowHide_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // frm_borrower_management
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -845,13 +860,14 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profile Management";
+            this.Load += new System.EventHandler(this.frm_borrower_management_Load);
             this.siticonePanel1.ResumeLayout(false);
             this.siticonePanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).EndInit();
             this.siticonePanel2.ResumeLayout(false);
             this.siticonePanel2.PerformLayout();
             this.siticonePanel3.ResumeLayout(false);
             this.siticonePanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -864,45 +880,46 @@
         public System.Windows.Forms.PictureBox pictureBoxUserImage;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnShowHide;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPhoneNumber;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtZipCode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtFirstName;
         private System.Windows.Forms.Label lblEmailValidation;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblSpecialChar;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtLastName;
         private System.Windows.Forms.Label lblLowercase;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblUppercase;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtEmail;
         private System.Windows.Forms.Label label8;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPassword;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtAddress;
         private System.Windows.Forms.Label label10;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
         private Siticone.Desktop.UI.WinForms.SiticoneProgressBar siticoneProgressBar1;
         private System.Windows.Forms.Label label18;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMaxLoanAmount;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Label lblLoanEligibility;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnUploadProof;
         private System.Windows.Forms.Label label13;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMonthlyIncome;
         private System.Windows.Forms.Label label22;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel3;
         private System.Windows.Forms.Label label21;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbPaymentSchedule;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbLoanTerm;
         private System.Windows.Forms.Label label20;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbLoanType;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label11;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPhoneNumber;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtZipCode;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtFirstName;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtLastName;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtEmail;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPassword;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtAddress;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMaxLoanAmount;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMonthlyIncome;
+        public Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbPaymentSchedule;
+        public Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbLoanTerm;
+        public Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbLoanType;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
