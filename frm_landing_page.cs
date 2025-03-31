@@ -205,7 +205,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 {
                     frm_lender_main_form ownerForm = new frm_lender_main_form();
 
-                    ownerForm.lblUser.Text = "Borrower: " + first_name + " " + last_name;
+                    ownerForm.lblUser.Text = "Owner: " + user_name;
 
                     if (userImage != null)
                     {

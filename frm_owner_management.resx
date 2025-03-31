@@ -117,29 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cover_gif2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cover_gif2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="default_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\default_user.webp;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="default_user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\default_user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eye_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eye_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye_open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gif_login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gif_login.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loan_business_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loan_business_logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="login_video" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login_video.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>

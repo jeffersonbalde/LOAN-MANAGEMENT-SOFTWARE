@@ -164,6 +164,7 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "   Owner Management   ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label11
             // 
@@ -181,6 +182,7 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "   Check Database Location   ";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label10
             // 
@@ -676,6 +678,7 @@
             this.Name = "frm_lender_main_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOAN MANAGEMENT SYSTEM";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_lender_main_form_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

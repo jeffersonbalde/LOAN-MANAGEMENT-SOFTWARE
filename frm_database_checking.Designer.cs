@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_database_checking));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblStatus = new System.Windows.Forms.Label();
             this.progressBar = new Siticone.Desktop.UI.WinForms.SiticoneProgressBar();
@@ -76,6 +77,7 @@
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_database_checking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_database_checking_Load);

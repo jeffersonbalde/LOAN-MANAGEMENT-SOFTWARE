@@ -103,5 +103,76 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             Process.Start("calc.exe");
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            frm_check_database_path frm = new frm_check_database_path();
+
+            try
+            {
+                string dataDirectory = AppDomain.CurrentDomain.GetData("DataDirectory")?.ToString();
+                if (!string.IsNullOrEmpty(dataDirectory))
+                {
+                    string dbPath = System.IO.Path.Combine(dataDirectory, "LOAN_DB.mdf");
+
+                    if (System.IO.File.Exists(dbPath))
+                    {
+                        frm.txtDBPath.Text = dbPath;
+                        frm.ShowDialog();
+                        return;
+                        //MessageBox.Show("Your database file is located at:\n" + dbPath,
+                        //                "Database Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Database file (.mdf) not found at:\n" + dbPath,
+                                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    frm.txtDBPath.Text = "DataDirectory is not set. Unable to locate the database file.";
+                    frm.ShowDialog();
+                    return;
+                    //MessageBox.Show("DataDirectory is not set. Unable to locate the database file.",
+                    //                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving database path:\n" + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            frm_owner_management frm = new frm_owner_management();
+            frm.ShowDialog();
+        }
+
+        public void LoadOwnerName()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblBusinessProfile";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    lblUser.Text = "Owner: " + dr["proprietor"].ToString();
+
+                    dr.Close();
+                    cn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -35,12 +35,21 @@
             this.lblDateTime = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.main_panel = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.txtRole = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.btnReports_RG = new System.Windows.Forms.Button();
             this.btnMaintenanceRecords = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnProduct = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnDownPayment = new System.Windows.Forms.Button();
@@ -53,26 +62,16 @@
             this.btnBookings = new System.Windows.Forms.Button();
             this.btnOrders = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.main_panel = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.txtRole = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -146,6 +145,144 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(233, 657);
             this.panel1.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 588);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(233, 55);
+            this.panel6.TabIndex = 25;
+            this.panel6.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(12, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 24);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Report";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBoxLogo);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(233, 89);
+            this.panel3.TabIndex = 0;
+            // 
+            // main_panel
+            // 
+            this.main_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.main_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.main_panel.Location = new System.Drawing.Point(243, 53);
+            this.main_panel.Name = "main_panel";
+            this.main_panel.Size = new System.Drawing.Size(1254, 673);
+            this.main_panel.TabIndex = 19;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(50)))), ((int)(((byte)(0)))));
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label13.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(1414, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(90, 21);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "   Logout   ";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(1300, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(114, 21);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "   Calculator   ";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(1114, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(186, 21);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "   Profile Management   ";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoEllipsis = true;
+            this.lblUser.AutoSize = true;
+            this.lblUser.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lblUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblUser.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.Black;
+            this.lblUser.Location = new System.Drawing.Point(42, -1);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(116, 24);
+            this.lblUser.TabIndex = 7;
+            this.lblUser.Text = "Role: Name";
+            this.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtRole
+            // 
+            this.txtRole.Enabled = false;
+            this.txtRole.Location = new System.Drawing.Point(436, -1);
+            this.txtRole.Name = "txtRole";
+            this.txtRole.Size = new System.Drawing.Size(100, 30);
+            this.txtRole.TabIndex = 0;
+            this.txtRole.Visible = false;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel7.Controls.Add(this.lblUser);
+            this.panel7.Controls.Add(this.pictureBoxProfile);
+            this.panel7.Controls.Add(this.label8);
+            this.panel7.Controls.Add(this.label10);
+            this.panel7.Controls.Add(this.label13);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 29);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1504, 18);
+            this.panel7.TabIndex = 17;
             // 
             // btnReports_RG
             // 
@@ -229,28 +366,6 @@
             this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Visible = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 588);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(233, 55);
-            this.panel6.TabIndex = 25;
-            this.panel6.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(12, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Report";
             // 
             // btnProduct
             // 
@@ -504,15 +619,6 @@
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBoxLogo);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(233, 89);
-            this.panel3.TabIndex = 0;
-            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
@@ -525,92 +631,6 @@
             this.pictureBoxLogo.TabIndex = 2;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // main_panel
-            // 
-            this.main_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.main_panel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.main_panel.Location = new System.Drawing.Point(243, 53);
-            this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(1254, 673);
-            this.main_panel.TabIndex = 19;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(50)))), ((int)(((byte)(0)))));
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label13.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(1414, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 21);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "   Logout   ";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label13.Click += new System.EventHandler(this.label13_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(1300, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 21);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "   Calculator   ";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label11.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(1071, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(229, 21);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "   Check Database Location   ";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(898, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(173, 21);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "   User Management   ";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pictureBoxProfile
             // 
             this.pictureBoxProfile.Dock = System.Windows.Forms.DockStyle.Left;
@@ -621,45 +641,6 @@
             this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxProfile.TabIndex = 6;
             this.pictureBoxProfile.TabStop = false;
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoEllipsis = true;
-            this.lblUser.AutoSize = true;
-            this.lblUser.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lblUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblUser.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.Black;
-            this.lblUser.Location = new System.Drawing.Point(42, -1);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(116, 24);
-            this.lblUser.TabIndex = 7;
-            this.lblUser.Text = "Role: Name";
-            this.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtRole
-            // 
-            this.txtRole.Enabled = false;
-            this.txtRole.Location = new System.Drawing.Point(436, -1);
-            this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(100, 30);
-            this.txtRole.TabIndex = 0;
-            this.txtRole.Visible = false;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel7.Controls.Add(this.lblUser);
-            this.panel7.Controls.Add(this.pictureBoxProfile);
-            this.panel7.Controls.Add(this.label8);
-            this.panel7.Controls.Add(this.label11);
-            this.panel7.Controls.Add(this.label10);
-            this.panel7.Controls.Add(this.label13);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 29);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1504, 18);
-            this.panel7.TabIndex = 17;
             // 
             // frm_borrower_main_form
             // 
@@ -686,10 +667,10 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -726,7 +707,6 @@
         public System.Windows.Forms.TextBox txtRole;
         public System.Windows.Forms.Label label13;
         public System.Windows.Forms.Label label10;
-        public System.Windows.Forms.Label label11;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.PictureBox pictureBoxProfile;
         public System.Windows.Forms.Label lblUser;
