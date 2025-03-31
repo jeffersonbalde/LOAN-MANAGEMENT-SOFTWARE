@@ -97,6 +97,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_borrower_main_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_borrower_main_form.Designer.cs">
+      <DependentUpon>frm_borrower_main_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_create_account.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,10 +121,19 @@
     <Compile Include="frm_landing_page.Designer.cs">
       <DependentUpon>frm_landing_page.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_lender_main_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_lender_main_form.Designer.cs">
+      <DependentUpon>frm_lender_main_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_borrower_main_form.resx">
+      <DependentUpon>frm_borrower_main_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_create_account.resx">
       <DependentUpon>frm_create_account.cs</DependentUpon>
@@ -128,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_landing_page.resx">
       <DependentUpon>frm_landing_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_lender_main_form.resx">
+      <DependentUpon>frm_lender_main_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace LOAN_MANAGEMENT_SOFTWARE
 {
@@ -110,7 +111,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void frm_create_account_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            this.Hide();
+            frm_landing_page frm = new frm_landing_page();
+            frm.Show();
         }
 
         private void frm_create_account_Resize(object sender, EventArgs e)
@@ -239,6 +242,27 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     return;
                 }
 
+
+                cn.Open();
+
+                string emailCheckQuery = "SELECT COUNT(*) FROM tblBorrowerProfile WHERE email_address = @email_address";
+                using (SqlCommand checkCmd = new SqlCommand(emailCheckQuery, cn))
+                {
+                    checkCmd.Parameters.AddWithValue("@email_address", txtEmail.Text);
+                    int emailCount = (int)checkCmd.ExecuteScalar();
+                    if (emailCount > 0)
+                    {
+                        MessageBox.Show("The email address you entered already exists. Please log in instead.",
+                                        "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cn.Close();
+                        txtEmail.Focus();
+                        return;
+                    }
+                }
+
+                cn.Close();
+
+
                 if (lblUppercase.ForeColor != Color.Green ||
                     lblLowercase.ForeColor != Color.Green ||
                     lblSpecialChar.ForeColor != Color.Green)
@@ -317,25 +341,26 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     cn.Open();
 
                     string query = "INSERT INTO tblBorrowerProfile " +
-                                   "(borrower_profile, first_name, last_name, email_address, password, phone_number, address, zip_code, monthly_income, proof_of_income, maximum_loan, loan_type, loan_term, payment_schedule) " +
-                                   "VALUES (@borrower_profile, @first_name, @last_name, @email_address, @password, @phone_number, @address, @zip_code, @monthly_income, @proof_of_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule)";
+                                   "(borrower_profile, first_name, last_name, email_address, password, phone_number, address, zip_code, monthly_income, proof_of_income, maximum_loan, loan_type, loan_term, payment_schedule, date_registered) " +
+                                   "VALUES (@borrower_profile, @first_name, @last_name, @email_address, @password, @phone_number, @address, @zip_code, @monthly_income, @proof_of_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule, @date_registered)";
 
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
                         cmd.Parameters.AddWithValue("@borrower_profile", profileImageData);
-                        cmd.Parameters.AddWithValue("@first_name", txtFirstName.Text);
-                        cmd.Parameters.AddWithValue("@last_name", txtLastName.Text);
-                        cmd.Parameters.AddWithValue("@email_address", txtEmail.Text);
-                        cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                        cmd.Parameters.AddWithValue("@phone_number", txtPhoneNumber.Text);
-                        cmd.Parameters.AddWithValue("@address", txtAddress.Text);
-                        cmd.Parameters.AddWithValue("@zip_code", txtZipCode.Text);
+                        cmd.Parameters.AddWithValue("@first_name", txtFirstName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@last_name", txtLastName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@email_address", txtEmail.Text.Trim());
+                        cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+                        cmd.Parameters.AddWithValue("@phone_number", txtPhoneNumber.Text.Trim());
+                        cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
+                        cmd.Parameters.AddWithValue("@zip_code", txtZipCode.Text.Trim());
                         cmd.Parameters.AddWithValue("@monthly_income", monthlyIncome);
                         cmd.Parameters.AddWithValue("@proof_of_income", proofFileData);
                         cmd.Parameters.AddWithValue("@maximum_loan", maximumLoan);
-                        cmd.Parameters.AddWithValue("@loan_type", cmbLoanType.Text);
-                        cmd.Parameters.AddWithValue("@loan_term", cmbLoanTerm.Text);
-                        cmd.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.Text);
+                        cmd.Parameters.AddWithValue("@loan_type", cmbLoanType.Text.Trim());
+                        cmd.Parameters.AddWithValue("@loan_term", cmbLoanTerm.Text.Trim());
+                        cmd.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.Text.Trim());
+                        cmd.Parameters.AddWithValue("@date_registered", DateTime.Now);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -346,6 +371,39 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                     "Registration Complete",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
+
+                    frm_borrower_main_form frm = new frm_borrower_main_form();
+                    frm.lblUser.Text = "Borrower: " + txtFirstName.Text + " " + txtLastName.Text;
+
+                    cn.Open();
+                    string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE email_address = @email_address AND password = @password";
+                    cm = new SqlCommand(staffQuery, cn);
+                    cm.Parameters.AddWithValue("@email_address", txtEmail.Text);
+                    cm.Parameters.AddWithValue("@password", txtPassword.Text);
+                    dr = cm.ExecuteReader();
+
+                    byte[] userImage = null;
+
+                    if (dr.Read())
+                    {
+                        if (dr["borrower_profile"] != DBNull.Value)
+                        {
+                            userImage = (byte[])dr["borrower_profile"];
+                        }
+                    }
+                    dr.Close();
+                    cn.Close();
+
+                    if (userImage != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream(userImage))
+                        {
+                            frm.pictureBoxProfile.Image = Image.FromStream(ms);
+                        }
+                    }
+
+                    this.Hide(); 
+                    frm.Show(); 
                 }
 
             }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_landing_page));
             this.panel1 = new System.Windows.Forms.Panel();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -36,10 +35,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.siticoneBorderlessForm1 = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm(this.components);
             this.btnShowHide = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.txtPassword = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.txtEmail = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -56,7 +54,7 @@
             this.panel1.Controls.Add(this.siticoneButton2);
             this.panel1.Controls.Add(this.siticoneButton1);
             this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Controls.Add(this.siticoneTextBox1);
+            this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBoxLogo);
@@ -108,6 +106,7 @@
             this.siticoneButton1.Size = new System.Drawing.Size(458, 63);
             this.siticoneButton1.TabIndex = 163;
             this.siticoneButton1.Text = "Log in";
+            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
             // label3
             // 
@@ -146,12 +145,6 @@
             this.label1.TabIndex = 153;
             this.label1.Text = "Log in to your Account";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // siticoneBorderlessForm1
-            // 
-            this.siticoneBorderlessForm1.ContainerControl = this;
-            this.siticoneBorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.siticoneBorderlessForm1.TransparentWhileDrag = true;
             // 
             // btnShowHide
             // 
@@ -204,34 +197,34 @@
             this.txtPassword.TabIndex = 162;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
-            // siticoneTextBox1
+            // txtEmail
             // 
-            this.siticoneTextBox1.AutoRoundedCorners = true;
-            this.siticoneTextBox1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.siticoneTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneTextBox1.BorderRadius = 26;
-            this.siticoneTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.siticoneTextBox1.DefaultText = "";
-            this.siticoneTextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.IconLeft = ((System.Drawing.Image)(resources.GetObject("siticoneTextBox1.IconLeft")));
-            this.siticoneTextBox1.IconLeftOffset = new System.Drawing.Point(7, 0);
-            this.siticoneTextBox1.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.siticoneTextBox1.Location = new System.Drawing.Point(636, 261);
-            this.siticoneTextBox1.Margin = new System.Windows.Forms.Padding(8, 5, 8, 5);
-            this.siticoneTextBox1.Name = "siticoneTextBox1";
-            this.siticoneTextBox1.PasswordChar = '\0';
-            this.siticoneTextBox1.PlaceholderText = "Email";
-            this.siticoneTextBox1.SelectedText = "";
-            this.siticoneTextBox1.Size = new System.Drawing.Size(458, 54);
-            this.siticoneTextBox1.TabIndex = 2;
+            this.txtEmail.AutoRoundedCorners = true;
+            this.txtEmail.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtEmail.BackColor = System.Drawing.Color.Transparent;
+            this.txtEmail.BorderRadius = 26;
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.DefaultText = "";
+            this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.Color.Black;
+            this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtEmail.IconLeft")));
+            this.txtEmail.IconLeftOffset = new System.Drawing.Point(7, 0);
+            this.txtEmail.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.txtEmail.Location = new System.Drawing.Point(636, 261);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(8, 5, 8, 5);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PasswordChar = '\0';
+            this.txtEmail.PlaceholderText = "Email";
+            this.txtEmail.SelectedText = "";
+            this.txtEmail.Size = new System.Drawing.Size(458, 54);
+            this.txtEmail.TabIndex = 2;
             // 
             // pictureBoxLogo
             // 
@@ -279,7 +272,7 @@
             this.Name = "frm_landing_page";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LOAN MANAGEMENT SOFTWARE - LOG IN";
+            this.Text = "LOAN MANAGEMENT SYSTEM - LOG IN";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_landing_page_FormClosing);
             this.Load += new System.EventHandler(this.frm_dump_Load);
@@ -301,11 +294,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Label label1;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtEmail;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPassword;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
-        public Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm siticoneBorderlessForm1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnShowHide;
     }
 }
