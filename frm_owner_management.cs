@@ -182,5 +182,82 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frm_edit_owner_image frm = new frm_edit_owner_image(this);
+
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblOwnerAccount";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+
+                    if (dr["owner_image"] != DBNull.Value)
+                    {
+                        byte[] imageBytes = (byte[])dr["owner_image"];
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            using (Image tempImage = Image.FromStream(ms))
+                            {
+                                frm.pictureBoxImage.BackgroundImage = new Bitmap(tempImage);
+                            }
+                        }
+                        frm.pictureBoxImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                    else
+                    {
+                        frm.pictureBoxImage.BackgroundImage = null; 
+                    }
+
+                    frm.txtID.Text = dr["id"].ToString();
+                }
+
+                dr.Close();
+                cn.Close();
+
+                frm.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frm_edit_owner_account frm = new frm_edit_owner_account(this);
+
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblOwnerAccount";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    frm.txtID.Text = dr["id"].ToString();
+                }
+
+                dr.Close();
+                cn.Close();
+
+                frm.txtPassword.Focus();
+                frm.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

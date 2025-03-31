@@ -118,7 +118,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             try
             {
-                openFileDialog1.FileName = string.Empty; 
+                openFileDialog1.FileName = string.Empty;
+                openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
                 openFileDialog1.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg";
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -129,7 +130,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while loading the image.\n\n" +
-                                "Error Details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                "Error Details: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

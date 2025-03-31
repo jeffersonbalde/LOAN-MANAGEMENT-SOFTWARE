@@ -103,6 +103,12 @@
     <Compile Include="frm_borrower_main_form.Designer.cs">
       <DependentUpon>frm_borrower_main_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_borrower_management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_borrower_management.Designer.cs">
+      <DependentUpon>frm_borrower_management.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_check_database_path.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,18 @@
     </Compile>
     <Compile Include="frm_edit_business_owner_profile.Designer.cs">
       <DependentUpon>frm_edit_business_owner_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_edit_owner_account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_edit_owner_account.Designer.cs">
+      <DependentUpon>frm_edit_owner_account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_edit_owner_image.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_edit_owner_image.Designer.cs">
+      <DependentUpon>frm_edit_owner_image.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_landing_page.cs">
       <SubType>Form</SubType>
@@ -153,6 +171,9 @@
     <EmbeddedResource Include="frm_borrower_main_form.resx">
       <DependentUpon>frm_borrower_main_form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_borrower_management.resx">
+      <DependentUpon>frm_borrower_management.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_check_database_path.resx">
       <DependentUpon>frm_check_database_path.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_edit_business_owner_profile.resx">
       <DependentUpon>frm_edit_business_owner_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_edit_owner_account.resx">
+      <DependentUpon>frm_edit_owner_account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_edit_owner_image.resx">
+      <DependentUpon>frm_edit_owner_image.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_landing_page.resx">
       <DependentUpon>frm_landing_page.cs</DependentUpon>
@@ -228,6 +255,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo_ico.ico" />
+    <None Include="Resources\under_maintenance2.gif" />
+    <None Include="Resources\under_development_plain.gif" />
+    <None Include="Resources\under_maintenance.gif" />
+    <None Include="Resources\owner_imge_default.png" />
     <None Include="Resources\loan_business_logo.jpg" />
     <None Include="Resources\default_user.png" />
     <None Include="Resources\eye_open.png" />

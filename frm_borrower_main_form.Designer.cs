@@ -46,6 +46,7 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.txtRole = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnReports_RG = new System.Windows.Forms.Button();
             this.btnMaintenanceRecords = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -69,7 +70,9 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.main_panel.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
@@ -183,6 +186,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.main_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.main_panel.Controls.Add(this.pictureBox1);
             this.main_panel.Location = new System.Drawing.Point(243, 53);
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(1254, 673);
@@ -245,6 +249,7 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "   Profile Management   ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // lblUser
             // 
@@ -283,6 +288,15 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1504, 18);
             this.panel7.TabIndex = 17;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(63, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1127, 593);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // btnReports_RG
             // 
@@ -659,6 +673,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOAN MANAGEMENT SYSTEM";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_borrower_main_form_FormClosing);
             this.Load += new System.EventHandler(this.frm_borrower_main_form_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -667,8 +682,10 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.main_panel.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
@@ -711,5 +728,6 @@
         public System.Windows.Forms.PictureBox pictureBoxProfile;
         public System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

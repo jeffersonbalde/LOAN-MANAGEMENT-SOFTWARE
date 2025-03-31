@@ -21,6 +21,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
 
+        private Image animatedGif;
+
         public frm_lender_main_form()
         {
             InitializeComponent();
@@ -44,6 +46,21 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             timer1.Start();
 
             LoadBusinessLogo();
+
+            animatedGif = Properties.Resources.under_maintenance2;
+            pictureBox1.Image = animatedGif;
+
+            ImageAnimator.Animate(animatedGif, OnFrameChanged);
+        }
+
+        private void OnFrameChanged(object sender, EventArgs e)
+        {
+
+            if (!this.IsDisposed && !pictureBox1.IsDisposed)
+            {
+                pictureBox1.Invalidate();
+            }
+
         }
 
         public void LoadBusinessLogo()
@@ -172,6 +189,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void frm_lender_main_form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (animatedGif != null)
+            {
+                ImageAnimator.StopAnimate(animatedGif, OnFrameChanged);
+                animatedGif.Dispose();
+                animatedGif = null;
             }
         }
     }

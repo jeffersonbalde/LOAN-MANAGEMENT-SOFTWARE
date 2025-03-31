@@ -229,7 +229,6 @@
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.BackgroundImage")));
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBoxLogo.Location = new System.Drawing.Point(636, 51);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
