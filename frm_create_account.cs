@@ -341,8 +341,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     cn.Open();
 
                     string query = "INSERT INTO tblBorrowerProfile " +
-                                   "(borrower_profile, first_name, last_name, email_address, password, phone_number, address, zip_code, monthly_income, proof_of_income, maximum_loan, loan_type, loan_term, payment_schedule, date_registered) " +
-                                   "VALUES (@borrower_profile, @first_name, @last_name, @email_address, @password, @phone_number, @address, @zip_code, @monthly_income, @proof_of_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule, @date_registered)";
+                                   "(borrower_profile, first_name, last_name, email_address, password, phone_number, address, zip_code, monthly_income, proof_of_income, maximum_loan, loan_type, loan_term, payment_schedule, date_registered, proof_of_income_filename) " +
+                                   "VALUES (@borrower_profile, @first_name, @last_name, @email_address, @password, @phone_number, @address, @zip_code, @monthly_income, @proof_of_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule, @date_registered, @proof_of_income_filename)";
 
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
@@ -361,6 +361,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         cmd.Parameters.AddWithValue("@loan_term", cmbLoanTerm.Text.Trim());
                         cmd.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.Text.Trim());
                         cmd.Parameters.AddWithValue("@date_registered", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@proof_of_income_filename", Path.GetFileName(proofOfIncomeFilePath));
 
                         cmd.ExecuteNonQuery();
                     }
@@ -373,7 +374,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                     MessageBoxIcon.Information);
 
                     frm_borrower_main_form frm = new frm_borrower_main_form();
-                    frm.lblUser.Text = "Borrower: " + txtFirstName.Text + " " + txtLastName.Text;
+                    frm.lblUser.Text =  txtFirstName.Text + " " + txtLastName.Text;
 
                     cn.Open();
                     string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE email_address = @email_address AND password = @password";
@@ -483,21 +484,17 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 {
                     string rawText = txtMonthlyIncome.Text.Replace(",", "");
 
-                    // Skip formatting if the last character is a dot (allow intermediate input)
                     if (rawText.EndsWith("."))
                     {
                         txtMonthlyIncome.TextChanged += txtMonthlyIncome_TextChanged;
                         return;
                     }
 
-                    // Parse the input as a double if valid (without commas)
                     double number;
                     if (double.TryParse(rawText, out number))
                     {
-                        // Format the number with commas and preserve decimals
                         txtMonthlyIncome.Text = number.ToString("#,##0.###");
 
-                        // Preserve the cursor position at the end
                         txtMonthlyIncome.SelectionStart = txtMonthlyIncome.Text.Length;
                     }
                 }

@@ -66,14 +66,23 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         private Image animatedGif;
         private bool isPasswordVisible = false;
 
-        public frm_borrower_management()
+        frm_borrower_main_form frm;
+
+        public frm_borrower_management(frm_borrower_main_form frm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
+            this.frm = frm;
         }
 
         private void frm_borrower_management_Load(object sender, EventArgs e)
         {
+            RetrieveProofOfIncome(int.Parse(txtID.Text));
+
+            lblFileName.Text = "✅ File uploaded successfully!";
+            lblFileName.ForeColor = Color.Green;
+            siticoneProgressBar1.Value = 100;
+
             cmbLoanTerm.Items.Add("6 Months");
             cmbLoanTerm.Items.Add("12 Months");
             cmbLoanTerm.Items.Add("24 Months");
@@ -88,6 +97,121 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             cmbPaymentSchedule.Items.Add("Monthly");
 
             this.ActiveControl = txtFirstName;
+
+            if (this.Tag is Dictionary<string, string> tagData)
+            {
+
+                if (tagData.ContainsKey("loan_term"))
+                {
+                    string make = tagData["loan_term"];
+
+                    int index = cmbLoanTerm.FindStringExact(make);
+                    if (index != -1)
+                    {
+                        cmbLoanTerm.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        cmbLoanTerm.Items.Add(make);
+                        cmbLoanTerm.SelectedItem = make;
+                    }
+                }
+
+                if (tagData.ContainsKey("loan_type"))
+                {
+                    string model = tagData["loan_type"];
+
+                    int index = cmbLoanType.FindStringExact(model);
+                    if (index != -1)
+                    {
+                        cmbLoanType.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        cmbLoanType.Items.Add(model);
+                        cmbLoanType.SelectedItem = model;
+                    }
+                }
+
+                if (tagData.ContainsKey("loan_type"))
+                {
+                    string model = tagData["loan_type"];
+
+                    int index = cmbLoanType.FindStringExact(model);
+                    if (index != -1)
+                    {
+                        cmbLoanType.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        cmbLoanType.Items.Add(model);
+                        cmbLoanType.SelectedItem = model;
+                    }
+                }
+
+                if (tagData.ContainsKey("payment_schedule"))
+                {
+                    string model = tagData["payment_schedule"];
+
+                    int index = cmbLoanType.FindStringExact(model);
+                    if (index != -1)
+                    {
+                        cmbPaymentSchedule.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        cmbPaymentSchedule.Items.Add(model);
+                        cmbPaymentSchedule.SelectedItem = model;
+                    }
+                }
+            }
+        }
+
+        private void RetrieveProofOfIncome(int borrowerId)
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT proof_of_income, proof_of_income_filename FROM tblBorrowerProfile WHERE id = @id";
+
+                using (SqlCommand cmd = new SqlCommand(query, cn))
+                {
+                    cmd.Parameters.AddWithValue("@id", borrowerId);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                byte[] fileData = (byte[])reader["proof_of_income"];
+                                string fileName = reader["proof_of_income_filename"].ToString();
+
+                                string tempFolder = Path.Combine(Path.GetTempPath(), "LoanAppFiles");
+                                Directory.CreateDirectory(tempFolder); 
+
+                                proofOfIncomeFilePath = Path.Combine(tempFolder, fileName); 
+
+                                File.WriteAllBytes(proofOfIncomeFilePath, fileData);
+
+                                btnUploadProof.Text = fileName;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No proof of income file found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
 
         private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
@@ -240,21 +364,17 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 {
                     string rawText = txtMonthlyIncome.Text.Replace(",", "");
 
-                    // Skip formatting if the last character is a dot (allow intermediate input)
                     if (rawText.EndsWith("."))
                     {
                         txtMonthlyIncome.TextChanged += txtMonthlyIncome_TextChanged;
                         return;
                     }
 
-                    // Parse the input as a double if valid (without commas)
                     double number;
                     if (double.TryParse(rawText, out number))
                     {
-                        // Format the number with commas and preserve decimals
                         txtMonthlyIncome.Text = number.ToString("#,##0.###");
 
-                        // Preserve the cursor position at the end
                         txtMonthlyIncome.SelectionStart = txtMonthlyIncome.Text.Length;
                     }
                 }
@@ -356,6 +476,162 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 }
             };
             timer.Start();
+        }
+
+        private void siticoneButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                    string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                    string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                    string.IsNullOrWhiteSpace(txtPassword.Text) |
+                    string.IsNullOrWhiteSpace(txtAddress.Text) ||
+                    string.IsNullOrWhiteSpace(txtPhoneNumber.Text) ||
+                    string.IsNullOrWhiteSpace(txtMonthlyIncome.Text) ||
+                    string.IsNullOrWhiteSpace(cmbLoanTerm.Text) ||
+                    string.IsNullOrWhiteSpace(cmbLoanType.Text) ||
+                    string.IsNullOrWhiteSpace(cmbPaymentSchedule.Text))
+                {
+                    MessageBox.Show("All fields are required.\n\n" +
+                        "Please complete the form before saving.",
+                        "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (pictureBoxUserImage.BackgroundImage == null)
+                {
+                    MessageBox.Show("No profile image has been uploaded.\n\n" +
+                                    "Please upload a profile image or set the default profile before saving.",
+                                    "Image Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (lblEmailValidation.Text == "❌ Invalid Email Format")
+                {
+                    MessageBox.Show("The email address you entered is not valid. Please enter a valid email address.", "Invalid Email Format", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtEmail.Focus();
+                    return;
+                }
+
+
+                if (lblUppercase.ForeColor != Color.Green ||
+                    lblLowercase.ForeColor != Color.Green ||
+                    lblSpecialChar.ForeColor != Color.Green)
+                {
+                    MessageBox.Show("Your password must contain at least \n\n" +
+                        "one uppercase letter, " +
+                        "one lowercase letter, " +
+                        "and one special character. \n\n" +
+                        "Please adjust your password accordingly.",
+                                    "Invalid Password",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    txtPassword.Focus();
+                    return;
+                }
+
+                if (txtPhoneNumber.Text.Length != 11 || !long.TryParse(txtPhoneNumber.Text, out _))
+                {
+                    MessageBox.Show("Contact number must be an 11-digit number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPhoneNumber.Focus();
+                    return;
+                }
+
+                if (lblLoanEligibility.ForeColor != Color.Green)
+                {
+                    MessageBox.Show("Your monthly income does not meet our loan eligibility criteria. Please verify your income and try again.",
+                                    "Invalid Monthly Income",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    txtMonthlyIncome.Focus();
+                    return;
+                }
+
+
+                if (lblFileName.ForeColor != Color.Green)
+                {
+                    MessageBox.Show("Please upload a valid proof of payment file.",
+                                    "Invalid File",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    btnUploadProof.Focus();
+                    return;
+                }
+
+                if (MessageBox.Show("Are you sure you want to update your registration details?",
+                            "Confirm Registration",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    byte[] profileImageData;
+                    using (MemoryStream msProfile = new MemoryStream())
+                    {
+                        pictureBoxUserImage.BackgroundImage.Save(msProfile, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        profileImageData = msProfile.ToArray();
+                    }
+
+                    string proofOfIncomeFilePath = this.proofOfIncomeFilePath;
+                    byte[] proofFileData = System.IO.File.ReadAllBytes(proofOfIncomeFilePath);
+
+                    decimal monthlyIncome = decimal.Parse(txtMonthlyIncome.Text, System.Globalization.NumberStyles.AllowThousands);
+
+                    string maxLoanText = txtMaxLoanAmount.Text.Replace("₱", "").Replace(",", "").Trim();
+                    decimal maximumLoan = decimal.Parse(maxLoanText);
+
+                    cn.Open();
+
+                    string query = "UPDATE tblBorrowerProfile " +
+                                   "SET borrower_profile = @borrower_profile, first_name = @first_name, last_name = @last_name, email_address = @email_address, password = @password, phone_number = @phone_number, address = @address, zip_code = @zip_code, monthly_income = @monthly_income, proof_of_income = @proof_of_income, maximum_loan = @maximum_loan, loan_type = @loan_type, loan_term = @loan_term, payment_schedule = @payment_schedule, date_registered = @date_registered, proof_of_income_filename = @proof_of_income_filename " +
+                                   "WHERE id LIKE @id";
+
+                    using (SqlCommand cmd = new SqlCommand(query, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@borrower_profile", profileImageData);
+                        cmd.Parameters.AddWithValue("@first_name", txtFirstName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@last_name", txtLastName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@email_address", txtEmail.Text.Trim());
+                        cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+                        cmd.Parameters.AddWithValue("@phone_number", txtPhoneNumber.Text.Trim());
+                        cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
+                        cmd.Parameters.AddWithValue("@zip_code", txtZipCode.Text.Trim());
+                        cmd.Parameters.AddWithValue("@monthly_income", monthlyIncome);
+                        cmd.Parameters.AddWithValue("@proof_of_income", proofFileData);
+                        cmd.Parameters.AddWithValue("@maximum_loan", maximumLoan);
+                        cmd.Parameters.AddWithValue("@loan_type", cmbLoanType.Text.Trim());
+                        cmd.Parameters.AddWithValue("@loan_term", cmbLoanTerm.Text.Trim());
+                        cmd.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.Text.Trim());
+                        cmd.Parameters.AddWithValue("@date_registered", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@proof_of_income_filename", Path.GetFileName(proofOfIncomeFilePath));
+                        cmd.Parameters.AddWithValue("@id", txtID.Text);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    cn.Close();
+
+                    MessageBox.Show("Profile updated successfully!",
+                                    "Profile Updated",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+
+
+                    if (Application.OpenForms["frm_borrower_main_form"] is frm_borrower_main_form borrowerForm)
+                    {
+                        borrowerForm.LoadBorrowerProfile();
+                        borrowerForm.LoadBorrowerName();
+                    }
+
+                    this.Dispose();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

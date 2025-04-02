@@ -22,6 +22,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         SqlDataReader dr;
 
         private Image animatedGif;
+        private Button currentButton;
 
         public frm_lender_main_form()
         {
@@ -36,6 +37,33 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 CreateParams cp = base.CreateParams;
                 cp.ClassStyle |= 0x200; // CS_NOCLOSE (Disables Close Button)
                 return cp;
+            }
+        }
+
+        public void ActivateButton(object btnSender)
+        {
+            if (btnSender != null)
+            {
+                if (currentButton != (Button)btnSender)
+                {
+                    DisableButton();
+                    string colorr = "#cdfec2";
+                    Color color = ColorTranslator.FromHtml(colorr);
+                    currentButton = (Button)btnSender;
+                    currentButton.BackColor = Color.FromArgb(109, 207, 246);
+
+                }
+            }
+        }
+
+        private void DisableButton()
+        {
+            foreach (Control previousBtn in panel1.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(239, 251, 255);
+                }
             }
         }
 
@@ -200,6 +228,66 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 animatedGif.Dispose();
                 animatedGif = null;
             }
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnBookings_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnCustomerInfo_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnExpense_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnPersonalExpense_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnPurchase_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnDownPayment_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
         }
     }
 }

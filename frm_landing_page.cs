@@ -239,7 +239,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 }
 
                 
-                MessageBox.Show("You have successfully logged in.",
+                MessageBox.Show("You have successfully logged in.",  
                                 "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -263,7 +263,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 {
                     frm_borrower_main_form borrowerForm = new frm_borrower_main_form();
 
-                    borrowerForm.lblUser.Text = "Borrower: " + first_name + " " + last_name;
+                    borrowerForm.lblUser.Text = first_name + " " + last_name;
 
                     borrowerForm.txtID.Text = userId.ToString();
 
@@ -271,7 +271,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     {
                         using (MemoryStream ms = new MemoryStream(userImage))
                         {
-                            borrowerForm.pictureBoxProfile.Image = Image.FromStream(ms);
+                            borrowerForm.pictureBoxProfile.BackgroundImage = Image.FromStream(ms);
                         }
                     }
 

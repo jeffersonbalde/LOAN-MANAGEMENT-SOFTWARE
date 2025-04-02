@@ -32,7 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.pictureBoxUserImage = new System.Windows.Forms.PictureBox();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.btnShowHide = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.txtPhoneNumber = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtZipCode = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,13 +75,12 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.pictureBoxUserImage = new System.Windows.Forms.PictureBox();
-            this.btnShowHide = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.siticonePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
             this.siticonePanel2.SuspendLayout();
             this.siticonePanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -101,6 +102,7 @@
             this.siticonePanel1.BorderColor = System.Drawing.Color.DarkGray;
             this.siticonePanel1.BorderRadius = 15;
             this.siticonePanel1.BorderThickness = 1;
+            this.siticonePanel1.Controls.Add(this.txtID);
             this.siticonePanel1.Controls.Add(this.siticoneButton3);
             this.siticonePanel1.Controls.Add(this.pictureBoxUserImage);
             this.siticonePanel1.Controls.Add(this.siticoneButton2);
@@ -148,6 +150,19 @@
             this.siticoneButton3.Text = "Set Default Profile";
             this.siticoneButton3.Click += new System.EventHandler(this.siticoneButton3_Click);
             // 
+            // pictureBoxUserImage
+            // 
+            this.pictureBoxUserImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBoxUserImage.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxUserImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxUserImage.Location = new System.Drawing.Point(160, 37);
+            this.pictureBoxUserImage.Name = "pictureBoxUserImage";
+            this.pictureBoxUserImage.Size = new System.Drawing.Size(182, 143);
+            this.pictureBoxUserImage.TabIndex = 224;
+            this.pictureBoxUserImage.TabStop = false;
+            // 
             // siticoneButton2
             // 
             this.siticoneButton2.BackColor = System.Drawing.Color.Transparent;
@@ -166,6 +181,27 @@
             this.siticoneButton2.TabIndex = 225;
             this.siticoneButton2.Text = "Upload Profile Image";
             this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
+            // 
+            // btnShowHide
+            // 
+            this.btnShowHide.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShowHide.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowHide.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowHide.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShowHide.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShowHide.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.FocusedColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnShowHide.ForeColor = System.Drawing.Color.White;
+            this.btnShowHide.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHide.Image")));
+            this.btnShowHide.ImageSize = new System.Drawing.Size(25, 30);
+            this.btnShowHide.Location = new System.Drawing.Point(543, 370);
+            this.btnShowHide.Name = "btnShowHide";
+            this.btnShowHide.PressedColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Size = new System.Drawing.Size(43, 32);
+            this.btnShowHide.TabIndex = 217;
+            this.btnShowHide.Click += new System.EventHandler(this.btnShowHide_Click);
             // 
             // txtPhoneNumber
             // 
@@ -802,44 +838,19 @@
             this.siticoneButton1.Size = new System.Drawing.Size(184, 33);
             this.siticoneButton1.TabIndex = 250;
             this.siticoneButton1.Text = "Update Profile";
-            // 
-            // pictureBoxUserImage
-            // 
-            this.pictureBoxUserImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBoxUserImage.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxUserImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxUserImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxUserImage.Location = new System.Drawing.Point(160, 37);
-            this.pictureBoxUserImage.Name = "pictureBoxUserImage";
-            this.pictureBoxUserImage.Size = new System.Drawing.Size(182, 143);
-            this.pictureBoxUserImage.TabIndex = 224;
-            this.pictureBoxUserImage.TabStop = false;
-            // 
-            // btnShowHide
-            // 
-            this.btnShowHide.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShowHide.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnShowHide.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnShowHide.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnShowHide.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnShowHide.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.FocusedColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnShowHide.ForeColor = System.Drawing.Color.White;
-            this.btnShowHide.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHide.Image")));
-            this.btnShowHide.ImageSize = new System.Drawing.Size(25, 30);
-            this.btnShowHide.Location = new System.Drawing.Point(543, 370);
-            this.btnShowHide.Name = "btnShowHide";
-            this.btnShowHide.PressedColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Size = new System.Drawing.Size(43, 32);
-            this.btnShowHide.TabIndex = 217;
-            this.btnShowHide.Click += new System.EventHandler(this.btnShowHide_Click);
+            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(369, 15);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 22);
+            this.txtID.TabIndex = 227;
+            this.txtID.Visible = false;
             // 
             // frm_borrower_management
             // 
@@ -863,11 +874,11 @@
             this.Load += new System.EventHandler(this.frm_borrower_management_Load);
             this.siticonePanel1.ResumeLayout(false);
             this.siticonePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).EndInit();
             this.siticonePanel2.ResumeLayout(false);
             this.siticonePanel2.PerformLayout();
             this.siticonePanel3.ResumeLayout(false);
             this.siticonePanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -898,7 +909,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Label lblLoanEligibility;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton btnUploadProof;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label22;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel3;
@@ -921,5 +931,7 @@
         public Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbLoanTerm;
         public Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbLoanType;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        public Siticone.Desktop.UI.WinForms.SiticoneButton btnUploadProof;
+        public System.Windows.Forms.TextBox txtID;
     }
 }

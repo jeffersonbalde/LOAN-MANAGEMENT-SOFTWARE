@@ -22,6 +22,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         SqlDataReader dr;
 
         private Image animatedGif;
+        private Button currentButton;
 
         public frm_borrower_main_form()
         {
@@ -51,6 +52,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             timer1.Start();
 
             LoadBusinessLogo();
+            LoadBusinessName();
+            LoadBorrowerProfile();
 
             animatedGif = Properties.Resources.under_maintenance2;
             pictureBox1.Image = animatedGif;
@@ -67,6 +70,80 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
 
         }
+
+        public void LoadBorrowerName()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblBorrowerProfile WHERE id = @id";
+                cm = new SqlCommand(query, cn);
+                cm.Parameters.AddWithValue("@id", txtID.Text);
+                dr = cm.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    lblUser.Text = dr["first_name"].ToString() + " " + dr["last_name"].ToString();
+
+                    dr.Close();
+                    cn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void LoadBorrowerProfile()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT borrower_profile FROM tblBorrowerProfile WHERE id = @id";
+
+                using (SqlCommand cm = new SqlCommand(query, cn))
+                {
+                    cm.Parameters.AddWithValue("@id", txtID.Text);
+
+                    using (SqlDataReader dr = cm.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            if (dr["borrower_profile"] != DBNull.Value)
+                            {
+                                byte[] imageBytes = (byte[])dr["borrower_profile"];
+                                using (MemoryStream ms = new MemoryStream(imageBytes))
+                                {
+                                    if (pictureBoxProfile.BackgroundImage != null)
+                                    {
+                                        pictureBoxProfile.BackgroundImage.Dispose(); 
+                                    }
+
+                                    pictureBoxProfile.BackgroundImage = new Bitmap(Image.FromStream(ms));
+                                }
+                                pictureBoxProfile.SizeMode = PictureBoxSizeMode.StretchImage;
+                                pictureBoxProfile.Refresh(); 
+                            }
+                            else
+                            {
+                                pictureBoxProfile.BackgroundImage = null;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading borrower profile: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
 
         public void LoadBusinessLogo()
         {
@@ -108,6 +185,30 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
         }
 
+        public void LoadBusinessName()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblBusinessProfile";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    lblBusinessName.Text = dr["business_name"].ToString();
+
+                    dr.Close();
+                    cn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void label13_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -123,169 +224,67 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void label8_Click(object sender, EventArgs e)
         {
-                try
+            try
+            {
+
+                frm_borrower_management frm = new frm_borrower_management(this);
+
+                cn.Open();
+                string query = "SELECT * FROM tblBorrowerProfile WHERE id LIKE '" + txtID.Text + "%'";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
                 {
 
-                        frm_borrower_management frm = new frm_borrower_management();
-
-                        cn.Open();
-                        string query = "SELECT * FROM tblBorrowerProfile WHERE id LIKE '" + txtID.Text + "%'";
-                        cm = new SqlCommand(query, cn);
-                        dr = cm.ExecuteReader();
-                        dr.Read();
-                        if (dr.HasRows)
+                    if (dr["borrower_profile"] != DBNull.Value)
+                    {
+                        byte[] imageBytes = (byte[])dr["borrower_profile"];
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
                         {
-
-                            if (dr["borrower_profile"] != DBNull.Value)
+                            using (Image tempImage = Image.FromStream(ms))
                             {
-                                byte[] imageBytes = (byte[])dr["borrower_profile"];
-                                using (MemoryStream ms = new MemoryStream(imageBytes))
-                                {
-                                    using (Image tempImage = Image.FromStream(ms))
-                                    {
-                                        frm.pictureBoxUserImage.BackgroundImage = new Bitmap(tempImage);
-                                    }
-                                }
-                                frm.pictureBoxUserImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                                frm.pictureBoxUserImage.BackgroundImage = new Bitmap(tempImage);
                             }
-                            else
-                            {
-                                frm.pictureBoxUserImage.BackgroundImage = null; 
-                            }
-
-                            frm.txtFirstName.Text = dr["first_name"].ToString();
-                            frm.txtLastName.Text = dr["last_name"].ToString();
-                            frm.txtEmail.Text = dr["email_address"].ToString();
-                            frm.txtPassword.Text = dr["password"].ToString();
-                            frm.txtPhoneNumber.Text = dr["phone_number"].ToString();
-                            frm.txtAddress.Text = dr["address"].ToString();
-                            frm.txtZipCode.Text = dr["zip_code"].ToString();
-                            //frm.txtM.Text = dr["zip_code"].ToString();
-
-                            //string make = dr["make"].ToString();
-                            //string model = dr["model"].ToString();
-                            //frm.txtColor.Text = dr["color"].ToString();
-                            //frm.txtPlate.Text = dr["plate"].ToString();
-
-                            //// ✅ Store make and model in `Tag` as a Dictionary
-                            //frm.Tag = new Dictionary<string, string>
-                            //{
-                            //    { "make", make },
-                            //    { "model", model }
-                            //};
-
-
-                            //if (dr["car_image"] != DBNull.Value)
-                            //{
-                            //    byte[] imageBytes = (byte[])dr["car_image"]; // Assuming 'car_image' is the column name in the database
-                            //    using (MemoryStream ms = new MemoryStream(imageBytes))
-                            //    {
-                            //        using (Image tempImage = Image.FromStream(ms))
-                            //        {
-                            //            // Clone the image to detach it from the stream
-                            //            frm.pictureBoxProduct.BackgroundImage = new Bitmap(tempImage);
-                            //        }
-                            //    }
-                            //    frm.pictureBoxProduct.SizeMode = PictureBoxSizeMode.StretchImage;
-                            //}
-                            //else
-                            //{
-                            //    frm.pictureBoxProduct.BackgroundImage = null; // Set to null if no image is found
-                            //}
-
-
-
-                            //frm.cboStatus.Text = dr["status"].ToString();
-                            //frm.txtEmployee.Text = dr["employee"].ToString();
-
-                            //frm.isInitializing = true;
-
-                            //// Load the dates into the DateTimePickers
-                            //if (dr["date_drop"] != DBNull.Value)
-                            //{
-                            //    frm.dtStartDate.Value = Convert.ToDateTime(dr["date_drop"]);
-                            //}
-
-                            //if (dr["date_released"] != DBNull.Value)
-                            //{
-                            //    frm.dtEndDate.Value = Convert.ToDateTime(dr["date_released"]);
-                            //}
-
-                            //frm.isInitializing = false;
-
-                            //// Check if discount is NULL or empty before parsing
-                            //object discountObj = dr["discount"]; // Get the object from DB
-                            //string discountValue = discountObj != DBNull.Value ? discountObj.ToString() : "0"; // Convert safely
-
-                            //if (!double.TryParse(discountValue, out double discountAmount))
-                            //{
-                            //    discountAmount = 0; // Default to 0 if parsing fails
-                            //}
-
-                            //frm.discount_amount = discountAmount;
-
-                            //// Format the discount with peso sign and commas
-                            //frm.txtDiscount.Text = $"₱{discountAmount:#,##0.00}";
-
-
-
-                            //frm.txtGrossTotal.Text = "₱" + dr["total_cost"].ToString();
-                            //frm.txtAmountPaid.Text = dr["paid_amount"].ToString();
-
-
-
-                            //frm.txtTypeOfPurchased.Text = dr["mode_of_payment"].ToString();
-
-                            //if (dr["payment_status"] != DBNull.Value)
-                            //{
-                            //    string paymentStatus = dr["payment_status"].ToString();
-
-                            //    // Check or uncheck the checkbox based on the payment status
-                            //    if (paymentStatus == "Down Payment")
-                            //    {
-                            //        frm.checkBoxDP.Checked = true; // Check the checkbox for Down Payment
-                            //        frm.checkBoxUnpaid.Checked = false;
-                            //    }
-                            //    //else if(paymentStatus == )
-                            //    else if (paymentStatus == "Unpaid")
-                            //    {
-                            //        frm.checkBoxDP.Checked = false; // Uncheck the checkbox for Paid
-                            //        frm.checkBoxUnpaid.Checked = true;
-                            //    }
-                            //    else if (paymentStatus == "Fully Paid")
-                            //    {
-                            //        frm.checkBoxDP.Checked = false; // Uncheck the checkbox for Paid
-                            //        frm.checkBoxUnpaid.Checked = false;
-                            //    }
-                            //}
-
-                            //frm.txtNotes.Text = dr["notes"].ToString();
-
                         }
-                        dr.Close();
-                        cn.Close();
+                        frm.pictureBoxUserImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                    else
+                    {
+                        frm.pictureBoxUserImage.BackgroundImage = null; 
+                    }
 
+                    frm.txtID.Text = txtID.Text;
+                    frm.txtFirstName.Text = dr["first_name"].ToString();
+                    frm.txtLastName.Text = dr["last_name"].ToString();
+                    frm.txtEmail.Text = dr["email_address"].ToString();
+                    frm.txtPassword.Text = dr["password"].ToString();
+                    frm.txtPhoneNumber.Text = dr["phone_number"].ToString();
+                    frm.txtAddress.Text = dr["address"].ToString();
+                    frm.txtZipCode.Text = dr["zip_code"].ToString();
+                    frm.txtMonthlyIncome.Text = dr["monthly_income"].ToString();
 
-                        //frm.txtProjectCode.Text = transaction_code;
-                        //frm.updateClick = true;
-                        //frm.button2.Visible = false;
-                        //frm.button3.Visible = false;
-                        //frm.btnUpdate.Visible = true;
-                        //frm.txtCustomer.Focus();
+                    string loan_term = dr["loan_term"].ToString();
+                    string loan_type = dr["loan_type"].ToString();
+                    string payment_schedule = dr["loan_type"].ToString();
 
-                        //frm.Text = "Edit Transaction";
+                    frm.Tag = new Dictionary<string, string>
+                            {
+                                { "loan_term", loan_term },
+                                { "loan_type", loan_type },
+                                { "payment_schedule", payment_schedule }
+                            };
+                }
+                dr.Close();
+                cn.Close(); 
 
-                        ////frm.button4.Location = new Point(1046, 569);
-
-                        //frm.txtUpdate.Text = "1";
-
-                        frm.ShowDialog();
+                frm.ShowDialog();
                     
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void frm_borrower_main_form_FormClosing(object sender, FormClosingEventArgs e)
@@ -296,6 +295,83 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 animatedGif.Dispose();
                 animatedGif = null;
             }
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public void ActivateButton(object btnSender)
+        {
+            if (btnSender != null)
+            {
+                if (currentButton != (Button)btnSender)
+                {
+                    DisableButton();
+                    string colorr = "#cdfec2";
+                    Color color = ColorTranslator.FromHtml(colorr);
+                    currentButton = (Button)btnSender;
+                    currentButton.BackColor = Color.FromArgb(109, 207, 246);
+
+                }
+            }
+        }
+
+        private void DisableButton()
+        {
+            foreach (Control previousBtn in panel1.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(239, 251, 255);
+                }
+            }
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnBookings_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnCustomerInfo_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnExpense_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnPersonalExpense_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnPurchase_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
         }
     }
 }
