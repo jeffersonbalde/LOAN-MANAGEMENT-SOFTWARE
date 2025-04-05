@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private Image animatedGif;
         private bool isPasswordVisible = false;
+        private Bitmap transparentLogo = null; // Store the logo here
 
 
         public frm_landing_page()
@@ -45,11 +47,58 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
             LoadBusinessLogo();
 
-            animatedGif = Properties.Resources.cover_gif2;
-            pictureBox1.Image = animatedGif;
+            //animatedGif = Properties.Resources.cover_gif2;
+            //pictureBox1.Image = animatedGif;
 
-            ImageAnimator.Animate(animatedGif, OnFrameChanged);
+            //ImageAnimator.Animate(animatedGif, OnFrameChanged);
+            //panel2.Paint += pictureBoxLogo_Paint; // Attach the paint event
         }
+
+        //public void LoadBusinessLogo()
+        //{
+        //    try
+        //    {
+        //        cn.Open();
+        //        string query = "SELECT * FROM tblBusinessProfile";
+        //        cm = new SqlCommand(query, cn);
+        //        dr = cm.ExecuteReader();
+        //        dr.Read();
+
+        //        if (dr.HasRows)
+        //        {
+        //            if (dr["business_logo"] != DBNull.Value)
+        //            {
+        //                byte[] imageBytes = (byte[])dr["business_logo"];
+        //                using (MemoryStream ms = new MemoryStream(imageBytes))
+        //                {
+        //                    using (Image tempImage = Image.FromStream(ms))
+        //                    {
+        //                        // Store the logo with transparency
+        //                        transparentLogo = new Bitmap(tempImage.Width, tempImage.Height, PixelFormat.Format32bppArgb);
+        //                        using (Graphics g = Graphics.FromImage(transparentLogo))
+        //                        {
+        //                            g.Clear(Color.Transparent);
+        //                            g.DrawImage(tempImage, new Rectangle(0, 0, tempImage.Width, tempImage.Height));
+        //                        }
+        //                    }
+        //                }
+
+        //                //panel2.Invalidate(); // Refresh the PictureBox to trigger Paint event
+        //            }
+        //            else
+        //            {
+        //                transparentLogo = null;
+        //            }
+        //        }
+
+        //        dr.Close();
+        //        cn.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         public void LoadBusinessLogo()
         {
@@ -91,16 +140,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
         }
 
-        private void OnFrameChanged(object sender, EventArgs e)
-        {
-
-            if (!this.IsDisposed && !pictureBox1.IsDisposed)
-            {
-                pictureBox1.Invalidate();
-            }
-
-        }
-
         private void frm_dump_Resize(object sender, EventArgs e)
         {
             CenterPanel();
@@ -108,12 +147,12 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void frm_landing_page_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (animatedGif != null)
-            {
-                ImageAnimator.StopAnimate(animatedGif, OnFrameChanged);
-                animatedGif.Dispose();
-                animatedGif = null;
-            }
+            //if (animatedGif != null)
+            //{
+            //    ImageAnimator.StopAnimate(animatedGif, OnFrameChanged);
+            //    animatedGif.Dispose();
+            //    animatedGif = null;
+            //}
 
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
@@ -138,12 +177,12 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
                 txtPassword.UseSystemPasswordChar = false; 
                 txtPassword.PasswordChar = '\0'; 
-                btnShowHide.Image = Properties.Resources.eye_open; 
+                btnShowHide.Image = Properties.Resources.eye_open2; 
             }
             else
             {
                 txtPassword.UseSystemPasswordChar = true; 
-                btnShowHide.Image = Properties.Resources.eye_close; 
+                btnShowHide.Image = Properties.Resources.eye_close2; 
             }
         }
 
@@ -285,6 +324,19 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 cn.Close();
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxLogo_Paint(object sender, PaintEventArgs e)
+        {
+            //if (transparentLogo != null)
+            //{
+            //    e.Graphics.DrawImage(transparentLogo, new Rectangle(0, 0, panel2.Width, panel2.Height));
+            //}
         }
     }
 }

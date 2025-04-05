@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\jeffe\Documents\DEPLOY SOFTWARE\</PublishUrl>
+    <PublishUrl>C:\Users\jeffe\Documents\DEPLOY SOFTWARE\LOAN MANAGEMENT SYSTEM\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <ProductName>LOAN MANAGEMENT SOFTWARE</ProductName>
     <PublisherName>Jefferson Sabanal Balde</PublisherName>
     <SuiteName>Jefferson Sabanal Balde</SuiteName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -41,7 +41,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>3</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -163,6 +163,12 @@
     <Compile Include="frm_owner_management.Designer.cs">
       <DependentUpon>frm_owner_management.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_preloader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_preloader.Designer.cs">
+      <DependentUpon>frm_preloader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_owner_management.resx">
       <DependentUpon>frm_owner_management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_preloader.resx">
+      <DependentUpon>frm_preloader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -254,7 +263,17 @@
     <None Include="Resources\gif_login.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LOAN_DB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LOAN_DB_log.ldf">
+      <DependentUpon>LOAN_DB.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="logo_ico.ico" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\eye_open2.png" />
+    <None Include="Resources\eye_close2.png" />
     <None Include="Resources\under_maintenance2.gif" />
     <None Include="Resources\under_development_plain.gif" />
     <None Include="Resources\under_maintenance.gif" />

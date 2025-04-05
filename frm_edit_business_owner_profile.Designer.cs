@@ -50,8 +50,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnUploadImage = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -335,13 +335,9 @@
             this.label6.Text = "Business Logo";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxLogo.Location = new System.Drawing.Point(34, 39);
@@ -350,6 +346,10 @@
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 3;
             this.pictureBoxLogo.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frm_edit_business_owner_profile
             // 

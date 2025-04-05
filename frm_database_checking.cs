@@ -78,11 +78,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
         }
 
-        private async void frm_database_checking_Load(object sender, EventArgs e)
+        private async void frm_database_checking_Load(object sender, EventArgs e)   
         {
             timer.Start();
 
-            lblStatus.Text = "WELCOME TO LOAN MANAGEMENT SOFTWARE. PREPARING YOUR WORKSPACE... 🚀";
+            lblStatus.Text = "WELCOME TO LOAN MANAGEMENT SYSTEM PREPARING YOUR WORKSPACE... 🚀";
             await UpdateProgressBar(50, 10);
 
             lblStatus.Text = "Checking database connection...";
@@ -95,7 +95,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 await Task.Delay(500);
 
                 this.Hide();
-                frm_landing_page frm = new frm_landing_page();
+                frm_preloader frm = new frm_preloader();
                 frm.Show();
             }
             else

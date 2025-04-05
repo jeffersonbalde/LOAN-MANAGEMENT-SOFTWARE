@@ -17,9 +17,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frm_database_checking());
+            //Application.Run(new frm_preloader());
             //Application.Run(new frm_borrower_main_form());
             //Application.Run(new frm_lender_main_form());
             //Application.Run(new frm_landing_page());
+            //Application.Run(new frm_create_account());
         }
     }
 }

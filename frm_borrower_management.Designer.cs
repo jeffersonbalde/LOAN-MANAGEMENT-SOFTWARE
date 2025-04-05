@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_borrower_management));
             this.label1 = new System.Windows.Forms.Label();
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.pictureBoxUserImage = new System.Windows.Forms.PictureBox();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -76,7 +77,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
             this.siticonePanel2.SuspendLayout();
@@ -91,7 +91,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1258, 47);
+            this.label1.Size = new System.Drawing.Size(1375, 47);
             this.label1.TabIndex = 154;
             this.label1.Text = "Profile Management";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,6 +130,14 @@
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.Size = new System.Drawing.Size(609, 644);
             this.siticonePanel1.TabIndex = 225;
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(369, 15);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 22);
+            this.txtID.TabIndex = 227;
+            this.txtID.Visible = false;
             // 
             // siticoneButton3
             // 
@@ -536,7 +544,7 @@
             this.siticonePanel2.Controls.Add(this.label22);
             this.siticonePanel2.Location = new System.Drawing.Point(635, 59);
             this.siticonePanel2.Name = "siticonePanel2";
-            this.siticonePanel2.Size = new System.Drawing.Size(609, 380);
+            this.siticonePanel2.Size = new System.Drawing.Size(693, 380);
             this.siticonePanel2.TabIndex = 226;
             // 
             // siticoneProgressBar1
@@ -702,7 +710,7 @@
             this.siticonePanel3.Controls.Add(this.label25);
             this.siticonePanel3.Location = new System.Drawing.Point(635, 451);
             this.siticonePanel3.Name = "siticonePanel3";
-            this.siticonePanel3.Size = new System.Drawing.Size(609, 210);
+            this.siticonePanel3.Size = new System.Drawing.Size(420, 210);
             this.siticonePanel3.TabIndex = 227;
             // 
             // label21
@@ -814,7 +822,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(0, 716);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(1258, 47);
+            this.label11.Size = new System.Drawing.Size(1375, 47);
             this.label11.TabIndex = 228;
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -833,7 +841,7 @@
             this.siticoneButton1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneButton1.ForeColor = System.Drawing.Color.White;
             this.siticoneButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.siticoneButton1.Location = new System.Drawing.Point(1044, 724);
+            this.siticoneButton1.Location = new System.Drawing.Point(1161, 724);
             this.siticoneButton1.Name = "siticoneButton1";
             this.siticoneButton1.Size = new System.Drawing.Size(184, 33);
             this.siticoneButton1.TabIndex = 250;
@@ -844,19 +852,11 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(369, 15);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 22);
-            this.txtID.TabIndex = 227;
-            this.txtID.Visible = false;
-            // 
             // frm_borrower_management
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1258, 763);
+            this.ClientSize = new System.Drawing.Size(1375, 763);
             this.Controls.Add(this.siticoneButton1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.siticonePanel3);
