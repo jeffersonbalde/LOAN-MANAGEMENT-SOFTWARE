@@ -29,36 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_preloader));
-            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // siticoneButton1
-            // 
-            this.siticoneButton1.AnimatedGIF = true;
-            this.siticoneButton1.AutoRoundedCorners = true;
-            this.siticoneButton1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneButton1.BorderRadius = 29;
-            this.siticoneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
-            this.siticoneButton1.Font = new System.Drawing.Font("Arial Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton1.Location = new System.Drawing.Point(33, 540);
-            this.siticoneButton1.Name = "siticoneButton1";
-            this.siticoneButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.siticoneButton1.Size = new System.Drawing.Size(336, 60);
-            this.siticoneButton1.TabIndex = 163;
-            this.siticoneButton1.Text = "GET STARTED";
-            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
             // panel1
             // 
@@ -103,6 +81,28 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // siticoneButton1
+            // 
+            this.siticoneButton1.AnimatedGIF = true;
+            this.siticoneButton1.AutoRoundedCorners = true;
+            this.siticoneButton1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneButton1.BorderRadius = 29;
+            this.siticoneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
+            this.siticoneButton1.Font = new System.Drawing.Font("Arial Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneButton1.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton1.Location = new System.Drawing.Point(33, 540);
+            this.siticoneButton1.Name = "siticoneButton1";
+            this.siticoneButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.siticoneButton1.Size = new System.Drawing.Size(336, 60);
+            this.siticoneButton1.TabIndex = 163;
+            this.siticoneButton1.Text = "GET STARTED";
+            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -125,6 +125,7 @@
             this.Name = "frm_preloader";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOAN MANAGEMENT SYSTEM";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_preloader_Load);
             this.Resize += new System.EventHandler(this.frm_preloader_Resize);
             this.panel1.ResumeLayout(false);

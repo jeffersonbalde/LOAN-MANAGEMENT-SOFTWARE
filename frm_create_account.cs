@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
@@ -107,6 +108,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             cmbPaymentSchedule.Items.Add("Daily");
             cmbPaymentSchedule.Items.Add("Weekly");
             cmbPaymentSchedule.Items.Add("Monthly");
+
+            this.ActiveControl = txtFirstName;
         }
 
         private void frm_create_account_FormClosing(object sender, FormClosingEventArgs e)
@@ -178,13 +181,13 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
             if (Regex.IsMatch(txtEmail.Text, emailPattern))
             {
-                lblEmailValidation.Text = "✅ Valid Email";
-                lblEmailValidation.ForeColor = System.Drawing.Color.Green;
+                lblEmailIcon.Text = "✅"; 
+                lblEmailIcon.ForeColor = Color.Green;
             }
             else
             {
-                lblEmailValidation.Text = "❌ Invalid Email Format";
-                lblEmailValidation.ForeColor = System.Drawing.Color.Red;
+                lblEmailIcon.Text = "❌"; 
+                lblEmailIcon.ForeColor = Color.Red;
             }
         }
 
@@ -220,22 +223,22 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     string.IsNullOrWhiteSpace(cmbLoanTerm.Text) ||
                     string.IsNullOrWhiteSpace(cmbLoanType.Text) ||
                     string.IsNullOrWhiteSpace(cmbPaymentSchedule.Text))
-                {
-                    MessageBox.Show("All fields are required.\n\n" +
+                    {
+                        MessageBox.Show("All fields are required.\n\n" +
                         "Please complete the form before saving.",
                         "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (pictureBoxUserImage.BackgroundImage == null)
-                {
-                    MessageBox.Show("No profile image has been uploaded.\n\n" +
-                                    "Please upload a profile image or set the default profile before saving.",
-                                    "Image Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (pictureBoxUserImagee.BackgroundImage == null)
+                //{
+                //    MessageBox.Show("No profile image has been uploaded.\n\n" +
+                //                    "Please upload a profile image or set the default profile before saving.",
+                //                    "Image Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
 
-                if (lblEmailValidation.Text == "❌ Invalid Email Format")
+                if (lblEmailIcon.Text == "❌")
                 {
                     MessageBox.Show("The email address you entered is not valid. Please enter a valid email address.", "Invalid Email Format", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtEmail.Focus();
@@ -338,11 +341,15 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     string maxLoanText = txtMaxLoanAmount.Text.Replace("₱", "").Replace(",", "").Trim();
                     decimal maximumLoan = decimal.Parse(maxLoanText);
 
+                    decimal amountToReceive = decimal.Parse(lblAmountToReceive.Text.Replace("₱", "").Replace(",", "").Trim());
+                    decimal interestRate = decimal.Parse(lblInterestRate.Text.Replace("%", "").Trim()) / 100;
+                    decimal monthlyDues = decimal.Parse(lblMonthlyDues.Text.Replace("₱", "").Replace(",", "").Trim());
+
                     cn.Open();
 
                     string query = "INSERT INTO tblBorrowerProfile " +
-                                   "(borrower_profile, first_name, last_name, email_address, password, phone_number, address, zip_code, monthly_income, proof_of_income, maximum_loan, loan_type, loan_term, payment_schedule, date_registered, proof_of_income_filename) " +
-                                   "VALUES (@borrower_profile, @first_name, @last_name, @email_address, @password, @phone_number, @address, @zip_code, @monthly_income, @proof_of_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule, @date_registered, @proof_of_income_filename)";
+                                   "(borrower_profile, first_name, last_name, email_address, password, phone_number, address, zip_code, monthly_income, proof_of_income, maximum_loan, loan_type, loan_term, payment_schedule, date_registered, proof_of_income_filename, amount_to_receive, interest_rate, monthly_dues) " +
+                                   "VALUES (@borrower_profile, @first_name, @last_name, @email_address, @password, @phone_number, @address, @zip_code, @monthly_income, @proof_of_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule, @date_registered, @proof_of_income_filename, @amount_to_receive, @interest_rate, @monthly_dues)";
 
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
@@ -362,6 +369,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         cmd.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.Text.Trim());
                         cmd.Parameters.AddWithValue("@date_registered", DateTime.Now);
                         cmd.Parameters.AddWithValue("@proof_of_income_filename", Path.GetFileName(proofOfIncomeFilePath));
+                        cmd.Parameters.AddWithValue("@amount_to_receive", amountToReceive);
+                        cmd.Parameters.AddWithValue("@interest_rate", interestRate);
+                        cmd.Parameters.AddWithValue("@monthly_dues", monthlyDues);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -421,14 +431,14 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void siticoneButton3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                pictureBoxUserImage.BackgroundImage = Properties.Resources.default_user1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error setting default image: " + ex.Message);
-            }
+            //try
+            //{
+            //    pictureBoxUserImage.BackgroundImage = Properties.Resources.default_user1;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error setting default image: " + ex.Message);
+            //}
         }
 
         private void siticoneButton2_Click(object sender, EventArgs e)
@@ -441,7 +451,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBoxUserImage.BackgroundImage = Image.FromFile(openFileDialog1.FileName);
+                    pictureBoxUserImagee.BackgroundImage = Image.FromFile(openFileDialog1.FileName);
                 }
             }
             catch (Exception ex)
@@ -530,19 +540,43 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     txtMaxLoanAmount.Text = "₱0"; 
                 }
             }
+
+            CalculateLoanSummary();
         }
 
         private void ComputeMaxLoanAmount(decimal income)
         {
-            decimal multiplier;
+            try
+            {
+                if (income > 1000000000)
+                {
+                    MessageBox.Show("The income value is too large. Please enter a valid amount.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMonthlyIncome.Clear();
+                    txtMonthlyIncome.Focus();
+                    return;
+                }
 
-            if (income >= 50000) multiplier = 4;
-            else if (income >= 30001) multiplier = 3;
-            else if (income >= 15000) multiplier = 2;
-            else multiplier = 0;  
+                decimal multiplier;
 
-            decimal maxLoan = income * multiplier;
-            txtMaxLoanAmount.Text = "₱" + maxLoan.ToString("N0");
+                if (income >= 50000) multiplier = 4;
+                else if (income >= 30001) multiplier = 3;
+                else if (income >= 15000) multiplier = 2;
+                else multiplier = 0;
+
+                decimal maxLoan = income * multiplier;
+                txtMaxLoanAmount.Text = "₱" + maxLoan.ToString("N0");
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("The income value is too large and caused an overflow.", "Calculation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMonthlyIncome.Clear();
+                txtMonthlyIncome.Focus();
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void siticoneButton4_Click(object sender, EventArgs e)
@@ -595,6 +629,174 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 }
             };
             timer.Start();
+        }
+
+        private void siticonePanel1_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                panel.ClientRectangle,
+                Color.FromArgb(231, 229, 251),  // Top color
+                Color.FromArgb(230, 187, 254),  // Bottom color
+                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
+            {
+                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog1.FileName = string.Empty;
+                openFileDialog1.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg";
+                openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxUserImage.BackgroundImage = Image.FromFile(openFileDialog1.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading the image.\n\n" +
+                                "Error Details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pictureBoxUserImage_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBoxUserImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog1.FileName = string.Empty;
+                openFileDialog1.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg";
+                openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxUserImage.BackgroundImage = Image.FromFile(openFileDialog1.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading the image.\n\n" +
+                                "Error Details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pictureBoxUserImage_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog1.FileName = string.Empty;
+                openFileDialog1.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg";
+                openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxUserImage.BackgroundImage = Image.FromFile(openFileDialog1.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading the image.\n\n" +
+                                "Error Details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void siticonePanel2_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                panel.ClientRectangle,
+                Color.FromArgb(231, 229, 251),  // Top color
+                Color.FromArgb(230, 187, 254),  // Bottom color
+                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
+            {
+                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
+            }
+        }
+
+        private void siticonePanel3_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                panel.ClientRectangle,
+                Color.FromArgb(231, 229, 251),  // Top color
+                Color.FromArgb(230, 187, 254),  // Bottom color
+                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
+            {
+                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
+            }
+        }
+
+        private void CalculateLoanSummary()
+        {
+            Dictionary<string, decimal> interestRates = new Dictionary<string, decimal>()
+            {
+                { "Housing Loan", 0.07m },
+                { "Business Loan", 0.10m },
+                { "Personal Loan", 0.12m }
+            };
+
+            if (decimal.TryParse(txtMonthlyIncome.Text, out decimal income) &&
+                decimal.TryParse(txtMaxLoanAmount.Text.Replace("₱", "").Replace(",", ""), out decimal principal) &&
+                cmbLoanType.SelectedItem != null &&
+                cmbLoanTerm.SelectedItem != null &&
+                cmbPaymentSchedule.SelectedItem != null)
+            {
+                string loanType = cmbLoanType.SelectedItem.ToString();
+                string loanTermText = cmbLoanTerm.SelectedItem.ToString();
+                int months = int.Parse(loanTermText.Split(' ')[0]);
+
+                decimal interestRate = interestRates.ContainsKey(loanType) ? interestRates[loanType] : 0.12m;
+
+                decimal totalInterest = principal * interestRate * (months / 12m);
+                decimal totalPayable = principal + totalInterest;
+
+                int payments = months;
+                string schedule = cmbPaymentSchedule.SelectedItem.ToString().ToLower();
+
+                if (schedule == "weekly") payments = months * 4;
+                else if (schedule == "daily") payments = months * 30;
+
+                decimal dues = payments > 0 ? totalPayable / payments : 0;
+
+                lblAmountToReceive.Text = $"₱{principal:N2}";
+                lblInterestRate.Text = $"{interestRate * 100}%";
+                lblMonthlyDues.Text = $"₱{dues:N2}";
+            }
+            else
+            {
+                lblAmountToReceive.Text = "₱0.00";
+                lblInterestRate.Text = "0%";
+                lblMonthlyDues.Text = "₱0.00";
+            }
+        }
+
+        private void cmbLoanType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateLoanSummary();
+        }
+
+        private void cmbLoanTerm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateLoanSummary();
+        }
+
+        private void cmbPaymentSchedule_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateLoanSummary();
         }
     }
 }

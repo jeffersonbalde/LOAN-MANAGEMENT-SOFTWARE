@@ -509,7 +509,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(233, 49);
             this.button3.TabIndex = 33;
-            this.button3.Text = "  Tab4";
+            this.button3.Text = "  Payment History";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = false;
@@ -531,7 +531,7 @@
             this.btnBookings.Name = "btnBookings";
             this.btnBookings.Size = new System.Drawing.Size(233, 49);
             this.btnBookings.TabIndex = 32;
-            this.btnBookings.Text = "  Tab3";
+            this.btnBookings.Text = "  Payment Scheduling";
             this.btnBookings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBookings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBookings.UseVisualStyleBackColor = false;
@@ -553,7 +553,7 @@
             this.btnOrders.Name = "btnOrders";
             this.btnOrders.Size = new System.Drawing.Size(233, 49);
             this.btnOrders.TabIndex = 17;
-            this.btnOrders.Text = "  Tab2";
+            this.btnOrders.Text = "  Loan Details";
             this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOrders.UseVisualStyleBackColor = false;
@@ -575,7 +575,7 @@
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(233, 49);
             this.btnDashboard.TabIndex = 11;
-            this.btnDashboard.Text = "  Tab1";
+            this.btnDashboard.Text = "  Dashboard";
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);

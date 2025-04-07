@@ -39,6 +39,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.lblStatus);
             this.panel1.Location = new System.Drawing.Point(15, 17);
@@ -48,10 +49,10 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(85)))), ((int)(((byte)(231)))));
             this.lblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStatus.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(47)))));
+            this.lblStatus.ForeColor = System.Drawing.Color.White;
             this.lblStatus.Location = new System.Drawing.Point(0, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(754, 86);
@@ -62,8 +63,8 @@
             // 
             this.progressBar.Location = new System.Drawing.Point(15, 113);
             this.progressBar.Name = "progressBar";
-            this.progressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(57)))), ((int)(((byte)(88)))));
-            this.progressBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(117)))));
+            this.progressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
+            this.progressBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
             this.progressBar.Size = new System.Drawing.Size(758, 45);
             this.progressBar.TabIndex = 6;
             this.progressBar.Text = "siticoneProgressBar1";
@@ -72,10 +73,13 @@
             // frm_database_checking
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(15)))), ((int)(((byte)(122)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(788, 177);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_database_checking";

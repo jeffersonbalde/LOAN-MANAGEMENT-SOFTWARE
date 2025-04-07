@@ -20,7 +20,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
             return con;
 
-            //for deploy offline database
+            //con = @"Data Source=.;Initial Catalog=LOAN_DB;Integrated Security=True;";/
+
+
+
+            ////for deploy offline database
             //con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\LOAN_DB.mdf;Integrated Security=True;";
             //return con;
         }

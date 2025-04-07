@@ -176,7 +176,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(239, 48);
             this.label3.TabIndex = 161;
-            this.label3.Text = "Create an account";
+            this.label3.Text = "Sign Up";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
@@ -270,7 +270,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOAN MANAGEMENT SYSTEM - LOG IN";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_landing_page_FormClosing);
             this.Load += new System.EventHandler(this.frm_dump_Load);
             this.Resize += new System.EventHandler(this.frm_dump_Resize);
