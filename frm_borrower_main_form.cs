@@ -312,7 +312,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     string colorr = "#cdfec2";
                     Color color = ColorTranslator.FromHtml(colorr);
                     currentButton = (Button)btnSender;
-                    currentButton.BackColor = Color.FromArgb(109, 207, 246);
+                    currentButton.BackColor = Color.FromArgb(137, 85, 229);
+                    //currentButton.BackColor = Color.FromArgb(250, 187, 255);
 
                 }
             }
@@ -324,7 +325,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
-                    previousBtn.BackColor = Color.FromArgb(239, 251, 255);
+                    //previousBtn.BackColor = Color.FromArgb(250, 187, 255);
+                    previousBtn.BackColor = Color.FromArgb(219, 231, 237);
                 }
             }
         }
@@ -337,18 +339,26 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         private void btnOrders_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            main_panel.Controls.Clear();
+            frm_request_loan frm = new frm_request_loan();
+            frm.txtID.Text = txtID.Text;
+            frm.lblTitle.Text = "Request Loan";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
 
         private void btnBookings_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            main_panel.Controls.Clear();
-            frm_payment_scheduling frm = new frm_payment_scheduling();
-            frm.lblTitle.Text = "Payment Scheduling";
-            frm.TopLevel = false;
-            main_panel.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
+            //main_panel.Controls.Clear();
+            //frm_payment_scheduling frm = new frm_payment_scheduling();
+            //frm.lblTitle.Text = "Payment Scheduling";
+            //frm.TopLevel = false;
+            //main_panel.Controls.Add(frm);
+            //frm.BringToFront();
+            //frm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)

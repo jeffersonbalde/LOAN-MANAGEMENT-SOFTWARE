@@ -110,6 +110,48 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             cmbPaymentSchedule.Items.Add("Monthly");
 
             this.ActiveControl = txtFirstName;
+
+            LoadBusinessLogo();
+        }
+
+        public void LoadBusinessLogo()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblBusinessProfile";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+
+                    if (dr["business_logo"] != DBNull.Value)
+                    {
+                        byte[] imageBytes = (byte[])dr["business_logo"];
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            using (Image tempImage = Image.FromStream(ms))
+                            {
+                                pictureBoxLogo.BackgroundImage = new Bitmap(tempImage);
+                            }
+                        }
+                        pictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                    else
+                    {
+                        pictureBoxLogo.BackgroundImage = null;
+                    }
+
+                    dr.Close();
+                    cn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void frm_create_account_FormClosing(object sender, FormClosingEventArgs e)
