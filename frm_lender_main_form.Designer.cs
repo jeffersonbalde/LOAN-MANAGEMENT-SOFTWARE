@@ -615,7 +615,7 @@
             this.btnOrders.Name = "btnOrders";
             this.btnOrders.Size = new System.Drawing.Size(233, 49);
             this.btnOrders.TabIndex = 17;
-            this.btnOrders.Text = "  Tab2";
+            this.btnOrders.Text = "  Loan Requests";
             this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOrders.UseVisualStyleBackColor = false;
@@ -637,7 +637,7 @@
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(233, 49);
             this.btnDashboard.TabIndex = 11;
-            this.btnDashboard.Text = "  Tab1";
+            this.btnDashboard.Text = "  Dashboard";
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);

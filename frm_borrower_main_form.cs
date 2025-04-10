@@ -59,6 +59,20 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             pictureBox1.Image = animatedGif;
 
             ImageAnimator.Animate(animatedGif, OnFrameChanged);
+
+            GetDashboard();
+        }
+
+        public void GetDashboard()
+        {
+            ActivateButton(btnDashboard);
+            main_panel.Controls.Clear();
+            frm_borrower_dashboard frm = new frm_borrower_dashboard();
+            frm.lblTitle.Text = "Dashboard";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
 
         private void OnFrameChanged(object sender, EventArgs e)
@@ -334,6 +348,13 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            main_panel.Controls.Clear();
+            frm_borrower_dashboard frm = new frm_borrower_dashboard();
+            frm.lblTitle.Text = "Dashboard";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
 
         private void btnOrders_Click(object sender, EventArgs e)

@@ -63,6 +63,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap approve {
+            get {
+                object obj = ResourceManager.GetObject("approve", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cover_gif2 {
             get {
                 object obj = ResourceManager.GetObject("cover_gif2", resourceCulture);
@@ -183,6 +193,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reject {
+            get {
+                object obj = ResourceManager.GetObject("reject", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap under_development_plain {
             get {
                 object obj = ResourceManager.GetObject("under_development_plain", resourceCulture);
@@ -206,6 +226,26 @@ namespace LOAN_MANAGEMENT_SOFTWARE.Properties {
         internal static System.Drawing.Bitmap under_maintenance2 {
             get {
                 object obj = ResourceManager.GetObject("under_maintenance2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap view_details {
+            get {
+                object obj = ResourceManager.GetObject("view_details", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap view_details2 {
+            get {
+                object obj = ResourceManager.GetObject("view_details2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -238,6 +238,13 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         private void btnOrders_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            main_panel.Controls.Clear();
+            frm_lender_view_loan_request frm = new frm_lender_view_loan_request();
+            frm.lblTitle.Text = "Borrower Loan Request";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
 
         private void btnBookings_Click(object sender, EventArgs e)

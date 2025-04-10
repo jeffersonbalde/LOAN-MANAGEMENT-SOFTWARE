@@ -222,5 +222,98 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
         }
 
+        private void siticoneButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (string.IsNullOrWhiteSpace(txtLoanAmount.Text) ||
+                    string.IsNullOrWhiteSpace(txtLoanPurpose.Text))
+                {
+                    MessageBox.Show("All fields are required.\n\n" +
+                    "Please complete the form before saving.",
+                    "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (MessageBox.Show("Are you sure you want to submit your loan request?",
+                            "Confirm Loan Request",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    decimal monthly_income = decimal.Parse(txtMonthlyIncome.Text.Replace("₱", "").Replace(",", "").Trim());
+                    decimal maximum_loan = decimal.Parse(txtMaxLoanAmount.Text.Replace("₱", "").Replace(",", "").Trim());
+                    decimal requested_loan = decimal.Parse(txtLoanAmount.Text, System.Globalization.NumberStyles.AllowThousands);
+
+                    decimal amount_to_receive = decimal.Parse(lblAmountToReceive.Text.Replace("₱", "").Replace(",", "").Trim());
+                    decimal interestRate = decimal.Parse(lblInterestRate.Text.Replace("%", "").Trim()) / 100;
+                    decimal monthlyDues = decimal.Parse(lblMonthlyDues.Text.Replace("₱", "").Replace(",", "").Trim());
+
+
+                    cn.Open();
+
+                    byte[] borrowerProfileData = null;
+                    string selectQuery = "SELECT borrower_profile FROM tblBorrowerProfile WHERE id = @borrower_id";
+
+                    using (SqlCommand selectCmd = new SqlCommand(selectQuery, cn))
+                    {
+                        selectCmd.Parameters.AddWithValue("@borrower_id", txtID.Text.Trim());
+
+                        using (SqlDataReader reader = selectCmd.ExecuteReader())
+                        {
+                            if (reader.Read() && !reader.IsDBNull(0))
+                            {
+                                borrowerProfileData = (byte[])reader["borrower_profile"];
+                            }
+                            else
+                            {
+                                MessageBox.Show("Borrower profile not found.");
+                                cn.Close();
+                                return;
+                            }
+                        }
+                    }
+
+                    string insertQuery = "INSERT INTO tblLoanRequests " +
+                        "(name, address, phone_number, monthly_income, maximum_loan, loan_type, loan_term, payment_schedule, requested_loan, loan_purpose, amount_to_receive, interest_rate, monthly_dues, status, date_requested, borrower_profile) " +
+                        "VALUES (@name, @address, @phone_number, @monthly_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule, @requested_loan, @loan_purpose, @amount_to_receive, @interest_rate, @monthly_dues, @status, @date_requested, @borrower_profile)";
+
+                    using (SqlCommand insertCmd = new SqlCommand(insertQuery, cn))
+                    {
+                        insertCmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@phone_number", txtPhoneNumber.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@monthly_income", monthly_income);
+                        insertCmd.Parameters.AddWithValue("@maximum_loan", maximum_loan);
+                        insertCmd.Parameters.AddWithValue("@loan_type", cmbLoanType.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@loan_term", cmbLoanTerm.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@requested_loan", requested_loan);
+                        insertCmd.Parameters.AddWithValue("@loan_purpose", txtLoanPurpose.Text.Trim());
+                        insertCmd.Parameters.AddWithValue("@amount_to_receive", amount_to_receive);
+                        insertCmd.Parameters.AddWithValue("@interest_rate", interestRate);
+                        insertCmd.Parameters.AddWithValue("@monthly_dues", monthlyDues);
+                        insertCmd.Parameters.AddWithValue("@status", "Pending");
+                        insertCmd.Parameters.AddWithValue("@date_requested", DateTime.Now);
+                        insertCmd.Parameters.AddWithValue("@borrower_profile", borrowerProfileData);
+
+                        insertCmd.ExecuteNonQuery();
+                    }
+
+                    cn.Close();
+
+
+                    MessageBox.Show("Registration saved successfully!",
+                                    "Registration Complete",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
