@@ -274,6 +274,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     }
                 }
 
+
                 reader.Close();
 
                 frm_borrower_request_loan frm = new frm_borrower_request_loan(this);
