@@ -106,7 +106,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             try
             {
-                pictureBoxLogo.BackgroundImage = Properties.Resources.loan_business_logo;
+                pictureBoxLogo.BackgroundImage = Properties.Resources.logo;
             }
             catch (Exception ex)
             {

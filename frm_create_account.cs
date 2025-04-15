@@ -14,6 +14,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Security.Cryptography;
+using System.Text;
+
 
 namespace LOAN_MANAGEMENT_SOFTWARE
 {
@@ -112,6 +115,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             this.ActiveControl = txtFirstName;
 
             LoadBusinessLogo();
+
+            txtPhoneNumber.Text = "+63 ";
+            txtPhoneNumber.SelectionStart = txtPhoneNumber.Text.Length;
         }
 
         public void LoadBusinessLogo()
@@ -167,17 +173,19 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         }
 
         private void siticoneTextBox5_KeyPress(object sender, KeyPressEventArgs e)
-        {    
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+        {
+            Siticone.Desktop.UI.WinForms.SiticoneTextBox textBox = sender as Siticone.Desktop.UI.WinForms.SiticoneTextBox;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; 
-                MessageBox.Show("Invalid input! Only numbers are allowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                MessageBox.Show("Only numbers are allowed.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            if (txtPhoneNumber.Text.Length >= 11 && !char.IsControl(e.KeyChar))
+            if (char.IsControl(e.KeyChar) && textBox.SelectionStart <= 4 && textBox.SelectionLength == 0)
             {
-                e.Handled = true; 
-                MessageBox.Show("Phone number cannot exceed 11 digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
             }
         }
 
@@ -324,9 +332,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     return;
                 }
 
-                if (txtPhoneNumber.Text.Length != 11 || !long.TryParse(txtPhoneNumber.Text, out _))
+                string rawDigits = new string(txtPhoneNumber.Text.Where(char.IsDigit).ToArray());
+
+                if (!txtPhoneNumber.Text.StartsWith("+63 ") || rawDigits.Length != 12 || !rawDigits.StartsWith("63"))
                 {
-                    MessageBox.Show("Contact number must be an 11-digit number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Phone number must be in the format: +63 XXX XXX XXXX", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtPhoneNumber.Focus();
                     return;
                 }
@@ -384,7 +394,12 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     decimal maximumLoan = decimal.Parse(maxLoanText);
 
                     decimal amountToReceive = decimal.Parse(lblAmountToReceive.Text.Replace("₱", "").Replace(",", "").Trim());
-                    decimal interestRate = decimal.Parse(lblInterestRate.Text.Replace("%", "").Trim()) / 100;
+
+                    //decimal interestRate = decimal.Parse(lblInterestRate.Text.Replace("%", "").Trim()) / 100;
+
+                    string labelText = lblInterestRate.Text.Replace("%", "");
+                    decimal interestRate = decimal.Parse(labelText) / 100;     
+
                     decimal monthlyDues = decimal.Parse(lblMonthlyDues.Text.Replace("₱", "").Replace(",", "").Trim());
 
                     cn.Open();
@@ -399,7 +414,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         cmd.Parameters.AddWithValue("@first_name", txtFirstName.Text.Trim());
                         cmd.Parameters.AddWithValue("@last_name", txtLastName.Text.Trim());
                         cmd.Parameters.AddWithValue("@email_address", txtEmail.Text.Trim());
-                        cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+                        cmd.Parameters.AddWithValue("@password", HashPassword(txtPassword.Text.Trim()));
                         cmd.Parameters.AddWithValue("@phone_number", txtPhoneNumber.Text.Trim());
                         cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
                         cmd.Parameters.AddWithValue("@zip_code", txtZipCode.Text.Trim());
@@ -429,25 +444,44 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     frm.lblUser.Text =  txtFirstName.Text + " " + txtLastName.Text;
 
                     cn.Open();
-                    string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE email_address = @email_address AND password = @password";
+                    string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE email_address = @email_address";
                     cm = new SqlCommand(staffQuery, cn);
                     cm.Parameters.AddWithValue("@email_address", txtEmail.Text);
-                    cm.Parameters.AddWithValue("@password", txtPassword.Text);
                     dr = cm.ExecuteReader();
 
                     byte[] userImage = null;
                     int userId = 0;
+                    string storedHashedPassword = "";
 
                     if (dr.Read())
                     {
+                        storedHashedPassword = dr["password"].ToString();
+
+                        if (!VerifyPassword(txtPassword.Text.Trim(), storedHashedPassword))
+                        {
+                            MessageBox.Show("Password mismatch. Please try again.", "Authentication Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            dr.Close();
+                            cn.Close();
+                            return;
+                        }
+
                         if (dr["borrower_profile"] != DBNull.Value)
                         {
                             userImage = (byte[])dr["borrower_profile"];
                             userId = Convert.ToInt32(dr["id"]);
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Email address not found.", "Authentication Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dr.Close();
+                        cn.Close();
+                        return;
+                    }
+
                     dr.Close();
                     cn.Close();
+
 
                     if (userImage != null)
                     {
@@ -471,16 +505,24 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
         }
 
+        public static bool VerifyPassword(string inputPassword, string storedHashedPassword)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] inputBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputPassword));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in inputBytes)
+                    builder.Append(b.ToString("x2"));
+                string hashedInputPassword = builder.ToString();
+
+                return hashedInputPassword == storedHashedPassword;
+            }
+        }
+
+
         private void siticoneButton3_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    pictureBoxUserImage.BackgroundImage = Properties.Resources.default_user1;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error setting default image: " + ex.Message);
-            //}
+
         }
 
         private void siticoneButton2_Click(object sender, EventArgs e)
@@ -815,7 +857,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 decimal dues = payments > 0 ? totalPayable / payments : 0;
 
                 lblAmountToReceive.Text = $"₱{principal:N2}";
-                lblInterestRate.Text = $"{interestRate * 100}%";
+                lblInterestRate.Text = $"{(int)(interestRate * 100)}%";
                 lblMonthlyDues.Text = $"₱{dues:N2}";
             }
             else
@@ -840,5 +882,113 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             CalculateLoanSummary();
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticonePanel4_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                panel.ClientRectangle,
+                Color.FromArgb(231, 229, 251),  // Top color
+                Color.FromArgb(230, 187, 254),  // Bottom color
+                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
+            {
+                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
+            }
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("First Name should not contain numbers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Last Name should not contain numbers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool isFormatting = false;
+
+        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+            if (isFormatting) return;
+            isFormatting = true;
+
+            Siticone.Desktop.UI.WinForms.SiticoneTextBox textBox = sender as Siticone.Desktop.UI.WinForms.SiticoneTextBox;
+
+            if (textBox != null)
+            {
+                int cursorPosition = textBox.SelectionStart;
+
+                if (!textBox.Text.StartsWith("+63 "))
+                {
+                    textBox.Text = "+63 ";
+                    textBox.SelectionStart = textBox.Text.Length;
+                    isFormatting = false;
+                    return;
+                }
+
+                string digits = new string(textBox.Text.Substring(4).Where(char.IsDigit).ToArray());
+
+                if (digits.Length > 10)
+                    digits = digits.Substring(0, 10);
+
+                string formatted = "";
+                for (int i = 0; i < digits.Length; i++)
+                {
+                    formatted += digits[i];
+                    if ((i == 2 || i == 5) && i != digits.Length - 1)
+                        formatted += " ";
+                }
+
+                string newText = "+63 " + formatted;
+
+                int numSpacesBefore = textBox.Text.Take(cursorPosition).Count(c => c == ' ');
+                int newCursorPosition = cursorPosition;
+
+                textBox.Text = newText;
+
+                int numSpacesAfter = textBox.Text.Take(newCursorPosition).Count(c => c == ' ');
+
+                int spaceDiff = numSpacesAfter - numSpacesBefore;
+                newCursorPosition += spaceDiff;
+
+                if (newCursorPosition < 4) newCursorPosition = 4;
+
+                textBox.SelectionStart = newCursorPosition;
+            }
+
+            isFormatting = false;
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                    builder.Append(b.ToString("x2")); // Convert to hexadecimal
+                return builder.ToString();
+            }
+        }
+
     }
 }

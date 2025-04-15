@@ -43,22 +43,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnReports_RG = new System.Windows.Forms.Button();
-            this.btnMaintenanceRecords = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnProduct = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnDownPayment = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnPurchase = new System.Windows.Forms.Button();
-            this.btnPersonalExpense = new System.Windows.Forms.Button();
-            this.btnExpense = new System.Windows.Forms.Button();
-            this.btnCustomerInfo = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnBookings = new System.Windows.Forms.Button();
             this.btnOrders = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -66,12 +51,12 @@
             this.main_panel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnExpense = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.main_panel.SuspendLayout();
@@ -215,6 +200,7 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "   Calculator   ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.Visible = false;
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label13
@@ -233,6 +219,7 @@
             this.label13.TabIndex = 5;
             this.label13.Text = "   Logout   ";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.Visible = false;
             this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // panel2
@@ -250,21 +237,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.btnReports_RG);
-            this.panel1.Controls.Add(this.btnMaintenanceRecords);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.btnProduct);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.btnDownPayment);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btnPurchase);
-            this.panel1.Controls.Add(this.btnPersonalExpense);
             this.panel1.Controls.Add(this.btnExpense);
-            this.panel1.Controls.Add(this.btnCustomerInfo);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.btnBookings);
+            this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnOrders);
             this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -272,48 +246,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(233, 657);
             this.panel1.TabIndex = 0;
-            // 
-            // btnReports_RG
-            // 
-            this.btnReports_RG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.btnReports_RG.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReports_RG.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReports_RG.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnReports_RG.FlatAppearance.BorderSize = 0;
-            this.btnReports_RG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports_RG.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnReports_RG.ForeColor = System.Drawing.Color.Black;
-            this.btnReports_RG.Image = ((System.Drawing.Image)(resources.GetObject("btnReports_RG.Image")));
-            this.btnReports_RG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports_RG.Location = new System.Drawing.Point(0, 741);
-            this.btnReports_RG.Name = "btnReports_RG";
-            this.btnReports_RG.Size = new System.Drawing.Size(233, 49);
-            this.btnReports_RG.TabIndex = 35;
-            this.btnReports_RG.Text = "  Tab14";
-            this.btnReports_RG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports_RG.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReports_RG.UseVisualStyleBackColor = false;
-            // 
-            // btnMaintenanceRecords
-            // 
-            this.btnMaintenanceRecords.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.btnMaintenanceRecords.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaintenanceRecords.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMaintenanceRecords.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnMaintenanceRecords.FlatAppearance.BorderSize = 0;
-            this.btnMaintenanceRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintenanceRecords.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnMaintenanceRecords.ForeColor = System.Drawing.Color.Black;
-            this.btnMaintenanceRecords.Image = ((System.Drawing.Image)(resources.GetObject("btnMaintenanceRecords.Image")));
-            this.btnMaintenanceRecords.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMaintenanceRecords.Location = new System.Drawing.Point(0, 692);
-            this.btnMaintenanceRecords.Name = "btnMaintenanceRecords";
-            this.btnMaintenanceRecords.Size = new System.Drawing.Size(233, 49);
-            this.btnMaintenanceRecords.TabIndex = 34;
-            this.btnMaintenanceRecords.Text = "  Tab13";
-            this.btnMaintenanceRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMaintenanceRecords.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMaintenanceRecords.UseVisualStyleBackColor = false;
             // 
             // btnClose
             // 
@@ -335,269 +267,6 @@
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Visible = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(0, 643);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(233, 49);
-            this.button8.TabIndex = 26;
-            this.button8.Text = "  Reports";
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Visible = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 588);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(233, 55);
-            this.panel6.TabIndex = 25;
-            this.panel6.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(12, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Report";
-            // 
-            // btnProduct
-            // 
-            this.btnProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProduct.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnProduct.FlatAppearance.BorderSize = 0;
-            this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProduct.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnProduct.ForeColor = System.Drawing.Color.Black;
-            this.btnProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnProduct.Image")));
-            this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.Location = new System.Drawing.Point(0, 539);
-            this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(233, 49);
-            this.btnProduct.TabIndex = 12;
-            this.btnProduct.Text = "  Tab12";
-            this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProduct.UseVisualStyleBackColor = false;
-            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 12F);
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 490);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(233, 49);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "  Tab11";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnDownPayment
-            // 
-            this.btnDownPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.btnDownPayment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDownPayment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDownPayment.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnDownPayment.FlatAppearance.BorderSize = 0;
-            this.btnDownPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDownPayment.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnDownPayment.ForeColor = System.Drawing.Color.Black;
-            this.btnDownPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnDownPayment.Image")));
-            this.btnDownPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDownPayment.Location = new System.Drawing.Point(0, 441);
-            this.btnDownPayment.Name = "btnDownPayment";
-            this.btnDownPayment.Size = new System.Drawing.Size(233, 49);
-            this.btnDownPayment.TabIndex = 14;
-            this.btnDownPayment.Text = "  Tab10";
-            this.btnDownPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDownPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDownPayment.UseVisualStyleBackColor = false;
-            this.btnDownPayment.Visible = false;
-            this.btnDownPayment.Click += new System.EventHandler(this.btnDownPayment_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 12F);
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 392);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(233, 49);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "  Tab9";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnPurchase
-            // 
-            this.btnPurchase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.btnPurchase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPurchase.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPurchase.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnPurchase.FlatAppearance.BorderSize = 0;
-            this.btnPurchase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPurchase.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnPurchase.ForeColor = System.Drawing.Color.Black;
-            this.btnPurchase.Image = ((System.Drawing.Image)(resources.GetObject("btnPurchase.Image")));
-            this.btnPurchase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPurchase.Location = new System.Drawing.Point(0, 343);
-            this.btnPurchase.Name = "btnPurchase";
-            this.btnPurchase.Size = new System.Drawing.Size(233, 49);
-            this.btnPurchase.TabIndex = 15;
-            this.btnPurchase.Text = "  Tab8";
-            this.btnPurchase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPurchase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPurchase.UseVisualStyleBackColor = false;
-            this.btnPurchase.Click += new System.EventHandler(this.btnPurchase_Click);
-            // 
-            // btnPersonalExpense
-            // 
-            this.btnPersonalExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.btnPersonalExpense.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPersonalExpense.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPersonalExpense.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnPersonalExpense.FlatAppearance.BorderSize = 0;
-            this.btnPersonalExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPersonalExpense.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnPersonalExpense.ForeColor = System.Drawing.Color.Black;
-            this.btnPersonalExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnPersonalExpense.Image")));
-            this.btnPersonalExpense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPersonalExpense.Location = new System.Drawing.Point(0, 294);
-            this.btnPersonalExpense.Name = "btnPersonalExpense";
-            this.btnPersonalExpense.Size = new System.Drawing.Size(233, 49);
-            this.btnPersonalExpense.TabIndex = 29;
-            this.btnPersonalExpense.Text = "  Tab7";
-            this.btnPersonalExpense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPersonalExpense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPersonalExpense.UseVisualStyleBackColor = false;
-            this.btnPersonalExpense.Click += new System.EventHandler(this.btnPersonalExpense_Click);
-            // 
-            // btnExpense
-            // 
-            this.btnExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.btnExpense.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExpense.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExpense.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnExpense.FlatAppearance.BorderSize = 0;
-            this.btnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExpense.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExpense.ForeColor = System.Drawing.Color.Black;
-            this.btnExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnExpense.Image")));
-            this.btnExpense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpense.Location = new System.Drawing.Point(0, 245);
-            this.btnExpense.Name = "btnExpense";
-            this.btnExpense.Size = new System.Drawing.Size(233, 49);
-            this.btnExpense.TabIndex = 16;
-            this.btnExpense.Text = "  Tab6\r\n";
-            this.btnExpense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExpense.UseVisualStyleBackColor = false;
-            this.btnExpense.Click += new System.EventHandler(this.btnExpense_Click);
-            // 
-            // btnCustomerInfo
-            // 
-            this.btnCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.btnCustomerInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCustomerInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCustomerInfo.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnCustomerInfo.FlatAppearance.BorderSize = 0;
-            this.btnCustomerInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustomerInfo.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCustomerInfo.ForeColor = System.Drawing.Color.Black;
-            this.btnCustomerInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomerInfo.Image")));
-            this.btnCustomerInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomerInfo.Location = new System.Drawing.Point(0, 196);
-            this.btnCustomerInfo.Name = "btnCustomerInfo";
-            this.btnCustomerInfo.Size = new System.Drawing.Size(233, 49);
-            this.btnCustomerInfo.TabIndex = 30;
-            this.btnCustomerInfo.Text = "  Tab5";
-            this.btnCustomerInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomerInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCustomerInfo.UseVisualStyleBackColor = false;
-            this.btnCustomerInfo.Click += new System.EventHandler(this.btnCustomerInfo_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 147);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(233, 49);
-            this.button3.TabIndex = 33;
-            this.button3.Text = "  Tab4";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btnBookings
-            // 
-            this.btnBookings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.btnBookings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBookings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBookings.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnBookings.FlatAppearance.BorderSize = 0;
-            this.btnBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBookings.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBookings.ForeColor = System.Drawing.Color.Black;
-            this.btnBookings.Image = ((System.Drawing.Image)(resources.GetObject("btnBookings.Image")));
-            this.btnBookings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBookings.Location = new System.Drawing.Point(0, 98);
-            this.btnBookings.Name = "btnBookings";
-            this.btnBookings.Size = new System.Drawing.Size(233, 49);
-            this.btnBookings.TabIndex = 32;
-            this.btnBookings.Text = "  Tab3";
-            this.btnBookings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBookings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBookings.UseVisualStyleBackColor = false;
-            this.btnBookings.Click += new System.EventHandler(this.btnBookings_Click);
             // 
             // btnOrders
             // 
@@ -688,6 +357,28 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnExpense
+            // 
+            this.btnExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.btnExpense.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExpense.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnExpense.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnExpense.FlatAppearance.BorderSize = 0;
+            this.btnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExpense.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnExpense.ForeColor = System.Drawing.Color.Black;
+            this.btnExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnExpense.Image")));
+            this.btnExpense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExpense.Location = new System.Drawing.Point(0, 98);
+            this.btnExpense.Name = "btnExpense";
+            this.btnExpense.Size = new System.Drawing.Size(233, 49);
+            this.btnExpense.TabIndex = 32;
+            this.btnExpense.Text = "  Logout\r\n";
+            this.btnExpense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExpense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExpense.UseVisualStyleBackColor = false;
+            this.btnExpense.Click += new System.EventHandler(this.btnExpense_Click_1);
+            // 
             // frm_lender_main_form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -714,8 +405,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.main_panel.ResumeLayout(false);
@@ -739,22 +428,7 @@
         public System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.Button btnReports_RG;
-        public System.Windows.Forms.Button btnMaintenanceRecords;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Button btnProduct;
-        public System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnDownPayment;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button btnPurchase;
-        public System.Windows.Forms.Button btnPersonalExpense;
-        public System.Windows.Forms.Button btnExpense;
-        public System.Windows.Forms.Button btnCustomerInfo;
-        public System.Windows.Forms.Button button3;
-        public System.Windows.Forms.Button btnBookings;
         public System.Windows.Forms.Button btnOrders;
         public System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Panel panel3;
@@ -762,5 +436,6 @@
         private System.Windows.Forms.Panel main_panel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Button btnExpense;
     }
 }

@@ -28,31 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_create_account));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.siticonePanel4 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
             this.lblMonthlyDues = new System.Windows.Forms.Label();
             this.lblInterestRate = new System.Windows.Forms.Label();
             this.lblAmountToReceive = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.chkTermsAndConditions = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.label11 = new System.Windows.Forms.Label();
             this.siticonePanel3 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.cmbPaymentSchedule = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.cmbLoanTerm = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.cmbLoanType = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.siticoneProgressBar1 = new Siticone.Desktop.UI.WinForms.SiticoneProgressBar();
             this.label18 = new System.Windows.Forms.Label();
             this.txtMaxLoanAmount = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
@@ -62,8 +67,10 @@
             this.btnUploadProof = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.label13 = new System.Windows.Forms.Label();
             this.txtMonthlyIncome = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnShowHide = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -82,7 +89,6 @@
             this.txtEmail = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtPassword = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtAddress = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -91,20 +97,27 @@
             this.pictureBoxUserImage = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.siticonePanel4.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.siticonePanel3.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.siticonePanel2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.siticonePanel1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pictureBoxUserImagee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.pictureBoxLogo);
             this.panel1.Controls.Add(this.siticonePanel4);
             this.panel1.Controls.Add(this.chkTermsAndConditions);
@@ -125,38 +138,65 @@
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(13, -1);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(158, 51);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(158, 47);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxLogo.TabIndex = 228;
             this.pictureBoxLogo.TabStop = false;
             // 
             // siticonePanel4
             // 
-            this.siticonePanel4.BackColor = System.Drawing.Color.Transparent;
+            this.siticonePanel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.siticonePanel4.BorderColor = System.Drawing.Color.Transparent;
             this.siticonePanel4.BorderRadius = 15;
             this.siticonePanel4.BorderThickness = 1;
+            this.siticonePanel4.Controls.Add(this.panel4);
             this.siticonePanel4.Controls.Add(this.lblMonthlyDues);
             this.siticonePanel4.Controls.Add(this.lblInterestRate);
             this.siticonePanel4.Controls.Add(this.lblAmountToReceive);
             this.siticonePanel4.Controls.Add(this.label14);
             this.siticonePanel4.Controls.Add(this.label15);
             this.siticonePanel4.Controls.Add(this.label16);
-            this.siticonePanel4.Controls.Add(this.label23);
             this.siticonePanel4.Location = new System.Drawing.Point(1056, 434);
             this.siticonePanel4.Name = "siticonePanel4";
-            this.siticonePanel4.Size = new System.Drawing.Size(380, 210);
+            this.siticonePanel4.Size = new System.Drawing.Size(380, 269);
             this.siticonePanel4.TabIndex = 234;
+            this.siticonePanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.siticonePanel4_Paint);
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.label23);
+            this.panel4.Location = new System.Drawing.Point(10, 8);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(362, 45);
+            this.panel4.TabIndex = 253;
+            // 
+            // label23
+            // 
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label23.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
+            this.label23.Location = new System.Drawing.Point(0, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(358, 41);
+            this.label23.TabIndex = 122;
+            this.label23.Text = "SUMMARY";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMonthlyDues
             // 
             this.lblMonthlyDues.AutoEllipsis = true;
             this.lblMonthlyDues.BackColor = System.Drawing.Color.Transparent;
             this.lblMonthlyDues.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonthlyDues.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.lblMonthlyDues.Location = new System.Drawing.Point(187, 170);
+            this.lblMonthlyDues.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
+            this.lblMonthlyDues.Location = new System.Drawing.Point(174, 189);
             this.lblMonthlyDues.Name = "lblMonthlyDues";
             this.lblMonthlyDues.Size = new System.Drawing.Size(198, 24);
             this.lblMonthlyDues.TabIndex = 252;
@@ -168,8 +208,8 @@
             this.lblInterestRate.AutoEllipsis = true;
             this.lblInterestRate.BackColor = System.Drawing.Color.Transparent;
             this.lblInterestRate.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInterestRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.lblInterestRate.Location = new System.Drawing.Point(187, 119);
+            this.lblInterestRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
+            this.lblInterestRate.Location = new System.Drawing.Point(174, 138);
             this.lblInterestRate.Name = "lblInterestRate";
             this.lblInterestRate.Size = new System.Drawing.Size(198, 24);
             this.lblInterestRate.TabIndex = 251;
@@ -181,8 +221,8 @@
             this.lblAmountToReceive.AutoEllipsis = true;
             this.lblAmountToReceive.BackColor = System.Drawing.Color.Transparent;
             this.lblAmountToReceive.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmountToReceive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.lblAmountToReceive.Location = new System.Drawing.Point(187, 67);
+            this.lblAmountToReceive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
+            this.lblAmountToReceive.Location = new System.Drawing.Point(174, 86);
             this.lblAmountToReceive.Name = "lblAmountToReceive";
             this.lblAmountToReceive.Size = new System.Drawing.Size(198, 24);
             this.lblAmountToReceive.TabIndex = 250;
@@ -194,8 +234,8 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.label14.Location = new System.Drawing.Point(11, 174);
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(6, 193);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(147, 24);
             this.label14.TabIndex = 249;
@@ -206,8 +246,8 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.label15.Location = new System.Drawing.Point(11, 119);
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(6, 138);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(131, 48);
             this.label15.TabIndex = 247;
@@ -218,38 +258,27 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.label16.Location = new System.Drawing.Point(11, 67);
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(6, 86);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(189, 24);
             this.label16.TabIndex = 245;
             this.label16.Text = "Amount to receive:";
             // 
-            // label23
-            // 
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Arial Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
-            this.label23.Location = new System.Drawing.Point(6, 6);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(371, 33);
-            this.label23.TabIndex = 215;
-            this.label23.Text = "SUMMARY";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // chkTermsAndConditions
             // 
             this.chkTermsAndConditions.AutoSize = true;
+            this.chkTermsAndConditions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.chkTermsAndConditions.CausesValidation = false;
             this.chkTermsAndConditions.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
             this.chkTermsAndConditions.CheckedState.BorderRadius = 0;
             this.chkTermsAndConditions.CheckedState.BorderThickness = 0;
             this.chkTermsAndConditions.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
-            this.chkTermsAndConditions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.chkTermsAndConditions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
-            this.chkTermsAndConditions.Location = new System.Drawing.Point(631, 650);
+            this.chkTermsAndConditions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkTermsAndConditions.ForeColor = System.Drawing.Color.Black;
+            this.chkTermsAndConditions.Location = new System.Drawing.Point(789, 731);
             this.chkTermsAndConditions.Name = "chkTermsAndConditions";
-            this.chkTermsAndConditions.Size = new System.Drawing.Size(517, 28);
+            this.chkTermsAndConditions.Size = new System.Drawing.Size(483, 27);
             this.chkTermsAndConditions.TabIndex = 233;
             this.chkTermsAndConditions.Text = "I have read and agree to the Terms and Conditions.";
             this.chkTermsAndConditions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -257,13 +286,14 @@
             this.chkTermsAndConditions.UncheckedState.BorderRadius = 0;
             this.chkTermsAndConditions.UncheckedState.BorderThickness = 0;
             this.chkTermsAndConditions.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkTermsAndConditions.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(214, 717);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 48);
@@ -274,9 +304,9 @@
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(10, 717);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(458, 48);
@@ -288,8 +318,8 @@
             // 
             this.siticoneButton1.AnimatedGIF = true;
             this.siticoneButton1.AutoRoundedCorners = true;
-            this.siticoneButton1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneButton1.BorderRadius = 24;
+            this.siticoneButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
+            this.siticoneButton1.BorderRadius = 16;
             this.siticoneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -299,24 +329,25 @@
             this.siticoneButton1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneButton1.ForeColor = System.Drawing.Color.White;
             this.siticoneButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.siticoneButton1.Location = new System.Drawing.Point(1176, 702);
+            this.siticoneButton1.Location = new System.Drawing.Point(1173, 724);
             this.siticoneButton1.Name = "siticoneButton1";
-            this.siticoneButton1.Size = new System.Drawing.Size(260, 51);
+            this.siticoneButton1.Size = new System.Drawing.Size(263, 35);
             this.siticoneButton1.TabIndex = 216;
             this.siticoneButton1.Text = "Save and Continue";
             this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
             // label11
             // 
-            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label11.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.ForeColor = System.Drawing.Color.Wheat;
             this.label11.Location = new System.Drawing.Point(0, 718);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(1450, 47);
             this.label11.TabIndex = 227;
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // siticonePanel3
             // 
@@ -324,28 +355,54 @@
             this.siticonePanel3.BorderColor = System.Drawing.Color.Transparent;
             this.siticonePanel3.BorderRadius = 15;
             this.siticonePanel3.BorderThickness = 1;
+            this.siticonePanel3.Controls.Add(this.panel3);
             this.siticonePanel3.Controls.Add(this.label21);
             this.siticonePanel3.Controls.Add(this.cmbPaymentSchedule);
             this.siticonePanel3.Controls.Add(this.cmbLoanTerm);
             this.siticonePanel3.Controls.Add(this.label20);
             this.siticonePanel3.Controls.Add(this.cmbLoanType);
             this.siticonePanel3.Controls.Add(this.label19);
-            this.siticonePanel3.Controls.Add(this.label25);
             this.siticonePanel3.Location = new System.Drawing.Point(631, 434);
             this.siticonePanel3.Name = "siticonePanel3";
-            this.siticonePanel3.Size = new System.Drawing.Size(416, 210);
+            this.siticonePanel3.Size = new System.Drawing.Size(416, 269);
             this.siticonePanel3.TabIndex = 226;
             this.siticonePanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.siticonePanel3_Paint);
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.label22);
+            this.panel3.Location = new System.Drawing.Point(9, 8);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(399, 45);
+            this.panel3.TabIndex = 250;
+            // 
+            // label22
+            // 
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label22.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
+            this.label22.Location = new System.Drawing.Point(0, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(395, 41);
+            this.label22.TabIndex = 122;
+            this.label22.Text = "LOAN OPTIONS";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.label21.Location = new System.Drawing.Point(16, 174);
+            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(19, 197);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(192, 24);
+            this.label21.Size = new System.Drawing.Size(179, 23);
             this.label21.TabIndex = 249;
             this.label21.Text = "Payment Schedule:";
             // 
@@ -359,10 +416,10 @@
             this.cmbPaymentSchedule.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.cmbPaymentSchedule.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbPaymentSchedule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbPaymentSchedule.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.cmbPaymentSchedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.cmbPaymentSchedule.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbPaymentSchedule.ForeColor = System.Drawing.Color.Black;
             this.cmbPaymentSchedule.ItemHeight = 40;
-            this.cmbPaymentSchedule.Location = new System.Drawing.Point(189, 148);
+            this.cmbPaymentSchedule.Location = new System.Drawing.Point(192, 174);
             this.cmbPaymentSchedule.Name = "cmbPaymentSchedule";
             this.cmbPaymentSchedule.Size = new System.Drawing.Size(204, 46);
             this.cmbPaymentSchedule.TabIndex = 248;
@@ -378,10 +435,10 @@
             this.cmbLoanTerm.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.cmbLoanTerm.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbLoanTerm.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbLoanTerm.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.cmbLoanTerm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.cmbLoanTerm.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbLoanTerm.ForeColor = System.Drawing.Color.Black;
             this.cmbLoanTerm.ItemHeight = 40;
-            this.cmbLoanTerm.Location = new System.Drawing.Point(189, 96);
+            this.cmbLoanTerm.Location = new System.Drawing.Point(192, 122);
             this.cmbLoanTerm.Name = "cmbLoanTerm";
             this.cmbLoanTerm.Size = new System.Drawing.Size(204, 46);
             this.cmbLoanTerm.TabIndex = 246;
@@ -391,11 +448,11 @@
             // 
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.label20.Location = new System.Drawing.Point(16, 119);
+            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(19, 145);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(118, 24);
+            this.label20.Size = new System.Drawing.Size(109, 23);
             this.label20.TabIndex = 247;
             this.label20.Text = "Loan Term:";
             // 
@@ -409,10 +466,10 @@
             this.cmbLoanType.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.cmbLoanType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbLoanType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbLoanType.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.cmbLoanType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.cmbLoanType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.cmbLoanType.ForeColor = System.Drawing.Color.Black;
             this.cmbLoanType.ItemHeight = 40;
-            this.cmbLoanType.Location = new System.Drawing.Point(189, 44);
+            this.cmbLoanType.Location = new System.Drawing.Point(192, 70);
             this.cmbLoanType.Name = "cmbLoanType";
             this.cmbLoanType.Size = new System.Drawing.Size(204, 46);
             this.cmbLoanType.TabIndex = 244;
@@ -422,25 +479,13 @@
             // 
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.label19.Location = new System.Drawing.Point(16, 67);
+            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(19, 93);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 24);
+            this.label19.Size = new System.Drawing.Size(108, 23);
             this.label19.TabIndex = 245;
             this.label19.Text = "Loan Type:";
-            // 
-            // label25
-            // 
-            this.label25.BackColor = System.Drawing.Color.Transparent;
-            this.label25.Font = new System.Drawing.Font("Arial Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
-            this.label25.Location = new System.Drawing.Point(6, 6);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(407, 33);
-            this.label25.TabIndex = 215;
-            this.label25.Text = "🏦 Choose Your Loan Options";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // siticonePanel2
             // 
@@ -448,6 +493,7 @@
             this.siticonePanel2.BorderColor = System.Drawing.Color.Transparent;
             this.siticonePanel2.BorderRadius = 15;
             this.siticonePanel2.BorderThickness = 1;
+            this.siticonePanel2.Controls.Add(this.panel2);
             this.siticonePanel2.Controls.Add(this.siticoneProgressBar1);
             this.siticonePanel2.Controls.Add(this.label18);
             this.siticonePanel2.Controls.Add(this.txtMaxLoanAmount);
@@ -457,12 +503,37 @@
             this.siticonePanel2.Controls.Add(this.btnUploadProof);
             this.siticonePanel2.Controls.Add(this.label13);
             this.siticonePanel2.Controls.Add(this.txtMonthlyIncome);
-            this.siticonePanel2.Controls.Add(this.label22);
             this.siticonePanel2.Location = new System.Drawing.Point(631, 59);
             this.siticonePanel2.Name = "siticonePanel2";
             this.siticonePanel2.Size = new System.Drawing.Size(805, 366);
             this.siticonePanel2.TabIndex = 225;
             this.siticonePanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.siticonePanel2_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Location = new System.Drawing.Point(9, 7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(788, 45);
+            this.panel2.TabIndex = 228;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(784, 41);
+            this.label6.TabIndex = 122;
+            this.label6.Text = "FINANCIAL DETAILS AND LOAN ELIGIBILITY";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // siticoneProgressBar1
             // 
@@ -480,11 +551,11 @@
             // 
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
+            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Black;
             this.label18.Location = new System.Drawing.Point(16, 264);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(168, 24);
+            this.label18.Size = new System.Drawing.Size(157, 23);
             this.label18.TabIndex = 231;
             this.label18.Text = "Proof of Income:";
             // 
@@ -502,11 +573,11 @@
             this.txtMaxLoanAmount.Enabled = false;
             this.txtMaxLoanAmount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.txtMaxLoanAmount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaxLoanAmount.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.txtMaxLoanAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.txtMaxLoanAmount.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtMaxLoanAmount.ForeColor = System.Drawing.Color.Black;
             this.txtMaxLoanAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaxLoanAmount.Location = new System.Drawing.Point(592, 65);
-            this.txtMaxLoanAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaxLoanAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaxLoanAmount.Name = "txtMaxLoanAmount";
             this.txtMaxLoanAmount.PasswordChar = '\0';
             this.txtMaxLoanAmount.PlaceholderText = "₱0";
@@ -517,8 +588,8 @@
             // label17
             // 
             this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
+            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.Location = new System.Drawing.Point(379, 65);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(219, 48);
@@ -557,8 +628,8 @@
             this.btnUploadProof.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUploadProof.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnUploadProof.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.btnUploadProof.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.btnUploadProof.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
+            this.btnUploadProof.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUploadProof.ForeColor = System.Drawing.Color.Black;
             this.btnUploadProof.Location = new System.Drawing.Point(162, 145);
             this.btnUploadProof.Name = "btnUploadProof";
             this.btnUploadProof.Size = new System.Drawing.Size(622, 145);
@@ -571,11 +642,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(16, 85);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(167, 24);
+            this.label13.Size = new System.Drawing.Size(154, 23);
             this.label13.TabIndex = 203;
             this.label13.Text = "Monthly Income:";
             // 
@@ -592,11 +663,11 @@
             this.txtMonthlyIncome.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMonthlyIncome.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.txtMonthlyIncome.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMonthlyIncome.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.txtMonthlyIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.txtMonthlyIncome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtMonthlyIncome.ForeColor = System.Drawing.Color.Black;
             this.txtMonthlyIncome.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMonthlyIncome.Location = new System.Drawing.Point(162, 65);
-            this.txtMonthlyIncome.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMonthlyIncome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMonthlyIncome.Name = "txtMonthlyIncome";
             this.txtMonthlyIncome.PasswordChar = '\0';
             this.txtMonthlyIncome.PlaceholderText = "Monthly Income";
@@ -606,24 +677,13 @@
             this.txtMonthlyIncome.TextChanged += new System.EventHandler(this.txtMonthlyIncome_TextChanged);
             this.txtMonthlyIncome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.siticoneTextBox5_KeyPress_1);
             // 
-            // label22
-            // 
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Arial Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
-            this.label22.Location = new System.Drawing.Point(6, 6);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(807, 50);
-            this.label22.TabIndex = 215;
-            this.label22.Text = "💰 FINANCIAL DETAILS AND LOAN ELIGIBILITY";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // siticonePanel1
             // 
             this.siticonePanel1.BackColor = System.Drawing.Color.White;
             this.siticonePanel1.BorderColor = System.Drawing.Color.Transparent;
             this.siticonePanel1.BorderRadius = 15;
             this.siticonePanel1.BorderThickness = 1;
+            this.siticonePanel1.Controls.Add(this.panel8);
             this.siticonePanel1.Controls.Add(this.siticoneButton3);
             this.siticonePanel1.Controls.Add(this.siticoneButton2);
             this.siticonePanel1.Controls.Add(this.btnShowHide);
@@ -642,7 +702,6 @@
             this.siticonePanel1.Controls.Add(this.txtEmail);
             this.siticonePanel1.Controls.Add(this.label8);
             this.siticonePanel1.Controls.Add(this.txtPassword);
-            this.siticonePanel1.Controls.Add(this.label6);
             this.siticonePanel1.Controls.Add(this.label9);
             this.siticonePanel1.Controls.Add(this.txtAddress);
             this.siticonePanel1.Controls.Add(this.label10);
@@ -652,6 +711,45 @@
             this.siticonePanel1.Size = new System.Drawing.Size(609, 644);
             this.siticonePanel1.TabIndex = 224;
             this.siticonePanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.siticonePanel1_Paint);
+            // 
+            // panel8
+            // 
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.pictureBox2);
+            this.panel8.Controls.Add(this.label24);
+            this.panel8.Location = new System.Drawing.Point(8, 6);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(593, 45);
+            this.panel8.TabIndex = 180;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 41);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label24.Font = new System.Drawing.Font("Arial Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
+            this.label24.Location = new System.Drawing.Point(0, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(589, 41);
+            this.label24.TabIndex = 122;
+            this.label24.Text = "PERSONAL DETAILS";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // siticoneButton3
             // 
@@ -727,17 +825,18 @@
             this.txtPhoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPhoneNumber.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.txtPhoneNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhoneNumber.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtPhoneNumber.ForeColor = System.Drawing.Color.Black;
             this.txtPhoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPhoneNumber.Location = new System.Drawing.Point(377, 585);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.PasswordChar = '\0';
             this.txtPhoneNumber.PlaceholderText = "Phone Number";
             this.txtPhoneNumber.SelectedText = "";
             this.txtPhoneNumber.Size = new System.Drawing.Size(218, 43);
             this.txtPhoneNumber.TabIndex = 212;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
             this.txtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.siticoneTextBox5_KeyPress);
             // 
             // txtZipCode
@@ -754,11 +853,11 @@
             this.txtZipCode.Enabled = false;
             this.txtZipCode.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.txtZipCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtZipCode.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtZipCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.txtZipCode.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtZipCode.ForeColor = System.Drawing.Color.Black;
             this.txtZipCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtZipCode.Location = new System.Drawing.Point(161, 585);
-            this.txtZipCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtZipCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtZipCode.Name = "txtZipCode";
             this.txtZipCode.PasswordChar = '\0';
             this.txtZipCode.PlaceholderText = "ZIP Code";
@@ -770,19 +869,19 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(18, 281);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 24);
+            this.label4.Size = new System.Drawing.Size(112, 23);
             this.label4.TabIndex = 203;
             this.label4.Text = "First Name:";
             // 
             // label12
             // 
             this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(16, 585);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(142, 43);
@@ -802,17 +901,19 @@
             this.txtFirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFirstName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.txtFirstName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFirstName.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.txtFirstName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.ForeColor = System.Drawing.Color.Black;
             this.txtFirstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFirstName.Location = new System.Drawing.Point(162, 261);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PasswordChar = '\0';
             this.txtFirstName.PlaceholderText = "First Name";
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.Size = new System.Drawing.Size(434, 43);
             this.txtFirstName.TabIndex = 204;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFirstName_KeyPress);
             // 
             // lblEmailIcon
             // 
@@ -830,11 +931,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(18, 332);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 24);
+            this.label5.Size = new System.Drawing.Size(111, 23);
             this.label5.TabIndex = 205;
             this.label5.Text = "Last Name:";
             // 
@@ -862,17 +963,18 @@
             this.txtLastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLastName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.txtLastName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLastName.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.txtLastName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.ForeColor = System.Drawing.Color.Black;
             this.txtLastName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLastName.Location = new System.Drawing.Point(162, 312);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.PasswordChar = '\0';
             this.txtLastName.PlaceholderText = "Last Name";
             this.txtLastName.SelectedText = "";
             this.txtLastName.Size = new System.Drawing.Size(434, 43);
             this.txtLastName.TabIndex = 206;
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName_KeyPress);
             // 
             // lblLowercase
             // 
@@ -889,11 +991,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(18, 383);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 24);
+            this.label7.Size = new System.Drawing.Size(142, 23);
             this.label7.TabIndex = 207;
             this.label7.Text = "Email Address:";
             // 
@@ -921,11 +1023,11 @@
             this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmail.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.txtEmail.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.Location = new System.Drawing.Point(162, 363);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "Email Address";
@@ -938,11 +1040,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(17, 434);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 24);
+            this.label8.Size = new System.Drawing.Size(104, 23);
             this.label8.TabIndex = 209;
             this.label8.Text = "Password:";
             // 
@@ -959,11 +1061,11 @@
             this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPassword.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.txtPassword.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.Location = new System.Drawing.Point(161, 414);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.PlaceholderText = "Password";
@@ -973,27 +1075,15 @@
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Arial Black", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
-            this.label6.Location = new System.Drawing.Point(6, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(588, 50);
-            this.label6.TabIndex = 215;
-            this.label6.Text = "📝 PERSONAL DETAILS";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
-            this.label9.Location = new System.Drawing.Point(276, 595);
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(293, 597);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 24);
+            this.label9.Size = new System.Drawing.Size(88, 23);
             this.label9.TabIndex = 211;
             this.label9.Text = "Phone #:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
@@ -1011,11 +1101,11 @@
             this.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAddress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAddress.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
+            this.txtAddress.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.txtAddress.ForeColor = System.Drawing.Color.Black;
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAddress.Location = new System.Drawing.Point(160, 534);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "Address";
@@ -1028,11 +1118,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(116)))), ((int)(((byte)(167)))));
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(16, 554);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(101, 24);
+            this.label10.Size = new System.Drawing.Size(95, 23);
             this.label10.TabIndex = 213;
             this.label10.Text = "Address :";
             // 
@@ -1046,7 +1136,7 @@
             this.pictureBoxUserImagee.Controls.Add(this.pictureBox1);
             this.pictureBoxUserImagee.Controls.Add(this.pictureBoxUserImage);
             this.pictureBoxUserImagee.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxUserImagee.Location = new System.Drawing.Point(234, 64);
+            this.pictureBoxUserImagee.Location = new System.Drawing.Point(234, 74);
             this.pictureBoxUserImagee.Name = "pictureBoxUserImagee";
             this.pictureBoxUserImagee.Size = new System.Drawing.Size(191, 172);
             this.pictureBoxUserImagee.TabIndex = 227;
@@ -1078,10 +1168,10 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(85)))), ((int)(((byte)(229)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1450, 47);
@@ -1093,11 +1183,14 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frm_create_account
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1452, 765);
             this.Controls.Add(this.panel1);
@@ -1116,15 +1209,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.siticonePanel4.ResumeLayout(false);
             this.siticonePanel4.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.siticonePanel3.ResumeLayout(false);
             this.siticonePanel3.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.siticonePanel2.ResumeLayout(false);
             this.siticonePanel2.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.siticonePanel1.ResumeLayout(false);
             this.siticonePanel1.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pictureBoxUserImagee.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1135,7 +1234,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -1153,14 +1251,12 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label22;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnUploadProof;
         private System.Windows.Forms.Label lblLoanEligibility;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Label label18;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel3;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
@@ -1188,11 +1284,20 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label lblAmountToReceive;
         private System.Windows.Forms.Label lblMonthlyDues;
         private System.Windows.Forms.Label lblInterestRate;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         //private Siticone.Desktop.UI.WinForms.SiticonePictureBox pictureBoxUserImage;
     }
 }

@@ -296,5 +296,13 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             ActivateButton(sender);
         }
+
+        private void btnExpense_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            frm_landing_page frm = new frm_landing_page();
+            frm.Show();
+            this.Dispose();
+        }
     }
 }

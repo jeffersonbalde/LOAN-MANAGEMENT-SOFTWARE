@@ -74,6 +74,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -87,7 +90,20 @@
       <HintPath>packages\Siticone.Desktop.UI.2.1.1\lib\net40\Siticone.Desktop.UI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -123,6 +139,18 @@
     </Compile>
     <Compile Include="frm_borrower_management.Designer.cs">
       <DependentUpon>frm_borrower_management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_borrower_request_loan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_borrower_request_loan.Designer.cs">
+      <DependentUpon>frm_borrower_request_loan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_cancel_reason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_cancel_reason.Designer.cs">
+      <DependentUpon>frm_cancel_reason.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_check_database_path.cs">
       <SubType>Form</SubType>
@@ -172,11 +200,23 @@
     <Compile Include="frm_lender_main_form.Designer.cs">
       <DependentUpon>frm_lender_main_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_lender_view loan_request.cs">
+    <Compile Include="frm_view_borrower_informations.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_lender_view loan_request.Designer.cs">
-      <DependentUpon>frm_lender_view loan_request.cs</DependentUpon>
+    <Compile Include="frm_view_borrower_informations.Designer.cs">
+      <DependentUpon>frm_view_borrower_informations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_view_borrower_profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_view_borrower_profile.Designer.cs">
+      <DependentUpon>frm_view_borrower_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_lender_view_request.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_lender_view_request.Designer.cs">
+      <DependentUpon>frm_lender_view_request.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_owner_management.cs">
       <SubType>Form</SubType>
@@ -196,11 +236,29 @@
     <Compile Include="frm_preloader.Designer.cs">
       <DependentUpon>frm_preloader.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_rejected_reason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_rejected_reason.Designer.cs">
+      <DependentUpon>frm_rejected_reason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_request_history.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_request_history.Designer.cs">
+      <DependentUpon>frm_request_history.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_request_loan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_request_loan.Designer.cs">
       <DependentUpon>frm_request_loan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_view_request_datails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_view_request_datails.Designer.cs">
+      <DependentUpon>frm_view_request_datails.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -215,6 +273,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_borrower_management.resx">
       <DependentUpon>frm_borrower_management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_borrower_request_loan.resx">
+      <DependentUpon>frm_borrower_request_loan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_cancel_reason.resx">
+      <DependentUpon>frm_cancel_reason.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_check_database_path.resx">
       <DependentUpon>frm_check_database_path.cs</DependentUpon>
@@ -240,8 +304,14 @@
     <EmbeddedResource Include="frm_lender_main_form.resx">
       <DependentUpon>frm_lender_main_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_lender_view loan_request.resx">
-      <DependentUpon>frm_lender_view loan_request.cs</DependentUpon>
+    <EmbeddedResource Include="frm_view_borrower_informations.resx">
+      <DependentUpon>frm_view_borrower_informations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_view_borrower_profile.resx">
+      <DependentUpon>frm_view_borrower_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_lender_view_request.resx">
+      <DependentUpon>frm_lender_view_request.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_owner_management.resx">
       <DependentUpon>frm_owner_management.cs</DependentUpon>
@@ -252,8 +322,17 @@
     <EmbeddedResource Include="frm_preloader.resx">
       <DependentUpon>frm_preloader.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_rejected_reason.resx">
+      <DependentUpon>frm_rejected_reason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_request_history.resx">
+      <DependentUpon>frm_request_history.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_request_loan.resx">
       <DependentUpon>frm_request_loan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_view_request_datails.resx">
+      <DependentUpon>frm_view_request_datails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -317,6 +396,9 @@
     </Content>
     <Content Include="logo.ico" />
     <Content Include="logo_ico.ico" />
+    <None Include="Resources\borrower_information.png" />
+    <None Include="Resources\cancel_request.png" />
+    <None Include="Resources\view_request.png" />
     <None Include="Resources\view_details2.png" />
     <None Include="Resources\approve.png" />
     <None Include="Resources\view_details.png" />

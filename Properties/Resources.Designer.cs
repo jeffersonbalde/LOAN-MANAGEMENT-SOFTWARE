@@ -73,6 +73,26 @@ namespace LOAN_MANAGEMENT_SOFTWARE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap borrower_information {
+            get {
+                object obj = ResourceManager.GetObject("borrower_information", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel_request {
+            get {
+                object obj = ResourceManager.GetObject("cancel_request", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cover_gif2 {
             get {
                 object obj = ResourceManager.GetObject("cover_gif2", resourceCulture);
@@ -246,6 +266,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE.Properties {
         internal static System.Drawing.Bitmap view_details2 {
             get {
                 object obj = ResourceManager.GetObject("view_details2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap view_request {
+            get {
+                object obj = ResourceManager.GetObject("view_request", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

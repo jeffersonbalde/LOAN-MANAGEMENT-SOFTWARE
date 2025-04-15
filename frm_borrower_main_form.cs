@@ -359,27 +359,28 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
+            //ActivateButton(sender);
+            //main_panel.Controls.Clear();
+            //frm_request_loan frm = new frm_request_loan();
+            //frm.txtID.Text = txtID.Text;
+            //frm.lblTitle.Text = "Request Loan";
+            //frm.TopLevel = false;
+            //main_panel.Controls.Add(frm);
+            //frm.BringToFront();
+            //frm.Show();
+        }
+
+        private void btnBookings_Click(object sender, EventArgs e)
+        {
             ActivateButton(sender);
             main_panel.Controls.Clear();
-            frm_request_loan frm = new frm_request_loan();
+            frm_request_history frm = new frm_request_history();
             frm.txtID.Text = txtID.Text;
             frm.lblTitle.Text = "Request Loan";
             frm.TopLevel = false;
             main_panel.Controls.Add(frm);
             frm.BringToFront();
             frm.Show();
-        }
-
-        private void btnBookings_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            //main_panel.Controls.Clear();
-            //frm_payment_scheduling frm = new frm_payment_scheduling();
-            //frm.lblTitle.Text = "Payment Scheduling";
-            //frm.TopLevel = false;
-            //main_panel.Controls.Add(frm);
-            //frm.BringToFront();
-            //frm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -394,7 +395,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void btnExpense_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            this.Hide();
+            frm_landing_page frm = new frm_landing_page();
+            frm.Show();
+            this.Dispose(); ActivateButton(sender);
         }
 
         private void btnPersonalExpense_Click(object sender, EventArgs e)
@@ -410,6 +414,19 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         private void button1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+        }
+
+        private void btnOrders_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            main_panel.Controls.Clear();
+            frm_request_history frm = new frm_request_history();
+            frm.txtID.Text = txtID.Text;
+            frm.lblTitle.Text = "Request Loan";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
     }
 }

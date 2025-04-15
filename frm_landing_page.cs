@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using BCrypt.Net;
+using System.Security.Cryptography;
 
 namespace LOAN_MANAGEMENT_SOFTWARE
 {
@@ -45,7 +47,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             CenterPanel();
 
-            LoadBusinessLogo();
+            //LoadBusinessLogo();
 
             //animatedGif = Properties.Resources.cover_gif2;
             //pictureBox1.Image = animatedGif;
@@ -214,7 +216,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 cn.Close();
 
                 cn.Open();
-                string ownerQuery = "SELECT id, owner_image, username FROM tblOwnerAccount WHERE username = @email AND password = @password";
+                string ownerQuery = "SELECT id, owner_image, username, password FROM tblOwnerAccount WHERE username = @email AND password = @password";
                 cm = new SqlCommand(ownerQuery, cn);
                 cm.Parameters.AddWithValue("@email", email);
                 cm.Parameters.AddWithValue("@password", password);
@@ -222,13 +224,17 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 if (dr.Read())
                 {
-                    userFound = true;
-                    isOwner = true;
-                    user_name = pro;
-                    if (dr["owner_image"] != DBNull.Value)
-                    {
-                        userImage = (byte[])dr["owner_image"];
-                    }
+                    //string storedHashedPassword = dr["password"].ToString();
+                    //if (VerifyPassword(password, storedHashedPassword))
+                    //{
+                        userFound = true;
+                        isOwner = true;
+                        user_name = pro;
+                        if (dr["owner_image"] != DBNull.Value)
+                        {
+                            userImage = (byte[])dr["owner_image"];
+                        }
+                    //}
                 }
                 dr.Close();
                 cn.Close();
@@ -237,21 +243,24 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 if (!userFound)
                 {
                     cn.Open();
-                    string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE email_address = @email AND password = @password";
+                    string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE email_address = @email";
                     cm = new SqlCommand(staffQuery, cn);
                     cm.Parameters.AddWithValue("@email", email);
-                    cm.Parameters.AddWithValue("@password", password);
                     dr = cm.ExecuteReader();
 
                     if (dr.Read())
                     {
-                        userFound = true;
-                        userId = Convert.ToInt32(dr["id"]);
-                        first_name = dr["first_name"].ToString();
-                        last_name = dr["last_name"].ToString();
-                        if (dr["borrower_profile"] != DBNull.Value)
+                        string storedHashedPassword = dr["password"].ToString();
+                        if (VerifyPassword(password, storedHashedPassword))
                         {
-                            userImage = (byte[])dr["borrower_profile"];
+                            userFound = true;
+                            userId = Convert.ToInt32(dr["id"]);
+                            first_name = dr["first_name"].ToString();
+                            last_name = dr["last_name"].ToString();
+                            if (dr["borrower_profile"] != DBNull.Value)
+                            {
+                                userImage = (byte[])dr["borrower_profile"];
+                            }
                         }
                     }
                     dr.Close();
@@ -337,6 +346,20 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             //{
             //    e.Graphics.DrawImage(transparentLogo, new Rectangle(0, 0, panel2.Width, panel2.Height));
             //}
+        }
+
+        public static bool VerifyPassword(string inputPassword, string storedHashedPassword)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] inputBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputPassword));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in inputBytes)
+                    builder.Append(b.ToString("x2"));
+                string hashedInputPassword = builder.ToString();
+
+                return hashedInputPassword == storedHashedPassword;
+            }
         }
     }
 }

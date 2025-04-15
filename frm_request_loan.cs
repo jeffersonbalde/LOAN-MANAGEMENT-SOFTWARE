@@ -275,8 +275,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     }
 
                     string insertQuery = "INSERT INTO tblLoanRequests " +
-                        "(name, address, phone_number, monthly_income, maximum_loan, loan_type, loan_term, payment_schedule, requested_loan, loan_purpose, amount_to_receive, interest_rate, monthly_dues, status, date_requested, borrower_profile) " +
-                        "VALUES (@name, @address, @phone_number, @monthly_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule, @requested_loan, @loan_purpose, @amount_to_receive, @interest_rate, @monthly_dues, @status, @date_requested, @borrower_profile)";
+                        "(name, address, phone_number, monthly_income, maximum_loan, loan_type, loan_term, payment_schedule, requested_loan, loan_purpose, amount_to_receive, interest_rate, monthly_dues, status, date_requested, borrower_profile, loan_status, borrower_id) " +
+                        "VALUES (@name, @address, @phone_number, @monthly_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule, @requested_loan, @loan_purpose, @amount_to_receive, @interest_rate, @monthly_dues, @status, @date_requested, @borrower_profile, @loan_status, @borrower_id)";
 
                     using (SqlCommand insertCmd = new SqlCommand(insertQuery, cn))
                     {
@@ -296,6 +296,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         insertCmd.Parameters.AddWithValue("@status", "Pending");
                         insertCmd.Parameters.AddWithValue("@date_requested", DateTime.Now);
                         insertCmd.Parameters.AddWithValue("@borrower_profile", borrowerProfileData);
+                        insertCmd.Parameters.AddWithValue("@loan_status", "Pending");                                                                                                                                                                                                                                                                                                      
+                        insertCmd.Parameters.AddWithValue("@borrower_id", txtID.Text);                                                                                                                                                                                                                                                                                                      
 
                         insertCmd.ExecuteNonQuery();
                     }
@@ -314,6 +316,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 cn.Close();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtLoanAmount_TabStopChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
