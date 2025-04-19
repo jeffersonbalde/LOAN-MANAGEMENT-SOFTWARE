@@ -47,14 +47,12 @@
             this.txtPaymentSchedule = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtLoanTerm = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtLoanType = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtLoanAmount = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtDateCancelled = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -80,7 +78,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.lblAmountToReceive = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.lblDues = new System.Windows.Forms.Label();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -327,7 +325,7 @@
             // 
             // label13
             // 
-            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.BackColor = System.Drawing.Color.White;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
@@ -348,13 +346,11 @@
             this.panel2.Controls.Add(this.txtPaymentSchedule);
             this.panel2.Controls.Add(this.txtLoanTerm);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txtLoanType);
             this.panel2.Controls.Add(this.txtLoanAmount);
             this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label20);
-            this.panel2.Controls.Add(this.label19);
             this.panel2.Location = new System.Drawing.Point(12, 351);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(628, 395);
@@ -377,14 +373,14 @@
             this.txtReasonForLoan.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.txtReasonForLoan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(136)))), ((int)(((byte)(232)))));
             this.txtReasonForLoan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtReasonForLoan.Location = new System.Drawing.Point(198, 274);
+            this.txtReasonForLoan.Location = new System.Drawing.Point(198, 220);
             this.txtReasonForLoan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtReasonForLoan.Multiline = true;
             this.txtReasonForLoan.Name = "txtReasonForLoan";
             this.txtReasonForLoan.PasswordChar = '\0';
             this.txtReasonForLoan.PlaceholderText = "";
             this.txtReasonForLoan.SelectedText = "";
-            this.txtReasonForLoan.Size = new System.Drawing.Size(414, 104);
+            this.txtReasonForLoan.Size = new System.Drawing.Size(414, 158);
             this.txtReasonForLoan.TabIndex = 271;
             // 
             // txtPaymentSchedule
@@ -404,7 +400,7 @@
             this.txtPaymentSchedule.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPaymentSchedule.ForeColor = System.Drawing.Color.Black;
             this.txtPaymentSchedule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPaymentSchedule.Location = new System.Drawing.Point(198, 220);
+            this.txtPaymentSchedule.Location = new System.Drawing.Point(198, 166);
             this.txtPaymentSchedule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPaymentSchedule.Name = "txtPaymentSchedule";
             this.txtPaymentSchedule.PasswordChar = '\0';
@@ -430,7 +426,7 @@
             this.txtLoanTerm.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLoanTerm.ForeColor = System.Drawing.Color.Black;
             this.txtLoanTerm.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLoanTerm.Location = new System.Drawing.Point(198, 166);
+            this.txtLoanTerm.Location = new System.Drawing.Point(198, 112);
             this.txtLoanTerm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLoanTerm.Name = "txtLoanTerm";
             this.txtLoanTerm.PasswordChar = '\0';
@@ -450,32 +446,6 @@
             this.label7.Size = new System.Drawing.Size(162, 23);
             this.label7.TabIndex = 272;
             this.label7.Text = "Reason for Loan:";
-            // 
-            // txtLoanType
-            // 
-            this.txtLoanType.AutoRoundedCorners = true;
-            this.txtLoanType.BackColor = System.Drawing.Color.Transparent;
-            this.txtLoanType.BorderRadius = 22;
-            this.txtLoanType.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtLoanType.DefaultText = "";
-            this.txtLoanType.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtLoanType.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.txtLoanType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLoanType.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLoanType.Enabled = false;
-            this.txtLoanType.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.txtLoanType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLoanType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLoanType.ForeColor = System.Drawing.Color.Black;
-            this.txtLoanType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLoanType.Location = new System.Drawing.Point(198, 112);
-            this.txtLoanType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtLoanType.Name = "txtLoanType";
-            this.txtLoanType.PasswordChar = '\0';
-            this.txtLoanType.PlaceholderText = "";
-            this.txtLoanType.SelectedText = "";
-            this.txtLoanType.Size = new System.Drawing.Size(414, 46);
-            this.txtLoanType.TabIndex = 273;
             // 
             // txtLoanAmount
             // 
@@ -509,7 +479,7 @@
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Font = new System.Drawing.Font("Arial", 12F);
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(10, 244);
+            this.label21.Location = new System.Drawing.Point(10, 190);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(179, 23);
             this.label21.TabIndex = 255;
@@ -541,7 +511,7 @@
             // 
             // label10
             // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
@@ -558,23 +528,11 @@
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Arial", 12F);
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(12, 189);
+            this.label20.Location = new System.Drawing.Point(12, 135);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(109, 23);
             this.label20.TabIndex = 253;
             this.label20.Text = "Loan Term:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F);
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(10, 135);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(108, 23);
-            this.label19.TabIndex = 251;
-            this.label19.Text = "Loan Type:";
             // 
             // panel4
             // 
@@ -883,7 +841,7 @@
             // 
             // label11
             // 
-            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
@@ -906,7 +864,7 @@
             this.panel6.Controls.Add(this.label26);
             this.panel6.Controls.Add(this.lblAmountToReceive);
             this.panel6.Controls.Add(this.label27);
-            this.panel6.Controls.Add(this.label25);
+            this.panel6.Controls.Add(this.lblDues);
             this.panel6.Location = new System.Drawing.Point(647, 504);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(598, 200);
@@ -917,11 +875,11 @@
             // 
             this.lblMonthlyDues.AutoEllipsis = true;
             this.lblMonthlyDues.BackColor = System.Drawing.Color.Transparent;
-            this.lblMonthlyDues.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonthlyDues.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold);
             this.lblMonthlyDues.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
-            this.lblMonthlyDues.Location = new System.Drawing.Point(209, 162);
+            this.lblMonthlyDues.Location = new System.Drawing.Point(311, 155);
             this.lblMonthlyDues.Name = "lblMonthlyDues";
-            this.lblMonthlyDues.Size = new System.Drawing.Size(376, 24);
+            this.lblMonthlyDues.Size = new System.Drawing.Size(272, 36);
             this.lblMonthlyDues.TabIndex = 274;
             this.lblMonthlyDues.Text = "₱0.00";
             this.lblMonthlyDues.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -940,7 +898,7 @@
             // 
             // label22
             // 
-            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.BackColor = System.Drawing.Color.White;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(83)))), ((int)(((byte)(229)))));
@@ -955,11 +913,11 @@
             // 
             this.lblInterestRate.AutoEllipsis = true;
             this.lblInterestRate.BackColor = System.Drawing.Color.Transparent;
-            this.lblInterestRate.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInterestRate.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold);
             this.lblInterestRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
-            this.lblInterestRate.Location = new System.Drawing.Point(209, 111);
+            this.lblInterestRate.Location = new System.Drawing.Point(312, 104);
             this.lblInterestRate.Name = "lblInterestRate";
-            this.lblInterestRate.Size = new System.Drawing.Size(376, 24);
+            this.lblInterestRate.Size = new System.Drawing.Size(273, 36);
             this.lblInterestRate.TabIndex = 273;
             this.lblInterestRate.Text = "0%";
             this.lblInterestRate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -968,23 +926,23 @@
             // 
             this.label26.AutoSize = true;
             this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold);
             this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(12, 106);
+            this.label26.Location = new System.Drawing.Point(11, 109);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(131, 48);
+            this.label26.Size = new System.Drawing.Size(195, 33);
             this.label26.TabIndex = 270;
-            this.label26.Text = "Interest Rate\r\n(annually):";
+            this.label26.Text = "Interest Rate:";
             // 
             // lblAmountToReceive
             // 
             this.lblAmountToReceive.AutoEllipsis = true;
             this.lblAmountToReceive.BackColor = System.Drawing.Color.Transparent;
-            this.lblAmountToReceive.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountToReceive.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold);
             this.lblAmountToReceive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
-            this.lblAmountToReceive.Location = new System.Drawing.Point(203, 59);
+            this.lblAmountToReceive.Location = new System.Drawing.Point(305, 52);
             this.lblAmountToReceive.Name = "lblAmountToReceive";
-            this.lblAmountToReceive.Size = new System.Drawing.Size(382, 24);
+            this.lblAmountToReceive.Size = new System.Drawing.Size(274, 36);
             this.lblAmountToReceive.TabIndex = 272;
             this.lblAmountToReceive.Text = "₱0.00";
             this.lblAmountToReceive.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -993,32 +951,32 @@
             // 
             this.label27.AutoSize = true;
             this.label27.BackColor = System.Drawing.Color.Transparent;
-            this.label27.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold);
             this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(13, 61);
+            this.label27.Location = new System.Drawing.Point(11, 57);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(189, 24);
+            this.label27.Size = new System.Drawing.Size(270, 33);
             this.label27.TabIndex = 269;
             this.label27.Text = "Amount to receive:";
             // 
-            // label25
+            // lblDues
             // 
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.Transparent;
-            this.label25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(10, 164);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(147, 24);
-            this.label25.TabIndex = 271;
-            this.label25.Text = "Monthly Dues:";
+            this.lblDues.AutoSize = true;
+            this.lblDues.BackColor = System.Drawing.Color.Transparent;
+            this.lblDues.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lblDues.ForeColor = System.Drawing.Color.Black;
+            this.lblDues.Location = new System.Drawing.Point(11, 158);
+            this.lblDues.Name = "lblDues";
+            this.lblDues.Size = new System.Drawing.Size(210, 33);
+            this.lblDues.TabIndex = 271;
+            this.lblDues.Text = "Monthly Dues:";
             // 
             // siticoneButton2
             // 
             this.siticoneButton2.AnimatedGIF = true;
             this.siticoneButton2.AutoRoundedCorners = true;
             this.siticoneButton2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(50)))), ((int)(((byte)(0)))));
+            this.siticoneButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.siticoneButton2.BorderRadius = 17;
             this.siticoneButton2.BorderThickness = 2;
             this.siticoneButton2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1026,7 +984,7 @@
             this.siticoneButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(50)))), ((int)(((byte)(0)))));
+            this.siticoneButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.siticoneButton2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneButton2.ForeColor = System.Drawing.Color.White;
             this.siticoneButton2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1040,7 +998,7 @@
             // frm_view_request_datails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(140)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(1260, 759);
             this.Controls.Add(this.siticoneButton2);
             this.Controls.Add(this.panel6);
@@ -1091,7 +1049,6 @@
         private System.Windows.Forms.Panel panel2;
         public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPaymentSchedule;
         public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtLoanTerm;
-        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtLoanType;
         private System.Windows.Forms.Label label7;
         public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtLoanAmount;
         private System.Windows.Forms.Label label6;
@@ -1099,7 +1056,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel4;
         public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtRequestNumber;
         private System.Windows.Forms.Label label15;
@@ -1118,7 +1074,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label25;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
         public System.Windows.Forms.Label lblMonthlyDues;
         public System.Windows.Forms.Label lblInterestRate;
@@ -1128,5 +1083,6 @@
         public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtCancelReason;
         public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtDateCancelled;
         private System.Windows.Forms.Label label16;
+        public System.Windows.Forms.Label lblDues;
     }
 }

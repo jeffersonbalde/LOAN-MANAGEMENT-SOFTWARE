@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -42,20 +43,18 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             cmbRequestStatus.Items.Add("Cancelled");
             cmbRequestStatus.SelectedIndex = 0;
 
-            cmbLoanType.Items.Clear();
-            cmbLoanType.Items.Add("All");
-            cmbLoanType.Items.Add("Housing Loan");
-            cmbLoanType.Items.Add("Business Loan");
-            cmbLoanType.Items.Add("Personal Loan");
-            cmbLoanType.SelectedIndex = 0;
-
             cmbLoanTerm.Items.Clear();
             cmbLoanTerm.Items.Add("All");
-            cmbLoanTerm.Items.Add("6 Months");
-            cmbLoanTerm.Items.Add("12 Months");
-            cmbLoanTerm.Items.Add("24 Months");
-            cmbLoanTerm.Items.Add("36 Months");
+            cmbLoanTerm.Items.Add("Short Term (6 Months)");
+            cmbLoanTerm.Items.Add("Long Term (1 Year)");
             cmbLoanTerm.SelectedIndex = 0;
+
+            cmbPaymentSchedule.Items.Clear();
+            cmbPaymentSchedule.Items.Add("All");
+            cmbPaymentSchedule.Items.Add("Daily");
+            cmbPaymentSchedule.Items.Add("Weekly");
+            cmbPaymentSchedule.Items.Add("Monthly");
+            cmbPaymentSchedule.SelectedIndex = 0;
 
             LoadRequest();
             GetTotalLoanRequest();
@@ -91,14 +90,14 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     query += " AND status LIKE @status";
                 }
 
-                if (cmbLoanType.SelectedIndex != -1 && cmbLoanType.Text != "All")
-                {
-                    query += " AND loan_type LIKE @loan_type";
-                }
-
                 if (cmbLoanTerm.SelectedIndex != -1 && cmbLoanTerm.Text != "All")
                 {
                     query += " AND loan_term LIKE @loan_term";
+                }
+
+                if (cmbPaymentSchedule.SelectedIndex != -1 && cmbPaymentSchedule.Text != "All")
+                {
+                    query += " AND payment_schedule LIKE @payment_schedule";
                 }
 
                 if (dtFrom.Checked && dtTo.Checked)
@@ -128,14 +127,14 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                             cm.Parameters.AddWithValue("@status", cmbRequestStatus.SelectedItem.ToString() + "%");
                         }
 
-                        if (cmbLoanType.SelectedIndex != -1 && cmbLoanType.Text != "All")
-                        {
-                            cm.Parameters.AddWithValue("@loan_type", cmbLoanType.SelectedItem.ToString() + "%");
-                        }
-
                         if (cmbLoanTerm.SelectedIndex != -1 && cmbLoanTerm.Text != "All")
                         {
                             cm.Parameters.AddWithValue("@loan_term", cmbLoanTerm.SelectedItem.ToString() + "%");
+                        }
+
+                        if (cmbPaymentSchedule.SelectedIndex != -1 && cmbPaymentSchedule.Text != "All")
+                        {
+                            cm.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.SelectedItem.ToString() + "%");
                         }
 
                         if (dtFrom.Checked)
@@ -175,8 +174,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                     requested_loan,
                                     dr["status"].ToString(),
                                     dr["loan_status"].ToString(),
-                                    dr["loan_type"].ToString(),
                                     dr["loan_term"].ToString(),
+                                    dr["payment_schedule"].ToString(),
                                     dr["id"].ToString(),
                                     dr["borrower_id"].ToString()
                                 );
@@ -323,7 +322,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                         frm.txtLoanAmount.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["requested_loan"]));
 
-                        frm.txtLoanType.Text = dr["loan_type"].ToString();
                         frm.txtLoanTerm.Text = dr["loan_term"].ToString();
                         frm.txtPaymentSchedule.Text = dr["payment_schedule"].ToString();
 
@@ -349,8 +347,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                         frm.lblAmountToReceive.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["amount_to_receive"]));
 
-                        decimal interestRate = dr["interest_rate"] != DBNull.Value ? Convert.ToDecimal(dr["interest_rate"]) : 0;
-                        frm.lblInterestRate.Text = $"{(int)(interestRate * 100)}%";
+                        //decimal interestRate = dr["interest_rate"] != DBNull.Value ? Convert.ToDecimal(dr["interest_rate"]) : 0;
+                        //frm.lblInterestRate.Text = $"{(int)(interestRate * 100)}%";
 
                         frm.lblMonthlyDues.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["monthly_dues"]));
 
@@ -362,7 +360,33 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                         frm.txtDateCancelled.Text = date_cancelled;
 
+
+                        string loanTerm = dr["loan_term"].ToString();
+                        string paymentSchedule = dr["payment_schedule"].ToString();
+
+                        if (loanTerm == "Short Term (6 Months)")
+                        {
+                            frm.lblInterestRate.Text = "5% (monthly)";
+                        }
+                        else if (loanTerm == "Long Term (1 Year)")
+                        {
+                            frm.lblInterestRate.Text = "10% (annually)";
+                        }
+
+                        if (paymentSchedule == "Daily")
+                        {
+                            frm.lblDues.Text = "Daily Dues: ";
+                        }
+                        else if (paymentSchedule == "Weekly")
+                        {
+                            frm.lblDues.Text = "Weekly Dues: ";
+                        }
+                        else if (paymentSchedule == "Monthly")
+                        {
+                            frm.lblDues.Text = "Monthly Dues: ";
+                        }
                     }
+
                     dr.Close();
                     cn.Close();
 
@@ -464,12 +488,12 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             GetTotalLoanRequest();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private async void button7_Click(object sender, EventArgs e)
         {
-            LoadRequest();
+            await SafeLoadRequestAsync();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             dtFrom.Value = DateTime.Now;
             dtTo.Value = DateTime.Now;
@@ -477,11 +501,61 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             dtFrom.Checked = false;
             dtTo.Checked = false;
 
-            cmbRequestStatus.SelectedIndex = -1;
-            cmbLoanType.SelectedIndex = -1;
-            cmbLoanTerm.SelectedIndex = -1;
+            cmbRequestStatus.SelectedIndex = 0;
+            cmbLoanTerm.SelectedIndex = 0;
+            cmbPaymentSchedule.SelectedIndex = 0;
 
+            await SafeLoadRequestAsync();
+        }
+
+        private async Task SafeLoadRequestAsync()
+        {
+            try
+            {
+
+                button1.Enabled = false;
+                button7.Enabled = false;
+
+                Cursor.Current = Cursors.WaitCursor;
+
+                await Task.Delay(100);
+
+                LoadRequest();
+            }
+            finally
+            {
+                button1.Enabled = true;
+                button7.Enabled = true;
+                Cursor.Current = Cursors.Default;
+            }
+        }
+
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                panel.ClientRectangle,
+                //Color.FromArgb(231, 229, 251),  // Top color
+                //Color.FromArgb(230, 187, 254),  // Bottom color
+
+                Color.FromArgb(196, 75, 128),  // Top color
+                Color.FromArgb(103, 71, 219),  // Bottom color
+                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
+            {
+                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
+            }
+        }
+
+        private void cmbPaymentSchedule_SelectedIndexChanged(object sender, EventArgs e)
+        {
             LoadRequest();
+            GetTotalLoanRequest();
+        }
+
+        private void lblTotalTransactions_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

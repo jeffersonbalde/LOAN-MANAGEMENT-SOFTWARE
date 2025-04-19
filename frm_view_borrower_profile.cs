@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -468,7 +469,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                         frm.txtLoanAmount.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["requested_loan"]));
 
-                        frm.txtLoanType.Text = dr["loan_type"].ToString();
                         frm.txtLoanTerm.Text = dr["loan_term"].ToString();
                         frm.txtPaymentSchedule.Text = dr["payment_schedule"].ToString();
 
@@ -613,6 +613,22 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         private void button7_Click(object sender, EventArgs e)
         {
             LoadRequest();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                panel.ClientRectangle,
+                //Color.FromArgb(231, 229, 251),  // Top color
+                //Color.FromArgb(230, 187, 254),  // Bottom color
+
+                Color.FromArgb(196, 75, 128),  // Top color
+                Color.FromArgb(103, 71, 219),  // Bottom color
+                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
+            {
+                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
+            }
         }
     }
 }

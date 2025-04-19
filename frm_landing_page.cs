@@ -243,9 +243,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 if (!userFound)
                 {
                     cn.Open();
-                    string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE email_address = @email";
+                    string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE username = @usernmae";
                     cm = new SqlCommand(staffQuery, cn);
-                    cm.Parameters.AddWithValue("@email", email);
+                    cm.Parameters.AddWithValue("@usernmae", email);
                     dr = cm.ExecuteReader();
 
                     if (dr.Read())
@@ -269,7 +269,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 if (!userFound)
                 {
-                    MessageBox.Show("Invalid email or password. Please try again.",
+                    MessageBox.Show("Invalid username or password. Please try again.",
                                     "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
                     return;
@@ -287,8 +287,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 }
 
                 
-                MessageBox.Show("You have successfully logged in.",  
-                                "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("You have successfully logged in.",  
+                //                "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 if (isOwner)

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props" Condition="Exists('packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props')" />
+  <Import Project="packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props" Condition="Exists('packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -32,6 +34,8 @@
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -86,6 +90,9 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="PdfiumViewer, Version=2.13.0.0, Culture=neutral, PublicKeyToken=91e4789cfb0609e0, processorArchitecture=MSIL">
+      <HintPath>packages\PdfiumViewer.2.13.0.0\lib\net20\PdfiumViewer.dll</HintPath>
+    </Reference>
     <Reference Include="Siticone.Desktop.UI, Version=2.1.1.0, Culture=neutral, PublicKeyToken=9683591576b7f0b4, processorArchitecture=MSIL">
       <HintPath>packages\Siticone.Desktop.UI.2.1.1\lib\net40\Siticone.Desktop.UI.dll</HintPath>
     </Reference>
@@ -139,6 +146,18 @@
     </Compile>
     <Compile Include="frm_borrower_management.Designer.cs">
       <DependentUpon>frm_borrower_management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_borrower_add_payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_borrower_add_payment.Designer.cs">
+      <DependentUpon>frm_borrower_add_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_borrower_payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_borrower_payment.Designer.cs">
+      <DependentUpon>frm_borrower_payment.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_borrower_request_loan.cs">
       <SubType>Form</SubType>
@@ -274,6 +293,12 @@
     <EmbeddedResource Include="frm_borrower_management.resx">
       <DependentUpon>frm_borrower_management.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_borrower_add_payment.resx">
+      <DependentUpon>frm_borrower_add_payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_borrower_payment.resx">
+      <DependentUpon>frm_borrower_payment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_borrower_request_loan.resx">
       <DependentUpon>frm_borrower_request_loan.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,6 +421,7 @@
     </Content>
     <Content Include="logo.ico" />
     <Content Include="logo_ico.ico" />
+    <None Include="Resources\default_file_2.png" />
     <None Include="Resources\borrower_information.png" />
     <None Include="Resources\cancel_request.png" />
     <None Include="Resources\view_request.png" />
@@ -429,4 +455,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props'))" />
+    <Error Condition="!Exists('packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props'))" />
+  </Target>
 </Project>

@@ -106,7 +106,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(458, 45);
             this.label6.TabIndex = 169;
-            this.label6.Text = "Password";
+            this.label6.Text = "Password:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
@@ -118,7 +118,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(458, 45);
             this.label5.TabIndex = 168;
-            this.label5.Text = "Email address";
+            this.label5.Text = "Username:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
@@ -263,9 +263,11 @@
             // frm_landing_page
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(25)))), ((int)(((byte)(133)))));
-            this.ClientSize = new System.Drawing.Size(1025, 716);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1019, 716);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_landing_page";
             this.ShowIcon = false;

@@ -62,7 +62,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
-                    previousBtn.BackColor = Color.FromArgb(239, 251, 255);
+                    //previousBtn.BackColor = Color.FromArgb(239, 251, 255);
+                    previousBtn.BackColor = Color.FromArgb(225, 188, 255);
                 }
             }
         }
@@ -240,7 +241,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             ActivateButton(sender);
             main_panel.Controls.Clear();
             frm_lender_view_loan_request frm = new frm_lender_view_loan_request();
-            frm.lblTitle.Text = "Borrower Loan Request";
+            frm.lblTitle.Text = "BORROWER LOAN APPLICATION";
             frm.TopLevel = false;
             main_panel.Controls.Add(frm);
             frm.BringToFront();

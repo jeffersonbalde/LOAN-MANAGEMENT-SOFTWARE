@@ -41,6 +41,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnExpense = new System.Windows.Forms.Button();
+            this.btnDownPayment = new System.Windows.Forms.Button();
+            this.btnOrders = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblUser = new System.Windows.Forms.Label();
@@ -52,7 +54,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblBusinessName = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.btnOrders = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -65,7 +66,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(130)))), ((int)(((byte)(155)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.label13);
@@ -153,7 +154,7 @@
             // lblDateTime
             // 
             this.lblDateTime.AutoEllipsis = true;
-            this.lblDateTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblDateTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.lblDateTime.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblDateTime.Font = new System.Drawing.Font("Arial Black", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.White;
@@ -178,9 +179,10 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnExpense);
+            this.panel1.Controls.Add(this.btnDownPayment);
             this.panel1.Controls.Add(this.btnOrders);
             this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -212,7 +214,7 @@
             // 
             // btnExpense
             // 
-            this.btnExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
+            this.btnExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
             this.btnExpense.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExpense.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnExpense.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
@@ -222,7 +224,7 @@
             this.btnExpense.ForeColor = System.Drawing.Color.Black;
             this.btnExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnExpense.Image")));
             this.btnExpense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpense.Location = new System.Drawing.Point(0, 98);
+            this.btnExpense.Location = new System.Drawing.Point(0, 147);
             this.btnExpense.Name = "btnExpense";
             this.btnExpense.Size = new System.Drawing.Size(233, 49);
             this.btnExpense.TabIndex = 16;
@@ -232,9 +234,53 @@
             this.btnExpense.UseVisualStyleBackColor = false;
             this.btnExpense.Click += new System.EventHandler(this.btnExpense_Click);
             // 
+            // btnDownPayment
+            // 
+            this.btnDownPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.btnDownPayment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDownPayment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDownPayment.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnDownPayment.FlatAppearance.BorderSize = 0;
+            this.btnDownPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDownPayment.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnDownPayment.ForeColor = System.Drawing.Color.Black;
+            this.btnDownPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnDownPayment.Image")));
+            this.btnDownPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDownPayment.Location = new System.Drawing.Point(0, 98);
+            this.btnDownPayment.Name = "btnDownPayment";
+            this.btnDownPayment.Size = new System.Drawing.Size(233, 49);
+            this.btnDownPayment.TabIndex = 34;
+            this.btnDownPayment.Text = "  Loan Payment";
+            this.btnDownPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDownPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDownPayment.UseVisualStyleBackColor = false;
+            this.btnDownPayment.Click += new System.EventHandler(this.btnDownPayment_Click);
+            // 
+            // btnOrders
+            // 
+            this.btnOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.btnOrders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOrders.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOrders.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnOrders.FlatAppearance.BorderSize = 0;
+            this.btnOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrders.ForeColor = System.Drawing.Color.Black;
+            this.btnOrders.Image = ((System.Drawing.Image)(resources.GetObject("btnOrders.Image")));
+            this.btnOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrders.Location = new System.Drawing.Point(0, 49);
+            this.btnOrders.Name = "btnOrders";
+            this.btnOrders.Size = new System.Drawing.Size(233, 49);
+            this.btnOrders.TabIndex = 33;
+            this.btnOrders.Text = "  Loan Application";
+            this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOrders.UseVisualStyleBackColor = false;
+            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click_1);
+            // 
             // btnDashboard
             // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
             this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
@@ -255,7 +301,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
             this.panel4.Controls.Add(this.lblUser);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.pictureBoxProfile);
@@ -269,7 +315,7 @@
             // lblUser
             // 
             this.lblUser.AutoEllipsis = true;
-            this.lblUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
+            this.lblUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
             this.lblUser.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lblUser.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -285,7 +331,7 @@
             // label1
             // 
             this.label1.AutoEllipsis = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
             this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -314,7 +360,7 @@
             this.main_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.main_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.main_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
             this.main_panel.Location = new System.Drawing.Point(250, 133);
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(1238, 598);
@@ -355,10 +401,10 @@
             // lblBusinessName
             // 
             this.lblBusinessName.AutoEllipsis = true;
-            this.lblBusinessName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(65)))), ((int)(((byte)(175)))));
+            this.lblBusinessName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.lblBusinessName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblBusinessName.Font = new System.Drawing.Font("Arial Black", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusinessName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
+            this.lblBusinessName.ForeColor = System.Drawing.Color.White;
             this.lblBusinessName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblBusinessName.Location = new System.Drawing.Point(233, 0);
             this.lblBusinessName.Name = "lblBusinessName";
@@ -379,32 +425,10 @@
             this.pictureBoxLogo.TabIndex = 2;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // btnOrders
-            // 
-            this.btnOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
-            this.btnOrders.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOrders.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOrders.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnOrders.FlatAppearance.BorderSize = 0;
-            this.btnOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrders.ForeColor = System.Drawing.Color.Black;
-            this.btnOrders.Image = ((System.Drawing.Image)(resources.GetObject("btnOrders.Image")));
-            this.btnOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrders.Location = new System.Drawing.Point(0, 49);
-            this.btnOrders.Name = "btnOrders";
-            this.btnOrders.Size = new System.Drawing.Size(233, 49);
-            this.btnOrders.TabIndex = 33;
-            this.btnOrders.Text = "  Request Loan";
-            this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOrders.UseVisualStyleBackColor = false;
-            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click_1);
-            // 
             // frm_borrower_main_form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(140)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(1504, 746);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.main_panel);
@@ -458,5 +482,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lblBusinessName;
         public System.Windows.Forms.Button btnOrders;
+        private System.Windows.Forms.Button btnDownPayment;
     }
 }

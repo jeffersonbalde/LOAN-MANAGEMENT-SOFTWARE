@@ -68,7 +68,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             ActivateButton(btnDashboard);
             main_panel.Controls.Clear();
             frm_borrower_dashboard frm = new frm_borrower_dashboard();
-            frm.lblTitle.Text = "Dashboard";
+            frm.lblTitle.Text = "DASHBOARD";
             frm.TopLevel = false;
             main_panel.Controls.Add(frm);
             frm.BringToFront();
@@ -340,7 +340,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 if (previousBtn.GetType() == typeof(Button))
                 {
                     //previousBtn.BackColor = Color.FromArgb(250, 187, 255);
-                    previousBtn.BackColor = Color.FromArgb(219, 231, 237);
+                    //previousBtn.BackColor = Color.FromArgb(219, 231, 237);
+                    previousBtn.BackColor = Color.FromArgb(225, 188, 255);
                 }
             }
         }
@@ -350,7 +351,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             ActivateButton(sender);
             main_panel.Controls.Clear();
             frm_borrower_dashboard frm = new frm_borrower_dashboard();
-            frm.lblTitle.Text = "Dashboard";
+            frm.lblTitle.Text = "DASHBOARD";
             frm.TopLevel = false;
             main_panel.Controls.Add(frm);
             frm.BringToFront();
@@ -422,7 +423,20 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             main_panel.Controls.Clear();
             frm_request_history frm = new frm_request_history();
             frm.txtID.Text = txtID.Text;
-            frm.lblTitle.Text = "Request Loan";
+            frm.lblTitle.Text = "LOAN APPLICATION";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
+        }
+
+        private void btnDownPayment_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            main_panel.Controls.Clear();
+            frm_borrower_payment frm = new frm_borrower_payment();
+            frm.txtID.Text = txtID.Text;
+            frm.lblTitle.Text = "Loan Payment";
             frm.TopLevel = false;
             main_panel.Controls.Add(frm);
             frm.BringToFront();

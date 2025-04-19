@@ -101,6 +101,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap default_file_2 {
+            get {
+                object obj = ResourceManager.GetObject("default_file_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] default_user {

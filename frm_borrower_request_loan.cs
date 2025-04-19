@@ -32,14 +32,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void frm_borrower_request_loan_Load(object sender, EventArgs e)
         {
-            cmbLoanTerm.Items.Add("6 Months");
-            cmbLoanTerm.Items.Add("12 Months");
-            cmbLoanTerm.Items.Add("24 Months");
-            cmbLoanTerm.Items.Add("36 Months");
-
-            cmbLoanType.Items.Add("Housing Loan");
-            cmbLoanType.Items.Add("Business Loan");
-            cmbLoanType.Items.Add("Personal Loan");
+            cmbLoanTerm.Items.Add("Short Term (6 Months)");
+            cmbLoanTerm.Items.Add("Long Term (1 Year)");
 
             cmbPaymentSchedule.Items.Add("Daily");
             cmbPaymentSchedule.Items.Add("Weekly");
@@ -193,44 +187,51 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
         }
 
+
         private void CalculateLoanSummary(decimal principal)
         {
-            Dictionary<string, decimal> interestRates = new Dictionary<string, decimal>()
-            {
-                { "Housing Loan", 0.07m },
-                { "Business Loan", 0.10m },
-                { "Personal Loan", 0.12m }
-            };
-
             if (!string.IsNullOrWhiteSpace(txtMonthlyIncome.Text) &&
-                !string.IsNullOrWhiteSpace(cmbLoanType.Text) &&
-                !string.IsNullOrWhiteSpace(cmbLoanTerm.Text) &&
-                !string.IsNullOrWhiteSpace(cmbPaymentSchedule.Text))
+                cmbLoanTerm.SelectedItem != null &&
+                cmbPaymentSchedule.SelectedItem != null)
             {
                 if (decimal.TryParse(txtMonthlyIncome.Text.Replace("₱", "").Replace(",", ""), out decimal income))
                 {
-                    string loanType = cmbLoanType.Text.Trim();
-                    string loanTermText = cmbLoanTerm.Text.Trim();
-                    string schedule = cmbPaymentSchedule.Text.Trim().ToLower();
+                    string loanTermText = cmbLoanTerm.SelectedItem.ToString().Trim();
+                    string schedule = cmbPaymentSchedule.SelectedItem.ToString().Trim().ToLower();
 
-                    if (!loanTermText.Contains(" ")) return;
+                    // Determine term duration and interest type
+                    int months = loanTermText.Contains("6") ? 6 : 12;
 
-                    int months = int.Parse(loanTermText.Split(' ')[0]);
+                    decimal interestRate;
+                    string rateType;
 
-                    decimal interestRate = interestRates.ContainsKey(loanType) ? interestRates[loanType] : 0.12m;
+                    if (loanTermText.Contains("Short Term"))
+                    {
+                        interestRate = 0.05m;
+                        rateType = "monthly";
+                    }
+                    else
+                    {
+                        interestRate = 0.10m;
+                        rateType = "annually";
+                    }
 
-                    decimal totalInterest = principal * interestRate * (months / 12m);
+                    // Calculate interest
+                    decimal totalInterest = rateType == "monthly"
+                        ? principal * interestRate * months
+                        : principal * interestRate * (months / 12m);
+
                     decimal totalPayable = principal + totalInterest;
 
+                    // Determine number of payments
                     int payments = months;
-
                     if (schedule == "weekly") payments = months * 4;
                     else if (schedule == "daily") payments = months * 30;
 
                     decimal dues = payments > 0 ? totalPayable / payments : 0;
 
                     lblAmountToReceive.Text = $"₱{principal:N2}";
-                    lblInterestRate.Text = $"{(int)(interestRate * 100)}%";
+                    lblInterestRate.Text = $"{(int)(interestRate * 100)}% ({rateType})";
                     lblMonthlyDues.Text = $"₱{dues:N2}";
                     return;
                 }
@@ -294,6 +295,30 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void cmbPaymentSchedule_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbPaymentSchedule.SelectedItem != null)
+            {
+                string schedule = cmbPaymentSchedule.SelectedItem.ToString().ToLower();
+
+                if (schedule == "daily")
+                {
+                    if (!lblDues.Text.Contains("Daily"))
+                        lblDues.Text = lblDues.Text.Replace("Monthly", "Daily")
+                                                   .Replace("Weekly", "Daily");
+                }
+                else if (schedule == "weekly")
+                {
+                    if (!lblDues.Text.Contains("Weekly"))
+                        lblDues.Text = lblDues.Text.Replace("Monthly", "Weekly")
+                                                   .Replace("Daily", "Weekly");
+                }
+                else if (schedule == "monthly")
+                {
+                    if (!lblDues.Text.Contains("Monthly"))
+                        lblDues.Text = lblDues.Text.Replace("Daily", "Monthly")
+                                                   .Replace("Weekly", "Monthly");
+                }
+            }
+
             if (!string.IsNullOrWhiteSpace(txtLoanAmount.Text) &&
             decimal.TryParse(txtLoanAmount.Text.Replace(",", ""), out decimal principal))
             {
@@ -367,11 +392,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 if (string.IsNullOrWhiteSpace(txtLoanAmount.Text) ||
                     string.IsNullOrWhiteSpace(cmbLoanTerm.Text) ||
-                    string.IsNullOrWhiteSpace(cmbLoanType.Text) ||
                     string.IsNullOrWhiteSpace(cmbPaymentSchedule.Text) ||
                     string.IsNullOrWhiteSpace(txtReasonForLoan.Text))
                 {
@@ -396,8 +420,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 //decimal interestRate = decimal.Parse(lblInterestRate.Text.Replace("%", "").Trim()) / 100;
 
-                string labelText = lblInterestRate.Text.Replace("%", "");
-                decimal interestRate = decimal.Parse(labelText) / 100;
+                string interestText = lblInterestRate.Text.Split('%')[0].Trim(); // Extract number before '%'
+                decimal interestRate = decimal.Parse(interestText) / 100;
 
                 decimal monthlyDues = decimal.Parse(lblMonthlyDues.Text.Replace("₱", "").Replace(",", "").Trim());
 
@@ -428,11 +452,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 using (SqlCommand insertCmd = new SqlCommand(@"
             INSERT INTO tblLoanRequests 
-                (name, address, phone_number, monthly_income, maximum_loan, loan_type, loan_term, 
+                (name, address, phone_number, monthly_income, maximum_loan, loan_term, 
                  payment_schedule, requested_loan, loan_purpose, amount_to_receive, interest_rate, 
                  monthly_dues, status, date_requested, borrower_profile, loan_status, borrower_id, request_number) 
             VALUES 
-                (@name, @address, @phone_number, @monthly_income, @maximum_loan, @loan_type, @loan_term, 
+                (@name, @address, @phone_number, @monthly_income, @maximum_loan, @loan_term, 
                  @payment_schedule, @requested_loan, @loan_purpose, @amount_to_receive, @interest_rate, 
                  @monthly_dues, @status, @date_requested, @borrower_profile, @loan_status, @borrower_id, @request_number)", cn))
                 {
@@ -441,7 +465,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     insertCmd.Parameters.AddWithValue("@phone_number", txtPhoneNumber.Text.Trim());
                     insertCmd.Parameters.AddWithValue("@monthly_income", monthly_income);
                     insertCmd.Parameters.AddWithValue("@maximum_loan", maximum_loan);
-                    insertCmd.Parameters.AddWithValue("@loan_type", cmbLoanType.Text.Trim());
                     insertCmd.Parameters.AddWithValue("@loan_term", cmbLoanTerm.Text.Trim());
                     insertCmd.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.Text.Trim());
                     insertCmd.Parameters.AddWithValue("@requested_loan", requested_loan);
@@ -461,24 +484,24 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 cn.Close();
 
-                MessageBox.Show("Registration saved successfully!",
-                    "Registration Complete",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                //MessageBox.Show("Registration saved successfully!",
+                //    "Registration Complete",
+                //    MessageBoxButtons.OK,
+                //    MessageBoxIcon.Information);
 
                 frm.LoadRequest();
                 frm.GetTotalLoanRequest();
 
                 this.Dispose();
-            //}
-            //catch (Exception ex)
-            //{
-            //    if (cn.State == ConnectionState.Open)
-            //        cn.Close();
-
-            //    MessageBox.Show("Error: " + ex.Message);
-            //}
         }
+            catch (Exception ex)
+            {
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+
+                MessageBox.Show("Error: " + ex.Message);
+            }
+}
 
         private void siticoneButton2_Click(object sender, EventArgs e)
         {

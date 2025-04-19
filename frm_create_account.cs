@@ -16,6 +16,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Security.Cryptography;
 using System.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using PdfiumViewer;
+
 
 
 namespace LOAN_MANAGEMENT_SOFTWARE
@@ -99,14 +102,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             CenterPanel();
 
-            cmbLoanTerm.Items.Add("6 Months");
-            cmbLoanTerm.Items.Add("12 Months");
-            cmbLoanTerm.Items.Add("24 Months");
-            cmbLoanTerm.Items.Add("36 Months");
-
-            cmbLoanType.Items.Add("Housing Loan");
-            cmbLoanType.Items.Add("Business Loan");
-            cmbLoanType.Items.Add("Personal Loan");
+            cmbLoanTerm.Items.Add("Short Term (6 Months)");
+            cmbLoanTerm.Items.Add("Long Term (1 Year)");
 
             cmbPaymentSchedule.Items.Add("Daily");
             cmbPaymentSchedule.Items.Add("Weekly");
@@ -118,6 +115,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
             txtPhoneNumber.Text = "+63 ";
             txtPhoneNumber.SelectionStart = txtPhoneNumber.Text.Length;
+
+            panelValidation.Visible = false;
+            panelValidation.BackColor = Color.FromArgb(120, Color.White);
+
         }
 
         public void LoadBusinessLogo()
@@ -214,6 +215,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
+            panelValidation.Visible = true;
+
             string password = txtPassword.Text;
 
             bool hasUpperCase = Regex.IsMatch(password, "[A-Z]");
@@ -227,6 +230,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
+            int selStart = txtEmail.SelectionStart;
+            txtEmail.Text = txtEmail.Text.ToUpper();
+            txtEmail.SelectionStart = selStart;
+
             string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
 
             if (Regex.IsMatch(txtEmail.Text, emailPattern))
@@ -243,6 +250,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void txtAddress_TextChanged(object sender, EventArgs e)
         {
+            int selStart = txtAddress.SelectionStart;
+            txtAddress.Text = txtAddress.Text.ToUpper();
+            txtAddress.SelectionStart = selStart;
+
             string input = txtAddress.Text.Trim().ToLower();
             string matchedZip = "";
 
@@ -264,14 +275,15 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
 
                 if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                    string.IsNullOrWhiteSpace(txtMiddleName.Text) ||
                     string.IsNullOrWhiteSpace(txtLastName.Text) ||
                     string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                    string.IsNullOrWhiteSpace(txtUsername.Text) ||
                     string.IsNullOrWhiteSpace(txtPassword.Text) |
                     string.IsNullOrWhiteSpace(txtAddress.Text) ||
                     string.IsNullOrWhiteSpace(txtPhoneNumber.Text) ||
                     string.IsNullOrWhiteSpace(txtMonthlyIncome.Text) ||
                     string.IsNullOrWhiteSpace(cmbLoanTerm.Text) ||
-                    string.IsNullOrWhiteSpace(cmbLoanType.Text) ||
                     string.IsNullOrWhiteSpace(cmbPaymentSchedule.Text))
                     {
                         MessageBox.Show("All fields are required.\n\n" +
@@ -309,6 +321,26 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                         "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         cn.Close();
                         txtEmail.Focus();
+                        return;
+                    }
+                }
+
+                cn.Close();
+
+
+                cn.Open();
+
+                string usernameCheckQuery = "SELECT COUNT(*) FROM tblBorrowerProfile WHERE username = @username";
+                using (SqlCommand checkCmd = new SqlCommand(usernameCheckQuery, cn))
+                {
+                    checkCmd.Parameters.AddWithValue("@username", txtUsername.Text);
+                    int emailCount = (int)checkCmd.ExecuteScalar();
+                    if (emailCount > 0)
+                    {
+                        MessageBox.Show("The username you entered already exists. Please log in instead.",
+                                        "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cn.Close();
+                        txtUsername.Focus();
                         return;
                     }
                 }
@@ -397,16 +429,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                     //decimal interestRate = decimal.Parse(lblInterestRate.Text.Replace("%", "").Trim()) / 100;
 
-                    string labelText = lblInterestRate.Text.Replace("%", "");
-                    decimal interestRate = decimal.Parse(labelText) / 100;     
+                    string interestText = lblInterestRate.Text.Split('%')[0].Trim(); // Extract number before '%'
+                    decimal interestRate = decimal.Parse(interestText) / 100;
 
                     decimal monthlyDues = decimal.Parse(lblMonthlyDues.Text.Replace("₱", "").Replace(",", "").Trim());
 
                     cn.Open();
 
                     string query = "INSERT INTO tblBorrowerProfile " +
-                                   "(borrower_profile, first_name, last_name, email_address, password, phone_number, address, zip_code, monthly_income, proof_of_income, maximum_loan, loan_type, loan_term, payment_schedule, date_registered, proof_of_income_filename, amount_to_receive, interest_rate, monthly_dues) " +
-                                   "VALUES (@borrower_profile, @first_name, @last_name, @email_address, @password, @phone_number, @address, @zip_code, @monthly_income, @proof_of_income, @maximum_loan, @loan_type, @loan_term, @payment_schedule, @date_registered, @proof_of_income_filename, @amount_to_receive, @interest_rate, @monthly_dues)";
+                                   "(borrower_profile, first_name, last_name, email_address, password, phone_number, address, zip_code, monthly_income, proof_of_income, maximum_loan, loan_term, payment_schedule, date_registered, proof_of_income_filename, amount_to_receive, interest_rate, monthly_dues, middle_name, name_suffix, username) " +
+                                   "VALUES (@borrower_profile, @first_name, @last_name, @email_address, @password, @phone_number, @address, @zip_code, @monthly_income, @proof_of_income, @maximum_loan, @loan_term, @payment_schedule, @date_registered, @proof_of_income_filename, @amount_to_receive, @interest_rate, @monthly_dues, @middle_name, @name_suffix, @username)";
 
                     using (SqlCommand cmd = new SqlCommand(query, cn))
                     {
@@ -421,7 +453,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         cmd.Parameters.AddWithValue("@monthly_income", monthlyIncome);
                         cmd.Parameters.AddWithValue("@proof_of_income", proofFileData);
                         cmd.Parameters.AddWithValue("@maximum_loan", maximumLoan);
-                        cmd.Parameters.AddWithValue("@loan_type", cmbLoanType.Text.Trim());
                         cmd.Parameters.AddWithValue("@loan_term", cmbLoanTerm.Text.Trim());
                         cmd.Parameters.AddWithValue("@payment_schedule", cmbPaymentSchedule.Text.Trim());
                         cmd.Parameters.AddWithValue("@date_registered", DateTime.Now);
@@ -429,24 +460,27 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         cmd.Parameters.AddWithValue("@amount_to_receive", amountToReceive);
                         cmd.Parameters.AddWithValue("@interest_rate", interestRate);
                         cmd.Parameters.AddWithValue("@monthly_dues", monthlyDues);
+                        cmd.Parameters.AddWithValue("@middle_name", txtMiddleName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@name_suffix", txtNameSuffix.Text.Trim());
+                        cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
 
                         cmd.ExecuteNonQuery();
                     }
 
                     cn.Close();
 
-                    MessageBox.Show("Registration saved successfully!",
-                                    "Registration Complete",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                    //MessageBox.Show("Registration saved successfully!",
+                    //                "Registration Complete",
+                    //                MessageBoxButtons.OK,
+                    //                MessageBoxIcon.Information);
 
                     frm_borrower_main_form frm = new frm_borrower_main_form();
-                    frm.lblUser.Text =  txtFirstName.Text + " " + txtLastName.Text;
+                    frm.lblUser.Text = txtFirstName.Text + " " + txtLastName.Text;
 
                     cn.Open();
-                    string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE email_address = @email_address";
+                    string staffQuery = "SELECT * FROM tblBorrowerProfile WHERE username = @username";
                     cm = new SqlCommand(staffQuery, cn);
-                    cm.Parameters.AddWithValue("@email_address", txtEmail.Text);
+                    cm.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
                     dr = cm.ExecuteReader();
 
                     byte[] userImage = null;
@@ -473,7 +507,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     }
                     else
                     {
-                        MessageBox.Show("Email address not found.", "Authentication Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Username not found.", "Authentication Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         dr.Close();
                         cn.Close();
                         return;
@@ -493,8 +527,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                     frm.txtID.Text = userId.ToString();
 
-                    this.Hide(); 
-                    frm.Show(); 
+                    this.Hide();
+                    frm.Show();
                 }
 
             }
@@ -640,14 +674,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     return;
                 }
 
-                decimal multiplier;
+                // 30% of the monthly income
+                decimal maxLoan = income * 0.30m;
 
-                if (income >= 50000) multiplier = 4;
-                else if (income >= 30001) multiplier = 3;
-                else if (income >= 15000) multiplier = 2;
-                else multiplier = 0;
-
-                decimal maxLoan = income * multiplier;
                 txtMaxLoanAmount.Text = "₱" + maxLoan.ToString("N0");
             }
             catch (OverflowException)
@@ -655,7 +684,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 MessageBox.Show("The income value is too large and caused an overflow.", "Calculation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtMonthlyIncome.Clear();
                 txtMonthlyIncome.Focus();
-                return;
             }
             catch (Exception ex)
             {
@@ -677,8 +705,35 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    proofOfIncomeFilePath = openFileDialog.FileName; 
+                    proofOfIncomeFilePath = openFileDialog.FileName;
                     string fileName = Path.GetFileName(proofOfIncomeFilePath);
+                    string extension = Path.GetExtension(proofOfIncomeFilePath).ToLower();
+
+                    btnUploadProof.BackgroundImageLayout = ImageLayout.Stretch;
+                    btnUploadProof.Text = "";
+                    btnUploadProof.FillColor = Color.Transparent;
+                    btnUploadProof.BackColor = Color.Transparent;
+                    btnUploadProof.UseTransparentBackground = true;
+
+                    if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
+                    {
+                        btnUploadProof.BackgroundImage = Image.FromFile(proofOfIncomeFilePath);
+                    }
+                    else if (extension == ".pdf")
+                    {
+                        using (var document = PdfiumViewer.PdfDocument.Load(proofOfIncomeFilePath))
+                        {
+                            using (var pdfImage = document.Render(0, 300, 300, true))
+                            {
+                                btnUploadProof.BackgroundImage = new Bitmap(pdfImage);
+                                btnUploadProof.BackgroundImageLayout = ImageLayout.Zoom;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        btnUploadProof.BackgroundImage = Properties.Resources.default_file_2;
+                    }
 
                     StartUploadAnimation(fileName);
                 }
@@ -707,9 +762,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 else
                 {
                     timer.Stop();
-                    lblFileName.Text = "✅ File uploaded successfully!";
+                    lblFileName.Text = $"✅ File {fileName} uploaded successfully!";
                     lblFileName.ForeColor = Color.Green;
-                    btnUploadProof.Text = fileName;
+                    //btnUploadProof.Text = fileName;
                 }
             };
             timer.Start();
@@ -722,6 +777,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 panel.ClientRectangle,
                 Color.FromArgb(231, 229, 251),  // Top color
                 Color.FromArgb(230, 187, 254),  // Bottom color
+                                                //Color.FromArgb(231, 229, 251),  // Bottom color
                 LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
             {
                 e.Graphics.FillRectangle(brush, panel.ClientRectangle);
@@ -805,6 +861,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 panel.ClientRectangle,
                 Color.FromArgb(231, 229, 251),  // Top color
                 Color.FromArgb(230, 187, 254),  // Bottom color
+                                                //Color.FromArgb(231, 229, 251),  // Bottom color
                 LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
             {
                 e.Graphics.FillRectangle(brush, panel.ClientRectangle);
@@ -818,6 +875,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 panel.ClientRectangle,
                 Color.FromArgb(231, 229, 251),  // Top color
                 Color.FromArgb(230, 187, 254),  // Bottom color
+                //Color.FromArgb(231, 229, 251),  // Bottom color
                 LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
             {
                 e.Graphics.FillRectangle(brush, panel.ClientRectangle);
@@ -826,38 +884,39 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void CalculateLoanSummary()
         {
-            Dictionary<string, decimal> interestRates = new Dictionary<string, decimal>()
-            {
-                { "Housing Loan", 0.07m },
-                { "Business Loan", 0.10m },
-                { "Personal Loan", 0.12m }
-            };
-
             if (decimal.TryParse(txtMonthlyIncome.Text, out decimal income) &&
                 decimal.TryParse(txtMaxLoanAmount.Text.Replace("₱", "").Replace(",", ""), out decimal principal) &&
-                cmbLoanType.SelectedItem != null &&
                 cmbLoanTerm.SelectedItem != null &&
                 cmbPaymentSchedule.SelectedItem != null)
             {
-                string loanType = cmbLoanType.SelectedItem.ToString();
                 string loanTermText = cmbLoanTerm.SelectedItem.ToString();
-                int months = int.Parse(loanTermText.Split(' ')[0]);
+                string schedule = cmbPaymentSchedule.SelectedItem.ToString().ToLower();
 
-                decimal interestRate = interestRates.ContainsKey(loanType) ? interestRates[loanType] : 0.12m;
+                int months = loanTermText.Contains("6") ? 6 : 12;
+                decimal interestRate = loanTermText.Contains("Short Term") ? 0.05m : 0.10m;
+                string rateType = loanTermText.Contains("Short Term") ? "monthly" : "annually";
 
-                decimal totalInterest = principal * interestRate * (months / 12m);
+                // Calculate total interest depending on term type
+                decimal totalInterest;
+                if (rateType == "monthly")
+                {
+                    totalInterest = principal * interestRate * months; // 5% per month
+                }
+                else // annually
+                {
+                    totalInterest = principal * interestRate * (months / 12m); // 10% per year
+                }
+
                 decimal totalPayable = principal + totalInterest;
 
                 int payments = months;
-                string schedule = cmbPaymentSchedule.SelectedItem.ToString().ToLower();
-
                 if (schedule == "weekly") payments = months * 4;
                 else if (schedule == "daily") payments = months * 30;
 
                 decimal dues = payments > 0 ? totalPayable / payments : 0;
 
                 lblAmountToReceive.Text = $"₱{principal:N2}";
-                lblInterestRate.Text = $"{(int)(interestRate * 100)}%";
+                lblInterestRate.Text = $"{(int)(interestRate * 100)}% ({rateType})";
                 lblMonthlyDues.Text = $"₱{dues:N2}";
             }
             else
@@ -880,6 +939,31 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void cmbPaymentSchedule_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            if (cmbPaymentSchedule.SelectedItem != null)
+            {
+                string schedule = cmbPaymentSchedule.SelectedItem.ToString().ToLower();
+
+                if (schedule == "daily")
+                {
+                    if (!lblDues.Text.Contains("Daily"))
+                        lblDues.Text = lblDues.Text.Replace("Monthly", "Daily")
+                                                   .Replace("Weekly", "Daily");
+                }
+                else if (schedule == "weekly")
+                {
+                    if (!lblDues.Text.Contains("Weekly"))
+                        lblDues.Text = lblDues.Text.Replace("Monthly", "Weekly")
+                                                   .Replace("Daily", "Weekly");
+                }
+                else if (schedule == "monthly")
+                {
+                    if (!lblDues.Text.Contains("Monthly"))
+                        lblDues.Text = lblDues.Text.Replace("Daily", "Monthly")
+                                                   .Replace("Weekly", "Monthly");
+                }
+            }
+
             CalculateLoanSummary();
         }
 
@@ -895,6 +979,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 panel.ClientRectangle,
                 Color.FromArgb(231, 229, 251),  // Top color
                 Color.FromArgb(230, 187, 254),  // Bottom color
+                //Color.FromArgb(231, 229, 251),  // Bottom color
                 LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
             {
                 e.Graphics.FillRectangle(brush, panel.ClientRectangle);
@@ -903,7 +988,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
-
+            int selStart = txtFirstName.SelectionStart; 
+            txtFirstName.Text = txtFirstName.Text.ToUpper();
+            txtFirstName.SelectionStart = selStart; 
         }
 
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
@@ -912,6 +999,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
                 e.Handled = true;
                 MessageBox.Show("First Name should not contain numbers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtFirstName.Focus();
             }
         }
 
@@ -921,6 +1009,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
                 e.Handled = true;
                 MessageBox.Show("Last Name should not contain numbers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtLastName.Focus();
             }
         }
 
@@ -990,5 +1079,92 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                panelValidation.Visible = false;
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            panelValidation.Visible = false;
+        }
+
+        private void txtMiddleName_TextChanged(object sender, EventArgs e)
+        {
+            int selStart = txtMiddleName.SelectionStart;
+            txtMiddleName.Text = txtMiddleName.Text.ToUpper();
+            txtMiddleName.SelectionStart = selStart;
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            int selStart = txtLastName.SelectionStart;
+            txtLastName.Text = txtLastName.Text.ToUpper();
+            txtLastName.SelectionStart = selStart;
+        }
+
+        private void txtNameSuffix_TextChanged(object sender, EventArgs e)
+        {
+            int selStart = txtNameSuffix.SelectionStart;
+            txtNameSuffix.Text = txtNameSuffix.Text.ToUpper();
+            txtNameSuffix.SelectionStart = selStart;
+        }
+
+        private void txtMiddleName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Middle Name should not contain numbers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMiddleName.Focus();
+            }
+        }
+
+        private void txtNameSuffix_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Suffix should not contain numbers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNameSuffix.Focus();
+            }
+        }
+
+        private void txtAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int selStart = txtAddress.SelectionStart;
+            txtAddress.Text = txtAddress.Text.ToUpper();
+            txtAddress.SelectionStart = selStart;
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            int selStart = txtUsername.SelectionStart;
+            txtUsername.Text = txtUsername.Text.ToUpper();
+            txtUsername.SelectionStart = selStart;
+        }
+
+        private void panelValidation_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblDues_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblInterest_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
