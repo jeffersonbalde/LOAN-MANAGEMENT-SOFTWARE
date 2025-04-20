@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -441,6 +442,63 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             main_panel.Controls.Add(frm);
             frm.BringToFront();
             frm.Show();
+        }
+
+        private void lblBusinessName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBusinessName_Paint(object sender, PaintEventArgs e)
+        {
+            Label lbl = sender as Label;
+
+            e.Graphics.Clear(lbl.BackColor);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(lbl.ClientRectangle, Color.Blue, Color.Red, LinearGradientMode.Horizontal))
+            {
+                StringFormat format = new StringFormat();
+
+                switch (lbl.TextAlign)
+                {
+                    case ContentAlignment.TopLeft:
+                    case ContentAlignment.MiddleLeft:
+                    case ContentAlignment.BottomLeft:
+                        format.Alignment = StringAlignment.Near;
+                        break;
+                    case ContentAlignment.TopCenter:
+                    case ContentAlignment.MiddleCenter:
+                    case ContentAlignment.BottomCenter:
+                        format.Alignment = StringAlignment.Center;
+                        break;
+                    case ContentAlignment.TopRight:
+                    case ContentAlignment.MiddleRight:
+                    case ContentAlignment.BottomRight:
+                        format.Alignment = StringAlignment.Far;
+                        break;
+                }
+
+                switch (lbl.TextAlign)
+                {
+                    case ContentAlignment.TopLeft:
+                    case ContentAlignment.TopCenter:
+                    case ContentAlignment.TopRight:
+                        format.LineAlignment = StringAlignment.Near;
+                        break;
+                    case ContentAlignment.MiddleLeft:
+                    case ContentAlignment.MiddleCenter:
+                    case ContentAlignment.MiddleRight:
+                        format.LineAlignment = StringAlignment.Center;
+                        break;
+                    case ContentAlignment.BottomLeft:
+                    case ContentAlignment.BottomCenter:
+                    case ContentAlignment.BottomRight:
+                        format.LineAlignment = StringAlignment.Far;
+                        break;
+                }
+
+                e.Graphics.DrawString(lbl.Text, lbl.Font, brush, lbl.ClientRectangle, format);
+            }
         }
     }
 }

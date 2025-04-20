@@ -40,7 +40,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(9, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 23);
@@ -83,7 +83,7 @@
             this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(50)))), ((int)(((byte)(0)))));
+            this.siticoneButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.siticoneButton1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold);
             this.siticoneButton1.ForeColor = System.Drawing.Color.White;
             this.siticoneButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -99,7 +99,7 @@
             this.siticoneButton2.AnimatedGIF = true;
             this.siticoneButton2.AutoRoundedCorners = true;
             this.siticoneButton2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneButton2.BorderColor = System.Drawing.Color.DimGray;
+            this.siticoneButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.siticoneButton2.BorderRadius = 24;
             this.siticoneButton2.BorderThickness = 2;
             this.siticoneButton2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -109,7 +109,7 @@
             this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.siticoneButton2.FillColor = System.Drawing.Color.White;
             this.siticoneButton2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneButton2.ForeColor = System.Drawing.Color.DimGray;
+            this.siticoneButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.siticoneButton2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.siticoneButton2.Location = new System.Drawing.Point(193, 185);
             this.siticoneButton2.Name = "siticoneButton2";
@@ -129,7 +129,7 @@
             // frm_rejected_reason
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(140)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(564, 248);
             this.Controls.Add(this.txtRequestID);
             this.Controls.Add(this.siticoneButton2);

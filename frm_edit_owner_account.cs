@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,6 +102,34 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
                 cn.Close();
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                panel.ClientRectangle,
+                Color.FromArgb(231, 229, 251),  // Top color
+                Color.FromArgb(230, 187, 254),  // Bottom color
+                                                //Color.FromArgb(231, 229, 251),  // Bottom color
+                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
+            {
+                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                panel.ClientRectangle,
+                Color.FromArgb(231, 229, 251),  // Top color
+                Color.FromArgb(230, 187, 254),  // Bottom color
+                                                //Color.FromArgb(231, 229, 251),  // Bottom color
+                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
+            {
+                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
             }
         }
     }

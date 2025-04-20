@@ -521,6 +521,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 await Task.Delay(100);
 
                 LoadRequest();
+                GetTotalLoanRequest();
             }
             finally
             {
@@ -556,6 +557,22 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         private void lblTotalTransactions_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                panel.ClientRectangle,
+                //Color.FromArgb(231, 229, 251),  // Top color
+                //Color.FromArgb(230, 187, 254),  // Bottom color
+
+                Color.FromArgb(196, 75, 128),  // Top color
+                Color.FromArgb(103, 71, 219),  // Bottom color
+                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
+            {
+                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
+            }
         }
     }
 }

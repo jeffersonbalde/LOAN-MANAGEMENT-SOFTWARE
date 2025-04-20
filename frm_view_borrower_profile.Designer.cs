@@ -67,8 +67,8 @@
             this.service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.service_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.car_image = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.request_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrower_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +80,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transaction_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbPaymentSchedule = new MetroFramework.Controls.MetroComboBox();
             this.cmbLoanTerm = new MetroFramework.Controls.MetroComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtFrom = new MetroFramework.Controls.MetroDateTime();
@@ -87,7 +88,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbRequestStatus = new MetroFramework.Controls.MetroComboBox();
-            this.cmbLoanType = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -246,8 +246,8 @@
             this.service,
             this.qty,
             this.service_price,
-            this.order_status,
             this.car_image,
+            this.order_status,
             this.request_id,
             this.borrower_id,
             this.total,
@@ -408,27 +408,27 @@
             this.service_price.ReadOnly = true;
             this.service_price.Width = 215;
             // 
-            // order_status
-            // 
-            this.order_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 12F);
-            this.order_status.DefaultCellStyle = dataGridViewCellStyle8;
-            this.order_status.HeaderText = "Loan Type";
-            this.order_status.MinimumWidth = 6;
-            this.order_status.Name = "order_status";
-            this.order_status.ReadOnly = true;
-            this.order_status.Width = 154;
-            // 
             // car_image
             // 
             this.car_image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 12F);
-            this.car_image.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 12F);
+            this.car_image.DefaultCellStyle = dataGridViewCellStyle8;
             this.car_image.HeaderText = "Loan Term";
             this.car_image.MinimumWidth = 6;
             this.car_image.Name = "car_image";
             this.car_image.ReadOnly = true;
             this.car_image.Width = 157;
+            // 
+            // order_status
+            // 
+            this.order_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 12F);
+            this.order_status.DefaultCellStyle = dataGridViewCellStyle9;
+            this.order_status.HeaderText = "Payment Schedule";
+            this.order_status.MinimumWidth = 6;
+            this.order_status.Name = "order_status";
+            this.order_status.ReadOnly = true;
+            this.order_status.Width = 246;
             // 
             // request_id
             // 
@@ -555,6 +555,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cmbPaymentSchedule);
             this.panel1.Controls.Add(this.cmbLoanTerm);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dtFrom);
@@ -562,7 +563,6 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.cmbRequestStatus);
-            this.panel1.Controls.Add(this.cmbLoanType);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
@@ -571,12 +571,24 @@
             this.panel1.Size = new System.Drawing.Size(1239, 83);
             this.panel1.TabIndex = 246;
             // 
+            // cmbPaymentSchedule
+            // 
+            this.cmbPaymentSchedule.BackColor = System.Drawing.Color.White;
+            this.cmbPaymentSchedule.FormattingEnabled = true;
+            this.cmbPaymentSchedule.ItemHeight = 24;
+            this.cmbPaymentSchedule.Location = new System.Drawing.Point(1024, 37);
+            this.cmbPaymentSchedule.Name = "cmbPaymentSchedule";
+            this.cmbPaymentSchedule.Size = new System.Drawing.Size(197, 30);
+            this.cmbPaymentSchedule.TabIndex = 155;
+            this.cmbPaymentSchedule.UseSelectable = true;
+            this.cmbPaymentSchedule.SelectedIndexChanged += new System.EventHandler(this.cmbPaymentSchedule_SelectedIndexChanged);
+            // 
             // cmbLoanTerm
             // 
             this.cmbLoanTerm.BackColor = System.Drawing.Color.White;
             this.cmbLoanTerm.FormattingEnabled = true;
             this.cmbLoanTerm.ItemHeight = 24;
-            this.cmbLoanTerm.Location = new System.Drawing.Point(1024, 37);
+            this.cmbLoanTerm.Location = new System.Drawing.Point(791, 37);
             this.cmbLoanTerm.Name = "cmbLoanTerm";
             this.cmbLoanTerm.Size = new System.Drawing.Size(197, 30);
             this.cmbLoanTerm.TabIndex = 154;
@@ -592,7 +604,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(278, 27);
             this.label7.TabIndex = 153;
-            this.label7.Text = "Loan Term";
+            this.label7.Text = "Payment Schedule";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dtFrom
@@ -654,18 +666,6 @@
             this.cmbRequestStatus.UseSelectable = true;
             this.cmbRequestStatus.SelectedIndexChanged += new System.EventHandler(this.cmbRequestStatus_SelectedIndexChanged);
             // 
-            // cmbLoanType
-            // 
-            this.cmbLoanType.BackColor = System.Drawing.Color.White;
-            this.cmbLoanType.FormattingEnabled = true;
-            this.cmbLoanType.ItemHeight = 24;
-            this.cmbLoanType.Location = new System.Drawing.Point(791, 37);
-            this.cmbLoanType.Name = "cmbLoanType";
-            this.cmbLoanType.Size = new System.Drawing.Size(197, 30);
-            this.cmbLoanType.TabIndex = 152;
-            this.cmbLoanType.UseSelectable = true;
-            this.cmbLoanType.SelectedIndexChanged += new System.EventHandler(this.cmbLoanType_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
@@ -687,7 +687,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(278, 27);
             this.label5.TabIndex = 151;
-            this.label5.Text = "Loan Type";
+            this.label5.Text = "Loan Term";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
@@ -858,14 +858,12 @@
         private MetroFramework.Controls.MetroTextBox txtSearchBorrower;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
-        private MetroFramework.Controls.MetroComboBox cmbLoanTerm;
         private System.Windows.Forms.Label label7;
         private MetroFramework.Controls.MetroDateTime dtFrom;
         private MetroFramework.Controls.MetroDateTime dtTo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private MetroFramework.Controls.MetroComboBox cmbRequestStatus;
-        private MetroFramework.Controls.MetroComboBox cmbLoanType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
@@ -876,6 +874,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTotalTransactions;
         private System.Windows.Forms.Button button1;
+        private MetroFramework.Controls.MetroComboBox cmbLoanTerm;
+        private MetroFramework.Controls.MetroComboBox cmbPaymentSchedule;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn approve;
         private System.Windows.Forms.DataGridViewImageColumn reject;
@@ -887,8 +887,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn service;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn service_price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn car_image;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn request_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn borrower_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;

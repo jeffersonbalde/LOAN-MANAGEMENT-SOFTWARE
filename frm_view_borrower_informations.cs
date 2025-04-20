@@ -24,6 +24,55 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             InitializeComponent();
         }
 
+        private void DisplayProofOfIncome()
+        {
+            if (ProofOfIncomeBytes != null && !string.IsNullOrEmpty(ProofOfIncomeFilename))
+            {
+                string extension = Path.GetExtension(ProofOfIncomeFilename).ToLower();
+
+                btnUploadProof.BackgroundImageLayout = ImageLayout.Stretch;
+                btnUploadProof.Text = "";
+                btnUploadProof.FillColor = Color.Transparent;
+                btnUploadProof.BackColor = Color.Transparent;
+                btnUploadProof.UseTransparentBackground = true;
+
+                try
+                {
+                    using (MemoryStream ms = new MemoryStream(ProofOfIncomeBytes))
+                    {
+                        if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
+                        {
+                            btnUploadProof.BackgroundImage = Image.FromStream(ms);
+                        }
+                        else if (extension == ".pdf")
+                        {
+                            using (var pdfDoc = PdfiumViewer.PdfDocument.Load(ms))
+                            {
+                                using (var img = pdfDoc.Render(0, 300, 300, true))
+                                {
+                                    btnUploadProof.BackgroundImage = new Bitmap(img);
+                                    btnUploadProof.BackgroundImageLayout = ImageLayout.Zoom;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            btnUploadProof.BackgroundImage = Properties.Resources.default_file_2; // optional
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error displaying proof of income: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                btnUploadProof.BackgroundImage = null;
+                btnUploadProof.Text = "No file";
+            }
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
@@ -55,7 +104,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             this.Dispose();
         }
 
-        private void siticoneButton2_Click(object sender, EventArgs e)
+        private async void siticoneButton2_Click(object sender, EventArgs e)
         {
             if (ProofOfIncomeBytes != null && !string.IsNullOrEmpty(ProofOfIncomeFilename))
             {
@@ -67,18 +116,29 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
+                        string path = saveFileDialog.FileName;
+
                         try
                         {
-                            File.WriteAllBytes(saveFileDialog.FileName, ProofOfIncomeBytes);
-                            MessageBox.Show("Proof of income downloaded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Run the file writing in a background thread
+                            await Task.Run(() => File.WriteAllBytes(path, ProofOfIncomeBytes));
+
+                            MessageBox.Show("Proof of income downloaded successfully!",
+                                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error saving file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Error saving file: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
+        }
+
+        private void frm_view_borrower_informations_Load(object sender, EventArgs e)
+        {
+            DisplayProofOfIncome();
         }
     }
 }

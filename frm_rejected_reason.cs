@@ -75,10 +75,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         cn.Close();
                     }
 
-                    MessageBox.Show("Loan request has been rejected successfully.",
-                                    "Success",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                    //MessageBox.Show("Loan request has been rejected successfully.",
+                    //                "Success",
+                    //                MessageBoxButtons.OK,
+                    //                MessageBoxIcon.Information);
 
                     frm.LoadRequest();
                     this.Dispose();

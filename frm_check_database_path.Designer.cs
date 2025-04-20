@@ -56,7 +56,7 @@
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(50)))));
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -85,13 +85,14 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Menu;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.txtDBPath);
             this.panel4.Location = new System.Drawing.Point(18, 23);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(446, 134);
             this.panel4.TabIndex = 169;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // txtDBPath
             // 
@@ -108,7 +109,7 @@
             // frm_check_database_path
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(483, 219);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);

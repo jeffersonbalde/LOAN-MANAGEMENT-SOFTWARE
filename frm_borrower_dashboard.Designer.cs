@@ -56,7 +56,7 @@
             // 
             // lblTitle
             // 
-            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(85)))), ((int)(((byte)(229)))));
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTitle.Font = new System.Drawing.Font("Verdana", 19.8F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
@@ -78,9 +78,11 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1456, 43);
             this.panel4.TabIndex = 240;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
@@ -96,7 +98,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 56);
+            this.panel1.Location = new System.Drawing.Point(14, 56);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(332, 114);
             this.panel1.TabIndex = 241;
@@ -179,7 +181,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(350, 56);
+            this.panel2.Location = new System.Drawing.Point(352, 56);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(332, 114);
             this.panel2.TabIndex = 245;
@@ -226,7 +228,7 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.pictureBox4);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Location = new System.Drawing.Point(688, 56);
+            this.panel3.Location = new System.Drawing.Point(690, 56);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(332, 114);
             this.panel3.TabIndex = 246;

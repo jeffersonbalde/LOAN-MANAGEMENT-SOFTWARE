@@ -42,6 +42,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtIDOwner = new System.Windows.Forms.TextBox();
+            this.pictureBoxOwner = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtPro = new System.Windows.Forms.TextBox();
@@ -60,14 +61,13 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBoxOwner = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOwner)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOwner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,11 +83,12 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(904, 65);
             this.panel5.TabIndex = 197;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(79)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
             this.button1.FlatAppearance.BorderSize = 0;
@@ -106,7 +107,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(79)))));
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
             this.button4.FlatAppearance.BorderSize = 0;
@@ -136,7 +137,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(79)))));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
             this.button2.FlatAppearance.BorderSize = 0;
@@ -184,6 +185,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(394, 128);
             this.panel3.TabIndex = 196;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // txtEmail
             // 
@@ -211,6 +213,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Arial", 12F);
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(7, 49);
@@ -233,6 +236,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Arial", 12F);
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(7, 88);
@@ -252,6 +256,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(394, 329);
             this.panel2.TabIndex = 195;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtIDOwner
             // 
@@ -263,6 +268,18 @@
             this.txtIDOwner.Size = new System.Drawing.Size(243, 36);
             this.txtIDOwner.TabIndex = 219;
             this.txtIDOwner.Visible = false;
+            // 
+            // pictureBoxOwner
+            // 
+            this.pictureBoxOwner.BackColor = System.Drawing.Color.White;
+            this.pictureBoxOwner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxOwner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxOwner.Location = new System.Drawing.Point(64, 41);
+            this.pictureBoxOwner.Name = "pictureBoxOwner";
+            this.pictureBoxOwner.Size = new System.Drawing.Size(270, 270);
+            this.pictureBoxOwner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOwner.TabIndex = 123;
+            this.pictureBoxOwner.TabStop = false;
             // 
             // label7
             // 
@@ -297,6 +314,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(504, 287);
             this.panel1.TabIndex = 194;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtPro
             // 
@@ -312,6 +330,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Arial", 12F);
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(10, 209);
@@ -334,6 +353,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 12F);
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(10, 52);
@@ -379,6 +399,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 12F);
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(10, 170);
@@ -390,6 +411,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 12F);
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(10, 248);
@@ -423,6 +445,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 12F);
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(10, 91);
@@ -434,6 +457,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Arial", 12F);
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(9, 130);
@@ -453,6 +477,7 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(504, 170);
             this.panel9.TabIndex = 193;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
             // txtID
             // 
@@ -477,18 +502,6 @@
             this.label6.Text = "Business Logo";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBoxOwner
-            // 
-            this.pictureBoxOwner.BackColor = System.Drawing.Color.White;
-            this.pictureBoxOwner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxOwner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxOwner.Location = new System.Drawing.Point(64, 41);
-            this.pictureBoxOwner.Name = "pictureBoxOwner";
-            this.pictureBoxOwner.Size = new System.Drawing.Size(270, 270);
-            this.pictureBoxOwner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOwner.TabIndex = 123;
-            this.pictureBoxOwner.TabStop = false;
-            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
@@ -504,7 +517,7 @@
             // frm_owner_management
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(140)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(926, 558);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
@@ -526,11 +539,11 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOwner)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOwner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -50,7 +51,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     string colorr = "#cdfec2";
                     Color color = ColorTranslator.FromHtml(colorr);
                     currentButton = (Button)btnSender;
-                    currentButton.BackColor = Color.FromArgb(109, 207, 246);
+                    //currentButton.BackColor = Color.FromArgb(109, 207, 246);
+                    currentButton.BackColor = Color.FromArgb(137, 85, 229);
 
                 }
             }
@@ -75,11 +77,50 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             timer1.Start();
 
             LoadBusinessLogo();
+            LoadBusinessName();
 
             animatedGif = Properties.Resources.under_maintenance2;
             pictureBox1.Image = animatedGif;
 
-            ImageAnimator.Animate(animatedGif, OnFrameChanged);
+            //ImageAnimator.Animate(animatedGif, OnFrameChanged);
+
+            GetDashboard();
+        }
+
+        public void GetDashboard()
+        {
+            ActivateButton(btnDashboard);
+            main_panel.Controls.Clear();
+            frm_lender_dashboard frm = new frm_lender_dashboard();
+            frm.lblTitle.Text = "DASHBOARD";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
+        }
+
+        public void LoadBusinessName()
+        {
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM tblBusinessProfile";
+                cm = new SqlCommand(query, cn);
+                dr = cm.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    lblBusinessName.Text = dr["business_name"].ToString();
+
+                    dr.Close();
+                    cn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void OnFrameChanged(object sender, EventArgs e)
@@ -234,6 +275,13 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            main_panel.Controls.Clear();
+            frm_lender_dashboard frm = new frm_lender_dashboard();
+            frm.lblTitle.Text = "DASHBOARD";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
 
         private void btnOrders_Click(object sender, EventArgs e)
@@ -304,6 +352,110 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             frm_landing_page frm = new frm_landing_page();
             frm.Show();
             this.Dispose();
+        }
+
+        private void btnBookings_Click_1(object sender, EventArgs e)
+        {
+            frm_check_database_path frm = new frm_check_database_path();
+
+            try
+            {
+                string dataDirectory = AppDomain.CurrentDomain.GetData("DataDirectory")?.ToString();
+                if (!string.IsNullOrEmpty(dataDirectory))
+                {
+                    string dbPath = System.IO.Path.Combine(dataDirectory, "LOAN_DB.mdf");
+
+                    if (System.IO.File.Exists(dbPath))
+                    {
+                        frm.txtDBPath.Text = dbPath;
+                        frm.ShowDialog();
+                        return;
+                        //MessageBox.Show("Your database file is located at:\n" + dbPath,
+                        //                "Database Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Database file (.mdf) not found at:\n" + dbPath,
+                                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    frm.txtDBPath.Text = "DataDirectory is not set. Unable to locate the database file.";
+                    frm.ShowDialog();
+                    return;
+                    //MessageBox.Show("DataDirectory is not set. Unable to locate the database file.",
+                    //                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving database path:\n" + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCustomerInfo_Click_1(object sender, EventArgs e)
+        {
+            frm_owner_management frm = new frm_owner_management();
+            frm.ShowDialog();
+        }
+
+        private void lblBusinessName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBusinessName_Paint(object sender, PaintEventArgs e)
+        {
+            Label lbl = sender as Label;
+
+            e.Graphics.Clear(lbl.BackColor); 
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(lbl.ClientRectangle, Color.Blue, Color.Red, LinearGradientMode.Horizontal))
+            {
+                StringFormat format = new StringFormat();
+
+                switch (lbl.TextAlign)
+                {
+                    case ContentAlignment.TopLeft:
+                    case ContentAlignment.MiddleLeft:
+                    case ContentAlignment.BottomLeft:
+                        format.Alignment = StringAlignment.Near;
+                        break;
+                    case ContentAlignment.TopCenter:
+                    case ContentAlignment.MiddleCenter:
+                    case ContentAlignment.BottomCenter:
+                        format.Alignment = StringAlignment.Center;
+                        break;
+                    case ContentAlignment.TopRight:
+                    case ContentAlignment.MiddleRight:
+                    case ContentAlignment.BottomRight:
+                        format.Alignment = StringAlignment.Far;
+                        break;
+                }
+
+                switch (lbl.TextAlign)
+                {
+                    case ContentAlignment.TopLeft:
+                    case ContentAlignment.TopCenter:
+                    case ContentAlignment.TopRight:
+                        format.LineAlignment = StringAlignment.Near;
+                        break;
+                    case ContentAlignment.MiddleLeft:
+                    case ContentAlignment.MiddleCenter:
+                    case ContentAlignment.MiddleRight:
+                        format.LineAlignment = StringAlignment.Center;
+                        break;
+                    case ContentAlignment.BottomLeft:
+                    case ContentAlignment.BottomCenter:
+                    case ContentAlignment.BottomRight:
+                        format.LineAlignment = StringAlignment.Far;
+                        break;
+                }
+
+                e.Graphics.DrawString(lbl.Text, lbl.Font, brush, lbl.ClientRectangle, format);
+            }
         }
     }
 }

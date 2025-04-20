@@ -403,7 +403,7 @@
             this.lblBusinessName.AutoEllipsis = true;
             this.lblBusinessName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
             this.lblBusinessName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBusinessName.Font = new System.Drawing.Font("Arial Black", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusinessName.Font = new System.Drawing.Font("Arial Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBusinessName.ForeColor = System.Drawing.Color.White;
             this.lblBusinessName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblBusinessName.Location = new System.Drawing.Point(233, 0);
@@ -412,6 +412,8 @@
             this.lblBusinessName.TabIndex = 3;
             this.lblBusinessName.Text = "Business Name";
             this.lblBusinessName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblBusinessName.Click += new System.EventHandler(this.lblBusinessName_Click);
+            this.lblBusinessName.Paint += new System.Windows.Forms.PaintEventHandler(this.lblBusinessName_Paint);
             // 
             // pictureBoxLogo
             // 
