@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using TheArtOfDev.HtmlRenderer.Adapters;
 
 namespace LOAN_MANAGEMENT_SOFTWARE
@@ -185,7 +186,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         dr["loan_term"].ToString(),
                         dr["payment_schedule"].ToString(),
                         dr["id"].ToString(),
-                        dr["borrower_id"].ToString()
+                        dr["borrower_id"].ToString(),
+                        dr["interest_rate"].ToString(),
+                        dr["request_number"].ToString()
                     );
 
                     DataGridViewRow row = dataGridView1.Rows[rowIndex];
@@ -291,72 +294,117 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     if (dataGridView1.SelectedRows.Count == 0)
                         return;
 
-                    int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
-                    DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+                    var row = dataGridView1.SelectedRows[0];
+                    string request_id = row.Cells["request_id"].Value.ToString();
+                    string status = row.Cells["request_status2"].Value?.ToString();
+                    string borrower_id = row.Cells["borrower_id"].Value?.ToString();
+                    string rawLoan = row.Cells["requested_loan2"].Value.ToString();
+                    string frequency = row.Cells["payment_schedule"].Value?.ToString() ?? "Daily";
+                    string rawTerm = row.Cells["loan_term"].Value?.ToString() ?? "Short Term (6 Months)";
+                    string rawInterestRate = row.Cells["interest_rate"].Value?.ToString() ?? "0.10";
+                    string request_number = row.Cells["request_number"].Value?.ToString() ?? "0";
 
-                    string request_id = selectedRow.Cells["request_id"].Value.ToString();
-                    string status = selectedRow.Cells["request_status2"].Value?.ToString();
-
-                    if (status == "Approved")
+                    if (status == "Approved" || status == "Rejected" || status == "Cancelled")
                     {
-                        MessageBox.Show("❌ This loan request has already been approved.",
-                                        "Already Approved",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Information);
+                        MessageBox.Show($"❌ This loan request has already been {status.ToLower()} and cannot be approved.",
+                                        "Invalid Approval", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    if (status == "Rejected")
-                    {
-                        MessageBox.Show("❌ This loan request has already been rejected and cannot be approve.",
-                                        "Cannot Approve Request",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Warning);
+                    if (MessageBox.Show("Are you sure you want to approve this loan request?",
+                                        "Confirm Approval", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                         return;
-                    }
 
-                    if (status == "Cancelled")
-                    {
-                        MessageBox.Show("❌ This loan request has already been cancelled and cannot be approve.",
-                                        "Cannot Approve Request",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Warning);
-                        return;
-                    }
+                    cn.Open();
 
-                    DialogResult result = MessageBox.Show("Are you sure you want to approve this loan request?",
-                                                          "Confirm Approval",
-                                                          MessageBoxButtons.YesNo,
-                                                          MessageBoxIcon.Question);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        string query = @"
+                    // Update approval
+                    using (SqlCommand cmd = new SqlCommand(@"
                     UPDATE tblLoanRequests 
-                    SET status = @status, 
-                        date_reviewed = @date_reviewed, 
-                        loan_status = @loan_status 
-                    WHERE id LIKE @id";
-
-                        using (SqlCommand cmd = new SqlCommand(query, cn))
-                        {
-                            cmd.Parameters.AddWithValue("@status", "Approved");
-                            cmd.Parameters.AddWithValue("@date_reviewed", DateTime.Now);
-                            cmd.Parameters.AddWithValue("@loan_status", "Ongoing");
-                            cmd.Parameters.AddWithValue("@id", request_id);
-
-                            cn.Open();
-                            cmd.ExecuteNonQuery();
-                            cn.Close();
-                        }
-
-                        //MessageBox.Show("Loan request has been approved successfully.",
-                        //                "Success",
-                        //                MessageBoxButtons.OK,
-                        //                MessageBoxIcon.Information);
-
-                        LoadRequest();
+                    SET status = @status, date_reviewed = @date_reviewed, loan_status = @loan_status 
+                    WHERE id = @id", cn))
+                    {
+                        cmd.Parameters.AddWithValue("@status", "Approved");
+                        cmd.Parameters.AddWithValue("@date_reviewed", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@loan_status", "Ongoing");
+                        cmd.Parameters.AddWithValue("@id", request_id);
+                        cmd.ExecuteNonQuery();
                     }
+
+                    // Parse loan & interest
+                    string cleanedLoan = rawLoan.Replace("₱", "").Replace(",", "").Trim();
+                    if (!decimal.TryParse(cleanedLoan, out decimal approvedAmount))
+                    {
+                        MessageBox.Show("Invalid loan amount format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cn.Close();
+                        return;
+                    }
+
+                    decimal interestRate = decimal.TryParse(rawInterestRate, out var parsedRate) ? parsedRate : 0.05m;
+                    int termInDays = 30;
+
+                    if (rawTerm.Contains("Short"))
+                        termInDays = 180;
+                    else if (rawTerm.Contains("Long"))
+                        termInDays = 360;
+
+                    int months = termInDays / 30;
+                    decimal totalInterest = approvedAmount * interestRate * months;
+                    decimal totalPayable = approvedAmount + totalInterest;
+
+                    int numberOfPayments = termInDays; // default to daily
+                    if (frequency == "Weekly")
+                        numberOfPayments = termInDays / 7;
+                    else if (frequency == "Monthly")
+                        numberOfPayments = months;
+
+                    decimal perInstallment = Math.Round(totalPayable / numberOfPayments, 2);
+                    decimal perPrincipal = Math.Round(approvedAmount / numberOfPayments, 2);
+                    decimal perInterest = Math.Round(totalInterest / numberOfPayments, 2);
+
+                    // Insert borrower loan record
+                    using (SqlCommand insertCmd = new SqlCommand(@"
+                    INSERT INTO tblBorrowerLoanDetails (borrower_id, approved_amount)
+                    VALUES (@borrower_id, @approved_amount)", cn))
+                    {
+                        insertCmd.Parameters.AddWithValue("@borrower_id", borrower_id);
+                        insertCmd.Parameters.AddWithValue("@approved_amount", approvedAmount);
+                        insertCmd.ExecuteNonQuery();
+                    }
+
+                    // Determine start date
+                    DateTime startDate = DateTime.Today.AddDays(1);
+                    if (frequency == "Weekly")
+                        startDate = DateTime.Today.AddDays(7);
+                    else if (frequency == "Monthly")
+                        startDate = DateTime.Today.AddMonths(1);
+
+                    // Generate payment schedule
+                    for (int i = 0; i < numberOfPayments; i++)
+                    {
+                        DateTime dueDate = startDate.AddDays(i);
+                        if (frequency == "Weekly")
+                            dueDate = startDate.AddDays(i * 7);
+                        else if (frequency == "Monthly")
+                            dueDate = startDate.AddMonths(i);
+
+                        using (SqlCommand scheduleCmd = new SqlCommand(@"
+                        INSERT INTO tblPaymentSchedule 
+                            (borrower_id, due_date, amount_to_pay, interest, total_payment, status, request_number, payment_status)
+                        VALUES 
+                            (@borrower_id, @due_date, @amount_to_pay, @interest, @total_payment, 'Pending', @request_number, 'Ongoing')", cn))
+                        {
+                            scheduleCmd.Parameters.AddWithValue("@borrower_id", borrower_id);
+                            scheduleCmd.Parameters.AddWithValue("@due_date", dueDate);
+                            scheduleCmd.Parameters.AddWithValue("@amount_to_pay", perPrincipal);
+                            scheduleCmd.Parameters.AddWithValue("@interest", perInterest);
+                            scheduleCmd.Parameters.AddWithValue("@total_payment", perInstallment);
+                            scheduleCmd.Parameters.AddWithValue("@request_number", request_number);
+                            scheduleCmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    cn.Close();
+                    LoadRequest();
                 }
                 catch (Exception ex)
                 {

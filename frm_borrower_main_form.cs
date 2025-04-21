@@ -69,6 +69,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             ActivateButton(btnDashboard);
             main_panel.Controls.Clear();
             frm_borrower_dashboard frm = new frm_borrower_dashboard();
+            frm.txtID.Text = txtID.Text;
             frm.lblTitle.Text = "DASHBOARD";
             frm.TopLevel = false;
             main_panel.Controls.Add(frm);
@@ -352,6 +353,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             ActivateButton(sender);
             main_panel.Controls.Clear();
             frm_borrower_dashboard frm = new frm_borrower_dashboard();
+            frm.txtID.Text = txtID.Text;
             frm.lblTitle.Text = "DASHBOARD";
             frm.TopLevel = false;
             main_panel.Controls.Add(frm);

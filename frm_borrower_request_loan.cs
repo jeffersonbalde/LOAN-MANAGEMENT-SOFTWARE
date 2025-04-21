@@ -414,7 +414,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 decimal monthly_income = decimal.Parse(txtMonthlyIncome.Text.Replace("₱", "").Replace(",", "").Trim());
                 decimal maximum_loan = decimal.Parse(txtMaxLoanAmount.Text.Replace("₱", "").Replace(",", "").Trim());
-                decimal requested_loan = decimal.Parse(txtLoanAmount.Text, System.Globalization.NumberStyles.AllowThousands);
+                decimal requested_loan = decimal.Parse(
+                 txtLoanAmount.Text.Replace("₱", "").Replace(",", "").Trim(),
+                 System.Globalization.NumberStyles.AllowDecimalPoint | System.Globalization.NumberStyles.AllowThousands,
+                 System.Globalization.CultureInfo.InvariantCulture
+                );
 
                 decimal amount_to_receive = decimal.Parse(lblAmountToReceive.Text.Replace("₱", "").Replace(",", "").Trim());
 
@@ -480,6 +484,15 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     insertCmd.Parameters.AddWithValue("@request_number", txtRequestNumber.Text);
 
                     insertCmd.ExecuteNonQuery();
+
+                    //using (SqlCommand loanDetailsCmd = new SqlCommand(@"
+                    //INSERT INTO tblBorrowerLoanDetails (borrower_id, approved_amount)
+                    //VALUES (@borrower_id, @approved_amount)", cn))
+                    //{
+                    //    loanDetailsCmd.Parameters.AddWithValue("@borrower_id", txtID.Text);
+                    //    loanDetailsCmd.Parameters.AddWithValue("@approved_amount", 0.00m);
+                    //    loanDetailsCmd.ExecuteNonQuery();
+                    //}
                 }
 
                 cn.Close();
@@ -493,7 +506,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 frm.GetTotalLoanRequest();
 
                 this.Dispose();
-        }
+            }
             catch (Exception ex)
             {
                 if (cn.State == ConnectionState.Open)
@@ -501,7 +514,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 MessageBox.Show("Error: " + ex.Message);
             }
-}
+        }
 
         private void siticoneButton2_Click(object sender, EventArgs e)
         {

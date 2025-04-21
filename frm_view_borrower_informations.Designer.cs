@@ -29,9 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtNameSuffix = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtUsername = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMiddleName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtLastName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPassword = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.txtPhoneNumber = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.txtEmail = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAddress = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,27 +63,19 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtMiddleName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.txtNameSuffix = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txtUsername = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPassword = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.txtEmail = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.pictureBoxProfile);
             this.panel1.Controls.Add(this.label26);
             this.panel1.Controls.Add(this.txtNameSuffix);
             this.panel1.Controls.Add(this.label25);
@@ -84,7 +85,6 @@
             this.panel1.Controls.Add(this.txtMiddleName);
             this.panel1.Controls.Add(this.txtLastName);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.pictureBoxProfile);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.txtPhoneNumber);
             this.panel1.Controls.Add(this.txtEmail);
@@ -103,6 +103,131 @@
             this.panel1.Size = new System.Drawing.Size(573, 699);
             this.panel1.TabIndex = 243;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Black;
+            this.label26.Location = new System.Drawing.Point(11, 494);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(105, 23);
+            this.label26.TabIndex = 277;
+            this.label26.Text = "Username:";
+            // 
+            // txtNameSuffix
+            // 
+            this.txtNameSuffix.AutoRoundedCorners = true;
+            this.txtNameSuffix.BackColor = System.Drawing.Color.Transparent;
+            this.txtNameSuffix.BorderRadius = 20;
+            this.txtNameSuffix.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNameSuffix.DefaultText = "";
+            this.txtNameSuffix.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNameSuffix.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNameSuffix.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNameSuffix.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNameSuffix.Enabled = false;
+            this.txtNameSuffix.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
+            this.txtNameSuffix.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNameSuffix.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameSuffix.ForeColor = System.Drawing.Color.Black;
+            this.txtNameSuffix.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNameSuffix.Location = new System.Drawing.Point(404, 370);
+            this.txtNameSuffix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNameSuffix.Name = "txtNameSuffix";
+            this.txtNameSuffix.PasswordChar = '\0';
+            this.txtNameSuffix.PlaceholderText = "Name Suffix";
+            this.txtNameSuffix.SelectedText = "";
+            this.txtNameSuffix.Size = new System.Drawing.Size(150, 43);
+            this.txtNameSuffix.TabIndex = 271;
+            // 
+            // label25
+            // 
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(354, 372);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(52, 43);
+            this.label25.TabIndex = 270;
+            this.label25.Text = "Name Suffix:";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.AutoRoundedCorners = true;
+            this.txtUsername.BackColor = System.Drawing.Color.Transparent;
+            this.txtUsername.BorderRadius = 20;
+            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsername.DefaultText = "";
+            this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUsername.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUsername.Enabled = false;
+            this.txtUsername.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
+            this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUsername.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.Color.Black;
+            this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUsername.Location = new System.Drawing.Point(140, 474);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.PasswordChar = '\0';
+            this.txtUsername.PlaceholderText = "Username";
+            this.txtUsername.SelectedText = "";
+            this.txtUsername.Size = new System.Drawing.Size(413, 43);
+            this.txtUsername.TabIndex = 276;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(10, 339);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(131, 23);
+            this.label19.TabIndex = 269;
+            this.label19.Text = "Middle Name:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(11, 443);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(142, 23);
+            this.label7.TabIndex = 272;
+            this.label7.Text = "Email Address:";
+            // 
+            // txtMiddleName
+            // 
+            this.txtMiddleName.AutoRoundedCorners = true;
+            this.txtMiddleName.BackColor = System.Drawing.Color.Transparent;
+            this.txtMiddleName.BorderRadius = 20;
+            this.txtMiddleName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMiddleName.DefaultText = "";
+            this.txtMiddleName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMiddleName.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMiddleName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMiddleName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMiddleName.Enabled = false;
+            this.txtMiddleName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
+            this.txtMiddleName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMiddleName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMiddleName.ForeColor = System.Drawing.Color.Black;
+            this.txtMiddleName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMiddleName.Location = new System.Drawing.Point(138, 319);
+            this.txtMiddleName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMiddleName.Name = "txtMiddleName";
+            this.txtMiddleName.PasswordChar = '\0';
+            this.txtMiddleName.PlaceholderText = "Middle Name";
+            this.txtMiddleName.SelectedText = "";
+            this.txtMiddleName.Size = new System.Drawing.Size(416, 43);
+            this.txtMiddleName.TabIndex = 268;
             // 
             // txtLastName
             // 
@@ -130,16 +255,44 @@
             this.txtLastName.Size = new System.Drawing.Size(210, 45);
             this.txtLastName.TabIndex = 260;
             // 
-            // pictureBoxProfile
+            // label8
             // 
-            this.pictureBoxProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxProfile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxProfile.Location = new System.Drawing.Point(191, 62);
-            this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(210, 184);
-            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxProfile.TabIndex = 267;
-            this.pictureBoxProfile.TabStop = false;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(11, 545);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 23);
+            this.label8.TabIndex = 274;
+            this.label8.Text = "Password:";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.AutoRoundedCorners = true;
+            this.txtPassword.BackColor = System.Drawing.Color.Transparent;
+            this.txtPassword.BorderRadius = 20;
+            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.DefaultText = "";
+            this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPassword.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPassword.Enabled = false;
+            this.txtPassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
+            this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPassword.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.Black;
+            this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPassword.Location = new System.Drawing.Point(139, 525);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.PlaceholderText = "Password";
+            this.txtPassword.SelectedText = "";
+            this.txtPassword.Size = new System.Drawing.Size(413, 43);
+            this.txtPassword.TabIndex = 275;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtPhoneNumber
             // 
@@ -166,6 +319,32 @@
             this.txtPhoneNumber.SelectedText = "";
             this.txtPhoneNumber.Size = new System.Drawing.Size(165, 45);
             this.txtPhoneNumber.TabIndex = 232;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.AutoRoundedCorners = true;
+            this.txtEmail.BackColor = System.Drawing.Color.Transparent;
+            this.txtEmail.BorderRadius = 20;
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.DefaultText = "";
+            this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtEmail.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.Enabled = false;
+            this.txtEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
+            this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.Color.Black;
+            this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.Location = new System.Drawing.Point(140, 423);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PasswordChar = '\0';
+            this.txtEmail.PlaceholderText = "Email Address";
+            this.txtEmail.SelectedText = "";
+            this.txtEmail.Size = new System.Drawing.Size(413, 43);
+            this.txtEmail.TabIndex = 273;
             // 
             // label1
             // 
@@ -530,195 +709,16 @@
             this.siticoneButton1.Text = "Close";
             this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
-            // label19
+            // pictureBoxProfile
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(10, 339);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(131, 23);
-            this.label19.TabIndex = 269;
-            this.label19.Text = "Middle Name:";
-            // 
-            // txtMiddleName
-            // 
-            this.txtMiddleName.AutoRoundedCorners = true;
-            this.txtMiddleName.BackColor = System.Drawing.Color.Transparent;
-            this.txtMiddleName.BorderRadius = 20;
-            this.txtMiddleName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMiddleName.DefaultText = "";
-            this.txtMiddleName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMiddleName.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMiddleName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMiddleName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMiddleName.Enabled = false;
-            this.txtMiddleName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.txtMiddleName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMiddleName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMiddleName.ForeColor = System.Drawing.Color.Black;
-            this.txtMiddleName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMiddleName.Location = new System.Drawing.Point(138, 319);
-            this.txtMiddleName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtMiddleName.Name = "txtMiddleName";
-            this.txtMiddleName.PasswordChar = '\0';
-            this.txtMiddleName.PlaceholderText = "Middle Name";
-            this.txtMiddleName.SelectedText = "";
-            this.txtMiddleName.Size = new System.Drawing.Size(416, 43);
-            this.txtMiddleName.TabIndex = 268;
-            // 
-            // txtNameSuffix
-            // 
-            this.txtNameSuffix.AutoRoundedCorners = true;
-            this.txtNameSuffix.BackColor = System.Drawing.Color.Transparent;
-            this.txtNameSuffix.BorderRadius = 20;
-            this.txtNameSuffix.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNameSuffix.DefaultText = "";
-            this.txtNameSuffix.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNameSuffix.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.txtNameSuffix.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNameSuffix.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNameSuffix.Enabled = false;
-            this.txtNameSuffix.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.txtNameSuffix.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNameSuffix.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameSuffix.ForeColor = System.Drawing.Color.Black;
-            this.txtNameSuffix.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNameSuffix.Location = new System.Drawing.Point(404, 370);
-            this.txtNameSuffix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNameSuffix.Name = "txtNameSuffix";
-            this.txtNameSuffix.PasswordChar = '\0';
-            this.txtNameSuffix.PlaceholderText = "Name Suffix";
-            this.txtNameSuffix.SelectedText = "";
-            this.txtNameSuffix.Size = new System.Drawing.Size(150, 43);
-            this.txtNameSuffix.TabIndex = 271;
-            // 
-            // label25
-            // 
-            this.label25.BackColor = System.Drawing.Color.Transparent;
-            this.label25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(354, 372);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(52, 43);
-            this.label25.TabIndex = 270;
-            this.label25.Text = "Name Suffix:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(11, 494);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(105, 23);
-            this.label26.TabIndex = 277;
-            this.label26.Text = "Username:";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.AutoRoundedCorners = true;
-            this.txtUsername.BackColor = System.Drawing.Color.Transparent;
-            this.txtUsername.BorderRadius = 20;
-            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUsername.DefaultText = "";
-            this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtUsername.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUsername.Enabled = false;
-            this.txtUsername.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsername.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.Color.Black;
-            this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsername.Location = new System.Drawing.Point(140, 474);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.PasswordChar = '\0';
-            this.txtUsername.PlaceholderText = "Username";
-            this.txtUsername.SelectedText = "";
-            this.txtUsername.Size = new System.Drawing.Size(413, 43);
-            this.txtUsername.TabIndex = 276;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(11, 443);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 23);
-            this.label7.TabIndex = 272;
-            this.label7.Text = "Email Address:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(11, 545);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 23);
-            this.label8.TabIndex = 274;
-            this.label8.Text = "Password:";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.AutoRoundedCorners = true;
-            this.txtPassword.BackColor = System.Drawing.Color.Transparent;
-            this.txtPassword.BorderRadius = 20;
-            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.DefaultText = "";
-            this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPassword.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPassword.Enabled = false;
-            this.txtPassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPassword.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.Black;
-            this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPassword.Location = new System.Drawing.Point(139, 525);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '●';
-            this.txtPassword.PlaceholderText = "Password";
-            this.txtPassword.SelectedText = "";
-            this.txtPassword.Size = new System.Drawing.Size(413, 43);
-            this.txtPassword.TabIndex = 275;
-            this.txtPassword.UseSystemPasswordChar = true;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.AutoRoundedCorners = true;
-            this.txtEmail.BackColor = System.Drawing.Color.Transparent;
-            this.txtEmail.BorderRadius = 20;
-            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEmail.DefaultText = "";
-            this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtEmail.DisabledState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmail.Enabled = false;
-            this.txtEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmail.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.Black;
-            this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmail.Location = new System.Drawing.Point(140, 423);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.PasswordChar = '\0';
-            this.txtEmail.PlaceholderText = "Email Address";
-            this.txtEmail.SelectedText = "";
-            this.txtEmail.Size = new System.Drawing.Size(413, 43);
-            this.txtEmail.TabIndex = 273;
+            this.pictureBoxProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxProfile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxProfile.Location = new System.Drawing.Point(191, 62);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.Size = new System.Drawing.Size(210, 184);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxProfile.TabIndex = 267;
+            this.pictureBoxProfile.TabStop = false;
             // 
             // frm_view_borrower_informations
             // 
@@ -739,11 +739,11 @@
             this.Load += new System.EventHandler(this.frm_view_borrower_informations_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
 
         }
