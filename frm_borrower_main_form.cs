@@ -439,7 +439,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             main_panel.Controls.Clear();
             frm_borrower_payment frm = new frm_borrower_payment();
             frm.txtID.Text = txtID.Text;
-            frm.lblTitle.Text = "Loan Payment";
+            frm.lblTitle.Text = "LOAN PAYMENT";
             frm.TopLevel = false;
             main_panel.Controls.Add(frm);
             frm.BringToFront();

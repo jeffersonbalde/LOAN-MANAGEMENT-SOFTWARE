@@ -32,12 +32,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
         private void frm_borrower_request_loan_Load(object sender, EventArgs e)
         {
+            cmbLoanTerm.Items.Clear();
             cmbLoanTerm.Items.Add("Short Term (6 Months)");
             cmbLoanTerm.Items.Add("Long Term (1 Year)");
+            cmbLoanTerm.SelectedIndex = 0;
 
+            cmbPaymentSchedule.Items.Clear();
             cmbPaymentSchedule.Items.Add("Daily");
             cmbPaymentSchedule.Items.Add("Weekly");
             cmbPaymentSchedule.Items.Add("Monthly");
+            cmbPaymentSchedule.SelectedIndex = 0;
 
             LoadBorrowerLoanDetails();
             GetRequestNumber();

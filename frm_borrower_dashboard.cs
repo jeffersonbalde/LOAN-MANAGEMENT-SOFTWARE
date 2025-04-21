@@ -95,6 +95,41 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
         }
 
+        public void LoadOngoingBalance()
+        {
+            try
+            {
+                cn.Open();
+                string query = @"
+            SELECT SUM(ongoing_balance) AS total_balance 
+            FROM tblBorrowerBalance 
+            WHERE borrower_id = @borrower_id 
+            GROUP BY borrower_id";
+
+                cm = new SqlCommand(query, cn);
+                cm.Parameters.AddWithValue("@borrower_id", txtID.Text.Trim());
+
+                dr = cm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    lblBalance.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["total_balance"]));
+                }
+                else
+                {
+                    lblBalance.Text = "₱0.00";
+                }
+
+                dr.Close();
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading approved amount: " + ex.Message);
+                if (cn.State == ConnectionState.Open) cn.Close();
+            }
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
@@ -253,6 +288,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         }
                     }
                 }
+
+                lblNoLowStocks.Visible = dataGridViewSchedule.Rows.Count == 0;
             }
             catch (Exception ex)
             {
@@ -266,6 +303,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             LoadBorrowerTotalApprovedAmount();
             LoadTotalApprovedLoanRequests();
             LoadPaymentSchedule();
+            LoadOngoingBalance();
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
@@ -290,6 +328,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
                 LoadPaymentSchedule(cmbRequestNumber.SelectedItem.ToString());
             }
+        }
+
+        private void dataGridViewSchedule_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

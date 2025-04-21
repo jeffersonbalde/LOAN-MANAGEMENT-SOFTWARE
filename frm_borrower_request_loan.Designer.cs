@@ -67,11 +67,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lblInterest = new System.Windows.Forms.Label();
             this.lblMonthlyDues = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.lblInterestRate = new System.Windows.Forms.Label();
-            this.lblInterest = new System.Windows.Forms.Label();
             this.lblAmountToReceive = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.lblDues = new System.Windows.Forms.Label();
@@ -777,6 +777,18 @@
             this.panel6.TabIndex = 268;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
+            // lblInterest
+            // 
+            this.lblInterest.AutoSize = true;
+            this.lblInterest.BackColor = System.Drawing.Color.Transparent;
+            this.lblInterest.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInterest.ForeColor = System.Drawing.Color.Black;
+            this.lblInterest.Location = new System.Drawing.Point(11, 114);
+            this.lblInterest.Name = "lblInterest";
+            this.lblInterest.Size = new System.Drawing.Size(195, 33);
+            this.lblInterest.TabIndex = 270;
+            this.lblInterest.Text = "Interest Rate:";
+            // 
             // lblMonthlyDues
             // 
             this.lblMonthlyDues.AutoEllipsis = true;
@@ -827,18 +839,6 @@
             this.lblInterestRate.TabIndex = 273;
             this.lblInterestRate.Text = "0%";
             this.lblInterestRate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblInterest
-            // 
-            this.lblInterest.AutoSize = true;
-            this.lblInterest.BackColor = System.Drawing.Color.Transparent;
-            this.lblInterest.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInterest.ForeColor = System.Drawing.Color.Black;
-            this.lblInterest.Location = new System.Drawing.Point(11, 114);
-            this.lblInterest.Name = "lblInterest";
-            this.lblInterest.Size = new System.Drawing.Size(195, 33);
-            this.lblInterest.TabIndex = 270;
-            this.lblInterest.Text = "Interest Rate:";
             // 
             // lblAmountToReceive
             // 
@@ -931,7 +931,7 @@
             this.siticoneButton2.Name = "siticoneButton2";
             this.siticoneButton2.Size = new System.Drawing.Size(176, 51);
             this.siticoneButton2.TabIndex = 272;
-            this.siticoneButton2.Text = "Cancel";
+            this.siticoneButton2.Text = "Close";
             this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
             // 
             // frm_borrower_request_loan

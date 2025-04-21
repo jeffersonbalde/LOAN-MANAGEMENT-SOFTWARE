@@ -371,6 +371,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         insertCmd.ExecuteNonQuery();
                     }
 
+                    // Insert borrower loan record
+                    using (SqlCommand insertCmdBalance = new SqlCommand(@"
+                    INSERT INTO tblBorrowerBalance (borrower_id, ongoing_balance)
+                    VALUES (@borrower_id, @ongoing_balance)", cn))
+                    {
+                        insertCmdBalance.Parameters.AddWithValue("@borrower_id", borrower_id);
+                        insertCmdBalance.Parameters.AddWithValue("@ongoing_balance", approvedAmount);
+                        insertCmdBalance.ExecuteNonQuery();
+                    }
+
                     // Determine start date
                     DateTime startDate = DateTime.Today.AddDays(1);
                     if (frequency == "Weekly")

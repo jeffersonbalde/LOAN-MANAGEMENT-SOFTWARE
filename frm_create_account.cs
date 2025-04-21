@@ -102,12 +102,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             CenterPanel();
 
+            cmbLoanTerm.Items.Clear();
             cmbLoanTerm.Items.Add("Short Term (6 Months)");
             cmbLoanTerm.Items.Add("Long Term (1 Year)");
+            cmbLoanTerm.SelectedIndex = 0;
 
+            cmbPaymentSchedule.Items.Clear();
             cmbPaymentSchedule.Items.Add("Daily");
             cmbPaymentSchedule.Items.Add("Weekly");
             cmbPaymentSchedule.Items.Add("Monthly");
+            cmbPaymentSchedule.SelectedIndex = 0;
 
             this.ActiveControl = txtFirstName;
 
@@ -692,6 +696,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         }
 
         private void siticoneButton4_Click(object sender, EventArgs e)
+        {
+            siticoneButton4_Click(sender, e, btnUploadProof);
+        }
+
+        private void siticoneButton4_Click(object sender, EventArgs e, Siticone.Desktop.UI.WinForms.SiticoneButton btnUploadProof)
         {
             try
             {
