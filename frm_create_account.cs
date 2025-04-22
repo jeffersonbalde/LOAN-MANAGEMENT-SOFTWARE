@@ -390,7 +390,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 if (lblFileName.ForeColor != Color.Green)
                 {
-                    MessageBox.Show("Please upload a valid proof of payment file.",
+                    MessageBox.Show("Please upload a valid proof of income file.",
                                     "Invalid File",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);

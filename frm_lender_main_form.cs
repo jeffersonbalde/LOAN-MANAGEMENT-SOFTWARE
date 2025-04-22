@@ -289,7 +289,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             ActivateButton(sender);
             main_panel.Controls.Clear();
             frm_lender_view_loan_request frm = new frm_lender_view_loan_request();
-            frm.lblTitle.Text = "BORROWER LOAN APPLICATION";
+            frm.lblTitle.Text = "BORROWER LOAN APPLICATIONS";
             frm.TopLevel = false;
             main_panel.Controls.Add(frm);
             frm.BringToFront();
@@ -456,6 +456,19 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 e.Graphics.DrawString(lbl.Text, lbl.Font, brush, lbl.ClientRectangle, format);
             }
+        }
+
+        private void btnDownPayment_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            main_panel.Controls.Clear();
+            frm_lender_approved_payment frm = new frm_lender_approved_payment();
+            frm.txtID.Text = txtID.Text;
+            frm.lblTitle.Text = "LOAN PAYMENTS";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
         }
     }
 }

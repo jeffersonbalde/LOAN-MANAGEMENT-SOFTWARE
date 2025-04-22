@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace LOAN_MANAGEMENT_SOFTWARE
 {
-    public partial class frm_borrower_payment : Form
+    public partial class frm_lender_approved_payment : Form
     {
 
         SqlConnection cn = new SqlConnection();
@@ -20,26 +20,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
 
-        public frm_borrower_payment()
+        public frm_lender_approved_payment()
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-            Panel panel = sender as Panel;
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                panel.ClientRectangle,
-                //Color.FromArgb(231, 229, 251),  // Top color
-                //Color.FromArgb(230, 187, 254),  // Bottom color
-
-                Color.FromArgb(237, 248, 100),  // Top color
-                Color.FromArgb(131, 195, 79),  // Bottom color
-                LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
-            {
-                e.Graphics.FillRectangle(brush, panel.ClientRectangle);
-            }
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -50,72 +34,57 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 //Color.FromArgb(231, 229, 251),  // Top color
                 //Color.FromArgb(230, 187, 254),  // Bottom color
 
-                Color.FromArgb(237, 248, 100),  // Top color
-                Color.FromArgb(131, 195, 79),  // Bottom color
+                Color.FromArgb(196, 75, 128),  // Top color
+                Color.FromArgb(103, 71, 219),  // Bottom color
                 LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
             {
                 e.Graphics.FillRectangle(brush, panel.ClientRectangle);
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void dtTo_ValueChanged(object sender, EventArgs e)
         {
-            string borrowerId = txtID.Text;
 
-            try
-            {
-                //if (cn.State != ConnectionState.Open)
-                //    cn.Open();
-
-                //string query = @"
-                //SELECT TOP 1 status, loan_status 
-                //FROM tblLoanRequests 
-                //WHERE borrower_id = @borrowerId 
-                //ORDER BY id DESC";
-
-                //SqlCommand cmd = new SqlCommand(query, cn);
-                //cmd.Parameters.AddWithValue("@borrowerId", borrowerId);
-
-                //SqlDataReader reader = cmd.ExecuteReader();
-
-                //if (reader.Read())
-                //{
-                //    string status = reader["status"].ToString();
-                //    string loanStatus = reader["loan_status"].ToString();
-
-                //    if (status == "Pending")
-                //    {
-                //        MessageBox.Show("❌ You already have a pending loan request.", "Loan Request Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //        return;
-                //    }
-                //    else if (status == "Approved" && loanStatus != "Paid")
-                //    {
-                //        MessageBox.Show("❌ You already have an approved loan. Please complete payment first before requesting again.", "Loan Request Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //        return;
-                //    }
-                //}
-
-
-                //reader.Close();
-
-                frm_borrower_add_payment frm = new frm_borrower_add_payment(this);
-                frm.txtID.Text = borrowerId;
-                frm.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //finally
-            //{
-            //    if (cn.State == ConnectionState.Open)
-            //        cn.Close();
-            //}
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void frm_lender_approved_payment_Load(object sender, EventArgs e)
         {
+            dtFrom.ShowCheckBox = true;
+            dtTo.ShowCheckBox = true;
 
+            dtFrom.Checked = false;
+            dtTo.Checked = false;
+
+            this.ActiveControl = txtSearchBorrower;
+
+            cmbRequestStatus.Items.Clear();
+            cmbRequestStatus.Items.Add("All");
+            cmbRequestStatus.Items.Add("Pending");
+            cmbRequestStatus.Items.Add("Approved");
+            cmbRequestStatus.Items.Add("Rejected");
+            cmbRequestStatus.Items.Add("Cancelled");
+            cmbRequestStatus.SelectedIndex = 0;
+
+            cmbMOP.Items.Clear();
+            cmbMOP.Items.Add("All");
+            cmbMOP.Items.Add("Cash");
+            cmbMOP.Items.Add("Cheque");
+            cmbMOP.Items.Add("Bank Transfer");
+            cmbMOP.Items.Add("GCash");
+            cmbMOP.Items.Add("Others");
+            cmbMOP.SelectedIndex = 0;
+
+            cmbLoanStatus.Items.Clear();
+            cmbLoanStatus.Items.Add("All");
+            cmbLoanStatus.Items.Add("Pending");
+            cmbLoanStatus.Items.Add("Rejected");
+            cmbLoanStatus.Items.Add("Cancelled");
+            cmbLoanStatus.Items.Add("Ongoing");
+            cmbLoanStatus.Items.Add("Completed");
+            cmbLoanStatus.SelectedIndex = 0;
+
+            LoadPayment();
+            //GetTotalLoanRequest();
         }
 
         public void LoadPayment()
@@ -126,7 +95,12 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 dataGridView1.Rows.Clear();
 
                 string query = @"
-            SELECT * FROM tblLoanPayment WHERE borrower_id = @borrower_id";
+            SELECT * FROM tblLoanPayment WHERE 1 = 1";
+
+                if (!string.IsNullOrEmpty(txtSearchBorrower.Text))
+                {
+                    query += " AND name LIKE @name";
+                }
 
                 if (cmbRequestStatus.SelectedIndex != -1 && cmbRequestStatus.Text != "All")
                 {
@@ -156,14 +130,18 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     query += " AND payment_date < @end_date";
                 }
 
-                query += " ORDER BY payment_date";
+                query += " ORDER BY payment_date DESC";
 
                 using (SqlConnection connection = new SqlConnection(dbcon.MyConnection()))
                 {
                     connection.Open();
                     using (SqlCommand cm = new SqlCommand(query, connection))
                     {
-                        cm.Parameters.AddWithValue("@borrower_id", txtID.Text);
+
+                        if (!string.IsNullOrEmpty(txtSearchBorrower.Text))
+                        {
+                            cm.Parameters.AddWithValue("@name", txtSearchBorrower.Text + "%");
+                        }
 
                         if (cmbRequestStatus.SelectedIndex != -1 && cmbRequestStatus.Text != "All")
                         {
@@ -195,9 +173,45 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                             {
                                 i++;
 
+                                //string monthly_income = dr["monthly_income"] != DBNull.Value
+                                //    ? "₱" + Double.Parse(dr["monthly_income"].ToString()).ToString("#,##0.00")
+                                //    : "₱0.00";
+
+                                //string maximum_loan = dr["maximum_loan"] != DBNull.Value
+                                //    ? "₱" + Double.Parse(dr["maximum_loan"].ToString()).ToString("#,##0.00")
+                                //    : "₱0.00";
+
+                                //string requested_loan = dr["requested_loan"] != DBNull.Value
+                                //    ? "₱" + Double.Parse(dr["requested_loan"].ToString()).ToString("#,##0.00")
+                                //    : "₱0.00";
+
+                                //string payment_date = dr["payment_date"] != DBNull.Value
+                                //    ? DateTime.Parse(dr["payment_date"].ToString()).ToString("MMMM d, yyyy")
+                                //    : "N/A";
+
+                                //int rowIndex = dataGridView1.Rows.Add(
+                                //    i,
+                                //    null,
+                                //    null,
+                                //    null,
+                                //    null,
+                                //    dr["borrower_profile"],
+                                //    payment_date,
+                                //    dr["status"].ToString(),
+                                //    dr["name"].ToString(),
+                                //    requested_loan,
+                                //    monthly_income,
+                                //    dr["loan_term"].ToString(),
+                                //    dr["payment_schedule"].ToString(),
+                                //    dr["id"].ToString(),
+                                //    dr["borrower_id"].ToString(),
+                                //    dr["interest_rate"].ToString(),
+                                //    dr["request_number"].ToString()
+                                //);
+
                                 string paid_amount = dr["paid_amount"] != DBNull.Value
-                                    ? "₱" + Double.Parse(dr["paid_amount"].ToString()).ToString("#,##0.00")
-                                    : "₱0.00";
+                                ? "₱" + Double.Parse(dr["paid_amount"].ToString()).ToString("#,##0.00")
+                                : "₱0.00";
 
                                 string date_reviewed = dr["date_reviewed"] != DBNull.Value
                                     ? DateTime.Parse(dr["date_reviewed"].ToString()).ToString("MMMM d, yyyy")
@@ -211,6 +225,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                     i,
                                     null,
                                     null,
+                                    null,
+                                    null,
+                                    dr["borrower_profile"],
                                     dr["payment_number"].ToString(),
                                     payment_date,
                                     date_reviewed,
@@ -223,10 +240,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                 );
 
                                 DataGridViewRow row = dataGridView1.Rows[rowIndex];
-                                row.Cells["view_request"].Value = Properties.Resources.view_request;
-                                row.Cells["cancel_request"].Value = Properties.Resources.cancel_request;
-
-
+                                row.Cells["approve"].Value = Properties.Resources.approve;
+                                row.Cells["reject"].Value = Properties.Resources.reject;
+                                row.Cells["view_details"].Value = Properties.Resources.view_details;
+                                row.Cells["borrower_information"].Value = Properties.Resources.borrower_information;
 
                                 string requestStatus = dr["status"].ToString();
                                 string loanStatus = dr["loan_status"].ToString();
@@ -264,136 +281,19 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                     row.Cells["loan_status"].Style.ForeColor = Color.Orange;
                                 }
                                 row.Cells["loan_status"].Style.Font = boldFont;
-
                             }
                         }
                     }
                 }
 
                 lblNoLowStocks.Visible = dataGridView1.Rows.Count == 0;
+
+                var imageColumn = (DataGridViewImageColumn)dataGridView1.Columns["borrower_profile"];
+                imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-            }
-        }
-
-        private void frm_borrower_payment_Load(object sender, EventArgs e)
-        {
-            dtFrom.ShowCheckBox = true;
-            dtTo.ShowCheckBox = true;
-
-            dtFrom.Checked = false;
-            dtTo.Checked = false;
-
-            cmbRequestStatus.Items.Clear();
-            cmbRequestStatus.Items.Add("All");
-            cmbRequestStatus.Items.Add("Pending");
-            cmbRequestStatus.Items.Add("Approved");
-            cmbRequestStatus.Items.Add("Rejected");
-            cmbRequestStatus.Items.Add("Cancelled");
-            cmbRequestStatus.SelectedIndex = 0;
-
-            cmbMOP.Items.Clear();
-            cmbMOP.Items.Add("All");
-            cmbMOP.Items.Add("Cash");
-            cmbMOP.Items.Add("Cheque");
-            cmbMOP.Items.Add("Bank Transfer");
-            cmbMOP.Items.Add("GCash");
-            cmbMOP.Items.Add("Others");
-            cmbMOP.SelectedIndex = 0;
-
-            cmbLoanStatus.Items.Clear();
-            cmbLoanStatus.Items.Add("All");
-            cmbLoanStatus.Items.Add("Pending");
-            cmbLoanStatus.Items.Add("Rejected");
-            cmbLoanStatus.Items.Add("Cancelled");
-            cmbLoanStatus.Items.Add("Ongoing");
-            cmbLoanStatus.Items.Add("Completed");
-            cmbLoanStatus.SelectedIndex = 0;
-
-            LoadPayment();
-            GetTotalPayment();
-        }
-
-        public void GetTotalPayment()
-        {
-
-            try
-            {
-                int total_request = dataGridView1.Rows.Count;
-
-                lblTotalTransactions.Text = total_request.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while counting total request: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dtFrom_ValueChanged(object sender, EventArgs e)
-        {
-            LoadPayment();
-            GetTotalPayment();
-        }
-
-        private void dtTo_ValueChanged(object sender, EventArgs e)
-        {
-            LoadPayment();
-            GetTotalPayment();
-        }
-
-        private void cmbRequestStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadPayment();
-            GetTotalPayment();
-        }
-
-        private void cmbLoanStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadPayment();
-            GetTotalPayment();
-        }
-
-        private void cmbMOP_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadPayment();
-            GetTotalPayment();
-        }
-
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            dtFrom.Value = DateTime.Now;
-            dtTo.Value = DateTime.Now;
-
-            dtFrom.Checked = false;
-            dtTo.Checked = false;
-
-            cmbRequestStatus.SelectedIndex = 0;
-            cmbMOP.SelectedIndex = 0;
-            cmbLoanStatus.SelectedIndex = 0;
-
-            await SafeLoadRequestAsync();
-        }
-
-        private async Task SafeLoadRequestAsync()
-        {
-            try
-            {
-
-                button1.Enabled = false;
-
-                Cursor.Current = Cursors.WaitCursor;
-
-                await Task.Delay(100);
-
-                LoadPayment();
-                GetTotalPayment();
-            }
-            finally
-            {
-                button1.Enabled = true;
-                Cursor.Current = Cursors.Default;
             }
         }
     }

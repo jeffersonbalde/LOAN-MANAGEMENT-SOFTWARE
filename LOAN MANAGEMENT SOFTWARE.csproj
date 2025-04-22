@@ -219,6 +219,12 @@
     <Compile Include="frm_landing_page.Designer.cs">
       <DependentUpon>frm_landing_page.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_lender_approved_payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_lender_approved_payment.Designer.cs">
+      <DependentUpon>frm_lender_approved_payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_lender_dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_landing_page.resx">
       <DependentUpon>frm_landing_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_lender_approved_payment.resx">
+      <DependentUpon>frm_lender_approved_payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_lender_dashboard.resx">
       <DependentUpon>frm_lender_dashboard.cs</DependentUpon>

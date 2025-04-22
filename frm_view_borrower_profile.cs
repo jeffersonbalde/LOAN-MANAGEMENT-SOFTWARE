@@ -117,7 +117,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 query += @"
         ORDER BY 
-            date_requested";
+            date_requested DESC";
 
                 cm = new SqlCommand(query, cn);
 
@@ -705,6 +705,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             LoadRequest();
             GetTotalLoanRequest();
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -35,30 +35,31 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblBusinessName = new System.Windows.Forms.Label();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.main_panel = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblBusinessName = new System.Windows.Forms.Label();
             this.btnExpense = new System.Windows.Forms.Button();
             this.btnBookings = new System.Windows.Forms.Button();
             this.btnCustomerInfo = new System.Windows.Forms.Button();
             this.btnOrders = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.main_panel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnDownPayment = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.main_panel.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +119,35 @@
             this.panel7.Size = new System.Drawing.Size(1225, 76);
             this.panel7.TabIndex = 18;
             // 
+            // lblBusinessName
+            // 
+            this.lblBusinessName.AutoEllipsis = true;
+            this.lblBusinessName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
+            this.lblBusinessName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBusinessName.Font = new System.Drawing.Font("Arial Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusinessName.ForeColor = System.Drawing.Color.White;
+            this.lblBusinessName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblBusinessName.Location = new System.Drawing.Point(233, 0);
+            this.lblBusinessName.Name = "lblBusinessName";
+            this.lblBusinessName.Size = new System.Drawing.Size(992, 76);
+            this.lblBusinessName.TabIndex = 4;
+            this.lblBusinessName.Text = "Business Name";
+            this.lblBusinessName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblBusinessName.Click += new System.EventHandler(this.lblBusinessName_Click);
+            this.lblBusinessName.Paint += new System.Windows.Forms.PaintEventHandler(this.lblBusinessName_Paint);
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(233, 76);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 2;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
@@ -135,6 +165,7 @@
             this.panel1.Controls.Add(this.btnExpense);
             this.panel1.Controls.Add(this.btnBookings);
             this.panel1.Controls.Add(this.btnCustomerInfo);
+            this.panel1.Controls.Add(this.btnDownPayment);
             this.panel1.Controls.Add(this.btnOrders);
             this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Controls.Add(this.panel4);
@@ -144,21 +175,114 @@
             this.panel1.Size = new System.Drawing.Size(233, 657);
             this.panel1.TabIndex = 0;
             // 
-            // main_panel
+            // btnExpense
             // 
-            this.main_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.main_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.main_panel.Controls.Add(this.pictureBox1);
-            this.main_panel.Location = new System.Drawing.Point(258, 130);
-            this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(1225, 598);
-            this.main_panel.TabIndex = 20;
+            this.btnExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.btnExpense.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExpense.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnExpense.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnExpense.FlatAppearance.BorderSize = 0;
+            this.btnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExpense.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnExpense.ForeColor = System.Drawing.Color.Black;
+            this.btnExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnExpense.Image")));
+            this.btnExpense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExpense.Location = new System.Drawing.Point(0, 516);
+            this.btnExpense.Name = "btnExpense";
+            this.btnExpense.Size = new System.Drawing.Size(233, 49);
+            this.btnExpense.TabIndex = 32;
+            this.btnExpense.Text = "  Logout\r\n";
+            this.btnExpense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExpense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExpense.UseVisualStyleBackColor = false;
+            this.btnExpense.Click += new System.EventHandler(this.btnExpense_Click_1);
             // 
-            // timer1
+            // btnBookings
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.btnBookings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.btnBookings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBookings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBookings.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnBookings.FlatAppearance.BorderSize = 0;
+            this.btnBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBookings.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookings.ForeColor = System.Drawing.Color.Black;
+            this.btnBookings.Image = ((System.Drawing.Image)(resources.GetObject("btnBookings.Image")));
+            this.btnBookings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBookings.Location = new System.Drawing.Point(0, 467);
+            this.btnBookings.Name = "btnBookings";
+            this.btnBookings.Size = new System.Drawing.Size(233, 49);
+            this.btnBookings.TabIndex = 34;
+            this.btnBookings.Text = "  Database Location";
+            this.btnBookings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBookings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBookings.UseVisualStyleBackColor = false;
+            this.btnBookings.Click += new System.EventHandler(this.btnBookings_Click_1);
+            // 
+            // btnCustomerInfo
+            // 
+            this.btnCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.btnCustomerInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCustomerInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCustomerInfo.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnCustomerInfo.FlatAppearance.BorderSize = 0;
+            this.btnCustomerInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomerInfo.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnCustomerInfo.ForeColor = System.Drawing.Color.Black;
+            this.btnCustomerInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomerInfo.Image")));
+            this.btnCustomerInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomerInfo.Location = new System.Drawing.Point(0, 418);
+            this.btnCustomerInfo.Name = "btnCustomerInfo";
+            this.btnCustomerInfo.Size = new System.Drawing.Size(233, 49);
+            this.btnCustomerInfo.TabIndex = 33;
+            this.btnCustomerInfo.Text = "  Owner Management";
+            this.btnCustomerInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomerInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCustomerInfo.UseVisualStyleBackColor = false;
+            this.btnCustomerInfo.Click += new System.EventHandler(this.btnCustomerInfo_Click_1);
+            // 
+            // btnOrders
+            // 
+            this.btnOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.btnOrders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOrders.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOrders.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnOrders.FlatAppearance.BorderSize = 0;
+            this.btnOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrders.ForeColor = System.Drawing.Color.Black;
+            this.btnOrders.Image = ((System.Drawing.Image)(resources.GetObject("btnOrders.Image")));
+            this.btnOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrders.Location = new System.Drawing.Point(0, 320);
+            this.btnOrders.Name = "btnOrders";
+            this.btnOrders.Size = new System.Drawing.Size(233, 49);
+            this.btnOrders.TabIndex = 17;
+            this.btnOrders.Text = "  Loan Applications";
+            this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOrders.UseVisualStyleBackColor = false;
+            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.Black;
+            this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Location = new System.Drawing.Point(0, 271);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(233, 49);
+            this.btnDashboard.TabIndex = 11;
+            this.btnDashboard.Text = "  Dashboard";
+            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panel4
             // 
@@ -204,132 +328,6 @@
             this.label2.Text = "Lender";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblBusinessName
-            // 
-            this.lblBusinessName.AutoEllipsis = true;
-            this.lblBusinessName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
-            this.lblBusinessName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBusinessName.Font = new System.Drawing.Font("Arial Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusinessName.ForeColor = System.Drawing.Color.White;
-            this.lblBusinessName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblBusinessName.Location = new System.Drawing.Point(233, 0);
-            this.lblBusinessName.Name = "lblBusinessName";
-            this.lblBusinessName.Size = new System.Drawing.Size(992, 76);
-            this.lblBusinessName.TabIndex = 4;
-            this.lblBusinessName.Text = "Business Name";
-            this.lblBusinessName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblBusinessName.Click += new System.EventHandler(this.lblBusinessName_Click);
-            this.lblBusinessName.Paint += new System.Windows.Forms.PaintEventHandler(this.lblBusinessName_Paint);
-            // 
-            // btnExpense
-            // 
-            this.btnExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.btnExpense.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExpense.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExpense.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnExpense.FlatAppearance.BorderSize = 0;
-            this.btnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExpense.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExpense.ForeColor = System.Drawing.Color.Black;
-            this.btnExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnExpense.Image")));
-            this.btnExpense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpense.Location = new System.Drawing.Point(0, 467);
-            this.btnExpense.Name = "btnExpense";
-            this.btnExpense.Size = new System.Drawing.Size(233, 49);
-            this.btnExpense.TabIndex = 32;
-            this.btnExpense.Text = "  Logout\r\n";
-            this.btnExpense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExpense.UseVisualStyleBackColor = false;
-            this.btnExpense.Click += new System.EventHandler(this.btnExpense_Click_1);
-            // 
-            // btnBookings
-            // 
-            this.btnBookings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.btnBookings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBookings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBookings.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnBookings.FlatAppearance.BorderSize = 0;
-            this.btnBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBookings.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBookings.ForeColor = System.Drawing.Color.Black;
-            this.btnBookings.Image = ((System.Drawing.Image)(resources.GetObject("btnBookings.Image")));
-            this.btnBookings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBookings.Location = new System.Drawing.Point(0, 418);
-            this.btnBookings.Name = "btnBookings";
-            this.btnBookings.Size = new System.Drawing.Size(233, 49);
-            this.btnBookings.TabIndex = 34;
-            this.btnBookings.Text = "  Database Location";
-            this.btnBookings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBookings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBookings.UseVisualStyleBackColor = false;
-            this.btnBookings.Click += new System.EventHandler(this.btnBookings_Click_1);
-            // 
-            // btnCustomerInfo
-            // 
-            this.btnCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.btnCustomerInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCustomerInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCustomerInfo.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnCustomerInfo.FlatAppearance.BorderSize = 0;
-            this.btnCustomerInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustomerInfo.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCustomerInfo.ForeColor = System.Drawing.Color.Black;
-            this.btnCustomerInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomerInfo.Image")));
-            this.btnCustomerInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomerInfo.Location = new System.Drawing.Point(0, 369);
-            this.btnCustomerInfo.Name = "btnCustomerInfo";
-            this.btnCustomerInfo.Size = new System.Drawing.Size(233, 49);
-            this.btnCustomerInfo.TabIndex = 33;
-            this.btnCustomerInfo.Text = "  Owner Management";
-            this.btnCustomerInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomerInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCustomerInfo.UseVisualStyleBackColor = false;
-            this.btnCustomerInfo.Click += new System.EventHandler(this.btnCustomerInfo_Click_1);
-            // 
-            // btnOrders
-            // 
-            this.btnOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.btnOrders.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOrders.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOrders.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnOrders.FlatAppearance.BorderSize = 0;
-            this.btnOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrders.ForeColor = System.Drawing.Color.Black;
-            this.btnOrders.Image = ((System.Drawing.Image)(resources.GetObject("btnOrders.Image")));
-            this.btnOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrders.Location = new System.Drawing.Point(0, 320);
-            this.btnOrders.Name = "btnOrders";
-            this.btnOrders.Size = new System.Drawing.Size(233, 49);
-            this.btnOrders.TabIndex = 17;
-            this.btnOrders.Text = "  Loan Application";
-            this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOrders.UseVisualStyleBackColor = false;
-            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.Black;
-            this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
-            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 271);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(233, 49);
-            this.btnDashboard.TabIndex = 11;
-            this.btnDashboard.Text = "  Dashboard";
-            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
             // pictureBoxProfile
             // 
             this.pictureBoxProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -341,17 +339,17 @@
             this.pictureBoxProfile.TabIndex = 6;
             this.pictureBoxProfile.TabStop = false;
             // 
-            // pictureBoxLogo
+            // main_panel
             // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(233, 76);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 2;
-            this.pictureBoxLogo.TabStop = false;
+            this.main_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.main_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.main_panel.Controls.Add(this.pictureBox1);
+            this.main_panel.Location = new System.Drawing.Point(258, 130);
+            this.main_panel.Name = "main_panel";
+            this.main_panel.Size = new System.Drawing.Size(1225, 598);
+            this.main_panel.TabIndex = 20;
             // 
             // pictureBox1
             // 
@@ -361,6 +359,32 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnDownPayment
+            // 
+            this.btnDownPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.btnDownPayment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDownPayment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDownPayment.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnDownPayment.FlatAppearance.BorderSize = 0;
+            this.btnDownPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDownPayment.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnDownPayment.ForeColor = System.Drawing.Color.Black;
+            this.btnDownPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnDownPayment.Image")));
+            this.btnDownPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDownPayment.Location = new System.Drawing.Point(0, 369);
+            this.btnDownPayment.Name = "btnDownPayment";
+            this.btnDownPayment.Size = new System.Drawing.Size(233, 49);
+            this.btnDownPayment.TabIndex = 36;
+            this.btnDownPayment.Text = "  Loan Payments";
+            this.btnDownPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDownPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDownPayment.UseVisualStyleBackColor = false;
+            this.btnDownPayment.Click += new System.EventHandler(this.btnDownPayment_Click_1);
             // 
             // frm_lender_main_form
             // 
@@ -384,12 +408,12 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.main_panel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            this.main_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -418,5 +442,6 @@
         public System.Windows.Forms.PictureBox pictureBoxProfile;
         private System.Windows.Forms.Label lblBusinessName;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDownPayment;
     }
 }
