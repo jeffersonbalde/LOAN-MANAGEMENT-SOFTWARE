@@ -64,6 +64,7 @@
             this.cmbLoanStxatus = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -72,7 +73,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblNoLowStocks = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,21 +81,21 @@
             this.view_details = new System.Windows.Forms.DataGridViewImageColumn();
             this.borrower_information = new System.Windows.Forms.DataGridViewImageColumn();
             this.borrower_profile = new System.Windows.Forms.DataGridViewImageColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.request_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paid_amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.approval_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.request_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loan_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.order_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.car_image = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.request_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payment_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borrower_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plate_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payment_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transaction_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
@@ -160,6 +160,7 @@
             this.txtSearchBorrower.WaterMark = "Search By Borrower Name";
             this.txtSearchBorrower.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearchBorrower.WaterMarkFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchBorrower.TextChanged += new System.EventHandler(this.txtSearchBorrower_TextChanged);
             // 
             // panel1
             // 
@@ -193,6 +194,7 @@
             this.cmbMOP.Size = new System.Drawing.Size(197, 30);
             this.cmbMOP.TabIndex = 155;
             this.cmbMOP.UseSelectable = true;
+            this.cmbMOP.SelectedIndexChanged += new System.EventHandler(this.cmbMOP_SelectedIndexChanged);
             // 
             // cmbLoanStatus
             // 
@@ -204,6 +206,7 @@
             this.cmbLoanStatus.Size = new System.Drawing.Size(197, 30);
             this.cmbLoanStatus.TabIndex = 154;
             this.cmbLoanStatus.UseSelectable = true;
+            this.cmbLoanStatus.SelectedIndexChanged += new System.EventHandler(this.cmbLoanStatus_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -226,6 +229,7 @@
             this.dtFrom.Name = "dtFrom";
             this.dtFrom.Size = new System.Drawing.Size(199, 34);
             this.dtFrom.TabIndex = 146;
+            this.dtFrom.ValueChanged += new System.EventHandler(this.dtFrom_ValueChanged);
             // 
             // dtTo
             // 
@@ -273,6 +277,7 @@
             this.cmbRequestStatus.Size = new System.Drawing.Size(197, 30);
             this.cmbRequestStatus.TabIndex = 150;
             this.cmbRequestStatus.UseSelectable = true;
+            this.cmbRequestStatus.SelectedIndexChanged += new System.EventHandler(this.cmbRequestStatus_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -328,6 +333,14 @@
             this.panel3.TabIndex = 251;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(585, 12);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(65, 34);
+            this.txtID.TabIndex = 264;
+            this.txtID.Visible = false;
+            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -345,6 +358,7 @@
             this.button1.Text = "Reset Filters";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -439,14 +453,6 @@
             this.pictureBox2.TabIndex = 78;
             this.pictureBox2.TabStop = false;
             // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(585, 12);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(65, 34);
-            this.txtID.TabIndex = 264;
-            this.txtID.Visible = false;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -475,21 +481,21 @@
             this.view_details,
             this.borrower_information,
             this.borrower_profile,
-            this.total,
+            this.mop,
             this.customer,
-            this.request_status,
-            this.qty,
+            this.paid_amount,
             this.approval_status,
+            this.request_status,
             this.loan_status,
             this.order_status,
-            this.car_image,
-            this.request_id,
+            this.total,
+            this.payment_id,
+            this.borrower_id,
             this.discount,
             this.status,
             this.contact,
             this.plate_no,
             this.payment_date,
-            this.mop,
             this.id,
             this.transaction_code});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -524,6 +530,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1239, 385);
             this.dataGridView1.TabIndex = 255;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lblNoLowStocks
             // 
@@ -598,17 +605,16 @@
             this.borrower_profile.ReadOnly = true;
             this.borrower_profile.Width = 6;
             // 
-            // total
+            // mop
             // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total.DefaultCellStyle = dataGridViewCellStyle3;
-            this.total.HeaderText = "Payment Number";
-            this.total.MinimumWidth = 6;
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 228;
+            this.mop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F);
+            this.mop.DefaultCellStyle = dataGridViewCellStyle3;
+            this.mop.HeaderText = "Name";
+            this.mop.MinimumWidth = 6;
+            this.mop.Name = "mop";
+            this.mop.ReadOnly = true;
+            this.mop.Width = 103;
             // 
             // customer
             // 
@@ -622,39 +628,39 @@
             this.customer.ReadOnly = true;
             this.customer.Width = 192;
             // 
-            // request_status
+            // paid_amount
             // 
-            this.request_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 12F);
-            this.request_status.DefaultCellStyle = dataGridViewCellStyle5;
-            this.request_status.HeaderText = "Date Reviewed";
-            this.request_status.MinimumWidth = 6;
-            this.request_status.Name = "request_status";
-            this.request_status.ReadOnly = true;
-            this.request_status.Width = 207;
-            // 
-            // qty
-            // 
-            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qty.DefaultCellStyle = dataGridViewCellStyle6;
-            this.qty.HeaderText = "Paid Amount";
-            this.qty.MinimumWidth = 6;
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.Width = 183;
+            this.paid_amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paid_amount.DefaultCellStyle = dataGridViewCellStyle5;
+            this.paid_amount.HeaderText = "Paid Amount";
+            this.paid_amount.MinimumWidth = 6;
+            this.paid_amount.Name = "paid_amount";
+            this.paid_amount.ReadOnly = true;
+            this.paid_amount.Width = 183;
             // 
             // approval_status
             // 
             this.approval_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.approval_status.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.approval_status.DefaultCellStyle = dataGridViewCellStyle6;
             this.approval_status.HeaderText = "Approval Status";
             this.approval_status.MinimumWidth = 6;
             this.approval_status.Name = "approval_status";
             this.approval_status.ReadOnly = true;
             this.approval_status.Width = 220;
+            // 
+            // request_status
+            // 
+            this.request_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F);
+            this.request_status.DefaultCellStyle = dataGridViewCellStyle7;
+            this.request_status.HeaderText = "Date Reviewed";
+            this.request_status.MinimumWidth = 6;
+            this.request_status.Name = "request_status";
+            this.request_status.ReadOnly = true;
+            this.request_status.Width = 207;
             // 
             // loan_status
             // 
@@ -679,37 +685,49 @@
             this.order_status.ReadOnly = true;
             this.order_status.Width = 93;
             // 
-            // car_image
+            // total
             // 
-            this.car_image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 12F);
-            this.car_image.DefaultCellStyle = dataGridViewCellStyle10;
-            this.car_image.HeaderText = "ID";
-            this.car_image.MinimumWidth = 6;
-            this.car_image.Name = "car_image";
-            this.car_image.ReadOnly = true;
-            this.car_image.Visible = false;
-            this.car_image.Width = 63;
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total.DefaultCellStyle = dataGridViewCellStyle10;
+            this.total.HeaderText = "Payment Number";
+            this.total.MinimumWidth = 6;
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 228;
             // 
-            // request_id
+            // payment_id
             // 
-            this.request_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.request_id.DefaultCellStyle = dataGridViewCellStyle11;
-            this.request_id.HeaderText = "BORROWER ID";
-            this.request_id.MinimumWidth = 6;
-            this.request_id.Name = "request_id";
-            this.request_id.ReadOnly = true;
-            this.request_id.Visible = false;
-            this.request_id.Width = 209;
+            this.payment_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 12F);
+            this.payment_id.DefaultCellStyle = dataGridViewCellStyle11;
+            this.payment_id.HeaderText = "ID";
+            this.payment_id.MinimumWidth = 6;
+            this.payment_id.Name = "payment_id";
+            this.payment_id.ReadOnly = true;
+            this.payment_id.Visible = false;
+            this.payment_id.Width = 63;
+            // 
+            // borrower_id
+            // 
+            this.borrower_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrower_id.DefaultCellStyle = dataGridViewCellStyle12;
+            this.borrower_id.HeaderText = "BORROWER ID";
+            this.borrower_id.MinimumWidth = 6;
+            this.borrower_id.Name = "borrower_id";
+            this.borrower_id.ReadOnly = true;
+            this.borrower_id.Visible = false;
+            this.borrower_id.Width = 209;
             // 
             // discount
             // 
             this.discount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discount.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discount.DefaultCellStyle = dataGridViewCellStyle13;
             this.discount.HeaderText = "Borrower ID";
             this.discount.MinimumWidth = 6;
             this.discount.Name = "discount";
@@ -720,8 +738,8 @@
             // status
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 12F);
-            this.status.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 12F);
+            this.status.DefaultCellStyle = dataGridViewCellStyle14;
             this.status.HeaderText = "Vehicle Status";
             this.status.MinimumWidth = 6;
             this.status.Name = "status";
@@ -732,9 +750,9 @@
             // contact
             // 
             this.contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 12F);
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.contact.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 12F);
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.contact.DefaultCellStyle = dataGridViewCellStyle15;
             this.contact.HeaderText = "Color";
             this.contact.MinimumWidth = 6;
             this.contact.Name = "contact";
@@ -745,8 +763,8 @@
             // plate_no
             // 
             this.plate_no.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 12F);
-            this.plate_no.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial", 12F);
+            this.plate_no.DefaultCellStyle = dataGridViewCellStyle16;
             this.plate_no.HeaderText = "Plate #";
             this.plate_no.MinimumWidth = 6;
             this.plate_no.Name = "plate_no";
@@ -757,8 +775,8 @@
             // payment_date
             // 
             this.payment_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial", 12F);
-            this.payment_date.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 12F);
+            this.payment_date.DefaultCellStyle = dataGridViewCellStyle17;
             this.payment_date.FillWeight = 90F;
             this.payment_date.HeaderText = "Drop Off";
             this.payment_date.MinimumWidth = 6;
@@ -766,18 +784,6 @@
             this.payment_date.ReadOnly = true;
             this.payment_date.Visible = false;
             this.payment_date.Width = 135;
-            // 
-            // mop
-            // 
-            this.mop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 12F);
-            this.mop.DefaultCellStyle = dataGridViewCellStyle17;
-            this.mop.HeaderText = "Released";
-            this.mop.MinimumWidth = 6;
-            this.mop.Name = "mop";
-            this.mop.ReadOnly = true;
-            this.mop.Visible = false;
-            this.mop.Width = 144;
             // 
             // id
             // 
@@ -865,21 +871,21 @@
         private System.Windows.Forms.DataGridViewImageColumn view_details;
         private System.Windows.Forms.DataGridViewImageColumn borrower_information;
         private System.Windows.Forms.DataGridViewImageColumn borrower_profile;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mop;
         private System.Windows.Forms.DataGridViewTextBoxColumn customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn request_status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paid_amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn approval_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn request_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn loan_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn car_image;
-        private System.Windows.Forms.DataGridViewTextBoxColumn request_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payment_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn borrower_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn contact;
         private System.Windows.Forms.DataGridViewTextBoxColumn plate_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn payment_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mop;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn transaction_code;
     }

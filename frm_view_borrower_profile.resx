@@ -233,6 +233,17 @@
         gg==
 </value>
   </data>
+  <data name="txtSearchBorrower.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAASNJREFUOE/VVNsNwjAM7AiMwAgdgRHYgH6jkJoNukHZADaADRiBETpCRyhn64qQ
+        Qh4ghMRJJzXO+erESaqfQUQWsts10rZH8Er24tyKkvegiTAYwCnCI366pDyPvfctE0ckdloxp7T6Wrw/
+        cX4oMlZRSQLmhLorQ3FApPs3pQxnoOKDaZ1bMxQCRgsTeX9hKIkiPZszoePCUBbQ38CBwxC6DJo2DGUB
+        vR6zicMQWE5N03crvXEYgns0gvmOAtpMKwLNZeg1Hh0ViXeUUDNq0zeMf9dq9eBHxZjvzbDwpMx7q8a2
+        NGvgdlsbsd+I6T7qnBE3cMPUNFjx+Tn5iSMqnK+qsdhYYeZanfedUaQB7S2w70+NU/hr47LnsBQwW3/V
+        MERV3QGjSAI9Z3HYEAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -302,21 +313,10 @@
   <metadata name="transaction_code.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="txtSearchBorrower.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAASNJREFUOE/VVNsNwjAM7AiMwAgdgRHYgH6jkJoNukHZADaADRiBETpCRyhn64qQ
-        Qh4ghMRJJzXO+erESaqfQUQWsts10rZH8Er24tyKkvegiTAYwCnCI366pDyPvfctE0ckdloxp7T6Wrw/
-        cX4oMlZRSQLmhLorQ3FApPs3pQxnoOKDaZ1bMxQCRgsTeX9hKIkiPZszoePCUBbQ38CBwxC6DJo2DGUB
-        vR6zicMQWE5N03crvXEYgns0gvmOAtpMKwLNZeg1Hh0ViXeUUDNq0zeMf9dq9eBHxZjvzbDwpMx7q8a2
-        NGvgdlsbsd+I6T7qnBE3cMPUNFjx+Tn5iSMqnK+qsdhYYeZanfedUaQB7S2w70+NU/hr47LnsBQwW3/V
-        MERV3QGjSAI9Z3HYEAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgCAYAAADbcAZoAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAavdJREFUeF7t3T+PZMd5932/BL4D8yXwJRxu7GAzh17OrIAHMISbgB0sQAEiwJCC
+        DAAACwwBP0AiyAAAavdJREFUeF7t3T+PZMd5932/BL4D8yXwJRxu7GAzh17OrIAHMISbgB0sQAEiwJCC
         TIBKDAigAkY3udsWQAcmaG4gLbABF0sIFhxYwkLBswmD5RM4UcKnr9nT3JnZmpnuPn361FX1+QJfwLas
         2T5/q36n6qr6GwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

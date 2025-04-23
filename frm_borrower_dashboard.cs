@@ -130,6 +130,41 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
         }
 
+        public void LoadBorrowerAmountPaid()
+        {
+            try
+            {
+                cn.Open();
+                string query = @"
+            SELECT SUM(amount_paid) AS total_amount_paid 
+            FROM tblBorrowerAmountPaid 
+            WHERE borrower_id = @borrower_id 
+            GROUP BY borrower_id";
+
+                cm = new SqlCommand(query, cn);
+                cm.Parameters.AddWithValue("@borrower_id", txtID.Text.Trim());
+
+                dr = cm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    lblAmountPaid.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["total_amount_paid"]));
+                }
+                else
+                {
+                    lblAmountPaid.Text = "₱0.00";
+                }
+
+                dr.Close();
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading approved amount: " + ex.Message);
+                if (cn.State == ConnectionState.Open) cn.Close();
+            }
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
@@ -304,6 +339,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             LoadTotalApprovedLoanRequests();
             LoadPaymentSchedule();
             LoadOngoingBalance();
+            LoadBorrowerAmountPaid();
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)

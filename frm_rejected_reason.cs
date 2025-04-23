@@ -42,7 +42,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 if (string.IsNullOrWhiteSpace(txtReason.Text))
                 {
                     MessageBox.Show("Reason for rejections field is required.\n\n" +
-                    "Please complete the form before saving.",
+                    "Please complete the form before submitting.",
                     "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }

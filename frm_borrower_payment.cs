@@ -34,8 +34,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 //Color.FromArgb(231, 229, 251),  // Top color
                 //Color.FromArgb(230, 187, 254),  // Bottom color
 
-                Color.FromArgb(237, 248, 100),  // Top color
-                Color.FromArgb(131, 195, 79),  // Bottom color
+                Color.FromArgb(196, 75, 128),  // Top color
+                Color.FromArgb(103, 71, 219),  // Bottom color
                 LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
             {
                 e.Graphics.FillRectangle(brush, panel.ClientRectangle);
@@ -50,8 +50,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 //Color.FromArgb(231, 229, 251),  // Top color
                 //Color.FromArgb(230, 187, 254),  // Bottom color
 
-                Color.FromArgb(237, 248, 100),  // Top color
-                Color.FromArgb(131, 195, 79),  // Bottom color
+                Color.FromArgb(196, 75, 128),  // Top color
+                Color.FromArgb(103, 71, 219),  // Bottom color
                 LinearGradientMode.Vertical)) // You can try Horizontal, ForwardDiagonal, etc.
             {
                 e.Graphics.FillRectangle(brush, panel.ClientRectangle);
@@ -64,39 +64,68 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
             try
             {
-                //if (cn.State != ConnectionState.Open)
-                //    cn.Open();
+                if (cn.State != ConnectionState.Open)
+                    cn.Open();
 
-                //string query = @"
-                //SELECT TOP 1 status, loan_status 
-                //FROM tblLoanRequests 
-                //WHERE borrower_id = @borrowerId 
-                //ORDER BY id DESC";
+                string statusQuery = @"
+                SELECT TOP 1 loan_status 
+                FROM tblLoanRequests 
+                WHERE borrower_id = @borrowerId 
+                ORDER BY id DESC";
 
-                //SqlCommand cmd = new SqlCommand(query, cn);
-                //cmd.Parameters.AddWithValue("@borrowerId", borrowerId);
+                SqlCommand statusCmd = new SqlCommand(statusQuery, cn);
+                statusCmd.Parameters.AddWithValue("@borrowerId", borrowerId);
+                object result = statusCmd.ExecuteScalar();
 
-                //SqlDataReader reader = cmd.ExecuteReader();
+                if (result != null)
+                {
+                    string loanStatus = result.ToString();
 
-                //if (reader.Read())
-                //{
-                //    string status = reader["status"].ToString();
-                //    string loanStatus = reader["loan_status"].ToString();
+                    if (loanStatus == "Rejected" || loanStatus == "Cancelled")
+                    {
+                        MessageBox.Show("❌ You have no valid loan record. Please request a loan first before adding a payment.",
+                            "No Active Loan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else if (loanStatus == "Pending")
+                    {
+                        MessageBox.Show("⏳ Please wait for your lender's approval on your loan request before adding a payment.",
+                            "Loan Request Pending", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("⚠️ No loan requests found. Please request a loan first before adding a payment.",
+                        "No Loan Request", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-                //    if (status == "Pending")
-                //    {
-                //        MessageBox.Show("❌ You already have a pending loan request.", "Loan Request Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //        return;
-                //    }
-                //    else if (status == "Approved" && loanStatus != "Paid")
-                //    {
-                //        MessageBox.Show("❌ You already have an approved loan. Please complete payment first before requesting again.", "Loan Request Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //        return;
-                //    }
-                //}
+                string latestQuery = @"
+                SELECT TOP 1 status, loan_status 
+                FROM tblLoanPayment 
+                WHERE borrower_id = @borrowerId 
+                ORDER BY id DESC";
+                SqlCommand latestCmd = new SqlCommand(latestQuery, cn);
+                latestCmd.Parameters.AddWithValue("@borrowerId", borrowerId);
 
+                SqlDataReader reader = latestCmd.ExecuteReader();
 
-                //reader.Close();
+                if (reader.Read())
+                {
+                    string status = reader["status"].ToString();
+                    string loanStatus = reader["loan_status"].ToString();
+
+                    if (status == "Pending")
+                    {
+                        reader.Close();
+                        MessageBox.Show("⚠️ You already have a pending loan payment. Please wait for lender approval before adding a new payment.",
+                            "Pending Loan Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+
+                reader.Close();
 
                 frm_borrower_add_payment frm = new frm_borrower_add_payment(this);
                 frm.txtID.Text = borrowerId;
@@ -106,16 +135,215 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //finally
-            //{
-            //    if (cn.State == ConnectionState.Open)
-            //        cn.Close();
-            //}
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
 
+            if (colName == "view_request")
+            {
+                try
+                {
+                    int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
+
+                    frm_view_payment_details frm = new frm_view_payment_details();
+
+                    string payment_id = dataGridView1.Rows[selectedRowIndex].Cells["payment_id"].Value.ToString();
+
+
+                    cn.Open();
+                    string query = "SELECT * FROM tblLoanPayment WHERE id LIKE '" + payment_id + "%'";
+                    cm = new SqlCommand(query, cn);
+                    dr = cm.ExecuteReader();
+                    dr.Read();
+                    if (dr.HasRows)
+                    {
+                        frm.txtName.Text = dr["name"].ToString();
+                        frm.txtAddress.Text = dr["address"].ToString();
+                        frm.txtPhoneNumber.Text = dr["phone_number"].ToString();
+
+                        if (dr["proof_of_payment"] != DBNull.Value && dr["proof_of_payment_filename"] != DBNull.Value)
+                        {
+                            frm.ProofOfIncomeBytes = (byte[])dr["proof_of_payment"];
+                            frm.ProofOfIncomeFilename = dr["proof_of_payment_filename"].ToString();
+                        }
+                        else
+                        {
+                            frm.ProofOfIncomeBytes = null;
+                            frm.ProofOfIncomeFilename = "";
+                        }
+
+                        frm.txtRequestStatus.Text = dr["status"].ToString();
+
+                        string date_reviewed = dr["date_reviewed"] != DBNull.Value
+                        ? DateTime.Parse(dr["date_reviewed"].ToString()).ToString("MMMM d, yyyy")
+                        : "Pending";
+
+                        frm.txtDateReviewed.Text = date_reviewed;
+
+                        frm.txtRejectionReason.Text = dr["rejection_reason"] != DBNull.Value ? dr["rejection_reason"].ToString() : "N/A";
+
+                        frm.txtCancelReason.Text = dr["cancel_reason"] != DBNull.Value ? dr["cancel_reason"].ToString() : "N/A";
+
+                        string date_cancelled = dr["date_cancelled"] != DBNull.Value
+                        ? DateTime.Parse(dr["date_cancelled"].ToString()).ToString("MMMM d, yyyy")
+                        : "N/A";
+
+                        frm.txtDateCancelled.Text = date_cancelled;
+
+                        frm.txtReferenceNumber.Text = dr["reference_number"].ToString().Trim();
+                        frm.txtPaymentNumber.Text = dr["payment_number"].ToString().Trim();
+
+                        string payment_date = dr["payment_date"] != DBNull.Value
+                        ? DateTime.Parse(dr["payment_date"].ToString()).ToString("MMMM d, yyyy")
+                        : "N/A";
+
+                        frm.txtPaymentDate.Text = payment_date;
+
+
+                        frm.lblCurrentBalance.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["current_balance"]));
+                        frm.txtAmountPaid.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["paid_amount"]));
+                        frm.txtMOP.Text = dr["mode_of_payment"].ToString();
+                        frm.txtGcash.Text = dr["gcash_reference"] != DBNull.Value && !string.IsNullOrWhiteSpace(dr["gcash_reference"].ToString())
+                            ? dr["gcash_reference"].ToString()
+                            : "N/A";
+
+                        frm.txtNotes.Text = dr["notes"] != DBNull.Value && !string.IsNullOrWhiteSpace(dr["notes"].ToString())
+                            ? dr["notes"].ToString()
+                            : "N/A";
+                        frm.lblUpdatedBalance.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["updated_balance"]));
+
+                        //frm.txtLoanAmount.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["requested_loan"]));
+
+                        //frm.txtLoanTerm.Text = dr["loan_term"].ToString();
+
+
+                        //frm.txtReasonForLoan.Text = dr["loan_purpose"].ToString();
+
+                        //frm.txtRequestNumber.Text = dr["request_number"].ToString();
+
+                        //string date_requested = dr["date_requested"] != DBNull.Value
+                        //? DateTime.Parse(dr["date_requested"].ToString()).ToString("MMMM d, yyyy")
+                        //: "N/A";
+
+                        //frm.txtRequestDate.Text = date_requested;
+
+
+
+
+
+
+
+
+
+                        //frm.lblAmountToReceive.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["amount_to_receive"]));
+
+                        ////decimal interestRate = dr["interest_rate"] != DBNull.Value ? Convert.ToDecimal(dr["interest_rate"]) : 0;
+                        ////frm.lblInterestRate.Text = $"{(int)(interestRate * 100)}%";
+
+                        //frm.lblMonthlyDues.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["monthly_dues"]));
+
+
+
+
+
+
+                        //string loanTerm = dr["loan_term"].ToString();
+                        //string paymentSchedule = dr["payment_schedule"].ToString();
+
+                        //if (loanTerm == "Short Term (6 Months)")
+                        //{
+                        //    frm.lblInterestRate.Text = "5% (monthly)";
+                        //}
+                        //else if (loanTerm == "Long Term (1 Year)")
+                        //{
+                        //    frm.lblInterestRate.Text = "10% (annually)";
+                        //}
+
+                        //if (paymentSchedule == "Daily")
+                        //{
+                        //    frm.lblDues.Text = "Daily Dues: ";
+                        //}
+                        //else if (paymentSchedule == "Weekly")
+                        //{
+                        //    frm.lblDues.Text = "Weekly Dues: ";
+                        //}
+                        //else if (paymentSchedule == "Monthly")
+                        //{
+                        //    frm.lblDues.Text = "Monthly Dues: ";
+                        //}
+                    }
+
+                    dr.Close();
+                    cn.Close();
+
+                    frm.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+            if (colName == "cancel_request")
+            {
+                try
+                {
+
+                    int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
+                    DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+
+                    string request_id = selectedRow.Cells["payment_id"].Value.ToString();
+                    string status = selectedRow.Cells["approval_status"].Value?.ToString();
+
+                    if (status == "Rejected")
+                    {
+                        MessageBox.Show("This payment has already been rejected and cannot be cancelled.",
+                                        "Payment Already Rejected",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    if (status == "Approved")
+                    {
+                        MessageBox.Show("This payment has already been approved and cannot be cancelled.",
+                                        "Payment Already Approved",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (status == "Cancelled")
+                    {
+                        MessageBox.Show("This payment has already been cancelled.",
+                                        "Payment Already Cancelled",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    frm_cancel_payment frm = new frm_cancel_payment(this);
+                    frm.txtRequestID.Text = request_id;
+                    frm.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    if (cn.State == ConnectionState.Open)
+                        cn.Close();
+
+                    MessageBox.Show("An error occurred while attempting to cancel the payment:\n\n" + ex.Message,
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
         }
 
         public void LoadPayment()
@@ -156,7 +384,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     query += " AND payment_date < @end_date";
                 }
 
-                query += " ORDER BY payment_date";
+                query += " ORDER BY payment_date DESC";
 
                 using (SqlConnection connection = new SqlConnection(dbcon.MyConnection()))
                 {
@@ -223,15 +451,24 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                 );
 
                                 DataGridViewRow row = dataGridView1.Rows[rowIndex];
-                                row.Cells["view_request"].Value = Properties.Resources.view_request;
+                                row.Cells["view_request"].Value = Properties.Resources.view_payment;
                                 row.Cells["cancel_request"].Value = Properties.Resources.cancel_request;
 
 
 
                                 string requestStatus = dr["status"].ToString();
                                 string loanStatus = dr["loan_status"].ToString();
+                                //string c_date_reviewed = dr["date_reviewed"].ToString();
 
                                 Font boldFont = new Font(dataGridView1.Font, FontStyle.Bold);
+
+                                //if (c_date_reviewed == "Pending")
+                                //{
+                                //    //row.Cells["request_status2"].Style.ForeColor = Color.FromArgb(122, 50, 0);
+                                //    row.Cells["date_reviewed"].Style.ForeColor = Color.Orange;
+                                //}
+
+                                //row.Cells["date_reviewed"].Style.Font = boldFont;
 
                                 if (requestStatus == "Rejected" || requestStatus == "Cancelled")
                                 {
@@ -305,9 +542,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
             cmbLoanStatus.Items.Clear();
             cmbLoanStatus.Items.Add("All");
-            cmbLoanStatus.Items.Add("Pending");
-            cmbLoanStatus.Items.Add("Rejected");
-            cmbLoanStatus.Items.Add("Cancelled");
             cmbLoanStatus.Items.Add("Ongoing");
             cmbLoanStatus.Items.Add("Completed");
             cmbLoanStatus.SelectedIndex = 0;

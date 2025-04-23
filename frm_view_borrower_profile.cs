@@ -675,6 +675,8 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             cmbLoanTerm.SelectedIndex = 0;
             cmbPaymentSchedule.SelectedIndex = 0;
 
+            txtSearchBorrower.Clear();
+
             LoadRequest();
             GetTotalLoanRequest();
         }

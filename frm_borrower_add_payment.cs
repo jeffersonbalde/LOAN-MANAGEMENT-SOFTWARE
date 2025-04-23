@@ -247,10 +247,12 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 if (dr.Read())
                 {
                     lblCurrentBalance.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["total_balance"]));
+                    lblUpdatedBalance.Text = string.Format("₱{0:N2}", Convert.ToDecimal(dr["total_balance"]));
                 }
                 else
                 {
                     lblCurrentBalance.Text = "₱0.00";
+                    lblUpdatedBalance.Text = "₱0.00";
                 }
 
                 dr.Close();
@@ -442,14 +444,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtAmountPaid.Text) ||
-                    string.IsNullOrWhiteSpace(cmMOP.Text))
-                {
-                    MessageBox.Show("All fields are required.\n\nPlease complete the form before sending.",
-                        "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 if (lblFileName.ForeColor != Color.Green)
                 {
                     MessageBox.Show("Please upload a valid proof of payment file.",
@@ -457,6 +451,54 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);
                     btnUploadProof.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtAmountPaid.Text))
+                {
+                    MessageBox.Show("⚠️ Please enter the amount you want to pay.",
+                        "Missing Amount", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtAmountPaid.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(cmMOP.Text))
+                {
+                    MessageBox.Show("⚠️ Please select a mode of payment.",
+                        "Missing Payment Method", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmMOP.Focus();
+                    return;
+                }
+
+
+                decimal current_balance = decimal.Parse(
+                    lblCurrentBalance.Text.Replace("₱", "").Replace(",", "").Trim(),
+                    System.Globalization.NumberStyles.AllowDecimalPoint | System.Globalization.NumberStyles.AllowThousands,
+                    System.Globalization.CultureInfo.InvariantCulture
+                    );
+
+                decimal paid_amount = decimal.Parse(
+                    txtAmountPaid.Text.Replace("₱", "").Replace(",", "").Trim(),
+                    System.Globalization.NumberStyles.AllowDecimalPoint | System.Globalization.NumberStyles.AllowThousands,
+                    System.Globalization.CultureInfo.InvariantCulture
+                );
+
+                decimal updated_balance = decimal.Parse(
+                    lblUpdatedBalance.Text.Replace("₱", "").Replace(",", "").Trim(),
+                    System.Globalization.NumberStyles.AllowDecimalPoint | System.Globalization.NumberStyles.AllowThousands,
+                    System.Globalization.CultureInfo.InvariantCulture
+                );
+
+                string proofOfPaymentFilePath = this.proofOfIncomeFilePath;
+                byte[] proofPayment = System.IO.File.ReadAllBytes(proofOfPaymentFilePath);
+
+
+
+                if (paid_amount == 0)
+                {
+                    MessageBox.Show("❌ The paid amount cannot be 0. Please enter a valid payment amount.",
+                        "Invalid Payment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtAmountPaid.Focus();
                     return;
                 }
 
@@ -491,27 +533,6 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     return;
                 }
 
-                decimal current_balance = decimal.Parse(
-                    lblCurrentBalance.Text.Replace("₱", "").Replace(",", "").Trim(),
-                    System.Globalization.NumberStyles.AllowDecimalPoint | System.Globalization.NumberStyles.AllowThousands,
-                    System.Globalization.CultureInfo.InvariantCulture
-                );
-
-                decimal paid_amount = decimal.Parse(
-                    txtAmountPaid.Text.Replace("₱", "").Replace(",", "").Trim(),
-                    System.Globalization.NumberStyles.AllowDecimalPoint | System.Globalization.NumberStyles.AllowThousands,
-                    System.Globalization.CultureInfo.InvariantCulture
-                );
-
-                decimal updated_balance = decimal.Parse(
-                    lblUpdatedBalance.Text.Replace("₱", "").Replace(",", "").Trim(),
-                    System.Globalization.NumberStyles.AllowDecimalPoint | System.Globalization.NumberStyles.AllowThousands,
-                    System.Globalization.CultureInfo.InvariantCulture
-                );
-
-                string proofOfPaymentFilePath = this.proofOfIncomeFilePath;
-                byte[] proofPayment = System.IO.File.ReadAllBytes(proofOfPaymentFilePath);
-
                 cn.Open();
 
                 string query = "INSERT INTO tblLoanPayment " +
@@ -535,8 +556,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     cmd.Parameters.AddWithValue("@notes",txtNotes.Text.Trim());
                     cmd.Parameters.AddWithValue("@updated_balance", updated_balance);
                     cmd.Parameters.AddWithValue("@status", "Pending");
-                    cmd.Parameters.AddWithValue("@loan_status", "Pending");
+                    cmd.Parameters.AddWithValue("@loan_status", "Ongoing");
                     cmd.Parameters.AddWithValue("@payment_number", txtPaymentNumber.Text.Trim());
+                    //cmd.Parameters.AddWithValue("@date_reviewed", "Pending");
                     cmd.Parameters.AddWithValue("@borrower_profile", borrowerProfileData);
                     cmd.ExecuteNonQuery();
                 }

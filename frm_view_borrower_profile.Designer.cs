@@ -28,50 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_lender_view_loan_request));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblNoLowStocks = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtSearchBorrower = new MetroFramework.Controls.MetroTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cmbPaymentSchedule = new MetroFramework.Controls.MetroComboBox();
-            this.cmbLoanTerm = new MetroFramework.Controls.MetroComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dtFrom = new MetroFramework.Controls.MetroDateTime();
-            this.dtTo = new MetroFramework.Controls.MetroDateTime();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbRequestStatus = new MetroFramework.Controls.MetroComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblTotalTransactions = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.approve = new System.Windows.Forms.DataGridViewImageColumn();
             this.reject = new System.Windows.Forms.DataGridViewImageColumn();
@@ -95,16 +79,32 @@
             this.mop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transaction_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearchBorrower = new MetroFramework.Controls.MetroTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbPaymentSchedule = new MetroFramework.Controls.MetroComboBox();
+            this.cmbLoanTerm = new MetroFramework.Controls.MetroComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtFrom = new MetroFramework.Controls.MetroDateTime();
+            this.dtTo = new MetroFramework.Controls.MetroDateTime();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbRequestStatus = new MetroFramework.Controls.MetroComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalTransactions = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -133,6 +133,17 @@
             this.lblTitle.Text = "LOAN APPLICATION";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(60, 39);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 78;
+            this.pictureBox2.TabStop = false;
+            // 
             // lblNoLowStocks
             // 
             this.lblNoLowStocks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -160,6 +171,49 @@
             this.panel2.Size = new System.Drawing.Size(1239, 60);
             this.panel2.TabIndex = 247;
             // 
+            // txtSearchBorrower
+            // 
+            this.txtSearchBorrower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearchBorrower.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtSearchBorrower.CustomButton.Image = null;
+            this.txtSearchBorrower.CustomButton.Location = new System.Drawing.Point(1177, 2);
+            this.txtSearchBorrower.CustomButton.Name = "";
+            this.txtSearchBorrower.CustomButton.Size = new System.Drawing.Size(37, 37);
+            this.txtSearchBorrower.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtSearchBorrower.CustomButton.TabIndex = 1;
+            this.txtSearchBorrower.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtSearchBorrower.CustomButton.UseSelectable = true;
+            this.txtSearchBorrower.CustomButton.Visible = false;
+            this.txtSearchBorrower.DisplayIcon = true;
+            this.txtSearchBorrower.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtSearchBorrower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
+            this.txtSearchBorrower.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearchBorrower.Icon")));
+            this.txtSearchBorrower.Lines = new string[0];
+            this.txtSearchBorrower.Location = new System.Drawing.Point(9, 7);
+            this.txtSearchBorrower.MaxLength = 32767;
+            this.txtSearchBorrower.Name = "txtSearchBorrower";
+            this.txtSearchBorrower.PasswordChar = '\0';
+            this.txtSearchBorrower.PromptText = "Search By Borrower Name";
+            this.txtSearchBorrower.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtSearchBorrower.SelectedText = "";
+            this.txtSearchBorrower.SelectionLength = 0;
+            this.txtSearchBorrower.SelectionStart = 0;
+            this.txtSearchBorrower.ShortcutsEnabled = true;
+            this.txtSearchBorrower.ShowClearButton = true;
+            this.txtSearchBorrower.Size = new System.Drawing.Size(1217, 42);
+            this.txtSearchBorrower.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtSearchBorrower.TabIndex = 60;
+            this.txtSearchBorrower.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtSearchBorrower.UseSelectable = true;
+            this.txtSearchBorrower.WaterMark = "Search By Borrower Name";
+            this.txtSearchBorrower.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtSearchBorrower.WaterMarkFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchBorrower.TextChanged += new System.EventHandler(this.txtSearchBorrower_TextChanged);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -171,14 +225,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 50;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -206,38 +260,295 @@
             this.id,
             this.transaction_code});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.PowderBlue;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(7, 279);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 60;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(212)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(212)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1239, 385);
             this.dataGridView1.TabIndex = 240;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.HeaderText = "#";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 54;
+            // 
+            // approve
+            // 
+            this.approve.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.approve.HeaderText = "";
+            this.approve.MinimumWidth = 6;
+            this.approve.Name = "approve";
+            this.approve.ReadOnly = true;
+            this.approve.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.approve.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.approve.Width = 23;
+            // 
+            // reject
+            // 
+            this.reject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.reject.HeaderText = "";
+            this.reject.MinimumWidth = 6;
+            this.reject.Name = "reject";
+            this.reject.ReadOnly = true;
+            this.reject.Width = 6;
+            // 
+            // view_details
+            // 
+            this.view_details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.view_details.HeaderText = "";
+            this.view_details.MinimumWidth = 6;
+            this.view_details.Name = "view_details";
+            this.view_details.ReadOnly = true;
+            this.view_details.Width = 6;
+            // 
+            // borrower_information
+            // 
+            this.borrower_information.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.borrower_information.HeaderText = "";
+            this.borrower_information.MinimumWidth = 6;
+            this.borrower_information.Name = "borrower_information";
+            this.borrower_information.ReadOnly = true;
+            this.borrower_information.Width = 6;
+            // 
+            // borrower_profile
+            // 
+            this.borrower_profile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.borrower_profile.HeaderText = "";
+            this.borrower_profile.MinimumWidth = 6;
+            this.borrower_profile.Name = "borrower_profile";
+            this.borrower_profile.ReadOnly = true;
+            this.borrower_profile.Width = 6;
+            // 
+            // customer
+            // 
+            this.customer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer.DefaultCellStyle = dataGridViewCellStyle3;
+            this.customer.HeaderText = "Requested Date";
+            this.customer.MinimumWidth = 6;
+            this.customer.Name = "customer";
+            this.customer.ReadOnly = true;
+            this.customer.Width = 218;
+            // 
+            // request_status2
+            // 
+            this.request_status2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.request_status2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.request_status2.HeaderText = "Request Status";
+            this.request_status2.MinimumWidth = 6;
+            this.request_status2.Name = "request_status2";
+            this.request_status2.ReadOnly = true;
+            this.request_status2.Width = 212;
+            // 
+            // service
+            // 
+            this.service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.service.DefaultCellStyle = dataGridViewCellStyle5;
+            this.service.HeaderText = "Name";
+            this.service.MinimumWidth = 6;
+            this.service.Name = "service";
+            this.service.ReadOnly = true;
+            this.service.Width = 103;
+            // 
+            // requested_loan2
+            // 
+            this.requested_loan2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.requested_loan2.DefaultCellStyle = dataGridViewCellStyle6;
+            this.requested_loan2.HeaderText = "Requested Loan";
+            this.requested_loan2.MinimumWidth = 6;
+            this.requested_loan2.Name = "requested_loan2";
+            this.requested_loan2.ReadOnly = true;
+            this.requested_loan2.Width = 223;
+            // 
+            // service_price
+            // 
+            this.service_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.service_price.DefaultCellStyle = dataGridViewCellStyle7;
+            this.service_price.HeaderText = "Monthly Income";
+            this.service_price.MinimumWidth = 6;
+            this.service_price.Name = "service_price";
+            this.service_price.ReadOnly = true;
+            this.service_price.Width = 215;
+            // 
+            // loan_term
+            // 
+            this.loan_term.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 12F);
+            this.loan_term.DefaultCellStyle = dataGridViewCellStyle8;
+            this.loan_term.HeaderText = "Loan Term";
+            this.loan_term.MinimumWidth = 6;
+            this.loan_term.Name = "loan_term";
+            this.loan_term.ReadOnly = true;
+            this.loan_term.Width = 157;
+            // 
+            // payment_schedule
+            // 
+            this.payment_schedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 12F);
+            this.payment_schedule.DefaultCellStyle = dataGridViewCellStyle9;
+            this.payment_schedule.HeaderText = "Payment Schedule";
+            this.payment_schedule.MinimumWidth = 6;
+            this.payment_schedule.Name = "payment_schedule";
+            this.payment_schedule.ReadOnly = true;
+            this.payment_schedule.Width = 246;
+            // 
+            // request_id
+            // 
+            this.request_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.request_id.DefaultCellStyle = dataGridViewCellStyle10;
+            this.request_id.HeaderText = "Request ID";
+            this.request_id.MinimumWidth = 6;
+            this.request_id.Name = "request_id";
+            this.request_id.ReadOnly = true;
+            this.request_id.Visible = false;
+            this.request_id.Width = 162;
+            // 
+            // borrower_id
+            // 
+            this.borrower_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrower_id.DefaultCellStyle = dataGridViewCellStyle11;
+            this.borrower_id.HeaderText = "Discount";
+            this.borrower_id.MinimumWidth = 6;
+            this.borrower_id.Name = "borrower_id";
+            this.borrower_id.ReadOnly = true;
+            this.borrower_id.Visible = false;
+            this.borrower_id.Width = 143;
+            // 
+            // interest_rate
+            // 
+            this.interest_rate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interest_rate.DefaultCellStyle = dataGridViewCellStyle12;
+            this.interest_rate.HeaderText = "Total";
+            this.interest_rate.MinimumWidth = 6;
+            this.interest_rate.Name = "interest_rate";
+            this.interest_rate.ReadOnly = true;
+            this.interest_rate.Visible = false;
+            this.interest_rate.Width = 96;
+            // 
+            // request_number
+            // 
+            this.request_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 12F);
+            this.request_number.DefaultCellStyle = dataGridViewCellStyle13;
+            this.request_number.HeaderText = "Vehicle Status";
+            this.request_number.MinimumWidth = 6;
+            this.request_number.Name = "request_number";
+            this.request_number.ReadOnly = true;
+            this.request_number.Visible = false;
+            this.request_number.Width = 201;
+            // 
+            // contact
+            // 
+            this.contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 12F);
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.contact.DefaultCellStyle = dataGridViewCellStyle14;
+            this.contact.HeaderText = "Color";
+            this.contact.MinimumWidth = 6;
+            this.contact.Name = "contact";
+            this.contact.ReadOnly = true;
+            this.contact.Visible = false;
+            this.contact.Width = 102;
+            // 
+            // plate_no
+            // 
+            this.plate_no.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 12F);
+            this.plate_no.DefaultCellStyle = dataGridViewCellStyle15;
+            this.plate_no.HeaderText = "Plate #";
+            this.plate_no.MinimumWidth = 6;
+            this.plate_no.Name = "plate_no";
+            this.plate_no.ReadOnly = true;
+            this.plate_no.Visible = false;
+            this.plate_no.Width = 116;
+            // 
+            // payment_date
+            // 
+            this.payment_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial", 12F);
+            this.payment_date.DefaultCellStyle = dataGridViewCellStyle16;
+            this.payment_date.FillWeight = 90F;
+            this.payment_date.HeaderText = "Drop Off";
+            this.payment_date.MinimumWidth = 6;
+            this.payment_date.Name = "payment_date";
+            this.payment_date.ReadOnly = true;
+            this.payment_date.Visible = false;
+            this.payment_date.Width = 135;
+            // 
+            // mop
+            // 
+            this.mop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 12F);
+            this.mop.DefaultCellStyle = dataGridViewCellStyle17;
+            this.mop.HeaderText = "Released";
+            this.mop.MinimumWidth = 6;
+            this.mop.Name = "mop";
+            this.mop.ReadOnly = true;
+            this.mop.Visible = false;
+            this.mop.Width = 144;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Column2";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // transaction_code
+            // 
+            this.transaction_code.HeaderText = "transaction_code";
+            this.transaction_code.MinimumWidth = 6;
+            this.transaction_code.Name = "transaction_code";
+            this.transaction_code.ReadOnly = true;
+            this.transaction_code.Visible = false;
+            this.transaction_code.Width = 125;
             // 
             // panel1
             // 
@@ -467,6 +778,18 @@
             this.button7.Visible = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(69, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 78;
+            this.pictureBox1.TabStop = false;
+            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
@@ -494,329 +817,6 @@
             this.lblTotalTransactions.Text = "0";
             this.lblTotalTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle22;
-            this.Column1.HeaderText = "#";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 54;
-            // 
-            // approve
-            // 
-            this.approve.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.approve.HeaderText = "";
-            this.approve.MinimumWidth = 6;
-            this.approve.Name = "approve";
-            this.approve.ReadOnly = true;
-            this.approve.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.approve.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.approve.Width = 23;
-            // 
-            // reject
-            // 
-            this.reject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.reject.HeaderText = "";
-            this.reject.MinimumWidth = 6;
-            this.reject.Name = "reject";
-            this.reject.ReadOnly = true;
-            this.reject.Width = 6;
-            // 
-            // view_details
-            // 
-            this.view_details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.view_details.HeaderText = "";
-            this.view_details.MinimumWidth = 6;
-            this.view_details.Name = "view_details";
-            this.view_details.ReadOnly = true;
-            this.view_details.Width = 6;
-            // 
-            // borrower_information
-            // 
-            this.borrower_information.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.borrower_information.HeaderText = "";
-            this.borrower_information.MinimumWidth = 6;
-            this.borrower_information.Name = "borrower_information";
-            this.borrower_information.ReadOnly = true;
-            this.borrower_information.Width = 6;
-            // 
-            // borrower_profile
-            // 
-            this.borrower_profile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.borrower_profile.HeaderText = "";
-            this.borrower_profile.MinimumWidth = 6;
-            this.borrower_profile.Name = "borrower_profile";
-            this.borrower_profile.ReadOnly = true;
-            this.borrower_profile.Width = 6;
-            // 
-            // customer
-            // 
-            this.customer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer.DefaultCellStyle = dataGridViewCellStyle23;
-            this.customer.HeaderText = "Requested Date";
-            this.customer.MinimumWidth = 6;
-            this.customer.Name = "customer";
-            this.customer.ReadOnly = true;
-            this.customer.Width = 218;
-            // 
-            // request_status2
-            // 
-            this.request_status2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.request_status2.DefaultCellStyle = dataGridViewCellStyle24;
-            this.request_status2.HeaderText = "Request Status";
-            this.request_status2.MinimumWidth = 6;
-            this.request_status2.Name = "request_status2";
-            this.request_status2.ReadOnly = true;
-            this.request_status2.Width = 212;
-            // 
-            // service
-            // 
-            this.service.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.service.DefaultCellStyle = dataGridViewCellStyle25;
-            this.service.HeaderText = "Name";
-            this.service.MinimumWidth = 6;
-            this.service.Name = "service";
-            this.service.ReadOnly = true;
-            this.service.Width = 103;
-            // 
-            // requested_loan2
-            // 
-            this.requested_loan2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.requested_loan2.DefaultCellStyle = dataGridViewCellStyle26;
-            this.requested_loan2.HeaderText = "Requested Loan";
-            this.requested_loan2.MinimumWidth = 6;
-            this.requested_loan2.Name = "requested_loan2";
-            this.requested_loan2.ReadOnly = true;
-            this.requested_loan2.Width = 223;
-            // 
-            // service_price
-            // 
-            this.service_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.service_price.DefaultCellStyle = dataGridViewCellStyle27;
-            this.service_price.HeaderText = "Monthly Income";
-            this.service_price.MinimumWidth = 6;
-            this.service_price.Name = "service_price";
-            this.service_price.ReadOnly = true;
-            this.service_price.Width = 215;
-            // 
-            // loan_term
-            // 
-            this.loan_term.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial", 12F);
-            this.loan_term.DefaultCellStyle = dataGridViewCellStyle28;
-            this.loan_term.HeaderText = "Loan Term";
-            this.loan_term.MinimumWidth = 6;
-            this.loan_term.Name = "loan_term";
-            this.loan_term.ReadOnly = true;
-            this.loan_term.Width = 157;
-            // 
-            // payment_schedule
-            // 
-            this.payment_schedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial", 12F);
-            this.payment_schedule.DefaultCellStyle = dataGridViewCellStyle29;
-            this.payment_schedule.HeaderText = "Payment Schedule";
-            this.payment_schedule.MinimumWidth = 6;
-            this.payment_schedule.Name = "payment_schedule";
-            this.payment_schedule.ReadOnly = true;
-            this.payment_schedule.Width = 246;
-            // 
-            // request_id
-            // 
-            this.request_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.request_id.DefaultCellStyle = dataGridViewCellStyle30;
-            this.request_id.HeaderText = "Request ID";
-            this.request_id.MinimumWidth = 6;
-            this.request_id.Name = "request_id";
-            this.request_id.ReadOnly = true;
-            this.request_id.Visible = false;
-            this.request_id.Width = 162;
-            // 
-            // borrower_id
-            // 
-            this.borrower_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.borrower_id.DefaultCellStyle = dataGridViewCellStyle31;
-            this.borrower_id.HeaderText = "Discount";
-            this.borrower_id.MinimumWidth = 6;
-            this.borrower_id.Name = "borrower_id";
-            this.borrower_id.ReadOnly = true;
-            this.borrower_id.Visible = false;
-            this.borrower_id.Width = 143;
-            // 
-            // interest_rate
-            // 
-            this.interest_rate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interest_rate.DefaultCellStyle = dataGridViewCellStyle32;
-            this.interest_rate.HeaderText = "Total";
-            this.interest_rate.MinimumWidth = 6;
-            this.interest_rate.Name = "interest_rate";
-            this.interest_rate.ReadOnly = true;
-            this.interest_rate.Visible = false;
-            this.interest_rate.Width = 96;
-            // 
-            // request_number
-            // 
-            this.request_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial", 12F);
-            this.request_number.DefaultCellStyle = dataGridViewCellStyle33;
-            this.request_number.HeaderText = "Vehicle Status";
-            this.request_number.MinimumWidth = 6;
-            this.request_number.Name = "request_number";
-            this.request_number.ReadOnly = true;
-            this.request_number.Visible = false;
-            this.request_number.Width = 201;
-            // 
-            // contact
-            // 
-            this.contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Arial", 12F);
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.contact.DefaultCellStyle = dataGridViewCellStyle34;
-            this.contact.HeaderText = "Color";
-            this.contact.MinimumWidth = 6;
-            this.contact.Name = "contact";
-            this.contact.ReadOnly = true;
-            this.contact.Visible = false;
-            this.contact.Width = 102;
-            // 
-            // plate_no
-            // 
-            this.plate_no.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Arial", 12F);
-            this.plate_no.DefaultCellStyle = dataGridViewCellStyle35;
-            this.plate_no.HeaderText = "Plate #";
-            this.plate_no.MinimumWidth = 6;
-            this.plate_no.Name = "plate_no";
-            this.plate_no.ReadOnly = true;
-            this.plate_no.Visible = false;
-            this.plate_no.Width = 116;
-            // 
-            // payment_date
-            // 
-            this.payment_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial", 12F);
-            this.payment_date.DefaultCellStyle = dataGridViewCellStyle36;
-            this.payment_date.FillWeight = 90F;
-            this.payment_date.HeaderText = "Drop Off";
-            this.payment_date.MinimumWidth = 6;
-            this.payment_date.Name = "payment_date";
-            this.payment_date.ReadOnly = true;
-            this.payment_date.Visible = false;
-            this.payment_date.Width = 135;
-            // 
-            // mop
-            // 
-            this.mop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Arial", 12F);
-            this.mop.DefaultCellStyle = dataGridViewCellStyle37;
-            this.mop.HeaderText = "Released";
-            this.mop.MinimumWidth = 6;
-            this.mop.Name = "mop";
-            this.mop.ReadOnly = true;
-            this.mop.Visible = false;
-            this.mop.Width = 144;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Column2";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // transaction_code
-            // 
-            this.transaction_code.HeaderText = "transaction_code";
-            this.transaction_code.MinimumWidth = 6;
-            this.transaction_code.Name = "transaction_code";
-            this.transaction_code.ReadOnly = true;
-            this.transaction_code.Visible = false;
-            this.transaction_code.Width = 125;
-            // 
-            // txtSearchBorrower
-            // 
-            this.txtSearchBorrower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchBorrower.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtSearchBorrower.CustomButton.Image = null;
-            this.txtSearchBorrower.CustomButton.Location = new System.Drawing.Point(1177, 2);
-            this.txtSearchBorrower.CustomButton.Name = "";
-            this.txtSearchBorrower.CustomButton.Size = new System.Drawing.Size(37, 37);
-            this.txtSearchBorrower.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSearchBorrower.CustomButton.TabIndex = 1;
-            this.txtSearchBorrower.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtSearchBorrower.CustomButton.UseSelectable = true;
-            this.txtSearchBorrower.CustomButton.Visible = false;
-            this.txtSearchBorrower.DisplayIcon = true;
-            this.txtSearchBorrower.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtSearchBorrower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
-            this.txtSearchBorrower.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearchBorrower.Icon")));
-            this.txtSearchBorrower.Lines = new string[0];
-            this.txtSearchBorrower.Location = new System.Drawing.Point(9, 7);
-            this.txtSearchBorrower.MaxLength = 32767;
-            this.txtSearchBorrower.Name = "txtSearchBorrower";
-            this.txtSearchBorrower.PasswordChar = '\0';
-            this.txtSearchBorrower.PromptText = "Search By Borrower Name";
-            this.txtSearchBorrower.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtSearchBorrower.SelectedText = "";
-            this.txtSearchBorrower.SelectionLength = 0;
-            this.txtSearchBorrower.SelectionStart = 0;
-            this.txtSearchBorrower.ShortcutsEnabled = true;
-            this.txtSearchBorrower.ShowClearButton = true;
-            this.txtSearchBorrower.Size = new System.Drawing.Size(1217, 42);
-            this.txtSearchBorrower.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSearchBorrower.TabIndex = 60;
-            this.txtSearchBorrower.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtSearchBorrower.UseSelectable = true;
-            this.txtSearchBorrower.WaterMark = "Search By Borrower Name";
-            this.txtSearchBorrower.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtSearchBorrower.WaterMarkFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchBorrower.TextChanged += new System.EventHandler(this.txtSearchBorrower_TextChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(69, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 78;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(60, 39);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 78;
-            this.pictureBox2.TabStop = false;
-            // 
             // frm_lender_view_loan_request
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -840,12 +840,12 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_lender_view_loan_request_Load);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

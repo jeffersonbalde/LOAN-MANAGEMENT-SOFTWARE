@@ -171,6 +171,12 @@
     <Compile Include="frm_borrower_request_loan.Designer.cs">
       <DependentUpon>frm_borrower_request_loan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_cancel_payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_cancel_payment.Designer.cs">
+      <DependentUpon>frm_cancel_payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_cancel_reason.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,12 @@
     <Compile Include="frm_lender_main_form.Designer.cs">
       <DependentUpon>frm_lender_main_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_reject_reason_payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_reject_reason_payment.Designer.cs">
+      <DependentUpon>frm_reject_reason_payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_view_borrower_informations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +303,12 @@
     <Compile Include="frm_request_loan.Designer.cs">
       <DependentUpon>frm_request_loan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_view_payment_details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_view_payment_details.Designer.cs">
+      <DependentUpon>frm_view_payment_details.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_view_request_datails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_borrower_request_loan.resx">
       <DependentUpon>frm_borrower_request_loan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_cancel_payment.resx">
+      <DependentUpon>frm_cancel_payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_cancel_reason.resx">
       <DependentUpon>frm_cancel_reason.cs</DependentUpon>
@@ -356,6 +377,9 @@
     <EmbeddedResource Include="frm_lender_main_form.resx">
       <DependentUpon>frm_lender_main_form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_reject_reason_payment.resx">
+      <DependentUpon>frm_reject_reason_payment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_view_borrower_informations.resx">
       <DependentUpon>frm_view_borrower_informations.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_request_loan.resx">
       <DependentUpon>frm_request_loan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_view_payment_details.resx">
+      <DependentUpon>frm_view_payment_details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_view_request_datails.resx">
       <DependentUpon>frm_view_request_datails.cs</DependentUpon>
@@ -448,6 +475,7 @@
     </Content>
     <Content Include="logo.ico" />
     <Content Include="logo_ico.ico" />
+    <None Include="Resources\view_payment.png" />
     <None Include="Resources\kolend_logo.png" />
     <None Include="Resources\default_file_2.png" />
     <None Include="Resources\borrower_information.png" />
