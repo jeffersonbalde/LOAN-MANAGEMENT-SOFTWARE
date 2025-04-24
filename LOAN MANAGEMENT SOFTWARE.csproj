@@ -249,6 +249,12 @@
     <Compile Include="frm_reject_reason_payment.Designer.cs">
       <DependentUpon>frm_reject_reason_payment.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_user_management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_user_management.Designer.cs">
+      <DependentUpon>frm_user_management.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_view_borrower_informations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,9 @@
     <EmbeddedResource Include="frm_reject_reason_payment.resx">
       <DependentUpon>frm_reject_reason_payment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_user_management.resx">
+      <DependentUpon>frm_user_management.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_view_borrower_informations.resx">
       <DependentUpon>frm_view_borrower_informations.cs</DependentUpon>
     </EmbeddedResource>
@@ -475,6 +484,7 @@
     </Content>
     <Content Include="logo.ico" />
     <Content Include="logo_ico.ico" />
+    <None Include="Resources\delete_user.png" />
     <None Include="Resources\view_payment.png" />
     <None Include="Resources\kolend_logo.png" />
     <None Include="Resources\default_file_2.png" />

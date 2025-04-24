@@ -731,7 +731,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
-            this.button1.Location = new System.Drawing.Point(821, 12);
+            this.button1.Location = new System.Drawing.Point(1024, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(197, 41);
             this.button1.TabIndex = 79;
@@ -750,13 +750,14 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
-            this.button3.Location = new System.Drawing.Point(1024, 12);
+            this.button3.Location = new System.Drawing.Point(821, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(197, 41);
             this.button3.TabIndex = 63;
             this.button3.Text = "Export to Excel";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
             // 
             // button7
             // 

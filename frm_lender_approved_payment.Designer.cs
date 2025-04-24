@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_lender_approved_payment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_lender_approved_payment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,7 +50,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtSearchBorrower = new MetroFramework.Controls.MetroTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbMOP = new MetroFramework.Controls.MetroComboBox();
             this.cmbLoanStatus = new MetroFramework.Controls.MetroComboBox();
@@ -67,14 +66,15 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotalTransactions = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblNoLowStocks = new System.Windows.Forms.Label();
+            this.txtSearchBorrower = new MetroFramework.Controls.MetroTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.approve = new System.Windows.Forms.DataGridViewImageColumn();
             this.reject = new System.Windows.Forms.DataGridViewImageColumn();
@@ -91,8 +91,8 @@
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payment_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrower_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updated_balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reference_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plate_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payment_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,10 +101,10 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -118,49 +118,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1239, 60);
             this.panel2.TabIndex = 253;
-            // 
-            // txtSearchBorrower
-            // 
-            this.txtSearchBorrower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchBorrower.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtSearchBorrower.CustomButton.Image = null;
-            this.txtSearchBorrower.CustomButton.Location = new System.Drawing.Point(1177, 2);
-            this.txtSearchBorrower.CustomButton.Name = "";
-            this.txtSearchBorrower.CustomButton.Size = new System.Drawing.Size(37, 37);
-            this.txtSearchBorrower.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSearchBorrower.CustomButton.TabIndex = 1;
-            this.txtSearchBorrower.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtSearchBorrower.CustomButton.UseSelectable = true;
-            this.txtSearchBorrower.CustomButton.Visible = false;
-            this.txtSearchBorrower.DisplayIcon = true;
-            this.txtSearchBorrower.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtSearchBorrower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
-            this.txtSearchBorrower.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearchBorrower.Icon")));
-            this.txtSearchBorrower.Lines = new string[0];
-            this.txtSearchBorrower.Location = new System.Drawing.Point(9, 7);
-            this.txtSearchBorrower.MaxLength = 32767;
-            this.txtSearchBorrower.Name = "txtSearchBorrower";
-            this.txtSearchBorrower.PasswordChar = '\0';
-            this.txtSearchBorrower.PromptText = "Search By Borrower Name";
-            this.txtSearchBorrower.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtSearchBorrower.SelectedText = "";
-            this.txtSearchBorrower.SelectionLength = 0;
-            this.txtSearchBorrower.SelectionStart = 0;
-            this.txtSearchBorrower.ShortcutsEnabled = true;
-            this.txtSearchBorrower.ShowClearButton = true;
-            this.txtSearchBorrower.Size = new System.Drawing.Size(1217, 42);
-            this.txtSearchBorrower.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSearchBorrower.TabIndex = 60;
-            this.txtSearchBorrower.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtSearchBorrower.UseSelectable = true;
-            this.txtSearchBorrower.WaterMark = "Search By Borrower Name";
-            this.txtSearchBorrower.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtSearchBorrower.WaterMarkFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchBorrower.TextChanged += new System.EventHandler(this.txtSearchBorrower_TextChanged);
             // 
             // panel1
             // 
@@ -351,7 +308,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
-            this.button1.Location = new System.Drawing.Point(821, 12);
+            this.button1.Location = new System.Drawing.Point(1024, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(197, 41);
             this.button1.TabIndex = 79;
@@ -370,25 +327,14 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
-            this.button3.Location = new System.Drawing.Point(1024, 12);
+            this.button3.Location = new System.Drawing.Point(821, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(197, 41);
             this.button3.TabIndex = 63;
             this.button3.Text = "Export to Excel";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(69, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 78;
-            this.pictureBox1.TabStop = false;
+            this.button3.Visible = false;
             // 
             // label2
             // 
@@ -442,17 +388,6 @@
             this.lblTitle.Text = "LOAN PAYMENTS";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(60, 39);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 78;
-            this.pictureBox2.TabStop = false;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -491,8 +426,8 @@
             this.total,
             this.payment_id,
             this.borrower_id,
-            this.discount,
-            this.status,
+            this.updated_balance,
+            this.reference_number,
             this.contact,
             this.plate_no,
             this.payment_date,
@@ -546,6 +481,72 @@
             this.lblNoLowStocks.Text = "No payment found.";
             this.lblNoLowStocks.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblNoLowStocks.Visible = false;
+            // 
+            // txtSearchBorrower
+            // 
+            this.txtSearchBorrower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearchBorrower.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtSearchBorrower.CustomButton.Image = null;
+            this.txtSearchBorrower.CustomButton.Location = new System.Drawing.Point(1177, 2);
+            this.txtSearchBorrower.CustomButton.Name = "";
+            this.txtSearchBorrower.CustomButton.Size = new System.Drawing.Size(37, 37);
+            this.txtSearchBorrower.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtSearchBorrower.CustomButton.TabIndex = 1;
+            this.txtSearchBorrower.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtSearchBorrower.CustomButton.UseSelectable = true;
+            this.txtSearchBorrower.CustomButton.Visible = false;
+            this.txtSearchBorrower.DisplayIcon = true;
+            this.txtSearchBorrower.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtSearchBorrower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(46)))), ((int)(((byte)(68)))));
+            this.txtSearchBorrower.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearchBorrower.Icon")));
+            this.txtSearchBorrower.Lines = new string[0];
+            this.txtSearchBorrower.Location = new System.Drawing.Point(9, 7);
+            this.txtSearchBorrower.MaxLength = 32767;
+            this.txtSearchBorrower.Name = "txtSearchBorrower";
+            this.txtSearchBorrower.PasswordChar = '\0';
+            this.txtSearchBorrower.PromptText = "Search By Borrower Name";
+            this.txtSearchBorrower.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtSearchBorrower.SelectedText = "";
+            this.txtSearchBorrower.SelectionLength = 0;
+            this.txtSearchBorrower.SelectionStart = 0;
+            this.txtSearchBorrower.ShortcutsEnabled = true;
+            this.txtSearchBorrower.ShowClearButton = true;
+            this.txtSearchBorrower.Size = new System.Drawing.Size(1217, 42);
+            this.txtSearchBorrower.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtSearchBorrower.TabIndex = 60;
+            this.txtSearchBorrower.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtSearchBorrower.UseSelectable = true;
+            this.txtSearchBorrower.WaterMark = "Search By Borrower Name";
+            this.txtSearchBorrower.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtSearchBorrower.WaterMarkFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchBorrower.TextChanged += new System.EventHandler(this.txtSearchBorrower_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(69, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 78;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(60, 39);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 78;
+            this.pictureBox2.TabStop = false;
             // 
             // Column1
             // 
@@ -722,30 +723,30 @@
             this.borrower_id.Visible = false;
             this.borrower_id.Width = 209;
             // 
-            // discount
+            // updated_balance
             // 
-            this.discount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.updated_balance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discount.DefaultCellStyle = dataGridViewCellStyle13;
-            this.discount.HeaderText = "Borrower ID";
-            this.discount.MinimumWidth = 6;
-            this.discount.Name = "discount";
-            this.discount.ReadOnly = true;
-            this.discount.Visible = false;
-            this.discount.Width = 173;
+            this.updated_balance.DefaultCellStyle = dataGridViewCellStyle13;
+            this.updated_balance.HeaderText = "Borrower ID";
+            this.updated_balance.MinimumWidth = 6;
+            this.updated_balance.Name = "updated_balance";
+            this.updated_balance.ReadOnly = true;
+            this.updated_balance.Visible = false;
+            this.updated_balance.Width = 173;
             // 
-            // status
+            // reference_number
             // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.reference_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 12F);
-            this.status.DefaultCellStyle = dataGridViewCellStyle14;
-            this.status.HeaderText = "Vehicle Status";
-            this.status.MinimumWidth = 6;
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Visible = false;
-            this.status.Width = 201;
+            this.reference_number.DefaultCellStyle = dataGridViewCellStyle14;
+            this.reference_number.HeaderText = "Vehicle Status";
+            this.reference_number.MinimumWidth = 6;
+            this.reference_number.Name = "reference_number";
+            this.reference_number.ReadOnly = true;
+            this.reference_number.Visible = false;
+            this.reference_number.Width = 201;
             // 
             // contact
             // 
@@ -830,10 +831,10 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -881,8 +882,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn payment_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn borrower_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updated_balance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reference_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn contact;
         private System.Windows.Forms.DataGridViewTextBoxColumn plate_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn payment_date;

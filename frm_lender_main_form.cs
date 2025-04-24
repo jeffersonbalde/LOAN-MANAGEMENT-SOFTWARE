@@ -470,5 +470,17 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             frm.BringToFront();
             frm.Show();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            main_panel.Controls.Clear();
+            frm_user_management frm = new frm_user_management();
+            frm.lblTitle.Text = "LOAN APPLICANTS";
+            frm.TopLevel = false;
+            main_panel.Controls.Add(frm);
+            frm.BringToFront();
+            frm.Show();
+        }
     }
 }

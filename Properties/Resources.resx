@@ -139,6 +139,9 @@
   <data name="default_user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\default_user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="delete_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete_user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="eye_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

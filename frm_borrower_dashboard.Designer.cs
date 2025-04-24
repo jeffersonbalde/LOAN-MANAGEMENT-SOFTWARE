@@ -69,6 +69,9 @@
             this.lblTotalApprovedApplication = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbRequestNumber = new MetroFramework.Controls.MetroComboBox();
+            this.lblNoLowStocks = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,9 +88,6 @@
             this.mop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transaction_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbRequestNumber = new MetroFramework.Controls.MetroComboBox();
-            this.lblNoLowStocks = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -414,6 +414,45 @@
             this.dataGridViewSchedule.TabIndex = 250;
             this.dataGridViewSchedule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellContentClick);
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Verdana", 19.8F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
+            this.label2.Location = new System.Drawing.Point(4, 201);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(466, 39);
+            this.label2.TabIndex = 251;
+            this.label2.Text = "CURRENT ACTIVE LOAN";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cmbRequestNumber
+            // 
+            this.cmbRequestNumber.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.cmbRequestNumber.FontWeight = MetroFramework.MetroComboBoxWeight.Bold;
+            this.cmbRequestNumber.FormattingEnabled = true;
+            this.cmbRequestNumber.ItemHeight = 29;
+            this.cmbRequestNumber.Location = new System.Drawing.Point(385, 201);
+            this.cmbRequestNumber.Name = "cmbRequestNumber";
+            this.cmbRequestNumber.Size = new System.Drawing.Size(235, 35);
+            this.cmbRequestNumber.TabIndex = 252;
+            this.cmbRequestNumber.UseSelectable = true;
+            this.cmbRequestNumber.SelectedIndexChanged += new System.EventHandler(this.cmbRequestNumber_SelectedIndexChanged);
+            // 
+            // lblNoLowStocks
+            // 
+            this.lblNoLowStocks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNoLowStocks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.lblNoLowStocks.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoLowStocks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(50)))), ((int)(((byte)(0)))));
+            this.lblNoLowStocks.Location = new System.Drawing.Point(32, 424);
+            this.lblNoLowStocks.Name = "lblNoLowStocks";
+            this.lblNoLowStocks.Size = new System.Drawing.Size(1396, 52);
+            this.lblNoLowStocks.TabIndex = 253;
+            this.lblNoLowStocks.Text = "No active loan found.";
+            this.lblNoLowStocks.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -482,6 +521,7 @@
             this.loan_status.MinimumWidth = 6;
             this.loan_status.Name = "loan_status";
             this.loan_status.ReadOnly = true;
+            this.loan_status.Visible = false;
             this.loan_status.Width = 113;
             // 
             // car_image
@@ -602,45 +642,6 @@
             this.transaction_code.Visible = false;
             this.transaction_code.Width = 125;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Verdana", 19.8F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
-            this.label2.Location = new System.Drawing.Point(4, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(466, 39);
-            this.label2.TabIndex = 251;
-            this.label2.Text = "CURRENT ACTIVE LOAN";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbRequestNumber
-            // 
-            this.cmbRequestNumber.FontSize = MetroFramework.MetroComboBoxSize.Tall;
-            this.cmbRequestNumber.FontWeight = MetroFramework.MetroComboBoxWeight.Bold;
-            this.cmbRequestNumber.FormattingEnabled = true;
-            this.cmbRequestNumber.ItemHeight = 29;
-            this.cmbRequestNumber.Location = new System.Drawing.Point(385, 201);
-            this.cmbRequestNumber.Name = "cmbRequestNumber";
-            this.cmbRequestNumber.Size = new System.Drawing.Size(235, 35);
-            this.cmbRequestNumber.TabIndex = 252;
-            this.cmbRequestNumber.UseSelectable = true;
-            this.cmbRequestNumber.SelectedIndexChanged += new System.EventHandler(this.cmbRequestNumber_SelectedIndexChanged);
-            // 
-            // lblNoLowStocks
-            // 
-            this.lblNoLowStocks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblNoLowStocks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.lblNoLowStocks.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoLowStocks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(50)))), ((int)(((byte)(0)))));
-            this.lblNoLowStocks.Location = new System.Drawing.Point(32, 424);
-            this.lblNoLowStocks.Name = "lblNoLowStocks";
-            this.lblNoLowStocks.Size = new System.Drawing.Size(1396, 52);
-            this.lblNoLowStocks.TabIndex = 253;
-            this.lblNoLowStocks.Text = "No active loan found.";
-            this.lblNoLowStocks.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // frm_borrower_dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -716,6 +717,7 @@
         public System.Windows.Forms.DataGridView dataGridViewSchedule;
         public System.Windows.Forms.Label label2;
         private MetroFramework.Controls.MetroComboBox cmbRequestNumber;
+        private System.Windows.Forms.Label lblNoLowStocks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
@@ -732,6 +734,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mop;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn transaction_code;
-        private System.Windows.Forms.Label lblNoLowStocks;
     }
 }

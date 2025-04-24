@@ -176,6 +176,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                 ? "₱" + Double.Parse(dr["paid_amount"].ToString()).ToString("#,##0.00")
                                 : "₱0.00";
 
+                                string updated_balance = dr["updated_balance"] != DBNull.Value
+                                ? "₱" + Double.Parse(dr["updated_balance"].ToString()).ToString("#,##0.00")
+                                : "₱0.00";
+
                                 string date_reviewed = dr["date_reviewed"] != DBNull.Value
                                     ? DateTime.Parse(dr["date_reviewed"].ToString()).ToString("MMMM d, yyyy")
                                     : "Pending";
@@ -200,7 +204,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                                     dr["mode_of_payment"].ToString(),
                                     dr["payment_number"].ToString(),
                                     dr["id"].ToString(),
-                                    dr["borrower_id"].ToString()
+                                    dr["borrower_id"].ToString(),
+                                    updated_balance,
+                                    dr["reference_number"].ToString()
                                 );
 
                                 DataGridViewRow row = dataGridView1.Rows[rowIndex];
@@ -361,12 +367,11 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                     string borrower_id = row.Cells["borrower_id"].Value?.ToString();
 
+                    string reference_number = row.Cells["reference_number"].Value?.ToString();
+
                     string paid_amount = row.Cells["paid_amount"].Value.ToString();
 
-                    //string frequency = row.Cells["payment_schedule"].Value?.ToString() ?? "Daily";
-                    //string rawTerm = row.Cells["loan_term"].Value?.ToString() ?? "Short Term (6 Months)";
-                    //string rawInterestRate = row.Cells["interest_rate"].Value?.ToString() ?? "0.10";
-                    //string request_number = row.Cells["request_number"].Value?.ToString() ?? "0";
+                    string updated_balance = row.Cells["updated_balance"].Value.ToString();
 
                     if (status == "Approved" || status == "Rejected" || status == "Cancelled")
                     {
@@ -401,6 +406,55 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         cn.Close();
                         return;
                     }
+
+
+                    string cleanUpdatedBalance = updated_balance.Replace("₱", "").Replace(",", "").Trim();
+                    if (!decimal.TryParse(cleanUpdatedBalance, out decimal updated_balance_sanitized))
+                    {
+                        MessageBox.Show("Invalid updated balance format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cn.Close();
+                        return;
+                    }
+
+                    if (updated_balance_sanitized == 0)
+                    {
+                        using (SqlCommand cmdCompleted1 = new SqlCommand(@"
+                        UPDATE tblLoanPayment 
+                        SET loan_status = 'Completed' 
+                        WHERE borrower_id = @borrower_id AND reference_number = @reference_number", cn))
+                        {
+                            cmdCompleted1.Parameters.AddWithValue("@borrower_id", borrower_id);
+                            cmdCompleted1.Parameters.AddWithValue("@reference_number", reference_number);
+                            cmdCompleted1.ExecuteNonQuery();
+                        }
+                    }
+
+                    if (updated_balance_sanitized == 0)
+                    {
+                        using (SqlCommand cmdCompleted1 = new SqlCommand(@"
+                        UPDATE tblLoanRequests 
+                        SET loan_status = 'Completed' 
+                        WHERE borrower_id = @borrower_id AND request_number = @request_number", cn))
+                        {
+                            cmdCompleted1.Parameters.AddWithValue("@borrower_id", borrower_id);
+                            cmdCompleted1.Parameters.AddWithValue("@request_number", reference_number);
+                            cmdCompleted1.ExecuteNonQuery();
+                        }
+                    }
+
+                    if (updated_balance_sanitized == 0)
+                    {
+                        using (SqlCommand cmdCompleted1 = new SqlCommand(@"
+                        UPDATE tblPaymentSchedule 
+                        SET payment_status = 'Completed' 
+                        WHERE borrower_id = @borrower_id AND request_number = @request_number", cn))
+                        {
+                            cmdCompleted1.Parameters.AddWithValue("@borrower_id", borrower_id);
+                            cmdCompleted1.Parameters.AddWithValue("@request_number", reference_number);
+                            cmdCompleted1.ExecuteNonQuery();
+                        }
+                    }
+
                     // Insert borrower amount paid
                     using (SqlCommand insertCmd = new SqlCommand(@"
                     INSERT INTO tblBorrowerAmountPaid (borrower_id, amount_paid)

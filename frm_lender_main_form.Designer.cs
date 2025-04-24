@@ -42,6 +42,7 @@
             this.btnExpense = new System.Windows.Forms.Button();
             this.btnBookings = new System.Windows.Forms.Button();
             this.btnCustomerInfo = new System.Windows.Forms.Button();
+            this.btnDownPayment = new System.Windows.Forms.Button();
             this.btnOrders = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -51,7 +52,7 @@
             this.main_panel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnDownPayment = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -165,6 +166,7 @@
             this.panel1.Controls.Add(this.btnExpense);
             this.panel1.Controls.Add(this.btnBookings);
             this.panel1.Controls.Add(this.btnCustomerInfo);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnDownPayment);
             this.panel1.Controls.Add(this.btnOrders);
             this.panel1.Controls.Add(this.btnDashboard);
@@ -187,7 +189,7 @@
             this.btnExpense.ForeColor = System.Drawing.Color.Black;
             this.btnExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnExpense.Image")));
             this.btnExpense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpense.Location = new System.Drawing.Point(0, 516);
+            this.btnExpense.Location = new System.Drawing.Point(0, 565);
             this.btnExpense.Name = "btnExpense";
             this.btnExpense.Size = new System.Drawing.Size(233, 49);
             this.btnExpense.TabIndex = 32;
@@ -209,7 +211,7 @@
             this.btnBookings.ForeColor = System.Drawing.Color.Black;
             this.btnBookings.Image = ((System.Drawing.Image)(resources.GetObject("btnBookings.Image")));
             this.btnBookings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBookings.Location = new System.Drawing.Point(0, 467);
+            this.btnBookings.Location = new System.Drawing.Point(0, 516);
             this.btnBookings.Name = "btnBookings";
             this.btnBookings.Size = new System.Drawing.Size(233, 49);
             this.btnBookings.TabIndex = 34;
@@ -231,7 +233,7 @@
             this.btnCustomerInfo.ForeColor = System.Drawing.Color.Black;
             this.btnCustomerInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomerInfo.Image")));
             this.btnCustomerInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomerInfo.Location = new System.Drawing.Point(0, 418);
+            this.btnCustomerInfo.Location = new System.Drawing.Point(0, 467);
             this.btnCustomerInfo.Name = "btnCustomerInfo";
             this.btnCustomerInfo.Size = new System.Drawing.Size(233, 49);
             this.btnCustomerInfo.TabIndex = 33;
@@ -240,6 +242,28 @@
             this.btnCustomerInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCustomerInfo.UseVisualStyleBackColor = false;
             this.btnCustomerInfo.Click += new System.EventHandler(this.btnCustomerInfo_Click_1);
+            // 
+            // btnDownPayment
+            // 
+            this.btnDownPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.btnDownPayment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDownPayment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDownPayment.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnDownPayment.FlatAppearance.BorderSize = 0;
+            this.btnDownPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDownPayment.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnDownPayment.ForeColor = System.Drawing.Color.Black;
+            this.btnDownPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnDownPayment.Image")));
+            this.btnDownPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDownPayment.Location = new System.Drawing.Point(0, 369);
+            this.btnDownPayment.Name = "btnDownPayment";
+            this.btnDownPayment.Size = new System.Drawing.Size(233, 49);
+            this.btnDownPayment.TabIndex = 36;
+            this.btnDownPayment.Text = "  Loan Payments";
+            this.btnDownPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDownPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDownPayment.UseVisualStyleBackColor = false;
+            this.btnDownPayment.Click += new System.EventHandler(this.btnDownPayment_Click_1);
             // 
             // btnOrders
             // 
@@ -364,27 +388,27 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnDownPayment
+            // button1
             // 
-            this.btnDownPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.btnDownPayment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDownPayment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDownPayment.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnDownPayment.FlatAppearance.BorderSize = 0;
-            this.btnDownPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDownPayment.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnDownPayment.ForeColor = System.Drawing.Color.Black;
-            this.btnDownPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnDownPayment.Image")));
-            this.btnDownPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDownPayment.Location = new System.Drawing.Point(0, 369);
-            this.btnDownPayment.Name = "btnDownPayment";
-            this.btnDownPayment.Size = new System.Drawing.Size(233, 49);
-            this.btnDownPayment.TabIndex = 36;
-            this.btnDownPayment.Text = "  Loan Payments";
-            this.btnDownPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDownPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDownPayment.UseVisualStyleBackColor = false;
-            this.btnDownPayment.Click += new System.EventHandler(this.btnDownPayment_Click_1);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 418);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(233, 49);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "  Loan Applicants\r\n";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frm_lender_main_form
             // 
@@ -443,5 +467,6 @@
         private System.Windows.Forms.Label lblBusinessName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnDownPayment;
+        public System.Windows.Forms.Button button1;
     }
 }

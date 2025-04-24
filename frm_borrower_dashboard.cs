@@ -236,14 +236,10 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                 cmbRequestNumber.Items.Clear();
 
                 string query = @"
-            SELECT request_number
-            FROM (
-                SELECT request_number, MAX(due_date) AS latest_due_date
-                FROM tblPaymentSchedule
-                WHERE borrower_id = @borrower_id
-                GROUP BY request_number
-            ) AS sub
-            ORDER BY latest_due_date DESC";
+                SELECT request_number 
+                FROM tblLoanRequests 
+                WHERE borrower_id = @borrower_id AND loan_status = 'Ongoing'
+                ORDER BY id DESC";
 
                 using (SqlConnection conn = new SqlConnection(dbcon.MyConnection()))
                 {
@@ -269,11 +265,9 @@ namespace LOAN_MANAGEMENT_SOFTWARE
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading request numbers: " + ex.Message);
+                MessageBox.Show("Error loading reference numbers: " + ex.Message);
             }
         }
-
-
 
         private void LoadPaymentSchedule(string requestNumber)
         {
@@ -283,7 +277,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
 
                 string query = @"SELECT due_date, amount_to_pay, interest, total_payment, status
                          FROM tblPaymentSchedule
-                         WHERE borrower_id = @borrower_id AND request_number = @request_number
+                         WHERE borrower_id = @borrower_id AND request_number = @request_number AND payment_status = 'Ongoing'
                          ORDER BY due_date ASC";
 
                 using (SqlConnection conn = new SqlConnection(dbcon.MyConnection()))

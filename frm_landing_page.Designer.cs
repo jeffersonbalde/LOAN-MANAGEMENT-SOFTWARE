@@ -197,12 +197,13 @@
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.BackgroundImage")));
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(721, 14);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(596, 130);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(296, 115);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxLogo.TabIndex = 152;
             this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Visible = false;
             this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
             this.pictureBoxLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxLogo_Paint);
             // 
@@ -264,6 +265,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(12)))), ((int)(((byte)(81)))));
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1019, 716);
             this.Controls.Add(this.panel1);

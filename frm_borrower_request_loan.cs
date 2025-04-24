@@ -408,6 +408,28 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                     return;
                 }
 
+                decimal requested_loan_v = decimal.Parse(
+                    txtLoanAmount.Text.Replace("₱", "").Replace(",", "").Trim(),
+                    System.Globalization.NumberStyles.AllowDecimalPoint | System.Globalization.NumberStyles.AllowThousands,
+                    System.Globalization.CultureInfo.InvariantCulture
+                );
+
+                if (requested_loan_v == 0)
+                {
+                    MessageBox.Show("Loan amount cannot be zero. Please enter a valid amount.",
+                        "Invalid Loan Amount", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtLoanAmount.Focus();
+                    return;
+                }
+
+                if (requested_loan_v % 100 != 0)
+                {
+                    MessageBox.Show("The loan amount must be in clean hundreds only (e.g., ₱100, ₱200, ₱500, ₱1000).\n\nAvoid amounts like ₱523 or ₱990.",
+                        "Invalid Loan Amount Format", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtLoanAmount.Focus();
+                    return;
+                }
+
                 if (MessageBox.Show("Are you sure you want to submit your loan request?",
                         "Confirm Loan Request",
                         MessageBoxButtons.YesNo,

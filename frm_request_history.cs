@@ -266,7 +266,7 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                         MessageBox.Show("❌ You already have a pending loan request.", "Loan Request Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                    else if (status == "Approved" && loanStatus != "Paid")
+                    else if (status == "Approved" && loanStatus != "Completed")
                     {
                         MessageBox.Show("❌ You already have an approved loan. Please complete payment first before requesting again.", "Loan Request Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;

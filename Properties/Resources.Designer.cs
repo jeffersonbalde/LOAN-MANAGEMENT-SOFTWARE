@@ -133,6 +133,16 @@ namespace LOAN_MANAGEMENT_SOFTWARE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_user {
+            get {
+                object obj = ResourceManager.GetObject("delete_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_close {
             get {
                 object obj = ResourceManager.GetObject("eye_close", resourceCulture);

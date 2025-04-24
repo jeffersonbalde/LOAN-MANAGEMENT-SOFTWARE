@@ -93,6 +93,13 @@ namespace LOAN_MANAGEMENT_SOFTWARE
                             "Loan Request Pending", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
+
+                    else if (loanStatus == "Completed")
+                    {
+                        MessageBox.Show("✅ Your loan has already been completed. You have no ongoing loan application.\n\nPlease request a new loan if needed.",
+                            "Loan Already Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                 }
                 else
                 {
