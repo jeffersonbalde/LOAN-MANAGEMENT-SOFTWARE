@@ -92,7 +92,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtEmail.PlaceholderText = "Email";
+            this.txtEmail.PlaceholderText = "Username";
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(443, 57);
             this.txtEmail.TabIndex = 2;
